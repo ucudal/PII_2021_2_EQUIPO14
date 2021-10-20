@@ -6,7 +6,11 @@ namespace Proyecto_Final
     {
         static void Main(string[] args)
         {
-            
+            UserEmpresa userE1 = new UserEmpresa("Panadero");
+
+            userE1.AceptarInvitacion();
+
+
         }
     }
 }
