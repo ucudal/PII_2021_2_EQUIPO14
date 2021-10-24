@@ -62,9 +62,43 @@ namespace Proyecto_Final
         para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos. */
         public void CrearOferta()
         {
+            // Setup del nombre de la oferta.
+
             Console.WriteLine("Ingrese el nombre de su publicacion: ");
             string nombre = Console.ReadLine();
-            Oferta newOferta = new Oferta(nombre);
+
+            //Setup del producto
+
+            Console.WriteLine("Ingrese el nombre del producto: ");
+            string nombreProducto = Console.ReadLine();
+            Console.WriteLine("Ingrese una descripción del producto: ");
+            string ubicacionProducto = Console.ReadLine();
+            Console.WriteLine("Ingrese la ubicación en la que el prodcuto se encuentra almacenado: ");
+            string descripcionProducto = Console.ReadLine();
+            Console.WriteLine("Ingrese el valor del producto: ");
+            int valorProducto = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese la cantidad del producto: ");
+            int cantidadProducto = Convert.ToInt32(Console.ReadLine());
+            Producto newProducto = new Producto(nombreProducto,descripcionProducto,ubicacionProducto,valorProducto,cantidadProducto);
+
+            //Setup de las habilitaciones necesarias para obtener el producto
+
+            bool agregarMas = true;
+            ArrayList habilitaciones = new ArrayList();
+            while(agregarMas)
+            {
+                Console.WriteLine("Agregue una habilitación necesaria para hacer usufructo del producto: ");
+                string habilitacion = Console.ReadLine();
+                habilitaciones.Add(habilitacion);
+                Console.WriteLine("¿Agregó todas las habilitaciones requeridas? Y/N ");
+                string check = Console.ReadLine();
+                if(check == "N")
+                {
+                    agregarMas = false;
+                }
+            }
+            Habilitaciones habilitacionesOferta = new Habilitaciones(habilitaciones);
+            Oferta newOferta = new Oferta(nombre, newProducto, habilitacionesOferta);
 
             this.Empresa.Ofertas.Add(newOferta);
             Console.WriteLine($"Oferta {newOferta} publicada!.");

@@ -21,27 +21,32 @@ namespace Proyecto_Final
             this.ListaHabilitaciones.Remove(habilitacion);
         }
 
-        public bool CheckHabilitaciones(ArrayList habilitacionesACheckear)
+/* Lo que queremos realizar con este método es una manera de checkear si los emprendedores contienen las
+habilitaciones que se requieren. Estas estarían publicadas en la oferta, por lo cual la manera en la que
+envisonamos la ejecución del comando sería "oferta.Habilitaciones.CheckHabilitaciones(empredor.Habilitaciones)" 
+*/
+        public bool CheckHabilitaciones(Habilitaciones habilitacionesACheckear)
         {
-            foreach(string habilitacionACheckear in habilitacionesACheckear)
+            ArrayList checker = habilitacionesACheckear.ListaHabilitaciones;
+            foreach(string habilitacionACheckear in checker)
             {
                 foreach(string habilitacion in this.ListaHabilitaciones)
                 {
                     if(habilitacion.ToLower() == habilitacionACheckear.ToLower())
                     {
                         Console.WriteLine($"El emprendedor contiene la habilitación {habilitacionACheckear}");
-                        habilitacionesACheckear.Remove(habilitacionACheckear);
+                        checker.Remove(habilitacionACheckear);
                     }
                 }  
             }
-            if (habilitacionesACheckear.Count == 0)
+            if (checker.Count == 0)
             {
                 Console.WriteLine($"El emprendedor contiene todas las habilitaciones requeridas.");
                 return true;
             }
             else
             {
-                foreach(string habilitacionACheckear in habilitacionesACheckear)
+                foreach(string habilitacionACheckear in checker)
                 {
                     Console.WriteLine($"El emprendedor necesita tener {habilitacionesACheckear} para aceptar el contrato.");
                 }
@@ -50,3 +55,4 @@ namespace Proyecto_Final
         }
     }
 }
+
