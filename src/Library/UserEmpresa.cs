@@ -27,11 +27,13 @@ namespace Proyecto_Final
                 string nombre = Console.ReadLine();
                 Console.WriteLine("Ingrese la direccion de su empresa: ");
                 string ubicacion = Console.ReadLine();
-                Console.WriteLine("Ingrese el rubro de su empresa: ");
+                Console.WriteLine("Ingrese el rubro de su empresa (podra agregar mas rubros luego si lo necesita): ");
                 string rubro = Console.ReadLine();
+                ArrayList rubros = new ArrayList();
+                rubros.Add(rubro);
 
                 // Deberia UserEmpresa ser la encargada de crear la empresa y el rubro? (Creator)
-                Rubro newRubro = new Rubro(rubro);
+                Rubro newRubro = new Rubro(rubros);
                 this.Empresa = new Empresa(nombre, ubicacion, newRubro);
                 Console.WriteLine($"Empresa: {this.Empresa.Nombre} creada!.");
             }
@@ -41,14 +43,24 @@ namespace Proyecto_Final
             }
         }
 
-        public void AgregarEspecializacion(string especializacion)
+        public void AgregarRubro()
         {
-            this.Empresa.AgregarEspecializacion(especializacion); // (Delegacion)
+            this.Empresa.AgregarRubro(); // (Delegacion)
         }
 
-        public void EliminarEspecializacion(string especializacion)
+        public void EliminarRubro()
         {
-            this.Empresa.EliminarEspecializacion(especializacion); // (Delegacion)
+            this.Empresa.EliminarRubro(); // (Delegacion)
+        }
+
+        public void AgregarEspecializacion()
+        {
+            this.Empresa.AgregarEspecializacion(); // (Delegacion)
+        }
+
+        public void EliminarEspecializacion()
+        {
+            this.Empresa.EliminarEspecializacion(); // (Delegacion)
         }
 
         /* Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, 

@@ -10,7 +10,7 @@ namespace Proyecto_Final
 
             userE1.AceptarInvitacion();
 
-
+            userE1.AgregarRubro();
         }
     }
 }
