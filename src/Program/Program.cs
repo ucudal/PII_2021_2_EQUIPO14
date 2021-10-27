@@ -1,16 +1,27 @@
-﻿using System;
+﻿//--------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 
-namespace Proyecto_Final
+using System;
+using ClassLibrary;
+
+namespace ConsoleApplication
 {
-    class Program
+    /// <summary>
+    /// Programa de consola de demostración.
+    /// </summary>
+    public static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Punto de entrada al programa principal.
+        /// </summary>
+        public static void Main()
         {
-            UserEmpresa userE1 = new UserEmpresa("Panadero");
-
-            userE1.AceptarInvitacion();
-
-
+            var train = new Train();
+            train.StartEngines();
+            Console.WriteLine("Hello World!");
         }
     }
 }

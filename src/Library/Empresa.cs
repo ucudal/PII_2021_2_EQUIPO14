@@ -8,6 +8,7 @@ namespace Proyecto_Final
     {
         private ArrayList especializaciones = new ArrayList();
         private ArrayList ofertas = new ArrayList();
+        private ArrayList habilitacionesRequeridas = new ArrayList();
         public string Nombre { get; }
         public string Ubicacion { get; }
         public Rubro Rubro { get; }
@@ -32,19 +33,87 @@ namespace Proyecto_Final
             this.Rubro = rubro;
         }
 
-        public void AgregarEspecializacion(string especializacion)
+        public void AgregarRubro()
         {
-            this.Especializaciones.Add(especializacion);
+            ArrayList rubros = this.Rubro.Rubros;
+            bool loop = true;
+            while (loop)
+            {
+                Console.WriteLine("Ingrese el rubro a agregar: ");
+                string rubro = Console.ReadLine();
+                rubros.Add(rubro);
+                Console.WriteLine("Quiere agregar otro rubro? Y/N");
+                string input = Console.ReadLine().ToUpper();
+                if (input != "Y")
+                {
+                    loop = false;
+                }
+            }
         }
-        public void EliminarEspecializacion(string especializacion)
+
+        public void EliminarRubro()
+        {
+            ArrayList rubros = this.Rubro.Rubros;
+            bool loop = true;
+            while (loop)
+            {
+                Console.WriteLine("Ingrese el rubro a eliminar: ");
+                string rubro = Console.ReadLine();
+
+                for (int i = 0; i < rubros.Count - 1; i++)
+                {
+                    if ((string)rubros[i] == rubro)
+                    {
+                        rubros.RemoveAt(i);
+                    }
+                }
+                Console.WriteLine("Quiere eliminar otro rubro? Y/N");
+                string input = Console.ReadLine().ToUpper();
+                if (input != "Y")
+                {
+                    loop = false;
+                }
+            }
+        }
+
+        public void AgregarEspecializacion()
+        {
+            ArrayList especializaciones = this.Especializaciones;
+            bool loop = true;
+            while (loop)
+            {
+                Console.WriteLine("Ingrese la especializacion a agregar: ");
+                string esp = Console.ReadLine();
+                especializaciones.Add(esp);
+                Console.WriteLine("Quiere agregar otra especializacion? Y/N");
+                string input = Console.ReadLine().ToUpper();
+                if (input != "Y")
+                {
+                    loop = false;
+                }
+            }
+        }
+        public void EliminarEspecializacion()
         {
             ArrayList arrayEmpresa = this.Especializaciones;
-
-            for (int i = 0; i < arrayEmpresa.Count - 1; i++)
+            bool loop = true;
+            while (loop)
             {
-                if ((string)arrayEmpresa[i] == especializacion)
+                Console.WriteLine("Ingrese el rubro a eliminar: ");
+                string especializacion = Console.ReadLine();
+
+                for (int i = 0; i < arrayEmpresa.Count - 1; i++)
                 {
-                    arrayEmpresa.RemoveAt(i);
+                    if ((string)arrayEmpresa[i] == especializacion)
+                    {
+                        arrayEmpresa.RemoveAt(i);
+                    }
+                }
+                Console.WriteLine("Quiere eliminar otra especializacion? Y/N");
+                string input = Console.ReadLine().ToUpper();
+                if (input != "Y")
+                {
+                    loop = false;
                 }
             }
         }
@@ -58,7 +127,7 @@ namespace Proyecto_Final
             {
                 if (this.Ofertas[i] == oferta)
                 {
-                    this.Ofertas[i].PalabraClave.Add(palabra);
+                    //this.Ofertas[i].PalabraClave.Add(palabra);
                     Console.WriteLine($"Palabra clave: {palabra} agregada.");
                 }
             }

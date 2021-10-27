@@ -1,14 +1,14 @@
 using System;
+using System.Collections;
 
 namespace Proyecto_Final
 {
     public class Rubro
     {
-        public string Nombre { get; }
-        public Empresa Empresa { get; private set; }
-        public Rubro(string nombre)
+        public ArrayList Rubros { get; }
+        public Rubro(ArrayList rubros)
         {
-            this.Nombre = nombre;
+            this.Rubros = rubros;
         }
     }
 }
