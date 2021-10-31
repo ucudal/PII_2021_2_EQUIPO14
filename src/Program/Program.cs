@@ -7,7 +7,7 @@
 using System;
 using ClassLibrary;
 
-namespace ConsoleApplication
+namespace Proyecto_Final
 {
     /// <summary>
     /// Programa de consola de demostración.
@@ -19,9 +19,11 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            UserEmpresa userE1 = new UserEmpresa("Pepito");
+            (string, string, string) tuplaDatos = ConsoleInteraction.AceptarInvitacion();
+            userE1.AceptarInvitacion(tuplaDatos);
+            string nombre = ConsoleInteraction.CrearOferta();
+            userE1.CrearOferta(nombre);
         }
     }
 }

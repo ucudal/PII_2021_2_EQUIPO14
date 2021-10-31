@@ -16,31 +16,11 @@ namespace Proyecto_Final
 
         /* Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, 
         ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas. */
-        public void AceptarInvitacion()
+        public void AceptarInvitacion((string, string, string) datos)
         {
-            Console.WriteLine("Aceptar invitacion? Y/N");
-            string input = Console.ReadLine().ToUpper();   
-            if (input == "Y")
-            {
-                Console.WriteLine("Invitacion aceptada...");
-                Console.WriteLine("Ingrese el nombre de su empresa: ");
-                string nombre = Console.ReadLine();
-                Console.WriteLine("Ingrese la direccion de su empresa: ");
-                string ubicacion = Console.ReadLine();
-                Console.WriteLine("Ingrese el rubro de su empresa (podra agregar mas rubros luego si lo necesita): ");
-                string rubro = Console.ReadLine();
-                ArrayList rubros = new ArrayList();
-                rubros.Add(rubro);
-
-                // Deberia UserEmpresa ser la encargada de crear la empresa y el rubro? (Creator)
-                Rubro newRubro = new Rubro(rubros);
-                this.Empresa = new Empresa(nombre, ubicacion, newRubro);
-                Console.WriteLine($"Empresa: {this.Empresa.Nombre} creada!.");
-            }
-            else
-            {
-                Console.WriteLine("Invitacion rechazada...");
-            }
+            // Deberia UserEmpresa ser la encargada de crear la empresa y el rubro? (Creator)
+            Rubro newRubro = new Rubro(datos.Item3);
+            this.Empresa = new Empresa(datos.Item1, datos.Item2, newRubro);
         }
 
         public void AgregarRubro()
@@ -72,14 +52,12 @@ namespace Proyecto_Final
 
         /* Como empresa, quiero publicar una oferta de materiales reciclables o residuos, 
         para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos. */
-        public void CrearOferta()
+        public void CrearOferta(string nombre)
         {
-            Console.WriteLine("Ingrese el nombre de su publicacion: ");
-            string nombre = Console.ReadLine();
             Oferta newOferta = new Oferta(nombre);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Console.WriteLine($"Oferta {newOferta} publicada!.");
+            // Oferta creada
         }
     }
 }

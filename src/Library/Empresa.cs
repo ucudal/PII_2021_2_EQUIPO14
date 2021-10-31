@@ -8,7 +8,6 @@ namespace Proyecto_Final
     {
         private ArrayList especializaciones = new ArrayList();
         private ArrayList ofertas = new ArrayList();
-        private ArrayList habilitacionesRequeridas = new ArrayList();
         public string Nombre { get; }
         public string Ubicacion { get; }
         public Rubro Rubro { get; }
@@ -31,67 +30,12 @@ namespace Proyecto_Final
             this.Nombre = nombre;
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
-        }
+        }   
 
-        public void AgregarRubro()
-        {
-            ArrayList rubros = this.Rubro.Rubros;
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese el rubro a agregar: ");
-                string rubro = Console.ReadLine();
-                rubros.Add(rubro);
-                Console.WriteLine("Quiere agregar otro rubro? Y/N");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }
-        }
-
-        public void EliminarRubro()
-        {
-            ArrayList rubros = this.Rubro.Rubros;
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese el rubro a eliminar: ");
-                string rubro = Console.ReadLine();
-
-                for (int i = 0; i < rubros.Count - 1; i++)
-                {
-                    if ((string)rubros[i] == rubro)
-                    {
-                        rubros.RemoveAt(i);
-                    }
-                }
-                Console.WriteLine("Quiere eliminar otro rubro? Y/N");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }
-        }
-
-        public void AgregarEspecializacion()
-        {
+        public void AgregarEspecializacion(string especializacion)
+        {            
             ArrayList especializaciones = this.Especializaciones;
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la especializacion a agregar: ");
-                string esp = Console.ReadLine();
-                especializaciones.Add(esp);
-                Console.WriteLine("Quiere agregar otra especializacion? Y/N");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }
+            especializaciones.Add(especializacion);
         }
         public void EliminarEspecializacion()
         {

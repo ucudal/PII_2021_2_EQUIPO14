@@ -5,8 +5,7 @@ namespace Proyecto_Final
 {
     public class Rubro
     {
-        public ArrayList Rubros { get; }
-        public Rubro(ArrayList rubros)
+        public Rubro(string rubros)
         {
             this.Rubros = rubros;
         }
