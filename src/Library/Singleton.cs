@@ -24,7 +24,5 @@ namespace Proyecto_Final
                 return instance;
             }
         }
-
-
     }
 }
