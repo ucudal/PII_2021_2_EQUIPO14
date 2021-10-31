@@ -10,9 +10,24 @@ namespace Proyecto_Final
         {
             this.Nombre = nombre;
         }
-        public void InvitarEmpresa(UserEmpresa userEmpresa)
+
+        /// <summary>
+        /// Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
+        /// </summary>
+        /// <param name="userEmpresa"></param>
+        /// <param name="userInterface"></param>
+        public void InvitarEmpresa(UserEmpresa userEmpresa, IUserInterface userInterface)
         {
-            userEmpresa.AceptarInvitacion();
+            // Si la empresa no fue invitada, la invita.
+            if (!userEmpresa.IsInvited)
+            {
+                bool isAccepted = userInterface.AceptarInvitacion();
+                userEmpresa.AceptarInvitacion(isAccepted, userInterface);
+            }
+            else 
+            {
+                userInterface.AlreadyInvitedMsg();
+            }
         }
     }
 }
