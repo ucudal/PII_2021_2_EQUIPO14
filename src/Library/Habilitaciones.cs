@@ -1,14 +1,16 @@
+
 using System;
+using System.Collections;
 
 namespace Proyecto_Final
 {
     public class Habilitaciones
     {
-        public string Nombre { get; }
+        public string Habilitacion { get;}
 
-        public Habilitaciones(string nombre)
+        public Habilitaciones(string habilitacion)
         {
-            this.Nombre = nombre;
+            this.Habilitacion = habilitacion;
         }
     }
 }

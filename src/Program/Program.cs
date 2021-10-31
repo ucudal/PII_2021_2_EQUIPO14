@@ -1,10 +1,4 @@
-﻿//--------------------------------------------------------------------------------
-// <copyright file="Program.cs" company="Universidad Católica del Uruguay">
-//     Copyright (c) Programación II. Derechos reservados.
-// </copyright>
-//--------------------------------------------------------------------------------
-
-using System;
+﻿using System;
 using ClassLibrary;
 
 namespace Proyecto_Final
@@ -20,10 +14,12 @@ namespace Proyecto_Final
         public static void Main()
         {
             UserEmpresa userE1 = new UserEmpresa("Pepito");
-            (string, string, string) tuplaDatos = ConsoleInteraction.AceptarInvitacion();
-            userE1.AceptarInvitacion(tuplaDatos);
-            string nombre = ConsoleInteraction.CrearOferta();
-            userE1.CrearOferta(nombre);
+            UserAdmin userA1 = new UserAdmin("Admin-1");
+            ConsoleInteraction consoleInteraction = new ConsoleInteraction();
+
+            userA1.InvitarEmpresa(userE1, consoleInteraction);
+            
+            userE1.CrearOferta(consoleInteraction);
         }
     }
 }

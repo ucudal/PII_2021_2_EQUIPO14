@@ -4,6 +4,238 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Proyecto_Final.ConsoleInteraction">
+            <summary>
+            Clase encargada de interactuar con el usuario a travez de la consola.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.#ctor">
+            <summary>
+            Inicializa la clase ConsoleInteraction.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearOferta">
+            <summary>
+            Interactua con el usuario para crear una oferta.
+            </summary>
+            <returns>Datos para crear la oferta/publicacion.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.AceptarInvitacion">
+            <summary>
+            Interactua con el usuario para aceptar la invitacion.
+            </summary>
+            <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmpresa">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos de la empresa.
+            </summary>
+            <returns>Tupla de strings con los datos de la empresa.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosHabilitacion">
+            <summary>
+            Interactua con el usuario para poder crear los datos de la habilitacion.
+            </summary>
+            <returns>Habilitacion.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosProducto">
+            <summary>
+            Interactua con el usuario para poder crear los datos del producto.
+            </summary>
+            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosOferta">
+            <summary>
+            Interactua con el usuario para crear los datos de la publicacion.
+            </summary>
+            <returns>Nombre de la publicacion</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarEspecializacion(Proyecto_Final.Empresa)">
+            <summary>
+            Interactua con el usuario Empresa para agregar una especializacion.
+            </summary>
+            <param name="empresa"></param>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.AlreadyInvitedMsg">
+            <summary>
+            Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave(Proyecto_Final.Empresa,Proyecto_Final.Oferta)">
+            <summary>
+            Interactua con el usuario para crear un mensaje clave en una oferta especifica.
+            </summary>
+            <param name="empresa"></param>
+            <param name="oferta"></param>
+        </member>
+        <member name="T:Proyecto_Final.Empresa">
+            <summary>
+            Esta clase representa a la Empresa.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Empresa.Nombre">
+            <summary>
+            Obtiene un valor del nombre de la Empresa.
+            </summary>
+            <value>Nombre de la empresa.</value>
+        </member>
+        <member name="P:Proyecto_Final.Empresa.Ubicacion">
+            <summary>
+            Obtiene un valor de la ubocacion de la Empresa.
+            </summary>
+            <value>Ubicacion de la empresa.</value>
+        </member>
+        <member name="P:Proyecto_Final.Empresa.Rubro">
+            <summary>
+            Obtiene un valor del Rubro de la empresa.
+            </summary>
+            <value>Objeto del tipo Rubro.</value>
+        </member>
+        <member name="P:Proyecto_Final.Empresa.Especializaciones">
+            <summary>
+            Obtiene un valor de las especializaciones de la empresa.
+            </summary>
+            <value>Lista de especializaciones.</value>
+        </member>
+        <member name="P:Proyecto_Final.Empresa.Ofertas">
+            <summary>
+            Obtiene un valor de las ofertaas publicadas de la empresa.
+            </summary>
+            <value>Lista con ofertas publicadas por la empresa.</value>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.#ctor(System.String,System.String,Proyecto_Final.Rubro)">
+            <summary>
+            Inicializa la clase Empresa.
+            </summary>
+            <param name="nombre"></param>
+            <param name="ubicacion"></param>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.AgregarEspecializacion(System.String)">
+            <summary>
+            Agrega una especializacion a la empresa y la guarda en un array.
+            </summary>
+            <param name="especializacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(Proyecto_Final.Oferta)">
+            <summary>
+            Agrega una palabra clave a la oferta que se le envia como argumento.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="T:Proyecto_Final.IUserInterface">
+            <summary>
+            Esta interface permite implementar distintas formas de que el usuario interactue con el bot.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearOferta">
+            <summary>
+            Interactua con el usuario para crear una oferta.
+            </summary>
+            <returns><c>string</c></returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.AceptarInvitacion">
+            <summary>
+            Interactua con el usuario para aceptar la invitacion.
+            </summary>
+            <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos de la empresa.
+            </summary>
+            <returns>Tupla de strings con los datos de la empresa.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
+            <summary>
+            Interactua con el usuario para poder crear los datos de la habilitacion.
+            </summary>
+            <returns>Habilitacion.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosProducto">
+            <summary>
+            Interactua con el usuario para poder crear los datos del producto.
+            </summary>
+            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosOferta">
+            <summary>
+            Interactua con el usuario para crear los datos de la publicacion.
+            </summary>
+            <returns>Nombre de la publicacion</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.AgregarEspecializacion(Proyecto_Final.Empresa)">
+            <summary>
+            Interactua con el usuario Empresa para agregar una especializacion.
+            </summary>
+            <param name="empresa"></param>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.AlreadyInvitedMsg">
+            <summary>
+            Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Oferta.AgregarMsjClave(System.String)">
+            <summary>
+            Agrega una palabra clave a la listas de palabras clave de la oferta.
+            </summary>
+            <param name="palabra"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa(Proyecto_Final.UserEmpresa,Proyecto_Final.IUserInterface)">
+            <summary>
+            Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
+            </summary>
+            <param name="userEmpresa"></param>
+            <param name="userInterface"></param>
+        </member>
+        <member name="T:Proyecto_Final.UserEmpresa">
+            <summary>
+            Esta clase representa al usuario de la Empresa.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.UserEmpresa.Nombre">
+            <summary>
+            Obtiene un valor del nombre del usuario empresa.
+            </summary>
+            <value>Nombre de la empresa</value>
+        </member>
+        <member name="P:Proyecto_Final.UserEmpresa.Empresa">
+            <summary>
+            Obtiene un valor del objeto Empresa.
+            </summary>
+            <value>Objeto del tipo Empresa</value>
+        </member>
+        <member name="P:Proyecto_Final.UserEmpresa.IsInvited">
+            <summary>
+            Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
+            </summary>
+            <value><c>true/false</c></value>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String)">
+            <summary>
+            Inicializa la clase UserEmpresa.
+            </summary>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.Boolean,Proyecto_Final.IUserInterface)">
+            <summary>
+            Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
+            </summary>
+            <param name="isAccepted"></param>
+            <param name="userInterface"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(Proyecto_Final.Oferta)">
+            <summary>
+            Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(Proyecto_Final.IUserInterface)">
+            <summary>
+            Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
+            </summary>
+            <param name="nombre"></param>
+        </member>
         <member name="T:ClassLibrary.Train">
             <summary>
             Esta clase representa un tren muy básico.

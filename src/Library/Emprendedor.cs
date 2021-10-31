@@ -3,10 +3,10 @@ using System.Collections;
 
 namespace Proyecto_Final
 {
-    public class Rubro
+    public class Emprendedor
     {
         public string Rubros { get; }
-        public Rubro(string rubro)
+        public Emprendedor(string rubro)
         {
             this.Rubros = rubro;
         }
