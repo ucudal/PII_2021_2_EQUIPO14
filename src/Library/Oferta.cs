@@ -17,6 +17,7 @@ namespace Proyecto_Final
             }
         }
         public Habilitaciones HabilitacionesOferta {get;}
+
         public Oferta(string nombre, Producto product, Habilitaciones habilitacionesOferta)
         {
             this.Nombre = nombre;
