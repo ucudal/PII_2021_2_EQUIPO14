@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
@@ -13,7 +15,7 @@ namespace Proyecto_Final
         /// Otorga el nombre del Emprendedor.
         /// </summary>
         /// <value>Nombre del Emprendedor.</value>
-        public string Nombre { get; }
+        public string Nombre { get; set;}
 
         /// <summary>
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
@@ -46,13 +48,7 @@ namespace Proyecto_Final
         {
             this.Emprendedor.EliminarEspecializacion();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void EnviarMsj()
-        {
-
-        }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -67,20 +63,5 @@ namespace Proyecto_Final
         {
 
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void CargarInfo()
-        {
-
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void GuardarInfo()
-        {
-
-        }
-        
     }
 }

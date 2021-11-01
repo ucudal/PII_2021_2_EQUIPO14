@@ -40,6 +40,10 @@ namespace Proyecto_Final
         /// <value>Objeto del tipo Habilitaciones.</value>
         public Habilitaciones HabilitacionesOferta {get;}
 
+        /// <summary>
+        /// Otorga un valor que indica si la oferta fue concretada o no.
+        /// </summary>
+        /// <value><c>true</c>Si la oferta fue concretada,<c>false</c> en caso contrario.</value>
         public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
         /// <summary>

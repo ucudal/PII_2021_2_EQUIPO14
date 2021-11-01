@@ -35,6 +35,10 @@ namespace Proyecto_Final
                 return this.especializaciones;
             } 
         }
+        /// <summary>
+        /// Otorga una lista de los productos consumidos por el emprendedor.
+        /// </summary>
+        /// <value>ArrayList "compras".</value>
         public ArrayList Compras 
         { 
             get 
