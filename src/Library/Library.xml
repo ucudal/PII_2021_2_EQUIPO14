@@ -79,6 +79,12 @@
             </summary>
             <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
         </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+            <summary>
+            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+            </summary>
+            <param name="item"></param>
+        </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
@@ -208,7 +214,7 @@
             </summary>
             <param name="especializacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.VerificarVentas">
+        <member name="M:Proyecto_Final.Empresa.VerificarVentas(Proyecto_Final.IUserInterface)">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
@@ -283,6 +289,12 @@
             </summary>
             <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
         </member>
+        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+            <summary>
+            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+            </summary>
+            <param name="item"></param>
+        </member>
         <member name="M:Proyecto_Final.Oferta.AgregarMsjClave(System.String)">
             <summary>
             Agrega una palabra clave a la listas de palabras clave de la oferta.
@@ -351,14 +363,14 @@
             </summary>
             <param name="userInterface"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
             <summary>
             Cambia el estado de la oferta a vendido.
             </summary>
             <param name="oferta"></param>
             <param name="userInterface"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas">
+        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(Proyecto_Final.IUserInterface)">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
