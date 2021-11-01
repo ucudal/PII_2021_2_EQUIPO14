@@ -5,6 +5,7 @@ namespace Proyecto_Final
 {
     public class Emprendedor
     {
+        private ArrayList compras = new ArrayList();
         private ArrayList especializaciones = new ArrayList();
         public string Ubicacion {get; set;}
         public Rubro Rubro {get; set;}
@@ -13,6 +14,13 @@ namespace Proyecto_Final
             get 
             {
                 return this.especializaciones;
+            } 
+        }
+        public ArrayList Compras 
+        { 
+            get 
+            {
+                return this.compras;
             } 
         }
         //Falta habilitaciones

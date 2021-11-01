@@ -1,3 +1,8 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Proyecto_Final
 {
     /// <summary>
@@ -42,6 +47,12 @@ namespace Proyecto_Final
         string CrearDatosOferta();
 
         /// <summary>
+        /// Interactua con el usuario para crear los datos del tipo de producto.
+        /// </summary>
+        /// <returns>Tipo de producto</returns>
+        string CrearDatosTipoProducto();
+
+        /// <summary>
         /// Interactua con el usuario Empresa para agregar una especializacion.
         /// </summary>
         /// <param name="empresa"></param>
@@ -51,5 +62,23 @@ namespace Proyecto_Final
         /// Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
         /// </summary>
         void AlreadyInvitedMsg();
+
+        /// <summary>
+        /// Interactua con el usuario para agregar palabras claves a una oferta.
+        /// </summary>
+        /// <param name="oferta"></param>
+        void AgregarMsjClave(Oferta oferta);
+
+        /// <summary>
+        /// Interactua con el usuario para concretar una oferta.
+        /// </summary>
+        /// <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+        bool ConcretarOferta();
+        
+        /// <summary>
+        /// Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+        /// </summary>
+        /// <param name="item"></param>
+        void ImprimirVendidos(KeyValuePair<string, int> item);
     }
 }
