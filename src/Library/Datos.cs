@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 namespace Proyecto_Final
@@ -101,10 +102,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si la habilitación a agregar concuerda con las existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckHabilitaciones(string habilitacion)
         {
-            Habilitaciones habilitacionACheckear = new Habilitaciones(habilitacion);
             foreach(Habilitaciones habilitacionAlmacenada in Singleton<Datos>.Instance.ListaHabilitaciones())
             {
-                if(habilitacionACheckear == habilitacionAlmacenada)
+                if(habilitacion == habilitacionAlmacenada.Habilitacion)
                 {
                     return true;
                 }
@@ -119,10 +119,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el tipo de producto a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckTipos(string tipoProducto)
         {
-            TipoProducto tipoACheckear = new TipoProducto(tipoProducto);
             foreach(TipoProducto tiposAlmacenados in Singleton<Datos>.Instance.ListaTipos())
             {
-                if(tipoACheckear == tiposAlmacenados)
+                if(tipoProducto == tiposAlmacenados.Nombre)
                 {
                     return true;
                 }
@@ -136,10 +135,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckRubros(string rubro)
         {
-            Rubro rubroACheckear = new Rubro(rubro);
             foreach(Rubro rubroAlmacenado in Singleton<Datos>.Instance.ListaRubros())
             {
-                if(rubroACheckear == rubroAlmacenado)
+                if(rubro == rubroAlmacenado.Rubros)
                 {
                     return true;
                 }

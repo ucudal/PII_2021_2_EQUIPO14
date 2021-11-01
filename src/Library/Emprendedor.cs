@@ -8,7 +8,8 @@ namespace Proyecto_Final
     /// </summary>
     public class Emprendedor
     {
-        
+        private ArrayList compras = new ArrayList();
+
         private ArrayList especializaciones = new ArrayList();
 
         /// <summary>
@@ -32,6 +33,13 @@ namespace Proyecto_Final
             get 
             {
                 return this.especializaciones;
+            } 
+        }
+        public ArrayList Compras 
+        { 
+            get 
+            {
+                return this.compras;
             } 
         }
         //Falta habilitaciones

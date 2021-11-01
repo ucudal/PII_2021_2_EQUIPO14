@@ -7,11 +7,12 @@ namespace Proyecto_Final
     /// </summary>
     public class Oferta
     {
+        private bool isVendido = false;
+
         /// <summary>
         /// Otorga el nombre de la Oferta
         /// </summary>
         /// <value></value>
-        
         public string Nombre { get; }
 
         /// <summary>
@@ -19,7 +20,6 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Objeto del tipo "Producto".</value>
         public Producto Product {get;}
-
         private ArrayList palabrasClave = new ArrayList();
         
         /// <summary>
@@ -39,6 +39,8 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Objeto del tipo Habilitaciones.</value>
         public Habilitaciones HabilitacionesOferta {get;}
+
+        public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
         /// <summary>
         /// Inicializa la clase Oferta.

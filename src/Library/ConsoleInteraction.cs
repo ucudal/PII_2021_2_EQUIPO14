@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Proyecto_Final
 {   
@@ -30,10 +32,10 @@ namespace Proyecto_Final
         /// <summary>
         /// Interactua con el usuario para aceptar la invitacion.
         /// </summary>
-        /// <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+        /// <returns>Si se acepta la invitacion devuelve <c>true</c>, de lo contrario <c>false</c>.</returns>
         public bool AceptarInvitacion() // (SRP)
         {
-            Console.WriteLine("Aceptar invitacion? Y/N");
+            Console.WriteLine("Aceptar invitacion? Y/N: ");
             string input = Console.ReadLine().ToUpper();   
             if (input == "Y")
             {
@@ -57,8 +59,14 @@ namespace Proyecto_Final
             string nombre = Console.ReadLine(); 
             Console.WriteLine("Ingrese la direccion de su empresa: ");
             string ubicacion = Console.ReadLine();
-            Console.WriteLine("Ingrese el rubro de su empresa (podra agregar mas rubros luego si lo necesita): ");
+            Console.WriteLine("Ingrese el rubro de su empresa: ");
             string rubro = Console.ReadLine();
+            while (Singleton<Datos>.Instance.CheckRubros(rubro) == false)
+            {
+                // TODO: Imprimir los rubros disponibles.
+                Console.WriteLine("Ingrese el rubro de su empresa nuevamente: ");
+                rubro = Console.ReadLine();
+            }
 
             (string, string, string) auxTuple = (nombre, ubicacion, rubro);
             return auxTuple;
@@ -72,6 +80,13 @@ namespace Proyecto_Final
         {
             Console.WriteLine("Ingrese la habilitacion necesaria para el retiro de su producto: ");
             string habilitacion = Console.ReadLine();
+            while (Singleton<Datos>.Instance.CheckHabilitaciones(habilitacion) == false)
+            {
+                // TODO: Imprimir las habilitaciones disponibles.
+                Console.WriteLine("Ingrese la habilitacion necesaria para el retiro de su producto nuevamente: ");
+                habilitacion = Console.ReadLine();
+            }
+
             return habilitacion;
         }
 
@@ -108,6 +123,24 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Interactua con el usuario para crear los datos del tipo de producto.
+        /// </summary>
+        /// <returns>Tipo de producto.</returns>
+        public string CrearDatosTipoProducto() // (SRP)
+        {
+            Console.WriteLine("Ingrese el tipo de su producto: ");
+            string tipo = Console.ReadLine();
+            while (Singleton<Datos>.Instance.CheckTipos(tipo) == false)
+            {
+                // TODO: Imprimir los tipos disponibles.
+                Console.WriteLine("Ingrese el tipo de su producto nuevamente: ");
+                tipo = Console.ReadLine();
+            }
+
+            return tipo;
+        }
+
+        /// <summary>
         /// Interactua con el usuario Empresa para agregar una especializacion.
         /// </summary>
         /// <param name="empresa"></param>
@@ -119,7 +152,7 @@ namespace Proyecto_Final
                 Console.WriteLine("Ingrese la especializacion a agregar: ");
                 string esp = Console.ReadLine();
                 empresa.AgregarEspecializacion(esp);
-                Console.WriteLine("Quiere agregar otra especializacion? Y/N");
+                Console.WriteLine("Quiere agregar otra especializacion? Y/N: ");
                 string input = Console.ReadLine().ToUpper();
                 if (input != "Y")
                 {
@@ -139,24 +172,43 @@ namespace Proyecto_Final
         /// <summary>
         /// Interactua con el usuario para crear un mensaje clave en una oferta especifica.
         /// </summary>
-        /// <param name="empresa"></param>
         /// <param name="oferta"></param>
-        public void AgregarMsjClave(Empresa empresa, Oferta oferta)
+        public void AgregarMsjClave(Oferta oferta)
         {
-            /*
-            Console.WriteLine("Ingrese palabra clave a agregar: ");
-            string palabra = Console.ReadLine();
-
-            for (int i = 0; i < empresa.Ofertas.Count - 1; i++)
+            bool loop = true;
+            while (loop)
             {
-                if (empresa.Ofertas[i] == oferta)
+                Console.WriteLine("Ingrese la palabra clave a agregar: ");
+                string palabra = Console.ReadLine();
+                oferta.AgregarMsjClave(palabra);
+                Console.WriteLine("Quiere agregar otra palabra? Y/N: ");
+                string input = Console.ReadLine().ToUpper();
+                if (input != "Y")
                 {
-                    //this.Ofertas[i].PalabraClave.Add(palabra);
-                    Console.WriteLine(empresa.Ofertas[i]);
-                    Console.WriteLine($"Palabra clave: {palabra} agregada.");
+                    loop = false;
                 }
-            }
-            */
+            }   
+        }
+
+        /// <summary>
+        /// Interactua con el usuario para concretar una oferta.
+        /// </summary>
+        /// <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+        public bool ConcretarOferta()
+        {
+            Console.WriteLine("Quieres concretar esta oferta? Y/N: ");
+            string input = Console.ReadLine().ToUpper();
+            
+            return (input == "Y") ? true : false;
+        }
+
+        /// <summary>
+        /// Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+        /// </summary>
+        /// <param name="item"></param>
+        public void ImprimirVendidos(KeyValuePair<string, int> item)
+        {
+            Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
         }
     }
 }

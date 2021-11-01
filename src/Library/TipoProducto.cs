@@ -11,7 +11,7 @@ namespace Proyecto_Final
         /// Otorga el nombre del tipo de clasificación del producto.
         /// </summary>
         /// <value>Nombre del tipo de producto.</value>
-        public string Tipo { get; }
+        public string Nombre { get; }
 
         /// <summary>
         /// Inicializa la clase TipoProducto.
@@ -19,7 +19,7 @@ namespace Proyecto_Final
         /// <param name="tipo"></param>
         public TipoProducto(string tipo)
         {
-            this.Tipo = tipo;
+            this.Nombre = tipo;
         }
     }
 }

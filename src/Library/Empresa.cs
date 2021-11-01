@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Proyecto_Final
 {
@@ -65,24 +66,35 @@ namespace Proyecto_Final
             especializaciones.Add(especializacion);
         }
 
-
         /// <summary>
-        /// Agrega una palabra clave a la oferta que se le envia como argumento.
+        /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
-        /// <param name="oferta"></param>
-        public void AgregarMsjClave(Oferta oferta)
+        public void VerificarVentas(IUserInterface userInterface)
         {
-            Console.WriteLine("Ingrese palabra clave a agregar: ");
-            string palabra = Console.ReadLine();
+            Dictionary<string, int> info = new Dictionary<string, int>();
 
-            for (int i = 0; i < this.Ofertas.Count - 1; i++)
+            foreach (Oferta oferta in this.Ofertas)
             {
-                if (this.Ofertas[i] == oferta)
+                if (oferta.IsVendido == true)
                 {
-                    //this.Ofertas[i].PalabraClave.Add(palabra);
-                    Console.WriteLine($"Palabra clave: {palabra} agregada.");
+                    foreach (KeyValuePair<string, int> item in info)
+                    {
+                        if (oferta.Product.Tipo.Nombre == item.Key)
+                        {
+                            info.Add(oferta.Product.Tipo.Nombre, item.Value + oferta.Product.Cantidad);
+                        }
+                        else
+                        {
+                            info.Add(oferta.Product.Tipo.Nombre, oferta.Product.Cantidad);
+                        }
+                    }
                 }
             }
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                userInterface.ImprimirVendidos(item);
+            }
+
         }
     }
 }

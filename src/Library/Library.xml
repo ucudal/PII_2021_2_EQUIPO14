@@ -24,7 +24,7 @@
             <summary>
             Interactua con el usuario para aceptar la invitacion.
             </summary>
-            <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+            <returns>Si se acepta la invitacion devuelve <c>true</c>, de lo contrario <c>false</c>.</returns>
         </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmpresa">
             <summary>
@@ -50,6 +50,12 @@
             </summary>
             <returns>Nombre de la publicacion</returns>
         </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosTipoProducto">
+            <summary>
+            Interactua con el usuario para crear los datos del tipo de producto.
+            </summary>
+            <returns>Tipo de producto.</returns>
+        </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.AgregarEspecializacion(Proyecto_Final.Empresa)">
             <summary>
             Interactua con el usuario Empresa para agregar una especializacion.
@@ -61,12 +67,103 @@
             Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave(Proyecto_Final.Empresa,Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave(Proyecto_Final.Oferta)">
             <summary>
             Interactua con el usuario para crear un mensaje clave en una oferta especifica.
             </summary>
-            <param name="empresa"></param>
             <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.ConcretarOferta">
+            <summary>
+            Interactua con el usuario para concretar una oferta.
+            </summary>
+            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+            <summary>
+            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="T:Proyecto_Final.Datos">
+            <summary>
+            Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
+            <summary>
+             Otorga una lista de habilitaciones registradas por el programa.
+             </summary>
+             <returns>Retorna la lista "listaHabilitaciones" de la clase "Datos".</returns>//  
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaTipos">
+            <summary>
+            Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa.
+            </summary>
+            <returns>Retorna la lista "listaTipos" de la clase "Datos".</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaRubros">
+            <summary>
+             Otorga una lista de rubros disponibles para asignarle a una empresa.
+             </summary>
+             <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarHabilitacion(Proyecto_Final.Habilitaciones)">
+            <summary>
+            Agrega una habilitación a la lista de habilitaciones permitidas por el programa.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.EliminarHabilitacion(Proyecto_Final.Habilitaciones)">
+            <summary>
+            Elimina una habilitación de la lista de habilitaciones permitidas por el programa.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarRubro(Proyecto_Final.Rubro)">
+            <summary>
+            Agrega un rubro a la lista de rubros permitidos por el programa.
+            </summary>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.EliminarRubro(Proyecto_Final.Rubro)">
+            <summary>
+            Elimina un rubro de la lista de rubros permitidos por el programa.
+            </summary>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarTipo(Proyecto_Final.TipoProducto)">
+            <summary>
+            Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
+            </summary>
+            <param name="tipo"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.EliminarTipo(Proyecto_Final.TipoProducto)">
+            <summary>
+            Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
+            </summary>
+            <param name="tipo"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.CheckHabilitaciones(System.String)">
+            <summary>
+            Revisa si la habilitación que el usuario quiere asignarse existe dentro de las habilitaciones permitidas por el programa.
+            </summary>
+            <param name="habilitacion"></param>
+            <returns><c>true</c>Si la habilitación a agregar concuerda con las existentes en el programa,<c>false</c> en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.CheckTipos(System.String)">
+            <summary>
+            Revisa si el tipo de producto que el usuario quiere asignar al producto existe dentro de los tipos de productos permitidos por el programa.
+            </summary>
+            <param name="tipoProducto"></param>
+            <returns><c>true</c>Si el tipo de producto a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.CheckRubros(System.String)">
+            <summary>
+            Revisa si el rubro que el usuario quiere asignar a una empresa existe dentro de los rubros permitidos por el programa.
+            </summary>
+            <param name="rubro"></param>
+            <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         </member>
         <member name="T:Proyecto_Final.Empresa">
             <summary>
@@ -117,11 +214,10 @@
             </summary>
             <param name="especializacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.Empresa.VerificarVentas(Proyecto_Final.IUserInterface)">
             <summary>
-            Agrega una palabra clave a la oferta que se le envia como argumento.
+            Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
-            <param name="oferta"></param>
         </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>
@@ -164,6 +260,12 @@
             </summary>
             <returns>Nombre de la publicacion</returns>
         </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosTipoProducto">
+            <summary>
+            Interactua con el usuario para crear los datos del tipo de producto.
+            </summary>
+            <returns>Tipo de producto</returns>
+        </member>
         <member name="M:Proyecto_Final.IUserInterface.AgregarEspecializacion(Proyecto_Final.Empresa)">
             <summary>
             Interactua con el usuario Empresa para agregar una especializacion.
@@ -175,11 +277,35 @@
             Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave(Proyecto_Final.Oferta)">
+            <summary>
+            Interactua con el usuario para agregar palabras claves a una oferta.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
+            <summary>
+            Interactua con el usuario para concretar una oferta.
+            </summary>
+            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+            <summary>
+            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+            </summary>
+            <param name="item"></param>
+        </member>
         <member name="M:Proyecto_Final.Oferta.AgregarMsjClave(System.String)">
             <summary>
             Agrega una palabra clave a la listas de palabras clave de la oferta.
             </summary>
             <param name="palabra"></param>
+        </member>
+        <member name="P:Proyecto_Final.Producto.Tipo">
+            <summary>
+            Obtiene un valor del tipo del producto.
+            </summary>
+            <value>Tipo del producto.</value>
         </member>
         <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa(Proyecto_Final.UserEmpresa,Proyecto_Final.IUserInterface)">
             <summary>
@@ -224,44 +350,36 @@
             <param name="isAccepted"></param>
             <param name="userInterface"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
             <summary>
             Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
             </summary>
             <param name="oferta"></param>
+            <param name="userInterface"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(Proyecto_Final.IUserInterface)">
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
-            <param name="nombre"></param>
+            <param name="userInterface"></param>
         </member>
-        <member name="T:ClassLibrary.Train">
+        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
             <summary>
-            Esta clase representa un tren muy básico.
+            Cambia el estado de la oferta a vendido.
+            </summary>
+            <param name="oferta"></param>
+            <param name="userInterface"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(Proyecto_Final.IUserInterface)">
+            <summary>
+            Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
         </member>
-        <member name="P:ClassLibrary.Train.IsEngineStarted">
+        <member name="M:Proyecto_Final.UserEmpresa.SetEmpresa(Proyecto_Final.Empresa)">
             <summary>
-            Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
+            DEBUG: Setea una empresa al usuario.
             </summary>
-            <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
-        </member>
-        <member name="M:ClassLibrary.Train.StartEngines">
-            <summary>
-            Enciende las máquinas del tren.
-            </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser encendidas, <c>false</c> en caso contrario.
-            </returns>
-        </member>
-        <member name="M:ClassLibrary.Train.StopEngines">
-            <summary>
-            Detiene las máquinas del tren.
-            </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser detenidas, <c>false</c> en caso contrario.
-            </returns>
+            <param name="empresa"></param>
         </member>
     </members>
 </doc>
