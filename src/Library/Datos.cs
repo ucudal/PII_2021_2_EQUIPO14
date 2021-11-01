@@ -10,11 +10,6 @@ namespace Proyecto_Final
     {
         private ArrayList listaHabilitaciones = new ArrayList();
 
-        public Datos()
-        {
-
-        }
-
         ///<summary>
         /// Otorga una lista de habilitaciones registradas por el programa.
         /// </summary>
