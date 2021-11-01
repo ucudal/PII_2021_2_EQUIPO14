@@ -58,9 +58,10 @@ namespace Proyecto_Final
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
         /// <param name="oferta"></param>
-        public void CrearMsjClave(Oferta oferta)
+        /// <param name="userInterface"></param>
+        public void CrearMsjClave(Oferta oferta, IUserInterface userInterface)
         {
-            this.Empresa.AgregarMsjClave(oferta); // (Delegacion)
+            userInterface.AgregarMsjClave(oferta); // (Delegacion) 
         }
 
         /// <summary>
@@ -72,13 +73,43 @@ namespace Proyecto_Final
             string datosOferta = userInterface.CrearDatosOferta(); // (Delegacion y SRP)
             string datosHabilitacion = userInterface.CrearDatosHabilitacion(); // (Delegacion y SRP) 
             (string, string, string, int, int) datosProducto = userInterface.CrearDatosProducto(); // (Delegacion y SRP)
+            string datosTipoProducto = userInterface.CrearDatosTipoProducto();
 
+            TipoProducto tipoProducto = new TipoProducto(datosTipoProducto);
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Producto producto = new Producto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5);
+            Producto producto = new Producto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, tipoProducto);
             Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
             // TODO: Agregar publicacion a BD.
+        }
+
+        /// <summary>
+        /// Cambia el estado de la oferta a vendido.
+        /// </summary>
+        /// <param name="oferta"></param>
+        /// <param name="userInterface"></param>
+        public void ConcretarOferta(Oferta oferta, IUserInterface userInterface)
+        {
+            bool isVendido = userInterface.ConcretarOferta(); // (Delegacion y SRP)
+            oferta.IsVendido = isVendido;
+        }
+
+        /// <summary>
+        /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
+        /// </summary>
+        public void VerificarVentas(IUserInterface userInterface)
+        {
+            this.Empresa.VerificarVentas(userInterface); // (Delegacion)
+        }
+
+        /// <summary>
+        /// DEBUG: Setea una empresa al usuario.
+        /// </summary>
+        /// <param name="empresa"></param>
+        public void SetEmpresa(Empresa empresa)
+        {
+            this.Empresa = empresa;
         }
     }
 }
