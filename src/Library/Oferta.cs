@@ -4,10 +4,9 @@ namespace Proyecto_Final
 {
     public class Oferta
     {
+        private bool isVendido = false;
         public string Nombre { get; }
-
         public Producto Product {get;}
-
         private ArrayList palabrasClave = new ArrayList();
         public ArrayList PalabrasClave 
         {
@@ -17,6 +16,8 @@ namespace Proyecto_Final
             }
         }
         public Habilitaciones HabilitacionesOferta {get;}
+
+        public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
         public Oferta(string nombre, Producto product, Habilitaciones habilitacionesOferta)
         {
