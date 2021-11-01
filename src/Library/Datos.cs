@@ -11,9 +11,9 @@ namespace Proyecto_Final
         private ArrayList listaHabilitaciones = new ArrayList();
 
         ///<summary>
-        /// Otorga una lista de habilitaciones registradas por el programa.
+        /// Otorga una lista de habilitaciones registradas por el programa <see cref="Habilitaciones"/>.
         /// </summary>
-        /// <returns>Retorna la lista "listaHabilitaciones" de la clase "Datos".</returns>//  
+        /// <returns>Retorna la lista "listaHabilitaciones" de la clase "Datos".</returns>  
         public ArrayList ListaHabilitaciones()
         {
             return this.listaHabilitaciones;
@@ -21,7 +21,7 @@ namespace Proyecto_Final
         private ArrayList listaTipos = new ArrayList();
 
         /// <summary>
-        /// Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa.
+        /// Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <see cref="TipoProducto"/>.
         /// </summary>
         /// <returns>Retorna la lista "listaTipos" de la clase "Datos".</returns>
         public ArrayList ListaTipos()
@@ -32,7 +32,7 @@ namespace Proyecto_Final
         private ArrayList listaRubros = new ArrayList();
 
         ///<summary>
-        /// Otorga una lista de rubros disponibles para asignarle a una empresa.
+        /// Otorga una lista de rubros disponibles para asignarle a una empresa <see cref="Rubro"/>.
         /// </summary>
         /// <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
         public ArrayList ListaRubros()

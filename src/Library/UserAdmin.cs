@@ -2,10 +2,22 @@ using System;
 
 namespace Proyecto_Final
 {
+    /// <summary>
+    /// Esta clase representa a los administradores del programa.
+    /// </summary>
     public class UserAdmin
     {
+        /// <summary>
+        /// Otorga el nombre de usuario del administrador.
+        /// </summary>
+        /// <value>Nombre de usuario del administrador</value>
+        
         public string Nombre { get; }
 
+        /// <summary>
+        /// Inicializa la clase UserAdmin.
+        /// </summary>
+        /// <param name="nombre"></param>
         public UserAdmin(string nombre)
         {
             this.Nombre = nombre;

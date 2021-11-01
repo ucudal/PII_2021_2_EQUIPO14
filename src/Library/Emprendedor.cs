@@ -3,12 +3,31 @@ using System.Collections;
 
 namespace Proyecto_Final
 {
+    /// <summary>
+    /// Esta clase representa los datos adicionales del emprendedor.
+    /// </summary>
     public class Emprendedor
     {
         private ArrayList compras = new ArrayList();
+
         private ArrayList especializaciones = new ArrayList();
+
+        /// <summary>
+        /// Otorga la ubicación del Emprendedor
+        /// </summary>
+        /// <value>Ubicación del Emprendedor</value>
         public string Ubicacion {get; set;}
+
+        /// <summary>
+        /// Otorga una instancia de objeto "Rubro" del Emprendedor
+        /// </summary>
+        /// <value>Objeto de tipo "Rubro".</value>
         public Rubro Rubro {get; set;}
+
+        /// <summary>
+        /// Otorga una lista de strings que representan las especializaciones del Emprendedor.
+        /// </summary>
+        /// <value></value>
         public ArrayList Especializaciones 
         { 
             get 
@@ -24,12 +43,21 @@ namespace Proyecto_Final
             } 
         }
         //Falta habilitaciones
+
+        /// <summary>
+        /// Inicializa la clase Emprendedor
+        /// </summary>
+        /// <param name="ubicacion"></param>
+        /// <param name="rubro"></param>
         public Emprendedor(string ubicacion, Rubro rubro)
         {
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
         }
 
+        /// <summary>
+        /// Agrega una Especialización al Emprendedor.
+        /// </summary>
         public void AgregarEspecializacion()
         {
             ArrayList especializaciones = this.Especializaciones;
@@ -47,6 +75,9 @@ namespace Proyecto_Final
                 }
             }
         }
+        /// <summary>
+        /// Elimina una Especialización al Emprendedor.
+        /// </summary>
         public void EliminarEspecializacion()
         {
             ArrayList esp = this.Especializaciones;
@@ -71,6 +102,9 @@ namespace Proyecto_Final
                 }
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public void ConsumoxTiempo()
         {
             
