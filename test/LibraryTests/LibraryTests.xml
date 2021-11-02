@@ -34,14 +34,34 @@
             Prueba que se pueda aceptar una invitacion.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.EmpresaTests.CrearEmpresaTest">
+            <summary>
+            Prueba que se pueda crear una Empresa.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.EmpresaTests.RechazarInvitacionTest">
             <summary>
             Prueba que se pueda rechazar una invitacion.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.EmpresaTests.CrearOfertaTest">
+            <summary>
+            Prueba que se pueda crear una oferta.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.EmpresaTests.AgregarMsjClaveTest">
             <summary>
             Prueba que se pueda agregar un mensaje clave a una publicacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.ClasificarProductosTest">
+            <summary>
+            Prueba que se pueden clasificar los productos.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.VerificarVentasTest">
+            <summary>
+            Prueba que se reciban los datos de las publicaciones vendidas.
             </summary>
         </member>
     </members>

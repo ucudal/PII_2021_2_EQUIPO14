@@ -26,8 +26,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
         /// </summary>
-        /// <param name="userEmpresa"></param>
-        /// <param name="userInterface"></param>
+        /// <param name="nombreUserEmpresa"></param>
         public void InvitarEmpresa(string nombreUserEmpresa)
         {
             foreach (UserEmpresa user in Singleton<Datos>.Instance.ListaUsuarioEmpresa())

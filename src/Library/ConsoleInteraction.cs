@@ -141,38 +141,9 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Interactua con el usuario Empresa para agregar una especializacion.
-        /// </summary>
-        /// <param name="empresa"></param>
-        public void AgregarEspecializacion(Empresa empresa) // (SRP)
-        {
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la especializacion a agregar: ");
-                string esp = Console.ReadLine();
-                empresa.AgregarEspecializacion(esp);
-                Console.WriteLine("Quiere agregar otra especializacion? Y/N: ");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }   
-        }
-
-        /// <summary>
-        /// Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-        /// </summary>
-        public void AlreadyInvitedMsg()
-        {
-            Console.WriteLine("Esta empresa ya fue invitada y aceptada.");
-        }
-
-        /// <summary>
         /// Interactua con el usuario para crear un mensaje clave en una oferta especifica.
         /// </summary>
-        /// <param name="oferta"></param>
+        /// <returns></returns>
         public (string, string) AgregarMsjClave()
         {
             Console.WriteLine("Ingrese el nombre de su oferta: ");
@@ -186,29 +157,25 @@ namespace Proyecto_Final
         /// <summary>
         /// Interactua con el usuario para concretar una oferta.
         /// </summary>
-        /// <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        public bool ConcretarOferta()
+        /// <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
+        public string ConcretarOferta()
         {
             Console.WriteLine("Quieres concretar esta oferta? Y/N: ");
             string input = Console.ReadLine().ToUpper();
             
-            return (input == "Y") ? true : false;
+            return (input == "Y") ? "Y" : "N";
         }
 
         /// <summary>
         /// Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
         /// </summary>
-        /// <param name="item"></param>
-        public void ImprimirVendidos(KeyValuePair<string, int> item)
+        /// <param name="info"></param>
+        public void ImprimirVendidos(Dictionary<string, int> info)
         {
-            Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
-        }
-
-        /// <summary>
-        /// Interactua con el usuario para registrarse como emprendedor.
-        /// </summary>
-        public void RegistrarEmprendedor()
-        {
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
+            }
 
         }
     }

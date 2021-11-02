@@ -43,5 +43,7 @@ Aprendimos a utilizar Doxygen y a formular documentacion utilizando comentarios 
 
 Tuvimos muchos contratiempos, especialmente para construir la base de la aplicacion dado que no lograbamos entender la consigna en su totalidad. Por esto tuvimos que reescribir varias veces las clases que habiamos creado o modificar las ya existentes. A su vez, a medida que la aplicacion se iba haciendo mas y mas grandes, nos dimos cuenta que nos faltaban mas funcionalidades, por lo cual tuvimos que implementarlas.
 
+Como ya mencionamos antes, debido a la falta de tiempo, muchas funcionalidades quedaron pendientes las cuales posiblemente sean implementada en la entrega final del proyecto.
+
 ## Recursos
 [refactoring.guru/design-patterns](https://refactoring.guru/design-patterns)
