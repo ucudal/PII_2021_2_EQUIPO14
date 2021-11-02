@@ -32,7 +32,7 @@ Aquí veremos una explicación general e informal de las funciones del software 
 
 - [ ] Como emprendedor, quiero saber cuándo un material o residuo se genera puntualmente, para de esa forma determinar oportunidades de desarrollar nuevos productos.
 
-- [ ] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
+- [X] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
 
 ## Reflexion
 Nos parecio dificil en un principio el como organizar de forma correcta las clases, es decir, que clases nececitabamos para que, y que responsabilidades debia tener cada una.

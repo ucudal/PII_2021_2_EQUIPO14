@@ -41,7 +41,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
         /// </summary>
-                public void EliminarEspecializacion()
+        public void EliminarEspecializacion()
         {
             this.Emprendedor.EliminarEspecializacion();
         }
@@ -52,6 +52,13 @@ namespace Proyecto_Final
         public void SetEmprendedor(Emprendedor emprendedor)
         {
             this.Emprendedor = emprendedor;
+        }
+        /// <summary>
+        /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
+        /// </summary>
+        public void ConsumoXTiempo()
+        {
+            this.Emprendedor.ConsumoXTiempo();
         }
         
         /// <summary>
