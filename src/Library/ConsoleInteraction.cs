@@ -33,19 +33,19 @@ namespace Proyecto_Final
         /// Interactua con el usuario para aceptar la invitacion.
         /// </summary>
         /// <returns>Si se acepta la invitacion devuelve <c>true</c>, de lo contrario <c>false</c>.</returns>
-        public bool AceptarInvitacion() // (SRP)
+        public string AceptarInvitacion() // (SRP)
         {
             Console.WriteLine("Aceptar invitacion? Y/N: ");
             string input = Console.ReadLine().ToUpper();   
             if (input == "Y")
             {
                 Console.WriteLine("Invitacion aceptada!");
-                return true;
+                return input;
             }
             else
             {
                 Console.WriteLine("Invitacion rechazada...");
-                return false;
+                return input;
             }
         }
 
@@ -173,21 +173,14 @@ namespace Proyecto_Final
         /// Interactua con el usuario para crear un mensaje clave en una oferta especifica.
         /// </summary>
         /// <param name="oferta"></param>
-        public void AgregarMsjClave(Oferta oferta)
+        public (string, string) AgregarMsjClave()
         {
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la palabra clave a agregar: ");
-                string palabra = Console.ReadLine();
-                oferta.AgregarMsjClave(palabra);
-                Console.WriteLine("Quiere agregar otra palabra? Y/N: ");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }   
+            Console.WriteLine("Ingrese el nombre de su oferta: ");
+            string nombre = Console.ReadLine();
+            // TODO: Cheackear que esxita una publicacion con este nombre.
+            Console.WriteLine("Ingrese la palabra clave a agregar: ");
+            string palabra = Console.ReadLine();
+            return (nombre, palabra);
         }
 
         /// <summary>
@@ -209,6 +202,14 @@ namespace Proyecto_Final
         public void ImprimirVendidos(KeyValuePair<string, int> item)
         {
             Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
+        }
+
+        /// <summary>
+        /// Interactua con el usuario para registrarse como emprendedor.
+        /// </summary>
+        public void RegistrarEmprendedor()
+        {
+
         }
     }
 }

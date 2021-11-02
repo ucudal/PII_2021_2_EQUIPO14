@@ -4,29 +4,44 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Tests.TrainTests">
+        <member name="T:Proyecto_Final.AdminTests">
             <summary>
-            Prueba de la clase <see cref="T:ClassLibrary.Train"/>.
+            Prueba de la clase <see cref="T:Proyecto_Final.UserAdmin"/>.
             </summary>
         </member>
-        <member name="F:Tests.TrainTests.train">
+        <member name="M:Proyecto_Final.AdminTests.Setup">
             <summary>
-            El tren para probar.
+            Crea un usuario empresa para probar.
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.Setup">
+        <member name="M:Proyecto_Final.AdminTests.InvitarEmpresaTest">
             <summary>
-            Crea un tren para probar.
+            Prueba que se pueda aceptar una invitacion.
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.StartTrainTest">
+        <member name="T:Proyecto_Final.EmpresaTests">
             <summary>
-            Prueba que el tren arranque.
+            Prueba de la clase <see cref="T:Proyecto_Final.Empresa"/> y la clase <see cref="T:Proyecto_Final.UserEmpresa"/>.
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.StopTrainTest">
+        <member name="M:Proyecto_Final.EmpresaTests.Setup">
             <summary>
-            Prueba que el tren se detenga.
+            Crea un usuario empresa para probar.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.AceptarInvitacionTest">
+            <summary>
+            Prueba que se pueda aceptar una invitacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.RechazarInvitacionTest">
+            <summary>
+            Prueba que se pueda rechazar una invitacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.AgregarMsjClaveTest">
+            <summary>
+            Prueba que se pueda agregar un mensaje clave a una publicacion.
             </summary>
         </member>
     </members>

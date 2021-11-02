@@ -8,6 +8,28 @@ namespace Proyecto_Final
     /// </summary>
     public class Datos
     {
+        private ArrayList listaOfertas = new ArrayList();
+
+        public ArrayList ListaOfertas()
+        {
+            return this.listaOfertas;
+        }
+
+        public void AgregarOferta(Oferta oferta)
+        {
+            this.listaOfertas.Add(oferta);
+        }
+        private ArrayList listaUsuarioEmpresa = new ArrayList();
+
+        public ArrayList ListaUsuarioEmpresa()
+        {
+            return this.listaUsuarioEmpresa;
+        }
+
+        public void AgregarUsuarioEmpresa(UserEmpresa user)
+        {
+            this.listaUsuarioEmpresa.Add(user);
+        }
         private ArrayList listaHabilitaciones = new ArrayList();
 
         ///<summary>

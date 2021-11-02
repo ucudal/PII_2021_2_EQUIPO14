@@ -56,6 +56,17 @@ namespace Proyecto_Final
             this.Rubro = rubro;
         }   
 
+        public void AgregarMsjClave((string, string) datosMensaje)
+        {
+            foreach (Oferta oferta in this.Ofertas)
+            {
+                if (oferta.Nombre == datosMensaje.Item1)
+                {
+                    oferta.AgregarMsjClave(datosMensaje.Item2);
+                }
+            }
+        }
+
         /// <summary>
         /// Agrega una especializacion a la empresa y la guarda en un array.
         /// </summary>
