@@ -8,6 +8,8 @@ namespace Proyecto_Final
     public class Oferta
     {
         private bool isVendido = false;
+        private ArrayList palabrasClave = new ArrayList();
+        private UserEmprendedor comprador = null;
 
         /// <summary>
         /// Otorga el nombre de la Oferta
@@ -20,8 +22,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Objeto del tipo "Producto".</value>
         public Producto Product {get;}
-        private ArrayList palabrasClave = new ArrayList();
-        
+
         /// <summary>
         /// Otorga una lista de strings "Palabras Clave" que pueden utilizarse para buscar la oferta.
         /// </summary>
@@ -40,7 +41,13 @@ namespace Proyecto_Final
         /// <value>Objeto del tipo Habilitaciones.</value>
         public Habilitaciones HabilitacionesOferta {get;}
 
+        /// <summary>
+        /// Otorga un valor booleano dependiendo de si la oferta fue vendida o no.
+        /// </summary>
+        /// <value>Retorna un valor booleano</value>
         public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
+
+        public UserEmprendedor Comprador { get { return comprador; } set { this.comprador = value;} }
 
         /// <summary>
         /// Inicializa la clase Oferta.
