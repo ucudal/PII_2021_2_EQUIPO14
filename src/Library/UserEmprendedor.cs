@@ -19,7 +19,7 @@ namespace Proyecto_Final
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
         /// </summary>
         /// <value></value>
-        public Emprendedor Emprendedor { get; private set; }
+        public Emprendedor Emprendedor { get; set; }
 
         /// <summary>
         /// Inicializa la clase UserEmprendedor.
@@ -33,32 +33,25 @@ namespace Proyecto_Final
         /// <summary>
         /// Agrega a la lista de especializaciones que contiene la clase "Emprendedor" una especialización.
         /// </summary>
-        public void AgregarEspecializacion()
+        public void AgregarEspecializacion(string especializacion)
         {
-            this.Emprendedor.AgregarEspecializacion();
+            this.Emprendedor.AgregarEspecializacion(especializacion);
         }
         
         /// <summary>
         /// Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
         /// </summary>
-        public void EliminarEspecializacion()
+        public void EliminarEspecializacion(string especializacion)
         {
-            this.Emprendedor.EliminarEspecializacion();
+            this.Emprendedor.EliminarEspecializacion(especializacion);
         }
-        /// <summary>
-        /// DEBUG: Setea un emprendedor al usuario
-        /// </summary>
-        /// <param name="emprendedor"></param>
-        public void SetEmprendedor(Emprendedor emprendedor)
-        {
-            this.Emprendedor = emprendedor;
-        }
+
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
-        public void ConsumoXTiempo()
+        public string ConsumoXTiempo()
         {
-            this.Emprendedor.ConsumoXTiempo();
+            return this.Emprendedor.ConsumoXTiempo(this);
         }
         
         /// <summary>
@@ -84,10 +77,11 @@ namespace Proyecto_Final
         /// 
         /// </summary>
         /// <param name="tipo"></param>
-        public void VerOfertasTipo(string tipo)
+        public string VerOfertasTipo(string tipo)
         {
             Buscador buscador = new Buscador();
             buscador.VerOfertasTipo(tipo);
+            return buscador.Content;
         }
     }
 }

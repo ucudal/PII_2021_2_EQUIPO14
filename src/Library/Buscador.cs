@@ -72,5 +72,26 @@ namespace Proyecto_Final
                 }
             }
         }
+
+        /// <summary>
+        /// En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
+        public void VerOfertasTipo(string tipo)
+        {
+            ContentBuilder.Clear();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                if(tipo == oferta.Product.Tipo.Nombre)
+                {
+                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                }
+            }
+            if(ContentBuilder.ToString() == "")
+            {
+                ContentBuilder.Append("No se encontraron ofertas que concuerden con el tipo de producto deseado.");
+            }
+        }     
     }
 }

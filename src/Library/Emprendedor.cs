@@ -79,25 +79,21 @@ namespace Proyecto_Final
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
-        public void ConsumoXTiempo()
+        public string ConsumoXTiempo(UserEmprendedor userEmprendedor)
         {
             StringBuilder result = new StringBuilder();
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                foreach(string comprador in oferta.Comprador)
-                {
-                    if(UserEmprendedor.Nombre == comprador)
+                    if(userEmprendedor.Nombre == oferta.Comprador.Nombre)
                     {
-                        result.Append($"{oferta} \n");
+                        result.Append($"Compró esta oferta: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }
-                }
-                if(result.ToString() == "")
-                {
-                    result.Append("Aún no se ha comprado ningún producto.");
-                }
+            }
+            if(result.ToString() == "")
+            {
+                result.Append("Aún no se ha comprado ningún producto.");
             }
             return result.ToString();
         }
-
     }
 }
