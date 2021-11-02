@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 
 namespace Proyecto_Final
@@ -8,6 +7,16 @@ namespace Proyecto_Final
     /// </summary>
     public class Datos
     {
+        private ArrayList listaOfertas = new ArrayList();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList ListaOfertas()
+        {
+            return this.listaOfertas;
+        }
         private ArrayList listaHabilitaciones = new ArrayList();
 
         ///<summary>
@@ -93,6 +102,23 @@ namespace Proyecto_Final
         public void EliminarTipo(TipoProducto tipo)
         {
             listaTipos.Remove(tipo);
+        }
+        /// <summary>
+        /// Agrega una oferta de la lista de ofertas.
+        /// </summary>
+        /// <param name="oferta"></param>
+        public void AgregarOfertas(Oferta oferta)
+        {
+            listaOfertas.Add(oferta);
+        }
+
+        /// <summary>
+        /// Elimina una oferta de la lista de ofertas.
+        /// </summary>
+        /// <param name="oferta"></param>
+        public void EliminarOfertas(Oferta oferta)
+        {
+            listaOfertas.Remove(oferta);
         }
 
         /// <summary>

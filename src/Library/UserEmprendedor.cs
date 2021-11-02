@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Ucu.Poo.Locations.Client;
+using System.Threading.Tasks;
 
 namespace Proyecto_Final
 {
@@ -43,25 +41,35 @@ namespace Proyecto_Final
         /// <summary>
         /// Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
         /// </summary>
-        
-        public void EliminarEspecializacion()
+                public void EliminarEspecializacion()
         {
             this.Emprendedor.EliminarEspecializacion();
         }
+        /// <summary>
+        /// DEBUG: Setea un emprendedor al usuario
+        /// </summary>
+        /// <param name="emprendedor"></param>
+        public void SetEmprendedor(Emprendedor emprendedor)
+        {
+            this.Emprendedor = emprendedor;
+        }
         
         /// <summary>
         /// 
         /// </summary>
-        public void VerOfertasPalabraClave()
+        public void VerOfertasPalabraClave(string palabraClave)
         {
-
+            Buscador buscador = new Buscador();
+            buscador.VerOfertasPalabraClave(palabraClave);
         }
         /// <summary>
         /// 
         /// </summary>
-        public void VerOfertasUbicacion()
+        public async Task<string> VerOfertasUbicacion()
         {
-
+            Buscador buscador = new Buscador();
+            await buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
+            return buscador.Content;
         }
     }
 }

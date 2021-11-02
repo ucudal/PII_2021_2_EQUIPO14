@@ -4,6 +4,35 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Proyecto_Final.Buscador">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Buscador.Content">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.Buscador.ContentBuilder">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)">
+            <summary>
+            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)">
+            <summary>
+            En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
+            </summary>
+            <param name="palabraClave"></param>
+            <returns></returns>
+        </member>
         <member name="T:Proyecto_Final.ConsoleInteraction">
             <summary>
             Clase encargada de interactuar con el usuario a travez de la consola.
@@ -31,6 +60,12 @@
             Interactua con el usuario para crear los datos respectivos de la empresa.
             </summary>
             <returns>Tupla de strings con los datos de la empresa.</returns>
+        </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmprendedor">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos del Emprendedor.
+            </summary>
+            <returns>Tupla de strings con los datos del emprendedor</returns>
         </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosHabilitacion">
             <summary>
@@ -90,6 +125,12 @@
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.ListaOfertas">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
              Otorga una lista de habilitaciones registradas por el programa <see cref="T:Proyecto_Final.Habilitaciones"/>.
@@ -143,6 +184,18 @@
             Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
             </summary>
             <param name="tipo"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarOfertas(Proyecto_Final.Oferta)">
+            <summary>
+            Agrega una oferta de la lista de ofertas.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
+            <summary>
+            Elimina una oferta de la lista de ofertas.
+            </summary>
+            <param name="oferta"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.CheckHabilitaciones(System.String)">
             <summary>
@@ -567,27 +620,18 @@
             Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.EnviarMsj">
+        <member name="M:Proyecto_Final.UserEmprendedor.SetEmprendedor(Proyecto_Final.Emprendedor)">
             <summary>
-            
+            DEBUG: Setea un emprendedor al usuario
             </summary>
+            <param name="emprendedor"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave">
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
             <summary>
             
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.CargarInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.GuardarInfo">
             <summary>
             
             </summary>
@@ -658,23 +702,6 @@
             DEBUG: Setea una empresa al usuario.
             </summary>
             <param name="empresa"></param>
-        </member>
-        <member name="T:Library.IPersistanciaDatos">
-            <summary>
-            Esta clase permite guardar y cargar información.
-            </summary>
-        </member>
-        <member name="M:Library.IPersistanciaDatos.CargarInfo(System.String)">
-            <summary>
-            Permite cargar información en base a un string.
-            </summary>
-            <param name="info"></param> 
-        </member>
-        <member name="M:Library.IPersistanciaDatos.GuardarInfo">
-            <summary>
-            Permite guardar información al transformarla a un string.
-            </summary>
-            <returns>Retorna un string</returns>
         </member>
     </members>
 </doc>

@@ -1,3 +1,5 @@
+using Ucu.Poo.Locations.Client;
+
 namespace Proyecto_Final
 {
     /// <summary>
