@@ -73,6 +73,27 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Interactua con el usuario para crear los datos respectivos del Emprendedor.
+        /// </summary>
+        /// <returns>Tupla de strings con los datos del emprendedor</returns>
+        public (string, string) CrearDatosEmprendedor() // (SRP)
+        {
+            Console.WriteLine("Ingrese su direccion: ");
+            string ubicacion = Console.ReadLine();
+            Console.WriteLine("Ingrese el rubro en el que se especializa: ");
+            string rubro = Console.ReadLine();
+            while (Singleton<Datos>.Instance.CheckRubros(rubro) == false)
+            {
+                // TODO: Imprimir los rubros disponibles.
+                Console.WriteLine("Ingrese el rubro de su empresa nuevamente: ");
+                rubro = Console.ReadLine();
+            }
+
+            (string, string) auxTuple = (ubicacion, rubro);
+            return auxTuple;
+        }
+
+        /// <summary>
         /// Interactua con el usuario para poder crear los datos de la habilitacion.
         /// </summary>
         /// <returns>Habilitacion.</returns>
@@ -178,5 +199,6 @@ namespace Proyecto_Final
             }
 
         }
+        
     }
 }

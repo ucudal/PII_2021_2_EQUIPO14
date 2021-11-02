@@ -48,7 +48,7 @@ namespace Proyecto_Final
         public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
         /// <summary>
-        /// Otorga un valor que representa al compradord de la oferta.
+        /// Otorga un valor que representa al comprador de la oferta.
         /// </summary>
         /// <value></value>
         public UserEmprendedor Comprador { get { return comprador; } set { this.comprador = value;} }
@@ -64,6 +64,7 @@ namespace Proyecto_Final
             this.Nombre = nombre;
             this.Product = product;
             this.HabilitacionesOferta = habilitacionesOferta;
+            Singleton<Datos>.Instance.AgregarOfertas(this);
         }
 
         /// <summary>

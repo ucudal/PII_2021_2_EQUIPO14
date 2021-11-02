@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 
 namespace Proyecto_Final
@@ -173,6 +172,23 @@ namespace Proyecto_Final
         public void EliminarTipo(TipoProducto tipo)
         {
             listaTipos.Remove(tipo);
+        }
+        /// <summary>
+        /// Agrega una oferta de la lista de ofertas.
+        /// </summary>
+        /// <param name="oferta"></param>
+        public void AgregarOfertas(Oferta oferta)
+        {
+            listaOfertas.Add(oferta);
+        }
+
+        /// <summary>
+        /// Elimina una oferta de la lista de ofertas.
+        /// </summary>
+        /// <param name="oferta"></param>
+        public void EliminarOfertas(Oferta oferta)
+        {
+            listaOfertas.Remove(oferta);
         }
 
         /// <summary>
