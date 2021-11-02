@@ -1,14 +1,27 @@
+
 using System;
+using System.Collections;
 
 namespace Proyecto_Final
 {
+    /// <summary>
+    /// Esta clase representa las habilitaciones necesarias para la tenencia de productos.
+    /// </summary>
     public class Habilitaciones
     {
-        public string Nombre { get; }
+        /// <summary>
+        /// Otorga el nombre de la Habilitación.
+        /// </summary>
+        /// <value>Nombre de la Habilitación.</value>
+        public string Habilitacion { get;}
 
-        public Habilitaciones(string nombre)
+        /// <summary>
+        /// Inicializa la clase habilitaciones.
+        /// </summary>
+        /// <param name="habilitacion"></param>
+        public Habilitaciones(string habilitacion)
         {
-            this.Nombre = nombre;
+            this.Habilitacion = habilitacion;
         }
     }
 }

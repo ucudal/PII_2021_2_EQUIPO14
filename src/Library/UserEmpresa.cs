@@ -4,82 +4,105 @@ using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
+    /// <summary>
+    /// Esta clase representa al usuario de la Empresa.
+    /// </summary>
     public class UserEmpresa
     {
-        public string Nombre { get; }
-        public Empresa Empresa { get; private set; }
+        private bool isInvited = false;
+        private Invitacion invitacion = null;
+        public Invitacion Invitacion { get; set; }
 
+        /// <summary>
+        /// Obtiene un valor del nombre del usuario empresa.
+        /// </summary>
+        /// <value>Nombre de la empresa</value>
+        public string Nombre { get; }
+        /// <summary>
+        /// Obtiene un valor del objeto Empresa.
+        /// </summary>
+        /// <value>Objeto del tipo Empresa</value>
+        public Empresa Empresa { get; set; }
+
+        /// <summary>
+        /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
+        /// </summary>
+        /// <value><c>true/false</c></value>
+        public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+
+        /// <summary>
+        /// Inicializa la clase UserEmpresa.
+        /// </summary>
+        /// <param name="nombre"></param>
         public UserEmpresa(string nombre)
         {
             this.Nombre = nombre;
         }
 
-        /* Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, 
-        ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas. */
-        public void AceptarInvitacion()
+        /// <summary>
+        /// Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
+        /// </summary>
+        /// <param name="input"></param>
+        public void AceptarInvitacion(string input)
         {
-            Console.WriteLine("Aceptar invitacion? Y/N");
-            string input = Console.ReadLine().ToUpper();   
-            if (input == "Y")
+            if (this.Invitacion != null)
             {
-                Console.WriteLine("Invitacion aceptada...");
-                Console.WriteLine("Ingrese el nombre de su empresa: ");
-                string nombre = Console.ReadLine();
-                Console.WriteLine("Ingrese la direccion de su empresa: ");
-                string ubicacion = Console.ReadLine();
-                Console.WriteLine("Ingrese el rubro de su empresa (podra agregar mas rubros luego si lo necesita): ");
-                string rubro = Console.ReadLine();
-                ArrayList rubros = new ArrayList();
-                rubros.Add(rubro);
-
-                // Deberia UserEmpresa ser la encargada de crear la empresa y el rubro? (Creator)
-                Rubro newRubro = new Rubro(rubros);
-                this.Empresa = new Empresa(nombre, ubicacion, newRubro);
-                Console.WriteLine($"Empresa: {this.Empresa.Nombre} creada!.");
-            }
-            else
-            {
-                Console.WriteLine("Invitacion rechazada...");
+                if (input == "Y")
+                {
+                    this.IsInvited = true;
+                }
+                else
+                {
+                    this.IsInvited = false;
+                }
             }
         }
 
-        public void AgregarRubro()
+        /// <summary>
+        /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
+        /// </summary>
+        /// <param name="oferta"></param>
+        /// <param name="userInterface"></param>
+        public void CrearMsjClave((string, string) datosMensaje)
         {
-            this.Empresa.AgregarRubro(); // (Delegacion)
+            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2));
         }
 
-        public void EliminarRubro()
+        /// <summary>
+        /// Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
+        /// </summary>
+        /// <param name="datosOferta"></param>
+        /// <param name="datosHabilitacion"></param>
+        /// <param name="datosProducto"></param>
+        /// <param name="datosTipoProducto"></param>
+        public void CrearOferta(string datosOferta, string datosHabilitacion, (string, string, string, int, int) datosProducto, string datosTipoProducto) // (Creator)
         {
-            this.Empresa.EliminarRubro(); // (Delegacion)
-        }
-
-        public void AgregarEspecializacion()
-        {
-            this.Empresa.AgregarEspecializacion(); // (Delegacion)
-        }
-
-        public void EliminarEspecializacion()
-        {
-            this.Empresa.EliminarEspecializacion(); // (Delegacion)
-        }
-
-        /* Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, 
-        para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores. */
-        public void CrearMsjClave(Oferta oferta)
-        {
-            this.Empresa.AgregarMsjClave(oferta); // (Delegacion)
-        }
-
-        /* Como empresa, quiero publicar una oferta de materiales reciclables o residuos, 
-        para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos. */
-        public void CrearOferta()
-        {
-            Console.WriteLine("Ingrese el nombre de su publicacion: ");
-            string nombre = Console.ReadLine();
-            Oferta newOferta = new Oferta(nombre);
+            TipoProducto tipoProducto = new TipoProducto(datosTipoProducto);
+            Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
+            Producto producto = new Producto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, tipoProducto);
+            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Console.WriteLine($"Oferta {newOferta} publicada!.");
+            Singleton<Datos>.Instance.AgregarOferta(newOferta);
+        }
+
+        /// <summary>
+        /// Cambia el estado de la oferta a vendido.
+        /// </summary>
+        /// <param name="oferta"></param>
+        /// <param name="userInterface"></param>
+        public void ConcretarOferta(Oferta oferta, IUserInterface userInterface)
+        {
+            bool isVendido = userInterface.ConcretarOferta(); // (Delegacion y SRP)
+            oferta.IsVendido = isVendido;
+        }
+
+        /// <summary>
+        /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
+        /// </summary>
+        public void VerificarVentas(IUserInterface userInterface)
+        {
+            this.Empresa.VerificarVentas(userInterface); // (Delegacion)
         }
     }
 }
