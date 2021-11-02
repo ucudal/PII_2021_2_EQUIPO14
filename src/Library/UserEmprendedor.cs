@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using Ucu.Poo.Locations.Client;
+using System.Threading.Tasks;
 
 namespace Proyecto_Final
 {
@@ -13,7 +13,7 @@ namespace Proyecto_Final
         /// Otorga el nombre del Emprendedor.
         /// </summary>
         /// <value>Nombre del Emprendedor.</value>
-        public string Nombre { get; }
+        public string Nombre { get; set;}
 
         /// <summary>
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
@@ -28,14 +28,6 @@ namespace Proyecto_Final
         public UserEmprendedor(string nombre)
         {
             this.Nombre = nombre;
-        }
-
-        /// <summary>
-        /// Registra el Emprendedor.
-        /// </summary>
-        public void RegistrarEmprendedor(IUserInterface userInterface)
-        {
-
         }
 
         /// <summary>
@@ -54,40 +46,45 @@ namespace Proyecto_Final
             this.Emprendedor.EliminarEspecializacion();
         }
         /// <summary>
-        /// 
+        /// DEBUG: Setea un emprendedor al usuario
         /// </summary>
-        public void EnviarMsj()
+        /// <param name="emprendedor"></param>
+        public void SetEmprendedor(Emprendedor emprendedor)
         {
-
+            this.Emprendedor = emprendedor;
         }
         /// <summary>
-        /// 
+        /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
-        public void VerOfertasPalabraClave()
+        public void ConsumoXTiempo()
         {
-
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void VerOfertasUbicacion()
-        {
-
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void CargarInfo()
-        {
-
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void GuardarInfo()
-        {
-
+            this.Emprendedor.ConsumoXTiempo();
         }
         
+        /// <summary>
+        /// En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
+        /// </summary>
+        public void VerOfertasPalabraClave(string palabraClave)
+        {
+            Buscador buscador = new Buscador();
+            buscador.VerOfertasPalabraClave(palabraClave);
+        }
+        /// <summary>
+        /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
+        /// </summary>
+        public async Task<string> VerOfertasUbicacion()
+        {
+            Buscador buscador = new Buscador();
+            await buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
+            return buscador.Content;
+        }
+        /// <summary>
+        /// En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
+        /// </summary>
+        public void VerOfertasTipo(string tipo)
+        {
+            Buscador buscador = new Buscador();
+            buscador.VerOfertasTipo(tipo);
+        }
     }
 }
