@@ -56,44 +56,76 @@
             </summary>
             <returns>Tipo de producto.</returns>
         </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarEspecializacion(Proyecto_Final.Empresa)">
-            <summary>
-            Interactua con el usuario Empresa para agregar una especializacion.
-            </summary>
-            <param name="empresa"></param>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AlreadyInvitedMsg">
-            <summary>
-            Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-            </summary>
-        </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave">
             <summary>
             Interactua con el usuario para crear un mensaje clave en una oferta especifica.
             </summary>
-            <param name="oferta"></param>
+            <returns></returns>
         </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.ConcretarOferta">
             <summary>
             Interactua con el usuario para concretar una oferta.
             </summary>
-            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+            <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
         </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
             <summary>
             Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
             </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.RegistrarEmprendedor">
-            <summary>
-            Interactua con el usuario para registrarse como emprendedor.
-            </summary>
+            <param name="info"></param>
         </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaOfertas">
+            <summary>
+            Otorga una lista con todas las publicaciones realizadas.
+            </summary>
+            <returns>Lista con Oferta.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarOferta(Proyecto_Final.Oferta)">
+            <summary>
+            Agrega una oferta a la lista de publicaciones.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaUsuarioEmpresa">
+            <summary>
+            Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
+            </summary>
+            <returns>Lista con UserEmpresa</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
+            <summary>
+            Agrega un UserEmpresa a la aplicacion.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaUsuarioEmprendedor">
+            <summary>
+            Otorga una lista con todos los UserEmprendedor registrados.
+            </summary>
+            <returns>Lista con UserEmprendedor</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
+            <summary>
+            Agrega un UserEmprendedor a la aplicacion.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaEmpresa">
+            <summary>
+            Lista con todas las Empresa registradas.
+            </summary>
+            <returns>Lista con Empresa</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarEmpresa(Proyecto_Final.Empresa)">
+            <summary>
+            Agrega una empresa a la aplicacion.
+            </summary>
+            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
@@ -193,7 +225,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro)">
+        <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro,Proyecto_Final.Habilitaciones)">
             <summary>
             Inicializa la clase Emprendedor
             </summary>
@@ -258,16 +290,23 @@
             <param name="ubicacion"></param>
             <param name="rubro"></param>
         </member>
+        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.ValueTuple{System.String,System.String})">
+            <summary>
+            Agrega una palabra clave a una publicacion determinada.
+            </summary>
+            <param name="datosMensaje"></param>
+        </member>
         <member name="M:Proyecto_Final.Empresa.AgregarEspecializacion(System.String)">
             <summary>
             Agrega una especializacion a la empresa y la guarda en un array.
             </summary>
             <param name="especializacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.VerificarVentas(Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.Empresa.VerificarVentas">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
+            <returns>Retorna un diccionario con los datos de las ventas</returns>
         </member>
         <member name="T:Proyecto_Final.Habilitaciones">
             <summary>
@@ -318,7 +357,7 @@
             <summary>
             Interactua con el usuario para aceptar la invitacion.
             </summary>
-            <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+            <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
         </member>
         <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
             <summary>
@@ -350,22 +389,11 @@
             </summary>
             <returns>Tipo de producto</returns>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.AgregarEspecializacion(Proyecto_Final.Empresa)">
-            <summary>
-            Interactua con el usuario Empresa para agregar una especializacion.
-            </summary>
-            <param name="empresa"></param>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AlreadyInvitedMsg">
-            <summary>
-            Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-            </summary>
-        </member>
         <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
             <summary>
             Interactua con el usuario para agregar palabras claves a una oferta.
             </summary>
-            <param name="oferta"></param>
+            <returns></returns>
         </member>
         <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
             <summary>
@@ -373,15 +401,20 @@
             </summary>
             <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
             <summary>
             Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
             </summary>
             <param name="item"></param>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.RegistrarEmprendedor">
+        <member name="T:Proyecto_Final.Invitacion">
             <summary>
-            Interactua con el usuario para registrarse como emprendedor.
+            Esta clase representa una invitacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Invitacion.#ctor">
+            <summary>
+            Inicializa la clase Invitacion.
             </summary>
         </member>
         <member name="T:Proyecto_Final.Oferta">
@@ -412,6 +445,18 @@
             Otorga las habilitaciones requeridas para que un emprendedor pueda aceptar la oferta <see cref="T:Proyecto_Final.Habilitaciones"/>.
             </summary>
             <value>Objeto del tipo Habilitaciones.</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.IsVendido">
+            <summary>
+            Otorga un valor booleano dependiendo de si la oferta fue vendida o no.
+            </summary>
+            <value>Retorna un valor booleano</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.Comprador">
+            <summary>
+            Otorga un valor que representa al compradord de la oferta.
+            </summary>
+            <value></value>
         </member>
         <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,Proyecto_Final.Habilitaciones)">
             <summary>
@@ -546,8 +591,7 @@
             <summary>
             Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
             </summary>
-            <param name="userEmpresa"></param>
-            <param name="userInterface"></param>
+            <param name="nombreUserEmpresa"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
@@ -617,6 +661,12 @@
             Esta clase representa al usuario de la Empresa.
             </summary>
         </member>
+        <member name="P:Proyecto_Final.UserEmpresa.Invitacion">
+            <summary>
+            Obtiene un valor del objeto Invitacion.
+            </summary>
+            <value>Devuelve una invitacion si la tiene, sino, <c>null</c></value>
+        </member>
         <member name="P:Proyecto_Final.UserEmpresa.Nombre">
             <summary>
             Obtiene un valor del nombre del usuario empresa.
@@ -647,12 +697,19 @@
             </summary>
             <param name="input"></param>
         </member>
+        <member name="M:Proyecto_Final.UserEmpresa.CrearEmpresa(System.String,System.String,System.String)">
+            <summary>
+            El usuario puede crear la empresa.
+            </summary>
+            <param name="nombre"></param>
+            <param name="ubicacion"></param>
+            <param name="rubro"></param>
+        </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.ValueTuple{System.String,System.String})">
             <summary>
             Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
             </summary>
-            <param name="oferta"></param>
-            <param name="userInterface"></param>
+            <param name="datosMensaje"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.ValueTuple{System.String,System.String,System.String,System.Int32,System.Int32},System.String)">
             <summary>
@@ -663,17 +720,31 @@
             <param name="datosProducto"></param>
             <param name="datosTipoProducto"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
             <summary>
-            Cambia el estado de la oferta a vendido.
+            Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad, el valor (en $ o U$S) de los mismos y el lugar donde se ubican, para que de esa forma los emprendedores tengan información de materiales o residuos disponibles.
             </summary>
-            <param name="oferta"></param>
-            <param name="userInterface"></param>
+            <param name="nombre"></param>
+            <param name="descripcion"></param>
+            <param name="ubicacion"></param>
+            <param name="valor"></param>
+            <param name="cantidad"></param>
+            <param name="datosTipoProducto"></param>
+            <returns></returns>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(System.String,System.String,System.String)">
+            <summary>
+            Cambia el estado de la oferta especifica a vendido.
+            </summary>
+            <param name="input"></param>
+            <param name="nombreOferta"></param>
+            <param name="nombreEmprendedor"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
+            <returns>Retorna un diccionario con los datos de las ventas</returns>
         </member>
     </members>
 </doc>
