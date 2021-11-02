@@ -66,10 +66,10 @@ namespace Proyecto_Final
         /// <summary>
         /// 
         /// </summary>
-        public async Task<string> VerOfertasUbicacion()
+        public string VerOfertasUbicacion()
         {
             Buscador buscador = new Buscador();
-            await buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
+            buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
     }

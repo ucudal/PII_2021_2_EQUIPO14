@@ -60,7 +60,7 @@ namespace Proyecto_Final
             //userEm1.VerOfertasUbicacion()
             UserEmprendedor userEm1 = new UserEmprendedor("Messi");
             
-            Emprendedor emprendedor = new Emprendedor("Gral Urquiza 2784",rb4);
+            Emprendedor emprendedor = new Emprendedor("Comandante Braga 2715",rb4);
             
             userEm1.SetEmprendedor(emprendedor);
 
