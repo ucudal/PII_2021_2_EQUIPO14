@@ -33,19 +33,19 @@ namespace Proyecto_Final
         /// Interactua con el usuario para aceptar la invitacion.
         /// </summary>
         /// <returns>Si se acepta la invitacion devuelve <c>true</c>, de lo contrario <c>false</c>.</returns>
-        public bool AceptarInvitacion() // (SRP)
+        public string AceptarInvitacion() // (SRP)
         {
             Console.WriteLine("Aceptar invitacion? Y/N: ");
             string input = Console.ReadLine().ToUpper();   
             if (input == "Y")
             {
                 Console.WriteLine("Invitacion aceptada!");
-                return true;
+                return input;
             }
             else
             {
                 Console.WriteLine("Invitacion rechazada...");
-                return false;
+                return input;
             }
         }
 
@@ -162,74 +162,42 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Interactua con el usuario Empresa para agregar una especializacion.
-        /// </summary>
-        /// <param name="empresa"></param>
-        public void AgregarEspecializacion(Empresa empresa) // (SRP)
-        {
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la especializacion a agregar: ");
-                string esp = Console.ReadLine();
-                empresa.AgregarEspecializacion(esp);
-                Console.WriteLine("Quiere agregar otra especializacion? Y/N: ");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }   
-        }
-
-        /// <summary>
-        /// Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-        /// </summary>
-        public void AlreadyInvitedMsg()
-        {
-            Console.WriteLine("Esta empresa ya fue invitada y aceptada.");
-        }
-
-        /// <summary>
         /// Interactua con el usuario para crear un mensaje clave en una oferta especifica.
         /// </summary>
-        /// <param name="oferta"></param>
-        public void AgregarMsjClave(Oferta oferta)
+        /// <returns></returns>
+        public (string, string) AgregarMsjClave()
         {
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la palabra clave a agregar: ");
-                string palabra = Console.ReadLine();
-                oferta.AgregarMsjClave(palabra);
-                Console.WriteLine("Quiere agregar otra palabra? Y/N: ");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }   
+            Console.WriteLine("Ingrese el nombre de su oferta: ");
+            string nombre = Console.ReadLine();
+            // TODO: Cheackear que esxita una publicacion con este nombre.
+            Console.WriteLine("Ingrese la palabra clave a agregar: ");
+            string palabra = Console.ReadLine();
+            return (nombre, palabra);
         }
 
         /// <summary>
         /// Interactua con el usuario para concretar una oferta.
         /// </summary>
-        /// <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        public bool ConcretarOferta()
+        /// <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
+        public string ConcretarOferta()
         {
             Console.WriteLine("Quieres concretar esta oferta? Y/N: ");
             string input = Console.ReadLine().ToUpper();
             
-            return (input == "Y") ? true : false;
+            return (input == "Y") ? "Y" : "N";
         }
 
         /// <summary>
         /// Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
         /// </summary>
-        /// <param name="item"></param>
-        public void ImprimirVendidos(KeyValuePair<string, int> item)
+        /// <param name="info"></param>
+        public void ImprimirVendidos(Dictionary<string, int> info)
         {
-            Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
+            }
+
         }
         
     }

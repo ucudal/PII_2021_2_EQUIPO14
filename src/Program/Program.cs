@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Proyecto_Final
 {
@@ -45,22 +48,26 @@ namespace Proyecto_Final
             Singleton<Datos>.Instance.AgregarTipo(tipo4);
             /**/
 
+            UserEmprendedor userEE1 = new UserEmprendedor("Juan");
             UserEmpresa userE1 = new UserEmpresa("Pepito");
             UserAdmin userA1 = new UserAdmin("Admin-1");
+            Singleton<Datos>.Instance.AgregarUsuarioEmprendedor(userEE1);
             ConsoleInteraction consoleInteraction = new ConsoleInteraction();
 
-            //userA1.InvitarEmpresa(userE1, consoleInteraction);
-            Empresa empresa = new Empresa("E1", "AsAs", rb4);
-            userE1.SetEmpresa(empresa);
+            Empresa empresa1 = new Empresa("Empresa", "Ubi", rb1);
 
-            userE1.CrearOferta(consoleInteraction);
+            userE1.Empresa = empresa1;
+            
+            Producto newProducto = new Producto("Plastico de Botellas", "Plastico reciclable", "Av3221", 10, 100, tipo1);   
+            Oferta newOferta = new Oferta("Plastico de Botellas", newProducto, hab1);
+            userE1.Empresa.Ofertas.Add(newOferta);
 
             userE1.VerificarVentas(consoleInteraction);
 
             //userEm1.VerOfertasUbicacion()
             UserEmprendedor userEm1 = new UserEmprendedor("Messi");
             
-            Emprendedor emprendedor = new Emprendedor("Comandante Braga 2715",rb4);
+            Emprendedor emprendedor = new Emprendedor("Comandante Braga 2715",rb4,hab1);
             
             userEm1.SetEmprendedor(emprendedor);
 
@@ -71,6 +78,25 @@ namespace Proyecto_Final
                 userE1.CrearMsjClave(oferta, consoleInteraction);
             }
             Console.WriteLine(userEm1.VerOfertasPalabraClave("Quiero"));
+            Producto newProducto1 = new Producto("Plastico de Botellas", "Plastico reciclable", "Av3221", 10, 130, tipo1);   
+            Oferta newOferta1 = new Oferta("Plastico de Botellas", newProducto1, hab1);
+            userE1.Empresa.Ofertas.Add(newOferta1);
+
+            Producto newProducto2 = new Producto("Meta;", "Plastico reciclable", "Av3221", 10, 400, tipo2);   
+            Oferta newOferta2 = new Oferta("Metal", newProducto2, hab1);
+            userE1.Empresa.Ofertas.Add(newOferta2);
+
+            Producto newProducto3 = new Producto("Vidrio", "Plastico reciclable", "Av3221", 10, 2, tipo3);   
+            Oferta newOferta3 = new Oferta("Vidrio", newProducto3, hab1);
+            userE1.Empresa.Ofertas.Add(newOferta3);
+
+            userE1.ConcretarOferta(consoleInteraction.ConcretarOferta(), "Plastico de Botellas", "Juan");
+            userE1.ConcretarOferta(consoleInteraction.ConcretarOferta(), "Metal", "Juan");
+            userE1.ConcretarOferta(consoleInteraction.ConcretarOferta(), "Vidrio", "Juan");
+
+
+            Dictionary<string, int> dict = userE1.Empresa.VerificarVentas();
+            consoleInteraction.ImprimirVendidos(dict);
         }
     }
 }

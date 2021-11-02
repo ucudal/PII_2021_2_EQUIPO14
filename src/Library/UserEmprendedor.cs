@@ -41,7 +41,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
         /// </summary>
-                public void EliminarEspecializacion()
+        public void EliminarEspecializacion()
         {
             this.Emprendedor.EliminarEspecializacion();
         }
@@ -53,9 +53,16 @@ namespace Proyecto_Final
         {
             this.Emprendedor = emprendedor;
         }
+        /// <summary>
+        /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
+        /// </summary>
+        public void ConsumoXTiempo()
+        {
+            this.Emprendedor.ConsumoXTiempo();
+        }
         
         /// <summary>
-        /// 
+        /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
         public string VerOfertasPalabraClave(string palabraClave)
         {
@@ -64,13 +71,23 @@ namespace Proyecto_Final
             return buscador.Content;
         }
         /// <summary>
-        /// 
+        /// En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
         /// </summary>
         public string VerOfertasUbicacion()
         {
             Buscador buscador = new Buscador();
             buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tipo"></param>
+        public void VerOfertasTipo(string tipo)
+        {
+            Buscador buscador = new Buscador();
+            buscador.VerOfertasTipo(tipo);
         }
     }
 }

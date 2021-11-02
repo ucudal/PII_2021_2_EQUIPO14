@@ -10,6 +10,13 @@ namespace Proyecto_Final
     public class UserEmpresa
     {
         private bool isInvited = false;
+        private Invitacion invitacion = null;
+
+        /// <summary>
+        /// Obtiene un valor del objeto Invitacion.
+        /// </summary>
+        /// <value>Devuelve una invitacion si la tiene, sino, <c>null</c></value>
+        public Invitacion Invitacion { get; set; }
 
         /// <summary>
         /// Obtiene un valor del nombre del usuario empresa.
@@ -20,7 +27,7 @@ namespace Proyecto_Final
         /// Obtiene un valor del objeto Empresa.
         /// </summary>
         /// <value>Objeto del tipo Empresa</value>
-        public Empresa Empresa { get; private set; }
+        public Empresa Empresa { get; set; }
 
         /// <summary>
         /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
@@ -40,76 +47,115 @@ namespace Proyecto_Final
         /// <summary>
         /// Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
         /// </summary>
-        /// <param name="isAccepted"></param>
-        /// <param name="userInterface"></param>
-        public void AceptarInvitacion(bool isAccepted, IUserInterface userInterface) // (Creator)
+        /// <param name="input"></param>
+        public void AceptarInvitacion(string input)
         {
-            if (isAccepted == true)
+            if (this.Invitacion != null)
             {
-                this.IsInvited = true; // La empresa cambia su estado a invitada/aceptada.
-                // Crea la empresa en base a los datos obtenidos de la interface.
-                (string, string, string) datos = userInterface.CrearDatosEmpresa(); // (Delegacion)
-                Rubro newRubro = new Rubro(datos.Item3);
-                this.Empresa = new Empresa(datos.Item1, datos.Item2, newRubro);
+                if (input == "Y")
+                {
+                    this.IsInvited = true;
+                }
+                else
+                {
+                    this.IsInvited = false;
+                }
             }
+        }
+
+        /// <summary>
+        /// El usuario puede crear la empresa.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="ubicacion"></param>
+        /// <param name="rubro"></param>
+        public void CrearEmpresa(string nombre, string ubicacion, string rubro)
+        {
+            Rubro newRubro = new Rubro(rubro);
+            Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
+
+            this.Empresa = newEmpresa;
+            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa);
         }
 
         /// <summary>
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
-        /// <param name="oferta"></param>
-        /// <param name="userInterface"></param>
-        public void CrearMsjClave(Oferta oferta, IUserInterface userInterface)
+        /// <param name="datosMensaje"></param>
+        public void CrearMsjClave((string, string) datosMensaje)
         {
-            userInterface.AgregarMsjClave(oferta); // (Delegacion) 
+            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2));
         }
 
         /// <summary>
         /// Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
         /// </summary>
-        /// <param name="userInterface"></param>
-        public void CrearOferta(IUserInterface userInterface) // (Creator)
+        /// <param name="datosOferta"></param>
+        /// <param name="datosHabilitacion"></param>
+        /// <param name="datosProducto"></param>
+        /// <param name="datosTipoProducto"></param>
+        public void CrearOferta(string datosOferta, string datosHabilitacion, (string, string, string, int, int) datosProducto, string datosTipoProducto) // (Creator)
         {
-            string datosOferta = userInterface.CrearDatosOferta(); // (Delegacion y SRP)
-            string datosHabilitacion = userInterface.CrearDatosHabilitacion(); // (Delegacion y SRP) 
-            (string, string, string, int, int) datosProducto = userInterface.CrearDatosProducto(); // (Delegacion y SRP)
-            string datosTipoProducto = userInterface.CrearDatosTipoProducto();
-
-            TipoProducto tipoProducto = new TipoProducto(datosTipoProducto);
+            Producto producto = this.CrearProducto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, datosTipoProducto);
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Producto producto = new Producto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, tipoProducto);
             Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            // TODO: Agregar publicacion a BD.
+            Singleton<Datos>.Instance.AgregarOferta(newOferta);
         }
 
         /// <summary>
-        /// Cambia el estado de la oferta a vendido.
+        /// Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad, el valor (en $ o U$S) de los mismos y el lugar donde se ubican, para que de esa forma los emprendedores tengan información de materiales o residuos disponibles.
         /// </summary>
-        /// <param name="oferta"></param>
-        /// <param name="userInterface"></param>
-        public void ConcretarOferta(Oferta oferta, IUserInterface userInterface)
+        /// <param name="nombre"></param>
+        /// <param name="descripcion"></param>
+        /// <param name="ubicacion"></param>
+        /// <param name="valor"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="datosTipoProducto"></param>
+        /// <returns></returns>
+        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto)
         {
-            bool isVendido = userInterface.ConcretarOferta(); // (Delegacion y SRP)
-            oferta.IsVendido = isVendido;
+            TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
+            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
+
+            return newProducto;
+        }
+
+        /// <summary>
+        /// Cambia el estado de la oferta especifica a vendido.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="nombreOferta"></param>
+        /// <param name="nombreEmprendedor"></param>
+        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor)
+        {
+            if (input == "Y")
+            {
+                foreach (Oferta oferta in this.Empresa.Ofertas)
+                {
+                    if (oferta.Nombre == nombreOferta)
+                    {
+                        foreach (UserEmprendedor emprendedor in Singleton<Datos>.Instance.ListaUsuarioEmprendedor())
+                        {
+                            if (emprendedor.Nombre == nombreEmprendedor)
+                            {
+                                oferta.IsVendido = true;
+                                oferta.Comprador = emprendedor;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
-        public void VerificarVentas(IUserInterface userInterface)
+        /// <returns>Retorna un diccionario con los datos de las ventas</returns>
+        public Dictionary<string, int> VerificarVentas()
         {
-            this.Empresa.VerificarVentas(userInterface); // (Delegacion)
-        }
-
-        /// <summary>
-        /// DEBUG: Setea una empresa al usuario.
-        /// </summary>
-        /// <param name="empresa"></param>
-        public void SetEmpresa(Empresa empresa)
-        {
-            this.Empresa = empresa;
+            return this.Empresa.VerificarVentas(); // (Delegacion)
         }
     }
 }

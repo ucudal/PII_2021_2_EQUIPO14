@@ -26,19 +26,15 @@ namespace Proyecto_Final
         /// <summary>
         /// Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
         /// </summary>
-        /// <param name="userEmpresa"></param>
-        /// <param name="userInterface"></param>
-        public void InvitarEmpresa(UserEmpresa userEmpresa, IUserInterface userInterface)
+        /// <param name="nombreUserEmpresa"></param>
+        public void InvitarEmpresa(string nombreUserEmpresa)
         {
-            // Si la empresa no fue invitada, la invita.
-            if (!userEmpresa.IsInvited)
+            foreach (UserEmpresa user in Singleton<Datos>.Instance.ListaUsuarioEmpresa())
             {
-                bool isAccepted = userInterface.AceptarInvitacion();
-                userEmpresa.AceptarInvitacion(isAccepted, userInterface);
-            }
-            else 
-            {
-                userInterface.AlreadyInvitedMsg();
+                if (user.Nombre == nombreUserEmpresa)
+                {
+                    user.Invitacion = new Invitacion();
+                }
             }
         }
     }
