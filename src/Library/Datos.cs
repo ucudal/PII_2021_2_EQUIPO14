@@ -10,22 +10,40 @@ namespace Proyecto_Final
     {
         private ArrayList listaOfertas = new ArrayList();
 
+
+        /// <summary>
+        /// Otorga una lista con todas las publicaciones realizadas.
+        /// </summary>
+        /// <returns>Lista con Oferta.</returns>
         public ArrayList ListaOfertas()
         {
             return this.listaOfertas;
         }
 
+
+        /// <summary>
+        /// Agrega una oferta a la lista de publicaciones.
+        /// </summary>
+        /// <param name="oferta"></param>
         public void AgregarOferta(Oferta oferta)
         {
             this.listaOfertas.Add(oferta);
         }
         private ArrayList listaUsuarioEmpresa = new ArrayList();
 
+        /// <summary>
+        /// Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
+        /// </summary>
+        /// <returns>Lista con UserEmpresa</returns>
         public ArrayList ListaUsuarioEmpresa()
         {
             return this.listaUsuarioEmpresa;
         }
 
+        /// <summary>
+        /// Agrega un UserEmpresa a la aplicacion.
+        /// </summary>
+        /// <param name="user"></param>
         public void AgregarUsuarioEmpresa(UserEmpresa user)
         {
             this.listaUsuarioEmpresa.Add(user);
@@ -33,11 +51,19 @@ namespace Proyecto_Final
 
         private ArrayList listaUsuarioEmprendedor = new ArrayList();
 
+        /// <summary>
+        /// Otorga una lista con todos los UserEmprendedor registrados.
+        /// </summary>
+        /// <returns>Lista con UserEmprendedor</returns>
         public ArrayList ListaUsuarioEmprendedor()
         {
             return this.listaUsuarioEmprendedor;
         }
 
+        /// <summary>
+        /// Agrega un UserEmprendedor a la aplicacion.
+        /// </summary>
+        /// <param name="user"></param>
         public void AgregarUsuarioEmprendedor(UserEmprendedor user)
         {
             this.listaUsuarioEmprendedor.Add(user);
@@ -45,11 +71,19 @@ namespace Proyecto_Final
 
         private ArrayList listaEmpresa = new ArrayList();
 
+        /// <summary>
+        /// Lista con todas las Empresa registradas.
+        /// </summary>
+        /// <returns>Lista con Empresa</returns>
         public ArrayList ListaEmpresa()
         {
             return this.listaEmpresa;
         }
 
+        /// <summary>
+        /// Agrega una empresa a la aplicacion.
+        /// </summary>
+        /// <param name="user"></param>
         public void AgregarEmpresa(Empresa user)
         {
             this.listaEmpresa.Add(user);
