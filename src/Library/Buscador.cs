@@ -69,5 +69,30 @@ namespace Proyecto_Final
             }
             return result.ToString();
         }
+
+        /// <summary>
+        /// En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
+        public string VerOfertasTipo(string tipo)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                foreach(string tipoproduct in oferta.Product.Tipo)
+                {
+                    if(tipo == tipoproduct)
+                    {
+                        result.Append($"{oferta} \n");
+                    }
+                }
+                if(result.ToString() == "")
+                {
+                    result.Append("No se encontraron ofertas que concuerden con el tipo de producto deseado.");
+                }
+            }
+            return result.ToString();
+        }
     }
 }

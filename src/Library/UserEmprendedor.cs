@@ -71,5 +71,14 @@ namespace Proyecto_Final
             await buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void VerOfertasTipo(string tipo)
+        {
+            Buscador buscador = new Buscador();
+            buscador.VerOfertasTipo(tipo);
+        }
     }
 }
