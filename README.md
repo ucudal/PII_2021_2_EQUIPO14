@@ -24,9 +24,9 @@ Aquí veremos una explicación general e informal de las funciones del software 
 - [X] Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
 
 ### Emprendedor
-- [ ] Como emprendedor, quiero registrarme en la platarforma indicando nombre, ubicación, rubro, habilitaciones y especializaciones, para que de esa forma pueda ver las ofertas de materiales o residuos.
+- [X] Como emprendedor, quiero registrarme en la platarforma indicando nombre, ubicación, rubro, habilitaciones y especializaciones, para que de esa forma pueda ver las ofertas de materiales o residuos.
 
-- [ ] Como emprendedor, quiero poder buscar materiales ofrecidos por empresas mediante palabras clave, categorías, o por zona, para de esa forma obtener insumos para mi emprendimiento.
+- [X] Como emprendedor, quiero poder buscar materiales ofrecidos por empresas mediante palabras clave, categorías, o por zona, para de esa forma obtener insumos para mi emprendimiento.
 
 - [ ] Como emprendedor, quiero saber qué materiales se generan constantemente, para de esa forma planificar que insumos tengo disponibles.
 
@@ -41,7 +41,7 @@ A su vez nos costo bastante imaginarnos todo el programa de principio a fin, ya 
 Por otra parte, compartiendo ideas tanto entre nosotros, con algunos integrantes de otros equipos y con los profesores, pudimos ir armando de a poco la idea general y la estructura del programa.
 Aprendimos a utilizar Doxygen y a formular documentacion utilizando comentarios XML, lo cual para nosotros era completamente nuevo.
 
-Tuvimos muchos contratiempos, especialmente para construir la base de la aplicacion dado que no lograbamos entender la consigna en su totalidad. Por esto tuvimos que reescribir varias veces las clases que habiamos creado o modificar las ya existentes. A su vez, a medida que la aplicacion se iba haciendo mas y mas grandes, nos dimos cuenta que nos faltaban mas funcionalidades, por lo cual tuvimos que implementarlas.
+Tuvimos muchos contratiempos, especialmente para construir la base de la aplicacion dado que no lograbamos entender la consigna en su totalidad. Por esto tuvimos que reescribir varias veces las clases que habiamos creado o modificar las ya existentes. A su vez, a medida que la aplicacion se iba haciendo mas y mas grande, nos dimos cuenta que nos faltaban mas funcionalidades, por lo cual tuvimos que implementarlas.
 
 ## Recursos
 [refactoring.guru/design-patterns](https://refactoring.guru/design-patterns)
