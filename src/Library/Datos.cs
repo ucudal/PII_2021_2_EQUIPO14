@@ -30,6 +30,30 @@ namespace Proyecto_Final
         {
             this.listaUsuarioEmpresa.Add(user);
         }
+
+        private ArrayList listaUsuarioEmprendedor = new ArrayList();
+
+        public ArrayList ListaUsuarioEmprendedor()
+        {
+            return this.listaUsuarioEmprendedor;
+        }
+
+        public void AgregarUsuarioEmprendedor(UserEmprendedor user)
+        {
+            this.listaUsuarioEmprendedor.Add(user);
+        }
+
+        private ArrayList listaEmpresa = new ArrayList();
+
+        public ArrayList ListaEmpresa()
+        {
+            return this.listaEmpresa;
+        }
+
+        public void AgregarEmpresa(Empresa user)
+        {
+            this.listaEmpresa.Add(user);
+        }
         private ArrayList listaHabilitaciones = new ArrayList();
 
         ///<summary>
