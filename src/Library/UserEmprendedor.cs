@@ -57,10 +57,11 @@ namespace Proyecto_Final
         /// <summary>
         /// 
         /// </summary>
-        public void VerOfertasPalabraClave(string palabraClave)
+        public string VerOfertasPalabraClave(string palabraClave)
         {
             Buscador buscador = new Buscador();
             buscador.VerOfertasPalabraClave(palabraClave);
+            return buscador.Content;
         }
         /// <summary>
         /// 

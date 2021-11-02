@@ -56,6 +56,21 @@ namespace Proyecto_Final
             userE1.CrearOferta(consoleInteraction);
 
             userE1.VerificarVentas(consoleInteraction);
+
+            //userEm1.VerOfertasUbicacion()
+            UserEmprendedor userEm1 = new UserEmprendedor("Messi");
+            
+            Emprendedor emprendedor = new Emprendedor("Gral Urquiza 2784",rb4);
+            
+            userEm1.SetEmprendedor(emprendedor);
+
+            Console.WriteLine(userEm1.VerOfertasUbicacion());
+
+            foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                userE1.CrearMsjClave(oferta, consoleInteraction);
+            }
+            Console.WriteLine(userEm1.VerOfertasPalabraClave("Quiero"));
         }
     }
 }

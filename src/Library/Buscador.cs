@@ -1,6 +1,7 @@
 using Ucu.Poo.Locations.Client;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Proyecto_Final
 {
@@ -29,8 +30,9 @@ namespace Proyecto_Final
         /// <summary>
         /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
-        public async Task<StringBuilder> VerOfertasUbicacion(string direccion)
+        public async Task<Distance> VerOfertasUbicacion(string direccion)
         {
+            ContentBuilder.Clear();
             LocationApiClient client = new LocationApiClient();
             Location ubicacionEmprendedor = await client.GetLocationAsync(direccion);
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
@@ -39,10 +41,12 @@ namespace Proyecto_Final
                 Distance distance = await client.GetDistanceAsync(ubicacionEmprendedor,ubicacionOferta);
                 if (distance.TravelDistance <= 10)
                 {
-                    ContentBuilder.Append($"{oferta} \n");
+                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
-            return ContentBuilder;
+            Distance result = JsonSerializer.Deserialize<Distance>(Content,
+            new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+            return result;
         }
 
         /// <summary>
@@ -50,24 +54,23 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="palabraClave"></param>
         /// <returns></returns>
-        public string VerOfertasPalabraClave(string palabraClave)
+        public void VerOfertasPalabraClave(string palabraClave)
         {
-            StringBuilder result = new StringBuilder();
+            ContentBuilder.Clear();
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
                 foreach(string palabrasClave in oferta.PalabrasClave)
                 {
-                    if(palabraClave == palabrasClave)
+                    if(palabraClave.ToLower() == palabrasClave.ToLower())
                     {
-                        result.Append($"{oferta} \n");
+                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }
                 }
-                if(result.ToString() == "")
+                if(ContentBuilder.ToString() == "")
                 {
-                    result.Append("No se encontraron ofertas que concuerdan con esa palabra clave.");
+                    ContentBuilder.Append("No se encontraron ofertas que concuerdan con esa palabra clave.");
                 }
             }
-            return result.ToString();
         }
     }
 }
