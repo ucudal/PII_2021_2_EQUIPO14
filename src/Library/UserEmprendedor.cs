@@ -55,7 +55,7 @@ namespace Proyecto_Final
         }
         
         /// <summary>
-        /// 
+        /// En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
         /// </summary>
         public void VerOfertasPalabraClave(string palabraClave)
         {
@@ -63,7 +63,7 @@ namespace Proyecto_Final
             buscador.VerOfertasPalabraClave(palabraClave);
         }
         /// <summary>
-        /// 
+        /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
         public async Task<string> VerOfertasUbicacion()
         {
@@ -71,9 +71,8 @@ namespace Proyecto_Final
             await buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
-
         /// <summary>
-        /// 
+        /// En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
         /// </summary>
         public void VerOfertasTipo(string tipo)
         {

@@ -69,7 +69,6 @@ namespace Proyecto_Final
             }
             return result.ToString();
         }
-
         /// <summary>
         /// En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
         /// </summary>

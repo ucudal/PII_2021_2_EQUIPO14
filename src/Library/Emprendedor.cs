@@ -79,7 +79,9 @@ namespace Proyecto_Final
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
         public void Consumoxtiempo()
-        {}
+        {
+            
+        }
 
     }
 }
