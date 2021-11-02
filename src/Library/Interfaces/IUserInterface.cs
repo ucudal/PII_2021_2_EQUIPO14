@@ -20,7 +20,7 @@ namespace Proyecto_Final
         /// Interactua con el usuario para aceptar la invitacion.
         /// </summary>
         /// <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
-        bool AceptarInvitacion();
+        string AceptarInvitacion();
         
         /// <summary>
         /// Interactua con el usuario para crear los datos respectivos de la empresa.
@@ -67,7 +67,7 @@ namespace Proyecto_Final
         /// Interactua con el usuario para agregar palabras claves a una oferta.
         /// </summary>
         /// <param name="oferta"></param>
-        void AgregarMsjClave(Oferta oferta);
+        (string, string) AgregarMsjClave();
 
         /// <summary>
         /// Interactua con el usuario para concretar una oferta.
@@ -80,5 +80,10 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="item"></param>
         void ImprimirVendidos(KeyValuePair<string, int> item);
+
+        /// <summary>
+        /// Interactua con el usuario para registrarse como emprendedor.
+        /// </summary>
+        void RegistrarEmprendedor();
     }
 }

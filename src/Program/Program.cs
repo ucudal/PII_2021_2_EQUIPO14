@@ -48,14 +48,6 @@ namespace Proyecto_Final
             UserEmpresa userE1 = new UserEmpresa("Pepito");
             UserAdmin userA1 = new UserAdmin("Admin-1");
             ConsoleInteraction consoleInteraction = new ConsoleInteraction();
-
-            //userA1.InvitarEmpresa(userE1, consoleInteraction);
-            Empresa empresa = new Empresa("E1", "AsAs", rb4);
-            userE1.SetEmpresa(empresa);
-
-            userE1.CrearOferta(consoleInteraction);
-
-            userE1.VerificarVentas(consoleInteraction);
         }
     }
 }

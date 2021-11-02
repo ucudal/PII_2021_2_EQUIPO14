@@ -1,9 +1,9 @@
-namespace Library
+namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase permite guardar y cargar información.
     /// </summary>
-    public interface IPersistanciaDatos
+    public interface IPersistenciaDatos
     {
         /// <summary>
         /// Permite cargar información en base a un string.

@@ -31,6 +31,14 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Registra el Emprendedor.
+        /// </summary>
+        public void RegistrarEmprendedor(IUserInterface userInterface)
+        {
+
+        }
+
+        /// <summary>
         /// Agrega a la lista de especializaciones que contiene la clase "Emprendedor" una especialización.
         /// </summary>
         public void AgregarEspecializacion()
@@ -41,7 +49,6 @@ namespace Proyecto_Final
         /// <summary>
         /// Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
         /// </summary>
-        
         public void EliminarEspecializacion()
         {
             this.Emprendedor.EliminarEspecializacion();

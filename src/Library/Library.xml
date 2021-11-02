@@ -67,7 +67,7 @@
             Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave">
             <summary>
             Interactua con el usuario para crear un mensaje clave en una oferta especifica.
             </summary>
@@ -85,6 +85,11 @@
             </summary>
             <param name="item"></param>
         </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.RegistrarEmprendedor">
+            <summary>
+            Interactua con el usuario para registrarse como emprendedor.
+            </summary>
+        </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
@@ -92,19 +97,19 @@
         </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
-             Otorga una lista de habilitaciones registradas por el programa.
+             Otorga una lista de habilitaciones registradas por el programa <see cref="T:Proyecto_Final.Habilitaciones"/>.
              </summary>
-             <returns>Retorna la lista "listaHabilitaciones" de la clase "Datos".</returns>//  
+             <returns>Retorna la lista "listaHabilitaciones" de la clase "Datos".</returns>  
         </member>
         <member name="M:Proyecto_Final.Datos.ListaTipos">
             <summary>
-            Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa.
+            Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <see cref="T:Proyecto_Final.TipoProducto"/>.
             </summary>
             <returns>Retorna la lista "listaTipos" de la clase "Datos".</returns>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaRubros">
             <summary>
-             Otorga una lista de rubros disponibles para asignarle a una empresa.
+             Otorga una lista de rubros disponibles para asignarle a una empresa <see cref="T:Proyecto_Final.Rubro"/>.
              </summary>
              <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
         </member>
@@ -165,6 +170,51 @@
             <param name="rubro"></param>
             <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.Emprendedor">
+            <summary>
+            Esta clase representa los datos adicionales del emprendedor.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Emprendedor.Ubicacion">
+            <summary>
+            Otorga la ubicación del Emprendedor
+            </summary>
+            <value>Ubicación del Emprendedor</value>
+        </member>
+        <member name="P:Proyecto_Final.Emprendedor.Rubro">
+            <summary>
+            Otorga una instancia de objeto "Rubro" del Emprendedor
+            </summary>
+            <value>Objeto de tipo "Rubro".</value>
+        </member>
+        <member name="P:Proyecto_Final.Emprendedor.Especializaciones">
+            <summary>
+            Otorga una lista de strings que representan las especializaciones del Emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro)">
+            <summary>
+            Inicializa la clase Emprendedor
+            </summary>
+            <param name="ubicacion"></param>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.AgregarEspecializacion">
+            <summary>
+            Agrega una Especialización al Emprendedor.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.EliminarEspecializacion">
+            <summary>
+            Elimina una Especialización al Emprendedor.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.ConsumoxTiempo">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Proyecto_Final.Empresa">
             <summary>
             Esta clase representa a la Empresa.
@@ -218,6 +268,40 @@
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
+        </member>
+        <member name="T:Proyecto_Final.Habilitaciones">
+            <summary>
+            Esta clase representa las habilitaciones necesarias para la tenencia de productos.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Habilitaciones.Habilitacion">
+            <summary>
+            Otorga el nombre de la Habilitación.
+            </summary>
+            <value>Nombre de la Habilitación.</value>
+        </member>
+        <member name="M:Proyecto_Final.Habilitaciones.#ctor(System.String)">
+            <summary>
+            Inicializa la clase habilitaciones.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="T:Proyecto_Final.IPersistenciaDatos">
+            <summary>
+            Esta clase permite guardar y cargar información.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.IPersistenciaDatos.CargarInfo(System.String)">
+            <summary>
+            Permite cargar información en base a un string.
+            </summary>
+            <param name="info"></param> 
+        </member>
+        <member name="M:Proyecto_Final.IPersistenciaDatos.GuardarInfo">
+            <summary>
+            Permite guardar información al transformarla a un string.
+            </summary>
+            <returns>Retorna un string</returns>
         </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>
@@ -277,7 +361,7 @@
             Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
             <summary>
             Interactua con el usuario para agregar palabras claves a una oferta.
             </summary>
@@ -295,24 +379,238 @@
             </summary>
             <param name="item"></param>
         </member>
+        <member name="M:Proyecto_Final.IUserInterface.RegistrarEmprendedor">
+            <summary>
+            Interactua con el usuario para registrarse como emprendedor.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.Oferta">
+            <summary>
+            Esta clase representa las ofertas creadas por un empresario.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.Nombre">
+            <summary>
+            Otorga el nombre de la Oferta
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.Product">
+            <summary>
+            Otorga un objeto del Producto que se está ofertando <see cref="T:Proyecto_Final.Producto"/>.
+            </summary>
+            <value>Objeto del tipo "Producto".</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.PalabrasClave">
+            <summary>
+            Otorga una lista de strings "Palabras Clave" que pueden utilizarse para buscar la oferta.
+            </summary>
+            <value>Retorna la lista "palabrasClave".</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.HabilitacionesOferta">
+            <summary>
+            Otorga las habilitaciones requeridas para que un emprendedor pueda aceptar la oferta <see cref="T:Proyecto_Final.Habilitaciones"/>.
+            </summary>
+            <value>Objeto del tipo Habilitaciones.</value>
+        </member>
+        <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,Proyecto_Final.Habilitaciones)">
+            <summary>
+            Inicializa la clase Oferta.
+            </summary>
+            <param name="nombre"></param>
+            <param name="product"></param>
+            <param name="habilitacionesOferta"></param>
+        </member>
         <member name="M:Proyecto_Final.Oferta.AgregarMsjClave(System.String)">
             <summary>
             Agrega una palabra clave a la listas de palabras clave de la oferta.
             </summary>
             <param name="palabra"></param>
         </member>
+        <member name="T:Proyecto_Final.Producto">
+            <summary>
+            Esta clase representa al producto que se ofertará.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Producto.Nombre">
+            <summary>
+            Otorga el nombre del producto.
+            </summary>
+            <value>Nombre del producto.</value>
+        </member>
+        <member name="P:Proyecto_Final.Producto.Descripcion">
+            <summary>
+            Otorga una descripción breve del producto.
+            </summary>
+            <value>Descripción del Producto.</value>
+        </member>
+        <member name="P:Proyecto_Final.Producto.Ubicacion">
+            <summary>
+            Otorga una ubicación en la que se encuentra el producto.
+            </summary>
+            <value>Ubicación del Producto</value>
+        </member>
+        <member name="P:Proyecto_Final.Producto.Valor">
+            <summary>
+            Otorga el valor monetario del producto.
+            </summary>
+            <value>Valor del producto.</value>
+        </member>
+        <member name="P:Proyecto_Final.Producto.Cantidad">
+            <summary>
+            Otorga la cantidad ofertable del producto.
+            </summary>
+            <value>Cantidad del producto.</value>
+        </member>
         <member name="P:Proyecto_Final.Producto.Tipo">
             <summary>
-            Obtiene un valor del tipo del producto.
+            Otorga un objeto "TipoProducto" que representa el tipo de producto <see cref="T:Proyecto_Final.TipoProducto"/>.
             </summary>
-            <value>Tipo del producto.</value>
+            <value>Objeto del tipo "TipoProducto".</value>
         </member>
-        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa(Proyecto_Final.UserEmpresa,Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.Producto.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,Proyecto_Final.TipoProducto)">
+            <summary>
+            Inicializa la clase Producto.
+            </summary>
+            <param name="nombre"></param>
+            <param name="descripcion"></param>
+            <param name="tipo"></param>
+            <param name="ubicacion"></param>
+            <param name="valor"></param>
+            <param name="cantidad"></param>
+        </member>
+        <member name="T:Proyecto_Final.Rubro">
+            <summary>
+            Esta clase representa el rubro de una empresa.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Rubro.Rubros">
+            <summary>
+            Retorna el nombre del rubro de una empresa.
+            </summary>
+            <value>Nombre del rubro de la empresa.</value>
+        </member>
+        <member name="M:Proyecto_Final.Rubro.#ctor(System.String)">
+            <summary>
+            Inicializa la clase rubro.
+            </summary>
+            <param name="rubro"></param>
+        </member>
+        <member name="T:Proyecto_Final.Singleton`1">
+            <summary>
+            Esta clase tiene como función funcionar como base para crear una sola instancia de clases almacenadoras de datos en el programa.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Proyecto_Final.Singleton`1.Instance">
+            <summary>
+            Otorga una instancia de la clase que sea Singleton.
+            </summary>
+            <value><c>true</c>Crea una instancia de la clase Singleton y la retorna,<c>false</c> solo retorna la instancia de clase ya existente.</value>
+        </member>
+        <member name="T:Proyecto_Final.TipoProducto">
+            <summary>
+            Esta clase representa una clasificación general de un producto.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.TipoProducto.Nombre">
+            <summary>
+            Otorga el nombre del tipo de clasificación del producto.
+            </summary>
+            <value>Nombre del tipo de producto.</value>
+        </member>
+        <member name="M:Proyecto_Final.TipoProducto.#ctor(System.String)">
+            <summary>
+            Inicializa la clase TipoProducto.
+            </summary>
+            <param name="tipo"></param>
+        </member>
+        <member name="T:Proyecto_Final.UserAdmin">
+            <summary>
+            Esta clase representa a los administradores del programa.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.UserAdmin.Nombre">
+            <summary>
+            Otorga el nombre de usuario del administrador.
+            </summary>
+            <value>Nombre de usuario del administrador</value>
+        </member>
+        <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String)">
+            <summary>
+            Inicializa la clase UserAdmin.
+            </summary>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa(System.String)">
             <summary>
             Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
             </summary>
             <param name="userEmpresa"></param>
             <param name="userInterface"></param>
+        </member>
+        <member name="T:Proyecto_Final.UserEmprendedor">
+            <summary>
+            Esta clase representa a los usuarios emprendedores en el sistema.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.UserEmprendedor.Nombre">
+            <summary>
+            Otorga el nombre del Emprendedor.
+            </summary>
+            <value>Nombre del Emprendedor.</value>
+        </member>
+        <member name="P:Proyecto_Final.UserEmprendedor.Emprendedor">
+            <summary>
+            Otorga los datos existentes en el objeto Emprendedor <see cref="P:Proyecto_Final.UserEmprendedor.Emprendedor"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String)">
+            <summary>
+            Inicializa la clase UserEmprendedor.
+            </summary>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.RegistrarEmprendedor(Proyecto_Final.IUserInterface)">
+            <summary>
+            Registra el Emprendedor.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.AgregarEspecializacion">
+            <summary>
+            Agrega a la lista de especializaciones que contiene la clase "Emprendedor" una especialización.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.EliminarEspecializacion">
+            <summary>
+            Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.EnviarMsj">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.CargarInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.GuardarInfo">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Proyecto_Final.UserEmpresa">
             <summary>
@@ -343,25 +641,27 @@
             </summary>
             <param name="nombre"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.Boolean,Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.String)">
             <summary>
             Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
             </summary>
-            <param name="isAccepted"></param>
-            <param name="userInterface"></param>
+            <param name="input"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.ValueTuple{System.String,System.String})">
             <summary>
             Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
             </summary>
             <param name="oferta"></param>
             <param name="userInterface"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.ValueTuple{System.String,System.String,System.String,System.Int32,System.Int32},System.String)">
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
-            <param name="userInterface"></param>
+            <param name="datosOferta"></param>
+            <param name="datosHabilitacion"></param>
+            <param name="datosProducto"></param>
+            <param name="datosTipoProducto"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
             <summary>
@@ -374,12 +674,6 @@
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
-        </member>
-        <member name="M:Proyecto_Final.UserEmpresa.SetEmpresa(Proyecto_Final.Empresa)">
-            <summary>
-            DEBUG: Setea una empresa al usuario.
-            </summary>
-            <param name="empresa"></param>
         </member>
     </members>
 </doc>
