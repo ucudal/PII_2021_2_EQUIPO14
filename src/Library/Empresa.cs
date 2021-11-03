@@ -91,17 +91,14 @@ namespace Proyecto_Final
 
             foreach (Oferta oferta in this.Ofertas)
             {
-                Console.WriteLine(oferta.Nombre);
                 if (oferta.IsVendido == true)
                 {
                     if (info.ContainsKey(oferta.Product.Tipo.Nombre))
                     {
-                        Console.WriteLine("PASS...3");
                         info[oferta.Product.Tipo.Nombre] += oferta.Product.Cantidad;
                     }
                     else
                     {
-                        Console.WriteLine("PASS...4");
                         info.Add(oferta.Product.Tipo.Nombre, oferta.Product.Cantidad);
                     }
                 }
