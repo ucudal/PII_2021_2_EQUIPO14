@@ -66,7 +66,7 @@ namespace Proyecto_Final
             {
                 if (oferta.Nombre == datosMensaje.Item1)
                 {
-                    oferta.AgregarMsjClave(datosMensaje.Item2);
+                    oferta.AgregarMsjClave(datosMensaje.Item2); // (Delegacion)
                 }
             }
         }
