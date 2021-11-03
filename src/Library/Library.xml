@@ -21,11 +21,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)">
-            <summary>
-            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
-            </summary>
-        </member>
         <member name="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)">
             <summary>
             En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
@@ -686,7 +681,7 @@
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
             <summary>
-            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
+            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="!:LocationApiClient"/>.
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">

@@ -28,9 +28,9 @@ Aquí veremos una explicación general e informal de las funciones del software 
 
 - [X] Como emprendedor, quiero poder buscar materiales ofrecidos por empresas mediante palabras clave, categorías, o por zona, para de esa forma obtener insumos para mi emprendimiento.
 
-- [ ] Como emprendedor, quiero saber qué materiales se generan constantemente, para de esa forma planificar que insumos tengo disponibles.
+- [X] Como emprendedor, quiero saber qué materiales se generan constantemente, para de esa forma planificar que insumos tengo disponibles.
 
-- [ ] Como emprendedor, quiero saber cuándo un material o residuo se genera puntualmente, para de esa forma determinar oportunidades de desarrollar nuevos productos.
+- [X] Como emprendedor, quiero saber cuándo un material o residuo se genera puntualmente, para de esa forma determinar oportunidades de desarrollar nuevos productos.
 
 - [X] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
 
@@ -43,7 +43,7 @@ Aprendimos a utilizar Doxygen y a formular documentacion utilizando comentarios 
 
 Tuvimos muchos contratiempos, especialmente para construir la base de la aplicacion dado que no lograbamos entender la consigna en su totalidad. Por esto tuvimos que reescribir varias veces las clases que habiamos creado o modificar las ya existentes. A su vez, a medida que la aplicacion se iba haciendo mas y mas grandes, nos dimos cuenta que nos faltaban mas funcionalidades, por lo cual tuvimos que implementarlas.
 
-Como ya mencionamos antes, debido a la falta de tiempo, muchas funcionalidades quedaron pendientes las cuales posiblemente sean implementada en la entrega final del proyecto.
+Como ya mencionamos antes, debido a la falta de tiempo, algunas funcionalidades quedaron pendientes las cuales posiblemente sean implementada en la entrega final del proyecto.
 
 ## Recursos
 [refactoring.guru/design-patterns](https://refactoring.guru/design-patterns)

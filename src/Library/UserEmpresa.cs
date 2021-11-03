@@ -69,7 +69,7 @@ namespace Proyecto_Final
         /// <param name="nombre"></param>
         /// <param name="ubicacion"></param>
         /// <param name="rubro"></param>
-        public void CrearEmpresa(string nombre, string ubicacion, string rubro)
+        public void CrearEmpresa(string nombre, string ubicacion, string rubro) // (Creator)
         {
             Rubro newRubro = new Rubro(rubro);
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
@@ -82,9 +82,9 @@ namespace Proyecto_Final
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
         /// <param name="datosMensaje"></param>
-        public void CrearMsjClave((string, string) datosMensaje)
+        public void CrearMsjClave((string, string) datosMensaje) 
         {
-            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2));
+            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2)); // (Delegacion)
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Proyecto_Final
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto)
+        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
         {
             TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
             Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);

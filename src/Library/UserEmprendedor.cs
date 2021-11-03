@@ -48,6 +48,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
+        /// <return></return>
         public string ConsumoXTiempo()
         {
             return this.Emprendedor.ConsumoXTiempo(this);
@@ -56,6 +57,7 @@ namespace Proyecto_Final
         /// <summary>
         /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi.
         /// </summary>
+        /// <return></return>
         public string VerOfertasPalabraClave(string palabraClave)
         {
             Buscador buscador = new Buscador();
@@ -73,7 +75,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// 
+        /// Muestra las ofertas por tipo.
         /// </summary>
         /// <param name="tipo"></param>
         public string VerOfertasTipo(string tipo)
