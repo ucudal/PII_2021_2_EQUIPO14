@@ -60,7 +60,7 @@ namespace Proyecto_Final
             userE1.Empresa = empresa1;
             userEE1.Emprendedor = emprendedor1;
             
-            Producto newProducto = new Producto("Plastico de Botellas", "Plastico reciclable", "Av3221", 10, 100, tipo1);   
+            Producto newProducto = new Producto("Plastico de Botellas", "Plastico reciclable", "Gral. Urquiza 2784", 10, 100, tipo1);   
             Oferta newOferta = new Oferta("Plastico de Botellas", newProducto, hab1);
             userE1.Empresa.Ofertas.Add(newOferta);
 

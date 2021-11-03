@@ -48,9 +48,9 @@ namespace Proyecto_Final
                 taskDistance.Wait();
                 Distance distance = taskDistance.Result;
                 
-                if (distance.TravelDistance <= 100000.0)
+                if (distance.TravelDistance <= 10.0)
                 {
-                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}m de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
             if(ContentBuilder.ToString() == "")

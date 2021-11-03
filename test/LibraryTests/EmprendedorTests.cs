@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections;
+using Ucu.Poo.Locations.Client;
 
 namespace Proyecto_Final
 {
@@ -72,19 +73,20 @@ namespace Proyecto_Final
         [Test]
         public void ConsumoXTiempoTest()
         {
-            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
             UserEmpresa userEmpresa = new UserEmpresa("UserEmpresa");
-            Emprendedor emprendedor = new Emprendedor("Av. 8 de Octubre 2738",this.rb1,hab1);
-            Empresa empresa = new Empresa("Empresa","Gral. Urquiza 2784", this.rb1);
-            userEmprendedor.Emprendedor = emprendedor;
+            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
+            Emprendedor emprendedor = new Emprendedor("Ubicacion",rb1,hab1);
+            Empresa empresa = new Empresa("Empresa","Ubicacion",rb1);
             userEmpresa.Empresa = empresa;
-            Producto newProducto = new Producto("Meta;", "Desc", "Av3221", 10, 400, this.tipo1);
-            Oferta newOferta = new Oferta("Metal", newProducto, this.hab1);
-            newOferta.IsVendido = true;
-            newOferta.Comprador = userEmprendedor;
-            this.userEmpresa.Empresa.Ofertas.Add(newOferta);
-            
-            string expected = $"Compró esta oferta: \n Nombre: Plastico \n Descripción: Desc \n Tipo: Tipo-1 \n Ubicación: Direccion \n Valor: $10 \n Cantidad: 100 \n Habilitaciones requeridas: {hab1.Habilitacion} \n";
+            userEmprendedor.Emprendedor = emprendedor;
+
+            Singleton<Datos>.Instance.ListaOfertas().Clear();
+            Producto producto = new Producto("Metal","Desc","Ubicacion",1000,100,tipo1);
+            Oferta oferta = new Oferta("Hierro",producto,hab1);
+            oferta.IsVendido = true;
+            oferta.Comprador = userEmprendedor;
+
+            string expected = $"Compró esta oferta: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
             Assert.AreEqual(expected,userEmprendedor.ConsumoXTiempo());
         }
 
@@ -94,7 +96,23 @@ namespace Proyecto_Final
         [Test]
         public void VerOfertasUbicacionTest()
         {
+            UserEmpresa userEmpresa = new UserEmpresa("UserEmpresa");
+            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
+            Emprendedor emprendedor = new Emprendedor("Av. 8 de Octubre 2738",rb1,hab1);
+            Empresa empresa = new Empresa("Empresa","Gral. Urquiza 2784",rb1);
+            userEmpresa.Empresa = empresa;
+            userEmprendedor.Emprendedor = emprendedor;
+
+            Singleton<Datos>.Instance.ListaOfertas().Clear();
+            Producto producto = new Producto("Metal","Desc","Gral. Urquiza 2784",1000,100,tipo1);
+            Oferta oferta = new Oferta("Hierro",producto,hab1);
             
+            LocationApiClient client = new LocationApiClient();
+            var taskDistance = client.GetDistanceAsync("Av. 8 de Octubre 2738","Gral. Urquiza 2784");
+            Distance distance = taskDistance.Result;
+
+            string expected = $"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+            Assert.AreEqual(expected,userEmprendedor.VerOfertasUbicacion());
         }
 
         /// <summary>
@@ -103,19 +121,19 @@ namespace Proyecto_Final
         [Test]
         public void VerOfertasTipoTest()
         {
-            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
             UserEmpresa userEmpresa = new UserEmpresa("UserEmpresa");
-            Emprendedor emprendedor = new Emprendedor("Av. 8 de Octubre 2738",this.rb1,hab1);
-            Empresa empresa = new Empresa("Empresa","Gral. Urquiza 2784", this.rb1);
-            userEmprendedor.Emprendedor = emprendedor;
+            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
+            Emprendedor emprendedor = new Emprendedor("Av. 8 de Octubre 2738",rb1,hab1);
+            Empresa empresa = new Empresa("Comandante Braga 2715","Ubicacion",rb1);
             userEmpresa.Empresa = empresa;
-            userEmpresa.Empresa.Ofertas.Clear();
-            Producto newProducto = new Producto("Metal", "Desc", "Av3221", 10, 400, this.tipo1);
-            Oferta newOferta = new Oferta("Metal", newProducto, this.hab1);
-            userEmpresa.Empresa.Ofertas.Add(newOferta);
+            userEmprendedor.Emprendedor = emprendedor;
 
-            string expected = $"Esta oferta concuerda con el tipo que describió: \n Nombre: {newOferta.Product.Nombre} \n Descripción: {newOferta.Product.Descripcion} \n Tipo: {newOferta.Product.Tipo.Nombre} \n Ubicación: {newOferta.Product.Ubicacion} \n Valor: ${newOferta.Product.Valor} \n Cantidad: {newOferta.Product.Cantidad} \n Habilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion} \n";
-            Assert.AreEqual(expected,userEmprendedor.VerOfertasTipo($"{this.tipo1.Nombre}"));
+            Singleton<Datos>.Instance.ListaOfertas().Clear();
+            Producto producto = new Producto("Metal","Desc","Gral. Urquiza 2784",1000,100,tipo1);
+            Oferta oferta = new Oferta("Hierro",producto,hab1);
+
+            string expected = $"Esta oferta concuerda con el tipo que describió: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+            Assert.AreEqual(expected,userEmprendedor.VerOfertasTipo("Tipo-1"));
         }
 
         /// <summary>
@@ -124,19 +142,21 @@ namespace Proyecto_Final
         [Test]
         public void VerOfertasPalabraClaveTest()
         {
-            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
             UserEmpresa userEmpresa = new UserEmpresa("UserEmpresa");
-            Emprendedor emprendedor = new Emprendedor("Av. 8 de Octubre 2738",this.rb1,hab1);
-            Empresa empresa = new Empresa("Empresa","Gral. Urquiza 2784", this.rb1);
-            userEmprendedor.Emprendedor = emprendedor;
+            UserEmprendedor userEmprendedor = new UserEmprendedor("UserEmprendedor");
+            Emprendedor emprendedor = new Emprendedor("Ubicacion",rb1,hab1);
+            Empresa empresa = new Empresa("Empresa","Ubicacion",rb1);
             userEmpresa.Empresa = empresa;
-            Producto newProducto = new Producto("Metal", "Desc", "Av3221", 10, 400, this.tipo1);
-            Oferta newOferta = new Oferta("Metal", newProducto, this.hab1);
-            userEmpresa.Empresa.Ofertas.Add(newOferta);
-            userEmpresa.CrearMsjClave(("Metal","Quiero"));
+            userEmprendedor.Emprendedor = emprendedor;
 
-            string expected = $"Esta oferta concuerda con la palabra clave que colocó: \n Nombre: {newOferta.Product.Nombre} \n Descripción: {newOferta.Product.Descripcion} \n Tipo: {newOferta.Product.Tipo.Nombre} \n Ubicación: {newOferta.Product.Ubicacion} \n Valor: ${newOferta.Product.Valor} \n Cantidad: {newOferta.Product.Cantidad} \n Habilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion} \n";
-            Assert.AreEqual(expected,userEmprendedor.VerOfertasPalabraClave("Quiero"));
+            Singleton<Datos>.Instance.ListaOfertas().Clear();
+            Producto producto = new Producto("Metal","Desc","Ubicacion",1000,100,tipo1);
+            Oferta oferta = new Oferta("Hierro",producto,hab1);
+            userEmpresa.Empresa.Ofertas.Add(oferta);
+            userEmpresa.CrearMsjClave(("Hierro","Clave"));
+
+            string expected = $"Esta oferta concuerda con la palabra clave que colocó: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+            Assert.AreEqual(expected,userEmprendedor.VerOfertasPalabraClave("Clave"));
         }
     }
 }
