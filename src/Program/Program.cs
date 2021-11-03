@@ -97,7 +97,7 @@ namespace Proyecto_Final
             consoleInteraction.ImprimirVendidos(dict);
 
             //userEE1.ConsumoXTiempo()
-            Console.WriteLine(userEE1.ConsumoXTiempo());
+            //Console.WriteLine(userEE1.ConsumoXTiempo());
         }
     }
 }
