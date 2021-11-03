@@ -19,6 +19,11 @@
             Prueba que se pueda aceptar una invitacion.
             </summary>
         </member>
+        <member name="T:Proyecto_Final.EmprendedorTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.UserEmprendedor"/>.
+            </summary>
+        </member>
         <member name="T:Proyecto_Final.EmpresaTests">
             <summary>
             Prueba de la clase <see cref="T:Proyecto_Final.Empresa"/> y la clase <see cref="T:Proyecto_Final.UserEmpresa"/>.

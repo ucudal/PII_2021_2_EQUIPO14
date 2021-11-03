@@ -1,5 +1,4 @@
 using System.Collections;
-using Ucu.Poo.Locations.Client;
 using System.Threading.Tasks;
 
 namespace Proyecto_Final
@@ -69,7 +68,7 @@ namespace Proyecto_Final
         public string VerOfertasUbicacion()
         {
             Buscador buscador = new Buscador();
-            buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
+            //buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
 
