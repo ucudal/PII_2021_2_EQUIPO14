@@ -94,7 +94,6 @@ namespace Proyecto_Final
             this.userEmpresa.CrearOferta("Plastico", "Hab-1", ("Plasctico", "Desc", "Direccion", 10, 100), "Tipo-1");
             int expected = 1;
             Assert.AreEqual(expected, this.userEmpresa.Empresa.Ofertas.Count);
-            Assert.AreEqual(expected, Singleton<Datos>.Instance.ListaOfertas().Count);
         }
 
         /// <summary>
