@@ -23,8 +23,9 @@
         </member>
         <member name="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)">
             <summary>
-            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
+            /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
             </summary>
+            <param name="direccion"></param>
         </member>
         <member name="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)">
             <summary>
@@ -417,6 +418,12 @@
             Interactua con el usuario para crear los datos respectivos de la empresa.
             </summary>
             <returns>Tupla de strings con los datos de la empresa.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmprendedor">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos del emprendedor.
+            </summary>
+            <returns>Tupla de strings con los datos del emprendedor.</returns>
         </member>
         <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
             <summary>

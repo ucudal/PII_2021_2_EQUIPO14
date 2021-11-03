@@ -19,6 +19,46 @@
             Prueba que se pueda aceptar una invitacion.
             </summary>
         </member>
+        <member name="T:Proyecto_Final.EmprendedorTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.UserEmprendedor"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.Setup">
+            <summary>
+            Crea un usuario empresa para probar.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.AgregarEspecializacionTest">
+            <summary>
+            Prueba que se agregan especializaciones correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.EliminarEspecializacionTest">
+            <summary>
+            Prueba que se eliminan especializaciones correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.ConsumoXTiempoTest">
+            <summary>
+            Prueba que se muestran correctamente las ofertas consumidas.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.VerOfertasUbicacionTest">
+            <summary>
+            Prueba que se buscan correctamente las ofertas según .
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.VerOfertasTipoTest">
+            <summary>
+            Prueba que se buscan correctamente las ofertas según .
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.VerOfertasPalabraClaveTest">
+            <summary>
+            Prueba que se buscan correctamente las ofertas según .
+            </summary>
+        </member>
         <member name="T:Proyecto_Final.EmpresaTests">
             <summary>
             Prueba de la clase <see cref="T:Proyecto_Final.Empresa"/> y la clase <see cref="T:Proyecto_Final.UserEmpresa"/>.

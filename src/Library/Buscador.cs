@@ -1,6 +1,7 @@
 using Ucu.Poo.Locations.Client;
 using System.Text;
 using System.Threading.Tasks;
+using System;
 
 namespace Proyecto_Final
 {
@@ -27,20 +28,29 @@ namespace Proyecto_Final
         private StringBuilder ContentBuilder { get; } = new StringBuilder();
 
         /// <summary>
-        /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
+        /// /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
+        /// <param name="direccion"></param>
         public async void VerOfertasUbicacion(string direccion)
         {
             ContentBuilder.Clear();
+            
             LocationApiClient client = new LocationApiClient();
-            Location ubicacionEmprendedor = await client.GetLocationAsync(direccion);
+            var taskEmprendedor = client.GetLocationAsync(direccion);
+            taskEmprendedor.Wait();
+            Location ubicacionEmprendedor = taskEmprendedor.Result;
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                Location ubicacionOferta = await client.GetLocationAsync(oferta.Product.Ubicacion);
-                Distance distance = await client.GetDistanceAsync(ubicacionEmprendedor,ubicacionOferta);
-                if (distance.TravelDistance <= 10.0)
+                var taskLocation = client.GetLocationAsync(oferta.Product.Ubicacion);
+                taskLocation.Wait();
+                Location ubicacionOferta = taskLocation.Result;
+                var taskDistance = client.GetDistanceAsync(ubicacionEmprendedor,ubicacionOferta);
+                taskDistance.Wait();
+                Distance distance = taskDistance.Result;
+                
+                if (distance.TravelDistance <= 100000.0)
                 {
-                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}m de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
             if(ContentBuilder.ToString() == "")

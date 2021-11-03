@@ -27,11 +27,18 @@ namespace Proyecto_Final
         /// </summary>
         /// <returns>Tupla de strings con los datos de la empresa.</returns>
         (string, string, string) CrearDatosEmpresa();
+        
+        /// <summary>
+        /// Interactua con el usuario para crear los datos respectivos del emprendedor.
+        /// </summary>
+        /// <returns>Tupla de strings con los datos del emprendedor.</returns>
+        (string, string) CrearDatosEmprendedor();
 
         /// <summary>
         /// Interactua con el usuario para poder crear los datos de la habilitacion.
         /// </summary>
         /// <returns>Habilitacion.</returns>
+        
         string CrearDatosHabilitacion();
 
         /// <summary>

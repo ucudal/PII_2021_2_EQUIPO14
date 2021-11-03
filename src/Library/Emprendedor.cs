@@ -84,10 +84,13 @@ namespace Proyecto_Final
             StringBuilder result = new StringBuilder();
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
+                if(oferta.IsVendido==true)
+                {
                     if(userEmprendedor.Nombre == oferta.Comprador.Nombre)
                     {
                         result.Append($"Compró esta oferta: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }
+                }
             }
             if(result.ToString() == "")
             {
