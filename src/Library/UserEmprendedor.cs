@@ -1,5 +1,4 @@
 using System.Collections;
-using Ucu.Poo.Locations.Client;
 using System.Threading.Tasks;
 
 namespace Proyecto_Final
@@ -55,7 +54,7 @@ namespace Proyecto_Final
         }
         
         /// <summary>
-        /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
+        /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi.
         /// </summary>
         public string VerOfertasPalabraClave(string palabraClave)
         {
@@ -69,7 +68,7 @@ namespace Proyecto_Final
         public string VerOfertasUbicacion()
         {
             Buscador buscador = new Buscador();
-            buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
+            //buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
 
