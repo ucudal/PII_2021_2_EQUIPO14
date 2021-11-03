@@ -693,7 +693,7 @@
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
             <summary>
-            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
+            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="!:LocationApiClient"/>.
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">
