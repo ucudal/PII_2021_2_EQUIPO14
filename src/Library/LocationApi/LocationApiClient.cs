@@ -10,6 +10,9 @@ using System.IO;
 
 namespace Ucu.Poo.Locations.Client
 {
+    /// <summary>
+    /// Clase encargada de conseguir la localizacion y distancia.
+    /// </summary>
     public class LocationApiClient
     {
         private const string BaseUrl = "https://pii-locationapi.azurewebsites.net";
