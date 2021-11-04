@@ -101,7 +101,6 @@ namespace Proyecto_Final
             Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Singleton<Datos>.Instance.AgregarOferta(newOferta);
         }
 
         /// <summary>
