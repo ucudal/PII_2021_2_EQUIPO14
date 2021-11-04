@@ -70,7 +70,7 @@ namespace Proyecto_Final
         public string VerOfertasUbicacion()
         {
             Buscador buscador = new Buscador();
-            //buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
+            buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
 

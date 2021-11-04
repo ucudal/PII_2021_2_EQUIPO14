@@ -1,5 +1,5 @@
 
-//using Ucu.Poo.Locations.Client;
+using Ucu.Poo.Locations.Client;
 using System.Text;
 using System.Threading.Tasks;
 using System;
@@ -28,7 +28,7 @@ namespace Proyecto_Final
         /// <returns></returns>
         private StringBuilder ContentBuilder { get; } = new StringBuilder();
 
-        /*
+        
         /// <summary>
         /// /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Proyecto_Final
                     ContentBuilder.Append("No se encontraron ofertas que estén en su cercanía.");
                 }
         }
-        */
+        
 
         /// <summary>
         /// En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
