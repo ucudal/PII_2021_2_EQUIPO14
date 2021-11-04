@@ -56,13 +56,17 @@ namespace Proyecto_Final
             this.Rubro = rubro;
         }   
 
+        /// <summary>
+        /// Agrega una palabra clave a una publicacion determinada.
+        /// </summary>
+        /// <param name="datosMensaje"></param>
         public void AgregarMsjClave((string, string) datosMensaje)
         {
             foreach (Oferta oferta in this.Ofertas)
             {
                 if (oferta.Nombre == datosMensaje.Item1)
                 {
-                    oferta.AgregarMsjClave(datosMensaje.Item2);
+                    oferta.AgregarMsjClave(datosMensaje.Item2); // (Delegacion)
                 }
             }
         }
@@ -80,7 +84,8 @@ namespace Proyecto_Final
         /// <summary>
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
-        public void VerificarVentas(IUserInterface userInterface)
+        /// <returns>Retorna un diccionario con los datos de las ventas</returns>
+        public Dictionary<string, int> VerificarVentas()
         {
             Dictionary<string, int> info = new Dictionary<string, int>();
 
@@ -88,24 +93,17 @@ namespace Proyecto_Final
             {
                 if (oferta.IsVendido == true)
                 {
-                    foreach (KeyValuePair<string, int> item in info)
+                    if (info.ContainsKey(oferta.Product.Tipo.Nombre))
                     {
-                        if (oferta.Product.Tipo.Nombre == item.Key)
-                        {
-                            info.Add(oferta.Product.Tipo.Nombre, item.Value + oferta.Product.Cantidad);
-                        }
-                        else
-                        {
-                            info.Add(oferta.Product.Tipo.Nombre, oferta.Product.Cantidad);
-                        }
+                        info[oferta.Product.Tipo.Nombre] += oferta.Product.Cantidad;
+                    }
+                    else
+                    {
+                        info.Add(oferta.Product.Tipo.Nombre, oferta.Product.Cantidad);
                     }
                 }
             }
-            foreach (KeyValuePair<string, int> item in info)
-            {
-                userInterface.ImprimirVendidos(item);
-            }
-
+            return info;
         }
     }
 }

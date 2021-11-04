@@ -4,6 +4,43 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Proyecto_Final.Buscador">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Buscador.Content">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.Buscador.ContentBuilder">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)">
+            <summary>
+            /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
+            </summary>
+            <param name="direccion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)">
+            <summary>
+            En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
+            </summary>
+            <param name="palabraClave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasTipo(System.String)">
+            <summary>
+            En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
+            </summary>
+            <param name="tipo"></param>
+            <returns></returns>
+        </member>
         <member name="T:Proyecto_Final.ConsoleInteraction">
             <summary>
             Clase encargada de interactuar con el usuario a travez de la consola.
@@ -32,6 +69,12 @@
             </summary>
             <returns>Tupla de strings con los datos de la empresa.</returns>
         </member>
+        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmprendedor">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos del Emprendedor.
+            </summary>
+            <returns>Tupla de strings con los datos del emprendedor</returns>
+        </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosHabilitacion">
             <summary>
             Interactua con el usuario para poder crear los datos de la habilitacion.
@@ -56,44 +99,76 @@
             </summary>
             <returns>Tipo de producto.</returns>
         </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarEspecializacion(Proyecto_Final.Empresa)">
-            <summary>
-            Interactua con el usuario Empresa para agregar una especializacion.
-            </summary>
-            <param name="empresa"></param>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AlreadyInvitedMsg">
-            <summary>
-            Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-            </summary>
-        </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave">
             <summary>
             Interactua con el usuario para crear un mensaje clave en una oferta especifica.
             </summary>
-            <param name="oferta"></param>
+            <returns></returns>
         </member>
         <member name="M:Proyecto_Final.ConsoleInteraction.ConcretarOferta">
             <summary>
             Interactua con el usuario para concretar una oferta.
             </summary>
-            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+            <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
         </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
             <summary>
             Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
             </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.RegistrarEmprendedor">
-            <summary>
-            Interactua con el usuario para registrarse como emprendedor.
-            </summary>
+            <param name="info"></param>
         </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaOfertas">
+            <summary>
+            Otorga una lista con todas las publicaciones realizadas.
+            </summary>
+            <returns>Lista con Oferta.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarOferta(Proyecto_Final.Oferta)">
+            <summary>
+            Agrega una oferta a la lista de publicaciones.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaUsuarioEmpresa">
+            <summary>
+            Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
+            </summary>
+            <returns>Lista con UserEmpresa</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
+            <summary>
+            Agrega un UserEmpresa a la aplicacion.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaUsuarioEmprendedor">
+            <summary>
+            Otorga una lista con todos los UserEmprendedor registrados.
+            </summary>
+            <returns>Lista con UserEmprendedor</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
+            <summary>
+            Agrega un UserEmprendedor a la aplicacion.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaEmpresa">
+            <summary>
+            Lista con todas las Empresa registradas.
+            </summary>
+            <returns>Lista con Empresa</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarEmpresa(Proyecto_Final.Empresa)">
+            <summary>
+            Agrega una empresa a la aplicacion.
+            </summary>
+            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
@@ -149,6 +224,18 @@
             </summary>
             <param name="tipo"></param>
         </member>
+        <member name="M:Proyecto_Final.Datos.AgregarOfertas(Proyecto_Final.Oferta)">
+            <summary>
+            Agrega una oferta de la lista de ofertas.
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
+            <summary>
+            Elimina una oferta de la lista de ofertas.
+            </summary>
+            <param name="oferta"></param>
+        </member>
         <member name="M:Proyecto_Final.Datos.CheckHabilitaciones(System.String)">
             <summary>
             Revisa si la habilitación que el usuario quiere asignarse existe dentro de las habilitaciones permitidas por el programa.
@@ -187,32 +274,48 @@
             </summary>
             <value>Objeto de tipo "Rubro".</value>
         </member>
+        <member name="P:Proyecto_Final.Emprendedor.Habilitacion">
+            <summary>
+            Otorga una instancia de objeto "Habilitaciones" del Emprendedor
+            </summary>
+            <value>Objeto de tipo "Habilitaciones".</value>
+        </member>
         <member name="P:Proyecto_Final.Emprendedor.Especializaciones">
             <summary>
             Otorga una lista de strings que representan las especializaciones del Emprendedor.
             </summary>
             <value></value>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro)">
+        <member name="P:Proyecto_Final.Emprendedor.Compras">
+            <summary>
+            Otorga una lista de strings que representan las compras del Emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro,Proyecto_Final.Habilitaciones)">
             <summary>
             Inicializa la clase Emprendedor
             </summary>
             <param name="ubicacion"></param>
             <param name="rubro"></param>
+            <param name="habilitacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.AgregarEspecializacion">
+        <member name="M:Proyecto_Final.Emprendedor.AgregarEspecializacion(System.String)">
             <summary>
             Agrega una Especialización al Emprendedor.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.EliminarEspecializacion">
+        <member name="M:Proyecto_Final.Emprendedor.EliminarEspecializacion(System.String)">
             <summary>
             Elimina una Especialización al Emprendedor.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.ConsumoxTiempo">
+        <member name="M:Proyecto_Final.Emprendedor.ConsumoXTiempo(Proyecto_Final.UserEmprendedor)">
             <summary>
             
+            </summary>
+            <summary>
+            Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
         </member>
         <member name="T:Proyecto_Final.Empresa">
@@ -258,16 +361,23 @@
             <param name="ubicacion"></param>
             <param name="rubro"></param>
         </member>
+        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.ValueTuple{System.String,System.String})">
+            <summary>
+            Agrega una palabra clave a una publicacion determinada.
+            </summary>
+            <param name="datosMensaje"></param>
+        </member>
         <member name="M:Proyecto_Final.Empresa.AgregarEspecializacion(System.String)">
             <summary>
             Agrega una especializacion a la empresa y la guarda en un array.
             </summary>
             <param name="especializacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.VerificarVentas(Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.Empresa.VerificarVentas">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
+            <returns>Retorna un diccionario con los datos de las ventas</returns>
         </member>
         <member name="T:Proyecto_Final.Habilitaciones">
             <summary>
@@ -286,23 +396,6 @@
             </summary>
             <param name="habilitacion"></param>
         </member>
-        <member name="T:Proyecto_Final.IPersistenciaDatos">
-            <summary>
-            Esta clase permite guardar y cargar información.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.IPersistenciaDatos.CargarInfo(System.String)">
-            <summary>
-            Permite cargar información en base a un string.
-            </summary>
-            <param name="info"></param> 
-        </member>
-        <member name="M:Proyecto_Final.IPersistenciaDatos.GuardarInfo">
-            <summary>
-            Permite guardar información al transformarla a un string.
-            </summary>
-            <returns>Retorna un string</returns>
-        </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>
             Esta interface permite implementar distintas formas de que el usuario interactue con el bot.
@@ -318,13 +411,19 @@
             <summary>
             Interactua con el usuario para aceptar la invitacion.
             </summary>
-            <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+            <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
         </member>
         <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
             <summary>
             Interactua con el usuario para crear los datos respectivos de la empresa.
             </summary>
             <returns>Tupla de strings con los datos de la empresa.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmprendedor">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos del emprendedor.
+            </summary>
+            <returns>Tupla de strings con los datos del emprendedor.</returns>
         </member>
         <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
             <summary>
@@ -350,22 +449,11 @@
             </summary>
             <returns>Tipo de producto</returns>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.AgregarEspecializacion(Proyecto_Final.Empresa)">
-            <summary>
-            Interactua con el usuario Empresa para agregar una especializacion.
-            </summary>
-            <param name="empresa"></param>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AlreadyInvitedMsg">
-            <summary>
-            Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-            </summary>
-        </member>
         <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
             <summary>
             Interactua con el usuario para agregar palabras claves a una oferta.
             </summary>
-            <param name="oferta"></param>
+            <returns></returns>
         </member>
         <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
             <summary>
@@ -373,15 +461,20 @@
             </summary>
             <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.KeyValuePair{System.String,System.Int32})">
+        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
             <summary>
             Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
             </summary>
             <param name="item"></param>
         </member>
-        <member name="M:Proyecto_Final.IUserInterface.RegistrarEmprendedor">
+        <member name="T:Proyecto_Final.Invitacion">
             <summary>
-            Interactua con el usuario para registrarse como emprendedor.
+            Esta clase representa una invitacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Invitacion.#ctor">
+            <summary>
+            Inicializa la clase Invitacion.
             </summary>
         </member>
         <member name="T:Proyecto_Final.Oferta">
@@ -412,6 +505,18 @@
             Otorga las habilitaciones requeridas para que un emprendedor pueda aceptar la oferta <see cref="T:Proyecto_Final.Habilitaciones"/>.
             </summary>
             <value>Objeto del tipo Habilitaciones.</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.IsVendido">
+            <summary>
+            Otorga un valor booleano dependiendo de si la oferta fue vendida o no.
+            </summary>
+            <value>Retorna un valor booleano</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.Comprador">
+            <summary>
+            Otorga un valor que representa al comprador de la oferta.
+            </summary>
+            <value></value>
         </member>
         <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,Proyecto_Final.Habilitaciones)">
             <summary>
@@ -546,8 +651,7 @@
             <summary>
             Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
             </summary>
-            <param name="userEmpresa"></param>
-            <param name="userInterface"></param>
+            <param name="nombreUserEmpresa"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
@@ -572,50 +676,49 @@
             </summary>
             <param name="nombre"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.RegistrarEmprendedor(Proyecto_Final.IUserInterface)">
-            <summary>
-            Registra el Emprendedor.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.AgregarEspecializacion">
+        <member name="M:Proyecto_Final.UserEmprendedor.AgregarEspecializacion(System.String)">
             <summary>
             Agrega a la lista de especializaciones que contiene la clase "Emprendedor" una especialización.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.EliminarEspecializacion">
+        <member name="M:Proyecto_Final.UserEmprendedor.EliminarEspecializacion(System.String)">
             <summary>
             Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.EnviarMsj">
+        <member name="M:Proyecto_Final.UserEmprendedor.ConsumoXTiempo">
             <summary>
-            
+            Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
+            <return></return>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave">
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
             <summary>
-            
+            En base a una palabra clave, busca todas las ofertas que la contengan.
             </summary>
+            <return></return>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">
             <summary>
-            
+            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.CargarInfo">
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasTipo(System.String)">
             <summary>
-            
+            En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo.
             </summary>
-        </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.GuardarInfo">
-            <summary>
-            
-            </summary>
+            <param name="tipo"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmpresa">
             <summary>
             Esta clase representa al usuario de la Empresa.
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.UserEmpresa.Invitacion">
+            <summary>
+            Obtiene un valor del objeto Invitacion.
+            </summary>
+            <value>Devuelve una invitacion si la tiene, sino, <c>null</c></value>
         </member>
         <member name="P:Proyecto_Final.UserEmpresa.Nombre">
             <summary>
@@ -647,12 +750,19 @@
             </summary>
             <param name="input"></param>
         </member>
+        <member name="M:Proyecto_Final.UserEmpresa.CrearEmpresa(System.String,System.String,System.String)">
+            <summary>
+            El usuario puede crear la empresa.
+            </summary>
+            <param name="nombre"></param>
+            <param name="ubicacion"></param>
+            <param name="rubro"></param>
+        </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.ValueTuple{System.String,System.String})">
             <summary>
             Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
             </summary>
-            <param name="oferta"></param>
-            <param name="userInterface"></param>
+            <param name="datosMensaje"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.ValueTuple{System.String,System.String,System.String,System.Int32,System.Int32},System.String)">
             <summary>
@@ -663,17 +773,157 @@
             <param name="datosProducto"></param>
             <param name="datosTipoProducto"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(Proyecto_Final.Oferta,Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
             <summary>
-            Cambia el estado de la oferta a vendido.
+            Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad, el valor (en $ o U$S) de los mismos y el lugar donde se ubican, para que de esa forma los emprendedores tengan información de materiales o residuos disponibles.
             </summary>
-            <param name="oferta"></param>
-            <param name="userInterface"></param>
+            <param name="nombre"></param>
+            <param name="descripcion"></param>
+            <param name="ubicacion"></param>
+            <param name="valor"></param>
+            <param name="cantidad"></param>
+            <param name="datosTipoProducto"></param>
+            <returns></returns>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(Proyecto_Final.IUserInterface)">
+        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(System.String,System.String,System.String)">
+            <summary>
+            Cambia el estado de la oferta especifica a vendido.
+            </summary>
+            <param name="input"></param>
+            <param name="nombreOferta"></param>
+            <param name="nombreEmprendedor"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
+            <returns>Retorna un diccionario con los datos de las ventas</returns>
+        </member>
+        <member name="T:Ucu.Poo.Locations.Client.Distance">
+            <summary>
+            Representa la distancia entre las coordenas o las direcciones de origen y destino retornada en los métodos
+            <see cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)"/> o
+            <see cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(System.String,System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Distance.Found">
+            <summary>
+            Indica si se encontraron o no las coordenas o las direcciones de origen y destino.
+            </summary>
+            <value>true si se encontró la dirección; false en caso contrario.</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Distance.TravelDistance">
+            <summary>
+            La distancia entre las coordenadas o las direcciones de origen y destino.
+            </summary>
+            <value>La distancia en metros.</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Distance.TravelDuration">
+            <summary>
+            El tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
+            </summary>
+            <value>El tiempo que se demora en minutos.</value>
+        </member>
+        <member name="T:Ucu.Poo.Locations.Client.Location">
+            <summary>
+            Representa las coordenadas y otros datos de la ubicación de una dirección retornada en el método
+            <see cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.Found">
+            <summary>
+            Indica si se encontró o no la dirección. En ese caso son válidos los demás valores. En caso contrario los
+            demás valores son indeterminados.
+            </summary>
+            <value>true si se encontró la dirección; false en caso contrario.</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.AddresLine">
+            <summary>
+            La dirección: calle y número, ruta y kilómetro, etc.
+            </summary>
+            <value>Por ejemplo, Avenida 8 de Octubre 2738.</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.CountryRegion">
+            <summary>
+            El país.
+            </summary>
+            <value>Por ejemplo, Uruguay</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.FormattedAddress">
+            <summary>
+            La dirección completa, incluyendo ciudad, código postal, etc.
+            </summary>
+            <value>Por ejemplo, Avenida 8 de Octubre 2738, Montevideo, 11200, Uruguay.</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.Locality">
+            <summary>
+            La localidad o ciudad.
+            </summary>
+            <value>Por ejemplo, Montevideo</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.PostalCode">
+            <summary>
+            El código postal.
+            </summary>
+            <value>Por ejemplo, 11200</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.Latitude">
+            <summary>
+            La latitud de la dirección.
+            </summary>
+            <value>El valor de la latitud en formato decimal.</value>
+        </member>
+        <member name="P:Ucu.Poo.Locations.Client.Location.Longitude">
+            <summary>
+            La longitud de la dirección.
+            </summary>
+            <value>El valor de la longitud en formato decimal.</value>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            Obtiene las coordenadas de una dirección.
+            </summary>
+            <param name="address">La dirección.</param>
+            <param name="city">La ciudad. Es opcional. El valor predeterminado es Montevideo.</param>
+            <param name="department">El departamento, estado, provincia, etc. Es opcional. El valor predeterminado es `ontevideo.</param>
+            <param name="country">El país. Es opcional. El valor predeterminado es Uruguay.</param>
+            <returns>Las coordenadas de la dirección.</returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)">
+            <summary>
+            Obtiene la distancia entre dos coordenadas.
+            </summary>
+            <param name="from">La coordenada de origen.</param>
+            <param name="to">La coordenada de destino.</param>
+            <returns>La distancia entre las dos coordenadas.</returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(System.String,System.String)">
+            <summary>
+            Obtiene la distancia entre dos direcciones.
+            </summary>
+            <param name="from">La dirección de origen.</param>
+            <param name="to">La dirección de destino.</param>
+            <returns>La distancia entre las dos direcciones.</returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMapAsync(System.Double,System.Double,System.String,System.Int32)">
+            <summary>
+            Descarga una mapa de una coordenada.
+            </summary>
+            <param name="latitude">La latitud de la coordenada.</param>
+            <param name="longitude">La longitud de la coordenada.</param>
+            <param name="path">La ruta del archivo donde guardar el mapa. El formato es PNG.</param>
+            <param name="zoomLevel">El nivel de zoom del mapa entre 1 y 20. Es opcional. El valor predeterminado es
+            15.</param>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRouteAsync(System.Double,System.Double,System.Double,System.Double,System.String)">
+            <summary>
+            Un mapa con una ruta entre dos coordenadas.
+            </summary>
+            <param name="fromLatitude">La latitud de la coordenada de origen.</param>
+            <param name="fromLongitude">La longitu de la coordenada de origen.</param>
+            <param name="toLatitude">La latitud de la coordenada de destino.</param>
+            <param name="toLongitude">La longitud de la coordenada de destino.</param>
+            <param name="path">La ruta del archivo donde guardar el mapa. Es formato es PNG.</param>
         </member>
     </members>
 </doc>

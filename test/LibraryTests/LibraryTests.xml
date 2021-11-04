@@ -19,6 +19,46 @@
             Prueba que se pueda aceptar una invitacion.
             </summary>
         </member>
+        <member name="T:Proyecto_Final.EmprendedorTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.UserEmprendedor"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.Setup">
+            <summary>
+            Crea un usuario empresa para probar.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.AgregarEspecializacionTest">
+            <summary>
+            Prueba que se agregan especializaciones correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.EliminarEspecializacionTest">
+            <summary>
+            Prueba que se eliminan especializaciones correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.ConsumoXTiempoTest">
+            <summary>
+            Prueba que se muestran correctamente las ofertas consumidas.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.VerOfertasUbicacionTest">
+            <summary>
+            Prueba que se buscan correctamente las ofertas según .
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.VerOfertasTipoTest">
+            <summary>
+            Prueba que se buscan correctamente las ofertas según .
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmprendedorTests.VerOfertasPalabraClaveTest">
+            <summary>
+            Prueba que se buscan correctamente las ofertas según .
+            </summary>
+        </member>
         <member name="T:Proyecto_Final.EmpresaTests">
             <summary>
             Prueba de la clase <see cref="T:Proyecto_Final.Empresa"/> y la clase <see cref="T:Proyecto_Final.UserEmpresa"/>.
@@ -34,14 +74,34 @@
             Prueba que se pueda aceptar una invitacion.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.EmpresaTests.CrearEmpresaTest">
+            <summary>
+            Prueba que se pueda crear una Empresa.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.EmpresaTests.RechazarInvitacionTest">
             <summary>
             Prueba que se pueda rechazar una invitacion.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.EmpresaTests.CrearOfertaTest">
+            <summary>
+            Prueba que se pueda crear una oferta.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.EmpresaTests.AgregarMsjClaveTest">
             <summary>
             Prueba que se pueda agregar un mensaje clave a una publicacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.ClasificarProductosTest">
+            <summary>
+            Prueba que se pueden clasificar los productos.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EmpresaTests.VerificarVentasTest">
+            <summary>
+            Prueba que se reciban los datos de las publicaciones vendidas.
             </summary>
         </member>
     </members>

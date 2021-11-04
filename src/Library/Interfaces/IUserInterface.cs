@@ -19,7 +19,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Interactua con el usuario para aceptar la invitacion.
         /// </summary>
-        /// <returns>Si se acepta la invitacion, devuelve una tupla con los datos de la empresa, si no, devuelve una tupla con strings vacios.</returns>
+        /// <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
         string AceptarInvitacion();
         
         /// <summary>
@@ -27,11 +27,18 @@ namespace Proyecto_Final
         /// </summary>
         /// <returns>Tupla de strings con los datos de la empresa.</returns>
         (string, string, string) CrearDatosEmpresa();
+        
+        /// <summary>
+        /// Interactua con el usuario para crear los datos respectivos del emprendedor.
+        /// </summary>
+        /// <returns>Tupla de strings con los datos del emprendedor.</returns>
+        (string, string) CrearDatosEmprendedor();
 
         /// <summary>
         /// Interactua con el usuario para poder crear los datos de la habilitacion.
         /// </summary>
         /// <returns>Habilitacion.</returns>
+        
         string CrearDatosHabilitacion();
 
         /// <summary>
@@ -51,39 +58,23 @@ namespace Proyecto_Final
         /// </summary>
         /// <returns>Tipo de producto</returns>
         string CrearDatosTipoProducto();
-
-        /// <summary>
-        /// Interactua con el usuario Empresa para agregar una especializacion.
-        /// </summary>
-        /// <param name="empresa"></param>
-        void AgregarEspecializacion(Empresa empresa);
         
-        /// <summary>
-        /// Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-        /// </summary>
-        void AlreadyInvitedMsg();
-
         /// <summary>
         /// Interactua con el usuario para agregar palabras claves a una oferta.
         /// </summary>
-        /// <param name="oferta"></param>
+        /// <returns></returns>
         (string, string) AgregarMsjClave();
 
         /// <summary>
         /// Interactua con el usuario para concretar una oferta.
         /// </summary>
         /// <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        bool ConcretarOferta();
+        string ConcretarOferta();
         
         /// <summary>
         /// Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
         /// </summary>
         /// <param name="item"></param>
-        void ImprimirVendidos(KeyValuePair<string, int> item);
-
-        /// <summary>
-        /// Interactua con el usuario para registrarse como emprendedor.
-        /// </summary>
-        void RegistrarEmprendedor();
+        void ImprimirVendidos(Dictionary<string, int> item);
     }
 }

@@ -73,6 +73,27 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Interactua con el usuario para crear los datos respectivos del Emprendedor.
+        /// </summary>
+        /// <returns>Tupla de strings con los datos del emprendedor</returns>
+        public (string, string) CrearDatosEmprendedor() // (SRP)
+        {
+            Console.WriteLine("Ingrese su direccion: ");
+            string ubicacion = Console.ReadLine();
+            Console.WriteLine("Ingrese el rubro en el que se especializa: ");
+            string rubro = Console.ReadLine();
+            while (Singleton<Datos>.Instance.CheckRubros(rubro) == false)
+            {
+                // TODO: Imprimir los rubros disponibles.
+                Console.WriteLine("Ingrese el rubro de su empresa nuevamente: ");
+                rubro = Console.ReadLine();
+            }
+
+            (string, string) auxTuple = (ubicacion, rubro);
+            return auxTuple;
+        }
+
+        /// <summary>
         /// Interactua con el usuario para poder crear los datos de la habilitacion.
         /// </summary>
         /// <returns>Habilitacion.</returns>
@@ -141,38 +162,9 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Interactua con el usuario Empresa para agregar una especializacion.
-        /// </summary>
-        /// <param name="empresa"></param>
-        public void AgregarEspecializacion(Empresa empresa) // (SRP)
-        {
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la especializacion a agregar: ");
-                string esp = Console.ReadLine();
-                empresa.AgregarEspecializacion(esp);
-                Console.WriteLine("Quiere agregar otra especializacion? Y/N: ");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }   
-        }
-
-        /// <summary>
-        /// Interactua con el usuario y le envia un mensaje de aviso que la empresa ya fue invitada y aceptada.
-        /// </summary>
-        public void AlreadyInvitedMsg()
-        {
-            Console.WriteLine("Esta empresa ya fue invitada y aceptada.");
-        }
-
-        /// <summary>
         /// Interactua con el usuario para crear un mensaje clave en una oferta especifica.
         /// </summary>
-        /// <param name="oferta"></param>
+        /// <returns></returns>
         public (string, string) AgregarMsjClave()
         {
             Console.WriteLine("Ingrese el nombre de su oferta: ");
@@ -186,30 +178,27 @@ namespace Proyecto_Final
         /// <summary>
         /// Interactua con el usuario para concretar una oferta.
         /// </summary>
-        /// <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        public bool ConcretarOferta()
+        /// <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
+        public string ConcretarOferta()
         {
             Console.WriteLine("Quieres concretar esta oferta? Y/N: ");
             string input = Console.ReadLine().ToUpper();
             
-            return (input == "Y") ? true : false;
+            return (input == "Y") ? "Y" : "N";
         }
 
         /// <summary>
         /// Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
         /// </summary>
-        /// <param name="item"></param>
-        public void ImprimirVendidos(KeyValuePair<string, int> item)
+        /// <param name="info"></param>
+        public void ImprimirVendidos(Dictionary<string, int> info)
         {
-            Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
-        }
-
-        /// <summary>
-        /// Interactua con el usuario para registrarse como emprendedor.
-        /// </summary>
-        public void RegistrarEmprendedor()
-        {
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                Console.WriteLine("Material = {0} || Cantidad = {1}", item.Key, item.Value);
+            }
 
         }
+        
     }
 }

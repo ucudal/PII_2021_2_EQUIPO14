@@ -47,6 +47,10 @@ namespace Proyecto_Final
         /// <value>Retorna un valor booleano</value>
         public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
+        /// <summary>
+        /// Otorga un valor que representa al comprador de la oferta.
+        /// </summary>
+        /// <value></value>
         public UserEmprendedor Comprador { get { return comprador; } set { this.comprador = value;} }
 
         /// <summary>
@@ -60,6 +64,7 @@ namespace Proyecto_Final
             this.Nombre = nombre;
             this.Product = product;
             this.HabilitacionesOferta = habilitacionesOferta;
+            Singleton<Datos>.Instance.AgregarOfertas(this);
         }
 
         /// <summary>

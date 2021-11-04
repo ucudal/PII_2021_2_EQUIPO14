@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Text;
+using System.Linq;
 
 namespace Proyecto_Final
 {
@@ -25,89 +27,76 @@ namespace Proyecto_Final
         public Rubro Rubro {get; set;}
 
         /// <summary>
+        /// Otorga una instancia de objeto "Habilitaciones" del Emprendedor
+        /// </summary>
+        /// <value>Objeto de tipo "Habilitaciones".</value>
+        public Habilitaciones Habilitacion {get; set;}
+
+        /// <summary>
         /// Otorga una lista de strings que representan las especializaciones del Emprendedor.
         /// </summary>
         /// <value></value>
-        public ArrayList Especializaciones 
-        { 
-            get 
-            {
-                return this.especializaciones;
-            } 
-        }
-        public ArrayList Compras 
-        { 
-            get 
-            {
-                return this.compras;
-            } 
-        }
-        //Falta habilitaciones
+        public ArrayList Especializaciones {get{return this.especializaciones;}}
+
+        /// <summary>
+        /// Otorga una lista de strings que representan las compras del Emprendedor.
+        /// </summary>
+        /// <value></value>
+        public ArrayList Compras {get{return this.compras;}}
 
         /// <summary>
         /// Inicializa la clase Emprendedor
         /// </summary>
         /// <param name="ubicacion"></param>
         /// <param name="rubro"></param>
-        public Emprendedor(string ubicacion, Rubro rubro)
+        /// <param name="habilitacion"></param>
+        public Emprendedor(string ubicacion, Rubro rubro, Habilitaciones habilitacion)
         {
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
+            this.Habilitacion = habilitacion;
         }
 
         /// <summary>
         /// Agrega una Especialización al Emprendedor.
         /// </summary>
-        public void AgregarEspecializacion()
+        public void AgregarEspecializacion(string especializacion)
         {
             ArrayList especializaciones = this.Especializaciones;
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la especializacion a agregar: ");
-                string esp = Console.ReadLine();
-                especializaciones.Add(esp);
-                Console.WriteLine("Quiere agregar otra especializacion? Y/N");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }
+            especializaciones.Add(especializacion);
         }
         /// <summary>
         /// Elimina una Especialización al Emprendedor.
         /// </summary>
-        public void EliminarEspecializacion()
+        public void EliminarEspecializacion(string especializacion)
         {
-            ArrayList esp = this.Especializaciones;
-            bool loop = true;
-            while (loop)
-            {
-                Console.WriteLine("Ingrese la especialización a eliminar: ");
-                string especializacion = Console.ReadLine();
-
-                for (int i = 0; i < esp.Count - 1; i++)
-                {
-                    if ((string)esp[i] == especializacion)
-                    {
-                        esp.RemoveAt(i);
-                    }
-                }
-                Console.WriteLine("Quiere eliminar otra especializacion? Y/N");
-                string input = Console.ReadLine().ToUpper();
-                if (input != "Y")
-                {
-                    loop = false;
-                }
-            }
+            ArrayList especializaciones = this.Especializaciones;
+            especializaciones.Remove(especializacion);
         }
         /// <summary>
         /// 
         /// </summary>
-        public void ConsumoxTiempo()
+        /// <summary>
+        /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
+        /// </summary>
+        public string ConsumoXTiempo(UserEmprendedor userEmprendedor)
         {
-            
+            StringBuilder result = new StringBuilder();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                if(oferta.IsVendido==true)
+                {
+                    if(userEmprendedor.Nombre == oferta.Comprador.Nombre)
+                    {
+                        result.Append($"Compró esta oferta: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    }
+                }
+            }
+            if(result.ToString() == "")
+            {
+                result.Append("Aún no se ha comprado ningún producto.");
+            }
+            return result.ToString();
         }
     }
 }
