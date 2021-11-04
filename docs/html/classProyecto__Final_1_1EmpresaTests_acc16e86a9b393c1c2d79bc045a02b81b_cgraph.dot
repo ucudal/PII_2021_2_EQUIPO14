@@ -1,0 +1,11 @@
+digraph "Proyecto_Final.EmpresaTests.ClasificarProductosTest"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Proyecto_Final.EmpresaTests.\lClasificarProductosTest",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Prueba que se pueden clasificar los productos."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.UserEmpresa.\lCrearProducto",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1UserEmpresa.html#a429f3de89608d2acce333fa158d4ac19",tooltip="Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad,..."];
+}

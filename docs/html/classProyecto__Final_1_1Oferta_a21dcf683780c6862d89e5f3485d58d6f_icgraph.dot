@@ -1,0 +1,17 @@
+digraph "Proyecto_Final.Oferta.AgregarMsjClave"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Proyecto_Final.Oferta.Agregar\lMsjClave",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Agrega una palabra clave a la listas de palabras clave de la oferta."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.Empresa.Agregar\lMsjClave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1Empresa.html#aa0a26903d4018f57cec379e6c324e157",tooltip="Agrega una palabra clave a una publicacion determinada."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Proyecto_Final.UserEmpresa.\lCrearMsjClave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1UserEmpresa.html#ab669b28cf365c3d39761264fe0cfcc6e",tooltip="Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materia..."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Proyecto_Final.EmpresaTests.\lAgregarMsjClaveTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1EmpresaTests.html#a0f9b341124bb7beab70d6c3d34cf946a",tooltip="Prueba que se pueda agregar un mensaje clave a una publicacion."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Proyecto_Final.Emprendedor\lTests.VerOfertasPalabraClaveTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1EmprendedorTests.html#af9b0f6be5c2149806bf2c0362b459f45",tooltip="Prueba que se buscan correctamente las ofertas según ."];
+}

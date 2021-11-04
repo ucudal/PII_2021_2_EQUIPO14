@@ -1,0 +1,10 @@
+digraph "Proyecto_Final.ConsoleInteraction"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Proyecto_Final.ConsoleInteraction\n|+ string\l+ int\l|+ ConsoleInteraction()\l+ CrearOferta()\l+ AceptarInvitacion()\l+ CrearDatosEmpresa()\l+ CrearDatosEmprendedor()\l+ CrearDatosHabilitacion()\l+ CrearDatosProducto()\l+ CrearDatosOferta()\l+ CrearDatosTipoProducto()\l+ AgregarMsjClave()\l+ ConcretarOferta()\l+ ImprimirVendidos()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Clase encargada de interactuar con el usuario a travez de la consola."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{IUserInterface\n|+ string\l+ int\l|+ CrearOferta()\l+ AceptarInvitacion()\l+ CrearDatosEmpresa()\l+ CrearDatosEmprendedor()\l+ CrearDatosHabilitacion()\l+ CrearDatosProducto()\l+ CrearDatosOferta()\l+ CrearDatosTipoProducto()\l+ AgregarMsjClave()\l+ ConcretarOferta()\l+ ImprimirVendidos()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceProyecto__Final_1_1IUserInterface.html",tooltip="Esta interface permite implementar distintas formas de que el usuario interactue con el bot."];
+}

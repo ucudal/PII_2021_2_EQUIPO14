@@ -1,0 +1,11 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Proyecto_Final.IUserInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceProyecto__Final_1_1IUserInterface.html",tooltip="Esta interface permite implementar distintas formas de que el usuario interactue con el bot."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Proyecto_Final.ConsoleInteraction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1ConsoleInteraction.html",tooltip="Clase encargada de interactuar con el usuario a travez de la consola."];
+}

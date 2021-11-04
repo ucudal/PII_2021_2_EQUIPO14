@@ -1,0 +1,11 @@
+digraph "Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Ucu.Poo.Locations.Client.\lLocationApiClient.GetDistanceAsync",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Obtiene la distancia entre dos coordenadas."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.Emprendedor\lTests.VerOfertasUbicacionTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1EmprendedorTests.html#a630e03b85b3cfc5675f8bfef82d7fb48",tooltip="Prueba que se buscan correctamente las ofertas según ."];
+}

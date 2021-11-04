@@ -1,0 +1,17 @@
+digraph "Proyecto_Final.EmprendedorTests.VerOfertasUbicacionTest"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Proyecto_Final.Emprendedor\lTests.VerOfertasUbicacionTest",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Prueba que se buscan correctamente las ofertas según ."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ucu.Poo.Locations.Client.\lLocationApiClient.GetDistanceAsync",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a4bad7ac87beda04ecaa73353f14badd7",tooltip="Obtiene la distancia entre dos coordenadas."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Proyecto_Final.UserEmprendedor.\lVerOfertasUbicacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1UserEmprendedor.html#a9a77d8df6165ee77ae68dc7ff3ce39bd",tooltip="En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a u..."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Proyecto_Final.Buscador.\lVerOfertasUbicacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1Buscador.html#adb086c40e81b89642dd0af07aa74e621",tooltip="/// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren..."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ucu.Poo.Locations.Client.\lLocationApiClient.GetLocationAsync",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a775052647014829c8b09dd91b0ff2762",tooltip="Obtiene las coordenadas de una dirección."];
+}

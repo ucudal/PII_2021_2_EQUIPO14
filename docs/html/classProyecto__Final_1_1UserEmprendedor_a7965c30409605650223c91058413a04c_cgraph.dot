@@ -1,0 +1,11 @@
+digraph "Proyecto_Final.UserEmprendedor.ConsumoXTiempo"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Proyecto_Final.UserEmprendedor.\lConsumoXTiempo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo,..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.Emprendedor.\lConsumoXTiempo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1Emprendedor.html#a2c519e3de87a90357032d8f5313d8b6c",tooltip=" "];
+}

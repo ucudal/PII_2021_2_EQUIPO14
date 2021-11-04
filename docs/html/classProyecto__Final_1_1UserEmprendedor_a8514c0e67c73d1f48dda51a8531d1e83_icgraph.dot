@@ -1,0 +1,11 @@
+digraph "Proyecto_Final.UserEmprendedor.EliminarEspecializacion"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Proyecto_Final.UserEmprendedor.\lEliminarEspecializacion",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Elimina de la lista de especializaciones que contiene la clase \"Emprendedor una especialización."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.Emprendedor\lTests.EliminarEspecializacionTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1EmprendedorTests.html#acdc11097dcdcc77ce1f7e4de34c44dcb",tooltip="Prueba que se eliminan especializaciones correctamente."];
+}

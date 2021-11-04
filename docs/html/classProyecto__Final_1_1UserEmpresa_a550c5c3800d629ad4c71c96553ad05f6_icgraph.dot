@@ -1,0 +1,11 @@
+digraph "Proyecto_Final.UserEmpresa.CrearOferta"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Proyecto_Final.UserEmpresa.\lCrearOferta",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma ..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.EmpresaTests.\lCrearOfertaTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1EmpresaTests.html#a1827bb70b1babfd695e9f7d8751057db",tooltip="Prueba que se pueda crear una oferta."];
+}

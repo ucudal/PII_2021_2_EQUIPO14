@@ -1,0 +1,11 @@
+digraph "Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Proyecto_Final.UserEmprendedor.\lVerOfertasPalabraClave",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="En base a una palabra clave, busca todas las ofertas que la contengan."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Proyecto_Final.Buscador.\lVerOfertasPalabraClave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProyecto__Final_1_1Buscador.html#a006a52250da1997f883b1d649ccaa5f0",tooltip="En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave"];
+}
