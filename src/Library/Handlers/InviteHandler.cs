@@ -1,4 +1,12 @@
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using Nito.AsyncEx;
+using Telegram.Bot.Types.ReplyMarkups;
+using System;
 
 namespace Proyecto_Final
 {
@@ -7,6 +15,9 @@ namespace Proyecto_Final
     /// </summary>
     public class InviteHandler : BaseHandler
     {
+        private string[] allowedStatus;
+        public string[] AllowedStatus { get; set;}
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="InviteHandler"/>. Esta clase procesa el mensaje "invitar".
         /// </summary>
@@ -14,6 +25,7 @@ namespace Proyecto_Final
         public InviteHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"invitar"};
+            this.AllowedStatus = new string[] {"STATUS_INVITE_SEND"};
         }
 
         /// <summary>
@@ -24,20 +36,27 @@ namespace Proyecto_Final
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override bool InternalHandle(Message message, out string response)
         {
-            if (this.CanHandle(message))
+            string check = Singleton<StatusManager>.Instance.CheckStatus(message.From.Id);
+            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                // TODO: Verificar si es un administrador.
-                if (message.From.Id == 2051203726)
+                if (check == "STATUS_IDLE")
+                {
+                    if (message.From.Id == 2051203726)
+                    {
+                        response = "Ingrese el ID del usuario que quiere invitar como empresa.";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_INVITE_SEND");
+                        return true;
+                    }
+                    else
+                    {
+                        response = "Usted no es un administrador.";
+                        return true;
+                    }
+                }
+                if (check == "STATUS_INVITE_SEND")
                 {
                     response = "Ingrese el ID del usuario que quiere invitar como empresa.";
-                    return true;
-                }
-                else
-                {
-                    response = string.Empty;
-                    return false;
-                }
-   
+                } 
             }
 
             response = string.Empty;
