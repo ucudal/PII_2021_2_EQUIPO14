@@ -396,77 +396,6 @@
             </summary>
             <param name="habilitacion"></param>
         </member>
-        <member name="T:Proyecto_Final.IUserInterface">
-            <summary>
-            Esta interface permite implementar distintas formas de que el usuario interactue con el bot.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearOferta">
-            <summary>
-            Interactua con el usuario para crear una oferta.
-            </summary>
-            <returns><c>string</c></returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AceptarInvitacion">
-            <summary>
-            Interactua con el usuario para aceptar la invitacion.
-            </summary>
-            <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos de la empresa.
-            </summary>
-            <returns>Tupla de strings con los datos de la empresa.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmprendedor">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos del emprendedor.
-            </summary>
-            <returns>Tupla de strings con los datos del emprendedor.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
-            <summary>
-            Interactua con el usuario para poder crear los datos de la habilitacion.
-            </summary>
-            <returns>Habilitacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosProducto">
-            <summary>
-            Interactua con el usuario para poder crear los datos del producto.
-            </summary>
-            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosOferta">
-            <summary>
-            Interactua con el usuario para crear los datos de la publicacion.
-            </summary>
-            <returns>Nombre de la publicacion</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosTipoProducto">
-            <summary>
-            Interactua con el usuario para crear los datos del tipo de producto.
-            </summary>
-            <returns>Tipo de producto</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
-            <summary>
-            Interactua con el usuario para agregar palabras claves a una oferta.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
-            <summary>
-            Interactua con el usuario para concretar una oferta.
-            </summary>
-            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
-            <summary>
-            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
-            </summary>
-            <param name="item"></param>
-        </member>
         <member name="T:Proyecto_Final.Invitacion">
             <summary>
             Esta clase representa una invitacion.
@@ -799,6 +728,294 @@
             </summary>
             <returns>Retorna un diccionario con los datos de las ventas</returns>
         </member>
+        <member name="T:Proyecto_Final.BaseHandler">
+            <summary>
+            Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una
+            cadena de "handlers" que pueden procesar o no el mensaje. Cada "handler" decide si procesa el mensaje, o si se lo
+            pasa al siguiente. Esta clase base implmementa la responsabilidad de recibir el mensaje y pasarlo al siguiente
+            "handler" en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y
+            de procesarlo, se delega a las clases sucesoras de esta clase base.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.BaseHandler.Next">
+            <summary>
+            Obtiene el próximo "handler".
+            </summary>
+            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
+        </member>
+        <member name="P:Proyecto_Final.BaseHandler.Keywords">
+            <summary>
+            Obtiene o asigna el conjunto de palabras clave que este "handler" puede procesar.
+            </summary>
+            <value>Un array de palabras clave.</value>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.#ctor(Proyecto_Final.IHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.BaseHandler"/>.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.#ctor(System.String[],Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.BaseHandler"/> con una lista de comandos.
+            </summary>
+            <param name="keywords">La lista de comandos.</param>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y retorna
+            true o no lo procesa y retorna false.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="responder">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario</returns>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.InternalCancel">
+            <summary>
+            Este método puede ser sobreescrito en las clases sucesores que procesan varios mensajes cambiando de estado
+            entre mensajes deben sobreescribir este método para volver al estado inicial. En la clase base no hace nada.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.CanHandle(Telegram.Bot.Types.Message)">
+            <summary>
+            Determina si este "handler" puede procesar el mensaje. En la clase base se utiliza el array
+            <see cref="P:Proyecto_Final.BaseHandler.Keywords"/> para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las
+            clases sucesores pueden sobreescribir este método para proveer otro mecanismo para determina si procesan o no
+            un mensaje.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.Handle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje o la pasa al siguiente "handler" si existe.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.BaseHandler.Cancel">
+            <summary>
+            Retorna este "handler" al estado inicial. En los "handler" sin estado no hace nada. Los "handlers" que
+            procesan varios mensajes cambiando de estado entre mensajes deben sobreescribir este método para volver al
+            estado inicial.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.GoodByeHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.GoodByeHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.GoodByeHandler"/>. Esta clase procesa el mensaje "chau"
+            y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.GoodByeHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.HelloHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.HelloHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.HelloHandler"/>. Esta clase procesa el mensaje "hola".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.HelloHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Proyecto_Final.IHandler" -->
+        <member name="P:Proyecto_Final.IHandler.Next">
+            <summary>
+            Obtiene el próximo "handler".
+            </summary>
+            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
+        </member>
+        <member name="M:Proyecto_Final.IHandler.Handle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje o la pasa al siguiente "handler" si existe.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IHandler.Cancel">
+            <summary>
+            Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los
+            "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
+            caso de error por ejemplo.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.InviteHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.InviteHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.InviteHandler"/>. Esta clase procesa el mensaje "invitar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.InviteHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje "invitar" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.PhotoHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "foto".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.PhotoHandler.#ctor(Telegram.Bot.TelegramBotClient,Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PhotoHandler"/>. Esta clase procesa el mensaje "foto".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+            <param name="bot">El bot para enviar la foto.</param>
+        </member>
+        <member name="M:Proyecto_Final.PhotoHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje "foto" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.PhotoHandler.SendProfileImage(Telegram.Bot.Types.Message)">
+            <summary>
+            Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.RegisterHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "registro".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.RegisterHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RegisterHandler"/>. Esta clase procesa el mensaje "registro".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.RegisterHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje "registro" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.StartHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "start".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.StartHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.StartHandler"/>. Esta clase procesa el mensaje "start".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.StartHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+            <summary>
+            Procesa el mensaje "start" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.IUserInterface">
+            <summary>
+            Esta interface permite implementar distintas formas de que el usuario interactue con el bot.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearOferta">
+            <summary>
+            Interactua con el usuario para crear una oferta.
+            </summary>
+            <returns><c>string</c></returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.AceptarInvitacion">
+            <summary>
+            Interactua con el usuario para aceptar la invitacion.
+            </summary>
+            <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos de la empresa.
+            </summary>
+            <returns>Tupla de strings con los datos de la empresa.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmprendedor">
+            <summary>
+            Interactua con el usuario para crear los datos respectivos del emprendedor.
+            </summary>
+            <returns>Tupla de strings con los datos del emprendedor.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
+            <summary>
+            Interactua con el usuario para poder crear los datos de la habilitacion.
+            </summary>
+            <returns>Habilitacion.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosProducto">
+            <summary>
+            Interactua con el usuario para poder crear los datos del producto.
+            </summary>
+            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosOferta">
+            <summary>
+            Interactua con el usuario para crear los datos de la publicacion.
+            </summary>
+            <returns>Nombre de la publicacion</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.CrearDatosTipoProducto">
+            <summary>
+            Interactua con el usuario para crear los datos del tipo de producto.
+            </summary>
+            <returns>Tipo de producto</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
+            <summary>
+            Interactua con el usuario para agregar palabras claves a una oferta.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
+            <summary>
+            Interactua con el usuario para concretar una oferta.
+            </summary>
+            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
+            <summary>
+            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
+            </summary>
+            <param name="item"></param>
+        </member>
         <member name="T:Ucu.Poo.Locations.Client.Distance">
             <summary>
             Representa la distancia entre las coordenas o las direcciones de origen y destino retornada en los métodos
@@ -878,6 +1095,11 @@
             La longitud de la dirección.
             </summary>
             <value>El valor de la longitud en formato decimal.</value>
+        </member>
+        <member name="T:Ucu.Poo.Locations.Client.LocationApiClient">
+            <summary>
+            Clase encargada de conseguir la localizacion y distancia.
+            </summary>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)">
             <summary>
