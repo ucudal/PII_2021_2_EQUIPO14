@@ -70,7 +70,7 @@ namespace Proyecto_Final
                 // Sólo respondemos a mensajes de texto
                 if (update.Type == UpdateType.Message)
                 {
-                    await HandleMessageReceived(update.Message);
+                    await HandleMessageReceived(new TelegramAdapter(update.Message));
                 }
             }
             catch(Exception e)
@@ -88,29 +88,28 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="message">El mensaje recibido</param>
         /// <returns></returns>
-        private static async Task HandleMessageReceived(Message message)
+        private static async Task HandleMessageReceived(IMessage message)
         {
-            Console.WriteLine($"< {message.From.Id} > | Received a message from {message.From.FirstName} saying: {message.Text} | Chat: {message.Chat.Id} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.From.Id)}");
+            Console.WriteLine($"< {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
 
             string response = string.Empty;
 
-            if (Singleton<StatusManager>.Instance.ListaEstadoUsuario().ContainsKey(message.From.Id))
+            if (Singleton<StatusManager>.Instance.ListaEstadoUsuario().ContainsKey(message.UserId))
             {
                 firstHandler.Handle(message, out response);
             }
             else 
             {
-                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_IDLE");
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                 firstHandler.Handle(message, out response);
             } 
 
-            //firstHandler.Handle(message, out response); 
 
             Singleton<StatusManager>.Instance.PrintUserStatus();
 
             if (!string.IsNullOrEmpty(response))
             {
-                await Bot.SendTextMessageAsync(message.Chat.Id, response);
+                await Bot.SendTextMessageAsync(message.ChatId, response);
             }
         }
 

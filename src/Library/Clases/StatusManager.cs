@@ -6,14 +6,14 @@ namespace Proyecto_Final
 {
     public class StatusManager
     {
-        private  Dictionary<int, string> userData = new Dictionary<int, string>();
+        private  Dictionary<string, string> userData = new Dictionary<string, string>();
 
-        public Dictionary<int, string> ListaEstadoUsuario()
+        public Dictionary<string, string> ListaEstadoUsuario()
         {
             return this.userData;
         }
 
-       public void AgregarEstadoUsuario(int id, string estado)
+       public void AgregarEstadoUsuario(string id, string estado)
        {
             if (this.userData.ContainsKey(id))
             {
@@ -29,14 +29,14 @@ namespace Proyecto_Final
 
         public void PrintUserStatus()
         {
-            foreach (KeyValuePair<int, string> kvp in this.ListaEstadoUsuario())
+            foreach (KeyValuePair<string, string> kvp in this.ListaEstadoUsuario())
             {
                 Console.WriteLine("Usuario = {0} || Status = {1}", kvp.Key, kvp.Value);
             }
         }
-        public string CheckStatus(int id)
+        public string CheckStatus(string id)
         {
-            foreach( KeyValuePair<int, string> kvp in this.ListaEstadoUsuario() )
+            foreach( KeyValuePair<string, string> kvp in this.ListaEstadoUsuario() )
             {
                 if (id == kvp.Key)
                 {

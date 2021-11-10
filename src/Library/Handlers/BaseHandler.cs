@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Telegram.Bot.Types;
+//using Telegram.Bot.Types;
 
 namespace Proyecto_Final
 {
@@ -52,7 +52,7 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="responder">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario</returns>
-        protected abstract bool InternalHandle(Message message, out string responder);
+        protected abstract bool InternalHandle(IMessage message, out string responder);
         // {
         //     throw new InvalidOperationException("Este método debe ser sobrescrito");
         // }
@@ -74,7 +74,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
-        protected virtual bool CanHandle(Message message)
+        protected virtual bool CanHandle(IMessage message)
         {
             // Cuando no hay palabras clave este método debe ser sobreescrito por las clases sucesoras y por lo tanto
             // este método no debería haberse invocado.
@@ -92,7 +92,7 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        public IHandler Handle(Message message, out string response)
+        public IHandler Handle(IMessage message, out string response)
         {
             if (this.InternalHandle(message, out response))
             {

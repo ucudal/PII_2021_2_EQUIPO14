@@ -33,7 +33,7 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(Message message, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             if (this.CanHandle(message))
             {
@@ -51,19 +51,19 @@ namespace Proyecto_Final
         /// <summary>
         /// Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
         /// </summary>
-        private async Task SendProfileImage(Message message)
+        private async Task SendProfileImage(IMessage message)
         {
             // Can be null during testing
             if (bot != null)
             {
-                await bot.SendChatActionAsync(message.Chat.Id, ChatAction.UploadPhoto);
+                await bot.SendChatActionAsync(message.ChatId, ChatAction.UploadPhoto);
 
                 const string filePath = @"D:\GitHub\Equipo14_PII_Proyecto_Final\src\Assets\profile.jpeg";
                 using var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                 var fileName = filePath.Split(Path.DirectorySeparatorChar).Last();
 
                 await bot.SendPhotoAsync(
-                    chatId: message.Chat.Id,
+                    chatId: message.ChatId,
                     photo: new InputOnlineFile(fileStream, fileName),
                     caption: "Te ves bien!"
                 );

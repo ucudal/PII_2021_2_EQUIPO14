@@ -34,17 +34,17 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(Message message, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
-            string check = Singleton<StatusManager>.Instance.CheckStatus(message.From.Id);
+            string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
             if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
                 if (check == "STATUS_IDLE")
                 {
-                    if (message.From.Id == 2051203726)
+                    if (message.UserId == "2051203726")
                     {
                         response = "Ingrese el ID del usuario que quiere invitar como empresa.";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_INVITE_SEND");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_INVITE_SEND");
                         return true;
                     }
                     else

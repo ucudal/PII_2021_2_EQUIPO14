@@ -22,12 +22,12 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(Message message, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             if (this.CanHandle(message))
             {
-                response = $"Hola, ¿cómo estás {message.From.FirstName}? 👋😀\nMe llamo EXIV y soy el Bot de PII del Equipo 14.";
-                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_IDLE");
+                response = $"Hola, ¿cómo estás {message.FirstName}? 👋😀\nMe llamo EXIV y soy el Bot de PII del Equipo 14.";
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                 return true;
             }
 

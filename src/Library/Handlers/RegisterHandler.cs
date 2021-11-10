@@ -1,11 +1,5 @@
-using System.IO;
+
 using System.Linq;
-using System.Threading.Tasks;
-using Telegram.Bot;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
-using Nito.AsyncEx;
-using Telegram.Bot.Types.ReplyMarkups;
 using System;
 
 namespace Proyecto_Final
@@ -42,15 +36,15 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(Message message, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
-            string check = Singleton<StatusManager>.Instance.CheckStatus(message.From.Id);
+            string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
             if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
                 if (check == "STATUS_IDLE")
                 {   
                     response = "¿Tienes un token de registro? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_REGISTER_RESPONSE");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_RESPONSE");
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_RESPONSE")
@@ -58,13 +52,13 @@ namespace Proyecto_Final
                     if (message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese su token: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_REGISTER_EMPRESA");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA");
                         return true;
                     }
                     else
                     {
                         response = "¿Deseas registrarte como Emprendedor? Y/N";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_REGISTER_EMPRENDEDOR");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR");
                         return true;
                     }
                 }
@@ -73,13 +67,13 @@ namespace Proyecto_Final
                     if (message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese su nombre: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_REGISTER_NAME");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_NAME");
                         return true;
                     }
                     else
                     {
                         response = "Registro anulado.";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_IDLE");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                 }
@@ -89,7 +83,7 @@ namespace Proyecto_Final
                     UserEmprendedor userEmprendedor = new UserEmprendedor(message.Text);
                     Emprendedor emprendedor = new Emprendedor("", new Rubro(""), new Habilitaciones(""));
                     userEmprendedor.Emprendedor = emprendedor;
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_REGISTER_UBICACION");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_UBICACION");
                     // TODO: GUARDAR EL USUARIO CREADO.
                     return true;
                 }
@@ -97,19 +91,19 @@ namespace Proyecto_Final
                 {
                     response = $"Su ubicacion es: {message.Text}.\n\nIngrese su rubro: ";
                     // TODO: Checkear rubro.
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_REGISTER_HABILITACION");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_HABILITACION");
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_HABILITACION")
                 {
                     response = $"Su rubro es: {message.Text}.\n\nIngrese su habilitacion:";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_RUBRO");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RUBRO");
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_RUBRO")
                 {
                     response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_IDLE");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;
                 }
             }

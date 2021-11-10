@@ -22,7 +22,7 @@ namespace Proyecto_Final
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(Message message, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             if (this.CanHandle(message))
             {
