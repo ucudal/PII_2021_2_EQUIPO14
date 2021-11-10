@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 
 namespace Proyecto_Final
 {
@@ -7,8 +8,40 @@ namespace Proyecto_Final
     /// </summary>
     public class Datos
     {
-        private ArrayList listaOfertas = new ArrayList();
+        private string[] listaAdmins = {"2051203726"};
 
+        public string[] ListaAdmins()
+        {
+            return this.listaAdmins;
+        }
+        public bool IsAdmin(string token)
+        {
+            return this.listaAdmins.Contains(token);
+        }
+        private ArrayList listaTokens = new ArrayList();
+
+        public ArrayList ListaTokens()
+        {
+            return this.listaTokens;
+        }
+
+        public void AgregarToken(string token)
+        {
+            listaHabilitaciones.Add(token);
+        }
+
+        public void EliminarToken(string token)
+        {
+            listaHabilitaciones.Remove(token);
+        }
+
+        public bool IsTokenValid(string token)
+        {
+            return this.listaTokens.Contains(token);
+        }
+
+
+        private ArrayList listaOfertas = new ArrayList();
 
         /// <summary>
         /// Otorga una lista con todas las publicaciones realizadas.

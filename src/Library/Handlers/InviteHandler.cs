@@ -41,26 +41,37 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                    if (message.UserId == "2051203726")
+                    if (Singleton<Datos>.Instance.IsAdmin(message.UserId))
                     {
-                        response = "Ingrese el ID del usuario que quiere invitar como empresa.";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_INVITE_SEND");
+                        string newToken = this.generateToken();
+                        response = $"Envie este token a la persona que desea invitar como Empresa.\n\nTOKEN:\n{newToken}";
+                        Singleton<Datos>.Instance.AgregarToken(newToken);
+                        Console.WriteLine($"InviteHandler: TOKEN | {newToken} | generado por < {message.UserId} > ");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                     else
                     {
                         response = "Usted no es un administrador.";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                 }
-                if (check == "STATUS_INVITE_SEND")
-                {
-                    response = "Ingrese el ID del usuario que quiere invitar como empresa.";
-                } 
             }
-
             response = string.Empty;
             return false;
         }
+        private string generateToken()
+        {
+            var allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
+            var random = new Random();  
+            var resultToken = new string(  
+            Enumerable.Repeat(allChar , 16)  
+                        .Select(token => token[random.Next(token.Length)]).ToArray());   
+   
+            string authToken = resultToken.ToString();  
+            return authToken;
+        }
     }
+
 }

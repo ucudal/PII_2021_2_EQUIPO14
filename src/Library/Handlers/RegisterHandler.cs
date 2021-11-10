@@ -62,6 +62,21 @@ namespace Proyecto_Final
                         return true;
                     }
                 }
+                else if (check == "STATUS_REGISTER_EMPRESA")
+                {
+                    if (Singleton<Datos>.Instance.IsTokenValid(message.Text))
+                    {
+                        response = $"Token valido.\n\nIngrese su ubicacion: ";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_IDLE");
+                        return true;
+                    }
+                    else
+                    {
+                        response = "Token invalido.\n¿Quieres intentarlo de nuevo? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_RESPONSE");
+                        return true;
+                    }
+                }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR")
                 {
                     if (message.Text.ToUpper() == "Y")
