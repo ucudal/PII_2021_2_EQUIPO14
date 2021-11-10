@@ -18,12 +18,12 @@ namespace Proyecto_Final
             if (this.userData.ContainsKey(id))
             {
                 this.userData[id] = estado;
-                Console.WriteLine($"Estado {estado} agregado a usuario {id}");
+                //Console.WriteLine($"Estado {estado} agregado a usuario {id}");
             }
             else
             {
                 this.userData.Add(id, "STATUS_IDLE");
-                Console.WriteLine($"Estado del usuario {id} creado.");
+                //Console.WriteLine($"Estado del usuario {id} creado.");
             }
        }
 

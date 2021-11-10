@@ -94,8 +94,17 @@ namespace Proyecto_Final
 
             string response = string.Empty;
 
+            if (Singleton<StatusManager>.Instance.ListaEstadoUsuario().ContainsKey(message.From.Id))
+            {
+                firstHandler.Handle(message, out response);
+            }
+            else 
+            {
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.From.Id, "STATUS_IDLE");
+                firstHandler.Handle(message, out response);
+            } 
 
-            firstHandler.Handle(message, out response);
+            //firstHandler.Handle(message, out response); 
 
             Singleton<StatusManager>.Instance.PrintUserStatus();
 
