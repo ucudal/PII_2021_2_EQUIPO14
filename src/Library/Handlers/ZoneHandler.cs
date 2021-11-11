@@ -12,28 +12,28 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
     /// </summary>
 
-    public class KeyWordsHandler: BaseHandler
+    public class ZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="KeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
+        /// Inicializa una nueva instancia de la clase <see cref="KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
-        public KeyWordsHandler(BaseHandler next) : base(next)
+        public ZoneHandler (BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"keyword"};
-            this.AllowedStatus = new string [] {"STATUS_KEYWORD_RESPONSE",
-                                                "STATUS_KEYWORD_RECIVED"};
+            this.Keywords = new string [] {"zone"};
+            this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
+                                                "STATUS_ZONE_RECIVED"};
         }
 
         /// <summary>
-        /// Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "zone" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -46,28 +46,28 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                    response = "¿Tienes una palabra clave? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_KEYWORD_RESPONSE");
+                    response = "¿Quiere filtrar los materiales por zona?";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                     return true;
                 }
 
-                else if (check == "STATUS_KEYWORD_RESPONSE")
+                else if (check == "STATUS_ZONE_RESPONSE")
                 {
                     if(message.Text.ToUpper() == "Y")
                     {
-                        response = "Ingrese su palabra clave: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_KEYWORD_RECIVED");
+                        response = "Ingrese la zona: ";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONA_RECIVED");
                         return true;
                     }
                 }
 
-                else if (check == "STATUS_KEYWORD_RECIVED")
+                else if (check == "STATUS_ZONA_RECIVED")
                 {
                     
                 }
                 else
                 {
-                    response = "Usted no contiene una palabra clave";
+                    response = "Usted no ingreso una zona";
                     
                     check = "STATUS_IDLE";
                     return true;
