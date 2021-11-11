@@ -59,6 +59,22 @@ namespace Proyecto_Final
                         return true;
                     }
                 }
+
+                else if (check == "STATUS_KEYWORD_RECIVED")
+                {
+                    foreach(string oferta in listaOfetas())
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    response = "Usted no contiene una palabra clave";
+                    
+                    check = "STATUS_IDLE";
+                    return true;
+                }
+                
             }
         }
 
