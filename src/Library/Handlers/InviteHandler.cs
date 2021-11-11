@@ -63,9 +63,9 @@ namespace Proyecto_Final
         }
         private string generateToken()
         {
-            var allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
-            var random = new Random();  
-            var resultToken = new string(  
+            string allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
+            Random random = new Random();  
+            string resultToken = new string(  
             Enumerable.Repeat(allChar , 16)  
                         .Select(token => token[random.Next(token.Length)]).ToArray());   
    
