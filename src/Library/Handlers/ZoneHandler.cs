@@ -56,14 +56,14 @@ namespace Proyecto_Final
                     if(message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese la zona: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONA_RECIVED");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECIVED");
                         return true;
                     }
                 }
 
-                else if (check == "STATUS_ZONA_RECIVED")
+                else if (check == "STATUS_ZONE_RECIVED")
                 {
-                    
+                    //Metodo de filtrar por zona
                 }
                 else
                 {
@@ -74,6 +74,8 @@ namespace Proyecto_Final
                 }
                 
             }
+            response = string.Empty;
+            return false;
         }
 
 
