@@ -31,7 +31,7 @@ namespace Proyecto_Final
         {
             foreach (KeyValuePair<string, string> kvp in this.ListaEstadoUsuario())
             {
-                Console.WriteLine("Usuario = {0} || Status = {1}", kvp.Key, kvp.Value);
+                Console.WriteLine("StatusManager: Usuario = {0} || Status = {1}", kvp.Key, kvp.Value);
             }
         }
         public string CheckStatus(string id)

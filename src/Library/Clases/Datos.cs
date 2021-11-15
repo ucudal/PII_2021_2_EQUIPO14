@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Proyecto_Final
 {
@@ -7,9 +9,20 @@ namespace Proyecto_Final
     /// Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
     /// </summary>
     public class Datos
-    {
+    {   
         private Dictionary<string,IUser> listaUsuariosRegistrados = new Dictionary<string,IUser>();
-
+        private string[] listaAdmins = {
+                                        "2051203726",
+                                       };
+        private ArrayList listaTokens = new ArrayList();
+        private ArrayList listaOfertas = new ArrayList();
+        private ArrayList listaUsuarioEmpresa = new ArrayList();
+        private ArrayList listaUsuarioEmprendedor = new ArrayList();
+        private ArrayList listaEmpresa = new ArrayList();
+        private ArrayList listaHabilitaciones = new ArrayList();
+        private ArrayList listaTipos = new ArrayList();
+        private ArrayList listaRubros = new ArrayList();
+        
         /// <summary>
         /// Lista de usuarios registrados mediante el handler "RegisterHandler"
         /// </summary>
@@ -28,9 +41,35 @@ namespace Proyecto_Final
         {
             this.listaUsuariosRegistrados.Add(id,user);
         }
+      
+        public string[] ListaAdmins()
+        {
+            return this.listaAdmins;
+        }
+        public bool IsAdmin(string token)
+        {
+            return this.listaAdmins.Contains(token);
+        }
 
-        private ArrayList listaOfertas = new ArrayList();
+        public ArrayList ListaTokens()
+        {
+            return this.listaTokens;
+        }
 
+        public void AgregarToken(string token)
+        {
+            this.listaTokens.Add(token);
+        }
+
+        public void EliminarToken(string token)
+        {
+            this.listaTokens.Remove(token);
+        }
+
+        public bool IsTokenValid(string token)
+        {
+            return this.listaTokens.Contains(token);
+        }
 
         /// <summary>
         /// Otorga una lista con todas las publicaciones realizadas.
@@ -41,7 +80,6 @@ namespace Proyecto_Final
             return this.listaOfertas;
         }
 
-
         /// <summary>
         /// Agrega una oferta a la lista de publicaciones.
         /// </summary>
@@ -50,7 +88,6 @@ namespace Proyecto_Final
         {
             this.listaOfertas.Add(oferta);
         }
-        private ArrayList listaUsuarioEmpresa = new ArrayList();
 
         /// <summary>
         /// Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
@@ -70,8 +107,6 @@ namespace Proyecto_Final
             this.listaUsuarioEmpresa.Add(user);
         }
 
-        private ArrayList listaUsuarioEmprendedor = new ArrayList();
-
         /// <summary>
         /// Otorga una lista con todos los UserEmprendedor registrados.
         /// </summary>
@@ -90,8 +125,6 @@ namespace Proyecto_Final
             this.listaUsuarioEmprendedor.Add(user);
         }
 
-        private ArrayList listaEmpresa = new ArrayList();
-
         /// <summary>
         /// Lista con todas las Empresa registradas.
         /// </summary>
@@ -109,7 +142,6 @@ namespace Proyecto_Final
         {
             this.listaEmpresa.Add(user);
         }
-        private ArrayList listaHabilitaciones = new ArrayList();
 
         ///<summary>
         /// Otorga una lista de habilitaciones registradas por el programa <see cref="Habilitaciones"/>.
@@ -119,7 +151,6 @@ namespace Proyecto_Final
         {
             return this.listaHabilitaciones;
         }
-        private ArrayList listaTipos = new ArrayList();
 
         /// <summary>
         /// Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <see cref="TipoProducto"/>.
@@ -129,8 +160,6 @@ namespace Proyecto_Final
         {
             return this.listaTipos;
         }
-
-        private ArrayList listaRubros = new ArrayList();
 
         ///<summary>
         /// Otorga una lista de rubros disponibles para asignarle a una empresa <see cref="Rubro"/>.
@@ -181,7 +210,6 @@ namespace Proyecto_Final
         /// Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
         /// </summary>
         /// <param name="tipo"></param>
-    
         public void AgregarTipo(TipoProducto tipo)
         {
             listaTipos.Add(tipo);
@@ -195,6 +223,7 @@ namespace Proyecto_Final
         {
             listaTipos.Remove(tipo);
         }
+
         /// <summary>
         /// Agrega una oferta de la lista de ofertas.
         /// </summary>

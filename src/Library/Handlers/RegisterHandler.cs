@@ -1,6 +1,8 @@
 
 using System.Linq;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
@@ -19,7 +21,8 @@ namespace Proyecto_Final
         public RegisterHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"registro"};
-            this.AllowedStatus = new string[] {"STATUS_REGISTER_RESPONSE",
+            this.AllowedStatus = new string[] {
+                                               "STATUS_REGISTER_RESPONSE",
                                                "STATUS_REGISTER_NAME",
                                                "STATUS_REGISTER_UBICACION",
                                                "STATUS_REGISTER_EMPRENDEDOR",
@@ -27,7 +30,7 @@ namespace Proyecto_Final
                                                "STATUS_REGISTER_UBICACION",
                                                "STATUS_REGISTER_RUBRO",
                                                "STATUS_REGISTER_HABILITACION"
-                                               };  
+                                              };  
         }
 
         /// <summary>
@@ -62,6 +65,21 @@ namespace Proyecto_Final
                         return true;
                     }
                 }
+                else if (check == "STATUS_REGISTER_EMPRESA")
+                {
+                    if (Singleton<Datos>.Instance.IsTokenValid(message.Text))
+                    {
+                        response = $"Token valido.\n\nIngrese su ubicacion: ";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
+                    else
+                    {
+                        response = "Token invalido.\n¿Quieres intentarlo de nuevo? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_RESPONSE");
+                        return true;
+                    }
+                }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR")
                 {
                     if (message.Text.ToUpper() == "Y")
@@ -80,30 +98,33 @@ namespace Proyecto_Final
                 else if (check == "STATUS_REGISTER_NAME")
                 {
                     response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
-                    UserEmprendedor userEmprendedor = new UserEmprendedor(message.Text);
-                    Emprendedor emprendedor = new Emprendedor("", new Rubro(""), new Habilitaciones(""));
-                    userEmprendedor.Emprendedor = emprendedor;
+
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_UBICACION");
-                    // TODO: GUARDAR EL USUARIO CREADO.
+
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_UBICACION")
                 {
                     response = $"Su ubicacion es: {message.Text}.\n\nIngrese su rubro: ";
-                    // TODO: Checkear rubro.
+
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_HABILITACION");
+
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_HABILITACION")
                 {
                     response = $"Su rubro es: {message.Text}.\n\nIngrese su habilitacion:";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RUBRO");
+
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_RUBRO");
+
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_RUBRO")
                 {
                     response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
+
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    
                     return true;
                 }
             }

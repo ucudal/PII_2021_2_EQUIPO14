@@ -762,7 +762,7 @@
             <param name="keywords">La lista de comandos.</param>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.BaseHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.BaseHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y retorna
             true o no lo procesa y retorna false.
@@ -777,7 +777,7 @@
             entre mensajes deben sobreescribir este método para volver al estado inicial. En la clase base no hace nada.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.BaseHandler.CanHandle(Telegram.Bot.Types.Message)">
+        <member name="M:Proyecto_Final.BaseHandler.CanHandle(Proyecto_Final.IMessage)">
             <summary>
             Determina si este "handler" puede procesar el mensaje. En la clase base se utiliza el array
             <see cref="P:Proyecto_Final.BaseHandler.Keywords"/> para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las
@@ -787,7 +787,7 @@
             <param name="message">El mensaje a procesar.</param>
             <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
         </member>
-        <member name="M:Proyecto_Final.BaseHandler.Handle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.BaseHandler.Handle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
@@ -802,6 +802,25 @@
             estado inicial.
             </summary>
         </member>
+        <member name="T:Proyecto_Final.CategoryHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.CategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.CategoryHandler"/>. Esta clase procesa el mensaje "keyword".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.CategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.GoodByeHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
@@ -814,7 +833,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.GoodByeHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.GoodByeHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -833,35 +852,13 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.HelloHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.HelloHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "T:Proyecto_Final.IHandler" -->
-        <member name="P:Proyecto_Final.IHandler.Next">
-            <summary>
-            Obtiene el próximo "handler".
-            </summary>
-            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
-        </member>
-        <member name="M:Proyecto_Final.IHandler.Handle(Telegram.Bot.Types.Message,System.String@)">
-            <summary>
-            Procesa el mensaje o la pasa al siguiente "handler" si existe.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IHandler.Cancel">
-            <summary>
-            Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los
-            "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
-            caso de error por ejemplo.
-            </summary>
         </member>
         <member name="T:Proyecto_Final.InviteHandler">
             <summary>
@@ -874,9 +871,66 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.InviteHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.InviteHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "invitar" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.KeyWordsHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.KeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.KeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.MaterialsConsumend">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.MaterialsConsumend.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.MaterialsConsumend.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "materialsConsumend" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.PeriodOfTimeHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "PeriodOfTime".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.PeriodOfTimeHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.CategoryHandler"/>. Esta clase procesa el mensaje "PeriodOfTime".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.PeriodOfTimeHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "PeriodOfTime" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -894,7 +948,7 @@
             <param name="next">El próximo "handler".</param>
             <param name="bot">El bot para enviar la foto.</param>
         </member>
-        <member name="M:Proyecto_Final.PhotoHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.PhotoHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "foto" y retorna true; retorna false en caso contrario.
             </summary>
@@ -902,7 +956,7 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
-        <member name="M:Proyecto_Final.PhotoHandler.SendProfileImage(Telegram.Bot.Types.Message)">
+        <member name="M:Proyecto_Final.PhotoHandler.SendProfileImage(Proyecto_Final.IMessage)">
             <summary>
             Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
             </summary>
@@ -918,7 +972,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.RegisterHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.RegisterHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "registro" y retorna true; retorna false en caso contrario.
             </summary>
@@ -937,13 +991,54 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.StartHandler.InternalHandle(Telegram.Bot.Types.Message,System.String@)">
+        <member name="M:Proyecto_Final.StartHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "start" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.ZoneHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.ZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "zone" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Proyecto_Final.IHandler" -->
+        <member name="P:Proyecto_Final.IHandler.Next">
+            <summary>
+            Obtiene el próximo "handler".
+            </summary>
+            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
+        </member>
+        <member name="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje o la pasa al siguiente "handler" si existe.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IHandler.Cancel">
+            <summary>
+            Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los
+            "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
+            caso de error por ejemplo.
+            </summary>
         </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>
