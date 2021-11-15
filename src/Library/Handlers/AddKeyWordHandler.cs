@@ -6,16 +6,25 @@ namespace Proyecto_Final
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "Palabra".
     /// </summary>
-    public class KeyWordHandler : BaseHandler
+    public class AddKeyWordHandler : BaseHandler
     {
+        /// <summary>
+        /// El nombre de la oferta que el usuario luego ingresará.
+        /// </summary>
+        private string Oferta;
+        
+        /// <summary>
+        /// La palabra clave que el usuario luego ingresará.
+        /// </summary>
+        private string KeyWord;
         private string[] allowedStatus;
 
         public string[] AllowedStatus { get; set;}
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="KeyWordHandler"/>. Esta clase procesa el mensaje "Palabra".
+        /// Inicializa una nueva instancia de la clase <see cref="AddKeyWordHandler"/>. Esta clase procesa el mensaje "Palabra".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public KeyWordHandler(BaseHandler next) : base(next)
+        public AddKeyWordHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"Palabra"};
             this.AllowedStatus = new string[] {"STATUS_KEYWORD_RESPONSE",
@@ -49,19 +58,32 @@ namespace Proyecto_Final
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_OFERTNAME");
                         return true;
                     }
+                    else
+                    {
+                        response = "Se ha cancelado la asignación de una palabra clave";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
                 }
                 else if (check == "STATUS_KEYWORD_OFERTNAME")
                 {
                     response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: "; 
+                    Oferta = message.Text;
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
-                    // TODO: GUARDAR EL USUARIO CREADO.
                     return true;
                 }
                 else if (check == "STATUS_KEYWORD_KEYWORD")
                 {
                     response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
+                    KeyWord = message.Text;
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    // TODO: GUARDAR EL USUARIO CREADO.
+                    foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+                    {
+                        if (oferta.Nombre == Oferta)
+                        {
+                            oferta.PalabrasClave.Add(KeyWord);
+                        }
+                    }
                     return true;
                 }
             }
