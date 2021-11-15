@@ -59,19 +59,18 @@ namespace Proyecto_Final
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_MATERIALSCONSUMED_RECIVED");
                         return true;
                     }
+                    else
+                    {
+                        response = "Usted no ingreso un periodo de tiempo, busqueda anulada";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
                 }
 
                 else if (check == "STATUS_MATERIALSCONSUMED_RECIVED")
                 {
                    //Metodo para filtrar por palabras clave 
                 }
-                else
-                {
-                    response = "Usted no ingreso una palabra clave, busqueda anulada";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    return true;
-                }
-                
             }
             response = string.Empty;
             return false;
