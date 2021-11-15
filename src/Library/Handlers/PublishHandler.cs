@@ -19,7 +19,7 @@ namespace Proyecto_Final
         {
             this.Keywords = new string[] {"Publicar"};
             this.AllowedStatus = new string[] {"STATUS_PUBLISH_RESPONSE",
-                                               "STATUS_PUBLISH_OFERTANAME",
+                                               "STATUS_PUBLISH_OFERTNAME",
                                                "STATUS_PUBLISH_PRODUCTNAME",
                                                "STATUS_PUBLISH_PRODUCTDESCRIPTION",
                                                "STATUS_PUBLISH_PRODUCTLOCATION",
@@ -44,10 +44,10 @@ namespace Proyecto_Final
                 if (check == "STATUS_IDLE")
                 {   
                     response = "¿Desea publicar una nueva oferta? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_RESPONSE");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_RESPONSE");
                     return true;
                 }
-                else if (check == "STATUS_REGISTER_RESPONSE")
+                else if (check == "STATUS_PUBLISH_RESPONSE")
                 {
                     if (message.Text.ToUpper() == "Y")
                     {
