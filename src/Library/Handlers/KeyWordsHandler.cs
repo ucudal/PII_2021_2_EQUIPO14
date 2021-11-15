@@ -59,11 +59,17 @@ namespace Proyecto_Final
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_KEYWORD_RECIVED");
                         return true;
                     }
+                    else
+                    {
+                        response = "Usted no ingreso una palabra clave, busqueda anulada";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
                 }
 
                 else if (check == "STATUS_KEYWORD_RECIVED")
                 {
-                   //Metodo para filtrar por palabras clave 
+                   //Metodo para filtrar por palabras clave
                 }
                 else
                 {

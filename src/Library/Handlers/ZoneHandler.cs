@@ -21,7 +21,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
+        /// Inicializa una nueva instancia de la clase <see cref="ZoneHandler"/>. Esta clase procesa el mensaje "zone".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
