@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
@@ -7,6 +8,27 @@ namespace Proyecto_Final
     /// </summary>
     public class Datos
     {
+        private Dictionary<string,IUser> listaUsuariosRegistrados = new Dictionary<string,IUser>();
+
+        /// <summary>
+        /// Lista de usuarios registrados mediante el handler "RegisterHandler"
+        /// </summary>
+        /// <returns>Lista de usuarios registrados cuya Key es el ID y el contenido es la clase User que les corresponde.</returns>
+        public Dictionary<string,IUser> ListaUsuariosRegistrados()
+        {
+            return this.listaUsuariosRegistrados;
+        }
+
+        /// <summary>
+        /// Método que agrega a un usuario en base a su ID y la clase con la que se registró.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
+        public void AgregarUsuarioRegistrado(string id, IUser user)
+        {
+            this.listaUsuariosRegistrados.Add(id,user);
+        }
+
         private ArrayList listaOfertas = new ArrayList();
 
 
