@@ -85,7 +85,7 @@ namespace Proyecto_Final
                     if (message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese el nombre de la oferta";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_OFERTANAME");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_OFERTNAME");
                         return true;
                     }
                     else
@@ -95,7 +95,7 @@ namespace Proyecto_Final
                         return true;
                     }
                 }
-                else if (check == "STATUS_PUBLISH_OFERTANAME")
+                else if (check == "STATUS_PUBLISH_OFERTNAME")
                 {
                     response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese el nombre del producto: ";
                     OfertName = message.Text;
