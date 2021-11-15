@@ -28,8 +28,8 @@ namespace Proyecto_Final
         public MaterialsConsumend(BaseHandler next) : base(next)
         {
             this.Keywords = new string [] {"materialsConsumend"};
-            this.AllowedStatus = new string [] {"STATUS_KEYWORD_RESPONSE",
-                                                "STATUS_KEYWORD_RECIVED"};
+            this.AllowedStatus = new string [] {"STATUS_MATERIALSCONSUMED_RESPONSE",
+                                                "STATUS_MATERIALSCONSUMED_RECIVED"};
         }
 
         /// <summary>
