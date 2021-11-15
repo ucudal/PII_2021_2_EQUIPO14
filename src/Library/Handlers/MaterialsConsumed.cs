@@ -12,7 +12,7 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
     /// </summary>
 
     public class MaterialsConsumend: BaseHandler
@@ -46,22 +46,22 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                    response = "¿Tienes una palabra clave? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_KEYWORD_RESPONSE");
+                    response = "¿Quieres observar los materiales o residuos consumidos en un periodo de tiempo? Y/N";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_MATERIALSCONSUMED_RESPONSE");
                     return true;
                 }
 
-                else if (check == "STATUS_KEYWORD_RESPONSE")
+                else if (check == "STATUS_MATERIALSCONSUMED_RESPONSE")
                 {
                     if(message.Text.ToUpper() == "Y")
                     {
-                        response = "Ingrese su palabra clave: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_KEYWORD_RECIVED");
+                        response = "Ingrese el periodo de tiempo: ";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_MATERIALSCONSUMED_RECIVED");
                         return true;
                     }
                 }
 
-                else if (check == "STATUS_KEYWORD_RECIVED")
+                else if (check == "STATUS_MATERIALSCONSUMED_RECIVED")
                 {
                    //Metodo para filtrar por palabras clave 
                 }

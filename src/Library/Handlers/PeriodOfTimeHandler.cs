@@ -46,7 +46,7 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                    response = "¿Quieres observar los materiales entregados en un periodo de tiempo? Y/N" ;
+                    response = "¿Quieres observar los materiales o residuos entregados en un periodo de tiempo? Y/N" ;
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RESPONSE");
                     return true;
                 }
