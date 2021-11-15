@@ -9,7 +9,8 @@ namespace Proyecto_Final
     /// Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
     /// </summary>
     public class Datos
-    {
+    {   
+        private Dictionary<string,IUser> listaUsuariosRegistrados = new Dictionary<string,IUser>();
         private string[] listaAdmins = {
                                         "2051203726",
                                        };
@@ -21,7 +22,26 @@ namespace Proyecto_Final
         private ArrayList listaHabilitaciones = new ArrayList();
         private ArrayList listaTipos = new ArrayList();
         private ArrayList listaRubros = new ArrayList();
+        
+        /// <summary>
+        /// Lista de usuarios registrados mediante el handler "RegisterHandler"
+        /// </summary>
+        /// <returns>Lista de usuarios registrados cuya Key es el ID y el contenido es la clase User que les corresponde.</returns>
+        public Dictionary<string,IUser> ListaUsuariosRegistrados()
+        {
+            return this.listaUsuariosRegistrados;
+        }
 
+        /// <summary>
+        /// Método que agrega a un usuario en base a su ID y la clase con la que se registró.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
+        public void AgregarUsuarioRegistrado(string id, IUser user)
+        {
+            this.listaUsuariosRegistrados.Add(id,user);
+        }
+      
         public string[] ListaAdmins()
         {
             return this.listaAdmins;
