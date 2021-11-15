@@ -909,6 +909,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
+        <member name="M:Proyecto_Final.InviteHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
         <member name="M:Proyecto_Final.MaterialsConsumend.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "materialsConsumend" y retorna true; retorna false en caso contrario.
@@ -960,6 +961,25 @@
             <summary>
             Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
             </summary>
+        </member>
+        <member name="T:Proyecto_Final.PublishHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.PublishHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.PublishHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "Publicar" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
         <member name="T:Proyecto_Final.RegisterHandler">
             <summary>

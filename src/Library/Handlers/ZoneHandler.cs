@@ -29,7 +29,7 @@ namespace Proyecto_Final
         {
             this.Keywords = new string [] {"zone"};
             this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
-                                                "STATUS_ZONE_RECIVED"};
+                                                "STATUS_ZONE_RECEIVED"};
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                    response = "¿Quiere filtrar los materiales por zona?";
+                    response = "¿Quiere filtrar los materiales por zona? Y/N";
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                     return true;
                 }
@@ -56,12 +56,12 @@ namespace Proyecto_Final
                     if(message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese la zona: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECIVED");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
                         return true;
                     }
                 }
 
-                else if (check == "STATUS_ZONE_RECIVED")
+                else if (check == "STATUS_ZONE_RECEIVED")
                 {
                     //Metodo de filtrar por zona
                 }
