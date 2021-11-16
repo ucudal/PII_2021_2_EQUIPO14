@@ -51,7 +51,7 @@ namespace Proyecto_Final
                 cts.Token
             );
 
-            Console.WriteLine($"Bot is up!");
+            Console.WriteLine($"Program: Bot is up!");
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();
@@ -91,7 +91,7 @@ namespace Proyecto_Final
         /// <returns></returns>
         private static async Task HandleMessageReceived(IMessage message)
         {
-            Console.WriteLine($"< {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
+            Console.WriteLine($"Program: < {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
 
             string response = string.Empty;
 
