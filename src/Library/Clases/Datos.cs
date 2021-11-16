@@ -46,6 +46,11 @@ namespace Proyecto_Final
             return this.listaUsuariosRegistrados;
         }
       
+        /// <summary>
+        /// Verifica si la id ya esta registrada.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Devuelve true si la id esta registrada, false de lo contrario</returns>
         public bool IsRegistered(string id)
         {
             foreach (IUser user in this.listaUsuariosRegistrados)
@@ -59,30 +64,57 @@ namespace Proyecto_Final
             return false;
         }
 
+        /// <summary>
+        /// Devuelve una lista con los ids de admins validos.
+        /// </summary>
+        /// <returns>Lista de ids de admins.</returns>
         public string[] ListaAdmins()
         {
             return this.listaAdmins;
         }
+
+        /// <summary>
+        /// Verifica si es un admin.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns>Devuelve true sie es un admin, false de lo contrario.</returns>
         public bool IsAdmin(string token)
         {
             return this.listaAdmins.Contains(token);
         }
 
+        /// <summary>
+        /// Devuelve la lista de tokens validos.
+        /// </summary>
+        /// <returns>Lista de tokens validos.</returns>
         public ArrayList ListaTokens()
         {
             return this.listaTokens;
         }
 
+        /// <summary>
+        /// Agrega un token a la lista.
+        /// </summary>
+        /// <param name="token"></param>
         public void AgregarToken(string token)
         {
             this.listaTokens.Add(token);
         }
 
+        /// <summary>
+        /// Elimina un token de la lista.
+        /// </summary>
+        /// <param name="token"></param>
         public void EliminarToken(string token)
         {
             this.listaTokens.Remove(token);
         }
 
+        /// <summary>
+        /// Verifica si el token es valido.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns>Devuelve true si es valido, false de lo contrario.</returns>
         public bool IsTokenValid(string token)
         {
             return this.listaTokens.Contains(token);
