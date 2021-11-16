@@ -8,7 +8,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
     /// </summary>
-    public class Datos
+    public sealed class Datos
     {   
         private string[] listaAdmins = {
                                         "2051203726",
@@ -46,7 +46,40 @@ namespace Proyecto_Final
       
         public bool IsRegistered(string id)
         {
-            foreach (IUser user in this.listaUsuariosRegistrados)
+            return this.IsUserAdminRegistered(id) || this.IsUserEmprendedorRegistered(id) || this.IsUserEmpresaRegistered(id);
+        }
+
+        public bool IsUserAdminRegistered(string id)
+        {
+            foreach (UserAdmin user in this.listaUsuariosRegistrados)
+            {
+                if (id == user.Id)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        
+        public bool IsUserEmpresaRegistered(string id)
+        {
+            foreach (UserEmpresa user in this.listaUsuariosRegistrados)
+            {
+                if (id == user.Id)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        
+        public bool IsUserEmprendedorRegistered(string id)
+        {
+            foreach (UserEmprendedor user in this.listaUsuariosRegistrados)
             {
                 if (id == user.Id)
                 {
