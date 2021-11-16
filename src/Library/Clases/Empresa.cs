@@ -23,7 +23,7 @@ namespace Proyecto_Final
         /// Obtiene un valor de la ubocacion de la Empresa.
         /// </summary>
         /// <value>Ubicacion de la empresa.</value>
-        public string Ubicacion { get; }
+        public string Ubicacion { get; set; }
 
         /// <summary>
         /// Obtiene un valor del Rubro de la empresa.
