@@ -35,6 +35,24 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Agrega una habilitacion.
+        /// </summary>
+        /// <param name="habilitacion"></param>
+        public void AgregarHabilitacion(string habilitacion)
+        {
+            this.Emprendedor.AgregarHabilitacion(habilitacion);
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            this.Emprendedor.AgregarRubro(rubro);
+        }
+
+        /// <summary>
         /// Agrega a la lista de especializaciones que contiene la clase "Emprendedor" una especialización.
         /// </summary>
         public void AgregarEspecializacion(string especializacion)

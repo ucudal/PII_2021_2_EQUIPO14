@@ -7,7 +7,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
     /// </summary>
-    public class UserEmpresa : IUser
+    public class UserEmpresa
     {
         private bool isInvited = false;
         private Invitacion invitacion = null;
@@ -46,6 +46,15 @@ namespace Proyecto_Final
         {
             this.Id = id;
             this.Nombre = nombre;
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            this.Empresa.AgregarRubro(rubro);
         }
 
         /// <summary>

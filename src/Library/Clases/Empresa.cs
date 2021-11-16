@@ -57,6 +57,16 @@ namespace Proyecto_Final
         }   
 
         /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            Rubro newRubro = new Rubro(rubro);
+            this.Rubro = newRubro;
+        }
+
+        /// <summary>
         /// Agrega una palabra clave a una publicacion determinada.
         /// </summary>
         /// <param name="datosMensaje"></param>
