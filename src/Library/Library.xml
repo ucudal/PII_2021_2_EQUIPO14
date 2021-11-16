@@ -828,6 +828,25 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.ExitHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "salir".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ExitHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.ExitHandler"/>. Esta clase procesa el mensaje "salir".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.ExitHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "salir" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.GoodByeHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
@@ -871,6 +890,12 @@
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.InviteHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.InviteHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -972,6 +997,12 @@
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "registro".
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.RegisterHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.RegisterHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
