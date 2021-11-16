@@ -37,7 +37,7 @@ Aquí veremos una explicación general e informal de las funciones del software 
 - [X] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
 
 ## Diagrama de Clases
-![image](docs/Users/UML_Proyecto_FinalParte2.jpg)
+![image](docs/UML_Proyecto_FinalParte2.jpg)
 
 ## Reflexion
 Nos parecio dificil en un principio el como organizar de forma correcta las clases, es decir, que clases nececitabamos para que, y que responsabilidades debia tener cada una.
