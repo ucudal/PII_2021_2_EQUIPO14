@@ -11,7 +11,7 @@ namespace Proyecto_Final
         /// Otorga el nombre del tipo de clasificación del producto.
         /// </summary>
         /// <value>Nombre del tipo de producto.</value>
-        public string Nombre { get; }
+        public string Nombre { get; set;}
 
         /// <summary>
         /// Inicializa la clase TipoProducto.

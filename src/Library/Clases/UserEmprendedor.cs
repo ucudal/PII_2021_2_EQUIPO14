@@ -6,35 +6,13 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa a los usuarios emprendedores en el sistema.
     /// </summary>
-    public class UserEmprendedor : IUser
+    public class UserEmprendedor
     {
         /// <summary>
         /// Otorga el nombre del Emprendedor.
         /// </summary>
         /// <value>Nombre del Emprendedor.</value>
         public string Nombre { get; set;}
-
-        /// <summary>
-        /// String que indica qué clase es para el atributo "Es".
-        /// </summary>
-        private string es  = "Admin";
-
-        /// <summary>
-        /// Identificador del tipo de clase.
-        /// </summary>
-        /// <value>String "Admin".</value>
-        public string Es
-        {
-            get
-            {
-                return this.Es;
-            }
-        
-            set
-            {
-                this.Es = es;
-            }
-        }
 
         /// <summary>
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.

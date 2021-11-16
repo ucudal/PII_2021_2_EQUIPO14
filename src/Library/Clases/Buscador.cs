@@ -52,7 +52,7 @@ namespace Proyecto_Final
                 
                 if (distance.TravelDistance <= 10.0)
                 {
-                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
             if(ContentBuilder.ToString() == "")
@@ -76,7 +76,7 @@ namespace Proyecto_Final
                 {
                     if(palabraClave.ToLower() == palabrasClave.ToLower())
                     {
-                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }
                 }
                 if(ContentBuilder.ToString() == "")
@@ -98,7 +98,7 @@ namespace Proyecto_Final
             {
                 if(tipo == oferta.Product.Tipo.Nombre)
                 {
-                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
             if(ContentBuilder.ToString() == "")

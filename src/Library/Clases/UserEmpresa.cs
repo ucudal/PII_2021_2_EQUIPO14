@@ -7,7 +7,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
     /// </summary>
-    public class UserEmpresa : IUser
+    public class UserEmpresa
     {
         private bool isInvited = false;
         private Invitacion invitacion = null;
@@ -23,28 +23,6 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Nombre de la empresa</value>
         public string Nombre { get; }
-        
-        /// <summary>
-        /// String que indica qué clase es para el atributo "Es".
-        /// </summary>
-        private string es  = "Admin";
-
-        /// <summary>
-        /// Identificador del tipo de clase.
-        /// </summary>
-        /// <value>String "Admin".</value>
-        public string Es
-        {
-            get
-            {
-                return this.Es;
-            }
-        
-            set
-            {
-                this.Es = es;
-            }
-        }
         
         /// <summary>
         /// Obtiene un valor del objeto Empresa.
