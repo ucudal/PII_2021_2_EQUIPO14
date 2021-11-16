@@ -28,7 +28,9 @@ namespace Proyecto_Final
                                         "Hab-2",
                                         "Hab-3"
                                         };
-        private ArrayList listaTokens = new ArrayList();
+        private ArrayList listaTokens = new ArrayList() {
+                                        "TOKEN"
+                                        };
         private ArrayList listaOfertas = new ArrayList();
         private ArrayList listaUsuarioEmpresa = new ArrayList();
         private ArrayList listaUsuarioEmprendedor = new ArrayList();
@@ -46,40 +48,7 @@ namespace Proyecto_Final
       
         public bool IsRegistered(string id)
         {
-            return this.IsUserAdminRegistered(id) || this.IsUserEmprendedorRegistered(id) || this.IsUserEmpresaRegistered(id);
-        }
-
-        public bool IsUserAdminRegistered(string id)
-        {
-            foreach (UserAdmin user in this.listaUsuariosRegistrados)
-            {
-                if (id == user.Id)
-                {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-
-        
-        public bool IsUserEmpresaRegistered(string id)
-        {
-            foreach (UserEmpresa user in this.listaUsuariosRegistrados)
-            {
-                if (id == user.Id)
-                {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-
-        
-        public bool IsUserEmprendedorRegistered(string id)
-        {
-            foreach (UserEmprendedor user in this.listaUsuariosRegistrados)
+            foreach (IUser user in this.listaUsuariosRegistrados)
             {
                 if (id == user.Id)
                 {
