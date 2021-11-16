@@ -10,7 +10,6 @@ namespace Proyecto_Final
     /// </summary>
     public class Datos
     {   
-        private Dictionary<string,IUser> listaUsuariosRegistrados = new Dictionary<string,IUser>();
         private string[] listaAdmins = {
                                         "2051203726",
                                        };
@@ -21,27 +20,35 @@ namespace Proyecto_Final
         private ArrayList listaEmpresa = new ArrayList();
         private ArrayList listaHabilitaciones = new ArrayList();
         private ArrayList listaTipos = new ArrayList();
-        private ArrayList listaRubros = new ArrayList();
+        private ArrayList listaRubros = new ArrayList() {
+                                         "Rubro-1",
+                                         "Rubro-2",
+                                         "Rubro-3"
+                                        };
+        private ArrayList listaUsuariosRegistrados = new ArrayList();
         
         /// <summary>
         /// Lista de usuarios registrados mediante el handler "RegisterHandler"
         /// </summary>
-        /// <returns>Lista de usuarios registrados cuya Key es el ID y el contenido es la clase User que les corresponde.</returns>
-        public Dictionary<string,IUser> ListaUsuariosRegistrados()
+        /// <returns>Lista con los usuarios registrados.</returns>
+        public ArrayList ListaUsuariosRegistrados()
         {
             return this.listaUsuariosRegistrados;
         }
-
-        /// <summary>
-        /// Método que agrega a un usuario en base a su ID y la clase con la que se registró.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="user"></param>
-        public void AgregarUsuarioRegistrado(string id, IUser user)
-        {
-            this.listaUsuariosRegistrados.Add(id,user);
-        }
       
+        public bool IsRegistered(string id)
+        {
+            foreach (IUser user in this.listaUsuariosRegistrados)
+            {
+                if (id == user.Id)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
         public string[] ListaAdmins()
         {
             return this.listaAdmins;
@@ -282,12 +289,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckRubros(string rubro)
         {
-            foreach(Rubro rubroAlmacenado in Singleton<Datos>.Instance.ListaRubros())
+            if (this.listaRubros.Contains(rubro))
             {
-                if(rubro == rubroAlmacenado.Rubros)
-                {
-                    return true;
-                }
+                return true;
             }
             return false; 
         }

@@ -29,7 +29,7 @@ namespace Proyecto_Final
         /// Obtiene un valor del Rubro de la empresa.
         /// </summary>
         /// <value>Objeto del tipo Rubro.</value>
-        public Rubro Rubro { get; }
+        public Rubro Rubro { get; set; }
 
         /// <summary>
         /// Obtiene un valor de las especializaciones de la empresa.

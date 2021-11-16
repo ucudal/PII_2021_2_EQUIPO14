@@ -122,6 +122,12 @@
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.ListaUsuariosRegistrados">
+            <summary>
+            Lista de usuarios registrados mediante el handler "RegisterHandler"
+            </summary>
+            <returns>Lista con los usuarios registrados.</returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.ListaOfertas">
             <summary>
             Otorga una lista con todas las publicaciones realizadas.
@@ -570,7 +576,7 @@
             </summary>
             <value>Nombre de usuario del administrador</value>
         </member>
-        <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String)">
+        <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserAdmin.
             </summary>
@@ -599,7 +605,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String)">
+        <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmprendedor.
             </summary>
@@ -667,10 +673,11 @@
             </summary>
             <value><c>true/false</c></value>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmpresa.
             </summary>
+            <param name="id"></param>
             <param name="nombre"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.String)">
@@ -1039,6 +1046,12 @@
             "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
             caso de error por ejemplo.
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.IUser.Id">
+            <summary>
+            String con el Id de un usuario registrado.
+            </summary>
+            <value>Devuelve el ID con el que se registro.</value>
         </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>

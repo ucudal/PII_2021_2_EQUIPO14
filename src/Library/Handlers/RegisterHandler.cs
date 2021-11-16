@@ -3,6 +3,7 @@ using System.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Proyecto_Final
 {
@@ -30,6 +31,7 @@ namespace Proyecto_Final
                                                "STATUS_REGISTER_EMPRENDEDOR_HABILITACION",
                                                "STATUS_REGISTER_EMPRESA",
                                                "STATUS_REGISTER_EMPRESA_NAME",
+                                               "STATUS_REGISTER_EMPRESA_RUBRO",
                                                "STATUS_REGISTER_EMPRESA_UBICACION"
                                               };  
         }
@@ -44,9 +46,14 @@ namespace Proyecto_Final
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
             if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
-            {
+            {        
                 if (check == "STATUS_IDLE")
                 {   
+                    if (Singleton<Datos>.Instance.IsRegistered(message.UserId))
+                    {
+                        response = "Ya estas registrado!.";
+                        return true;
+                    }
                     response = "¿Tienes un token de registro? Y/N";
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_RESPONSE");
                     return true;
@@ -70,7 +77,7 @@ namespace Proyecto_Final
                 {
                     if (Singleton<Datos>.Instance.IsTokenValid(message.Text))
                     {
-                        response = $"Token valido.\n\nIngrese su nombre: ";
+                        response = $"Token valido.\n\nIngrese el nombre de su empresa: ";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_NAME");
                         return true;
                     }
@@ -83,15 +90,60 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_NAME")
                 {
-                    response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_UBICACION");
+                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n";
+                    StringBuilder str = new StringBuilder();
+                    foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
+                    {
+                        str.Append($"- {rubro}\n");
+                    }
+                    response += str;
+                    response += $"\n\nIngrese su rubro:";
+
+                    UserEmpresa userEmpresa = new UserEmpresa(message.UserId, message.Text);
+                    Empresa empresa = new Empresa(message.Text, "", new Rubro(""));
+                    userEmpresa.Empresa = empresa;
+                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
+
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_RUBRO");
                     return true;
+                }
+                else if (check == "STATUS_REGISTER_EMPRESA_RUBRO")
+                {
+                    if (Singleton<Datos>.Instance.CheckRubros(message.Text))
+                    {
+                        response = $"Su rubro es: {message.Text}.\n\nIngrese su ubicacion: ";
+
+                        Rubro newRubro = new Rubro(message.Text);
+
+                        foreach (UserEmpresa userEmpresa in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
+                        {
+                            if (userEmpresa.Id == message.UserId)
+                            {
+                                userEmpresa.Empresa.Rubro = newRubro;
+                            }
+                        }
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_UBICACION");
+                        return true;
+                    }
+                    else 
+                    {
+                        response = $"Rubro invalido.\nRubros validos: ";
+                        StringBuilder str = new StringBuilder();
+                        foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
+                        {
+                            str.Append($"- {rubro}\n");
+                        }
+                        response += str;
+                        response += "\n\nIngrese su rubro nuevamente";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_RUBRO");
+                        return true;
+                    }
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_UBICACION")
                 {
                     response = $"Su ubicacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
 
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_HABILITACION");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
 
                     return true;
                 }
