@@ -11,6 +11,11 @@ namespace Proyecto_Final
     {
         private bool isInvited = false;
         private Invitacion invitacion = null;
+        
+        /// <summary>
+        /// Otorga el id del usuario.
+        /// </summary>
+        /// <value>Id del usuario.</value>
         public string Id { get; set; }
 
         /// <summary>

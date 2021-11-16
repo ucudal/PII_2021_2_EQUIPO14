@@ -9,6 +9,10 @@ namespace Proyecto_Final
     public class UserEmprendedor : IUser
     {
 
+        /// <summary>
+        /// Otorga el id del usuario.
+        /// </summary>
+        /// <value>Id del usuario.</value>
         public string Id { get; set; }
 
         /// <summary>
