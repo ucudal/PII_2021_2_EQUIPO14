@@ -13,18 +13,26 @@ namespace Proyecto_Final
         private string[] listaAdmins = {
                                         "2051203726",
                                        };
+        private ArrayList listaRubros = new ArrayList() {
+                                        "Rubro-1",
+                                        "Rubro-2",
+                                        "Rubro-3"
+                                        };
+        private ArrayList listaTipos = new ArrayList() {
+                                        "Tipo-1",
+                                        "Tipo-2",
+                                        "Tipo-3"
+                                        };
+        private ArrayList listaHabilitaciones = new ArrayList() {
+                                        "Hab-1",
+                                        "Hab-2",
+                                        "Hab-3"
+                                        };
         private ArrayList listaTokens = new ArrayList();
         private ArrayList listaOfertas = new ArrayList();
         private ArrayList listaUsuarioEmpresa = new ArrayList();
         private ArrayList listaUsuarioEmprendedor = new ArrayList();
         private ArrayList listaEmpresa = new ArrayList();
-        private ArrayList listaHabilitaciones = new ArrayList();
-        private ArrayList listaTipos = new ArrayList();
-        private ArrayList listaRubros = new ArrayList() {
-                                         "Rubro-1",
-                                         "Rubro-2",
-                                         "Rubro-3"
-                                        };
         private ArrayList listaUsuariosRegistrados = new ArrayList();
         
         /// <summary>
@@ -256,12 +264,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si la habilitación a agregar concuerda con las existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckHabilitaciones(string habilitacion)
         {
-            foreach(Habilitaciones habilitacionAlmacenada in Singleton<Datos>.Instance.ListaHabilitaciones())
+            if (this.listaHabilitaciones.Contains(habilitacion))
             {
-                if(habilitacion == habilitacionAlmacenada.Habilitacion)
-                {
-                    return true;
-                }
+                return true;
             }
             return false; 
         }
@@ -273,12 +278,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el tipo de producto a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckTipos(string tipoProducto)
         {
-            foreach(TipoProducto tiposAlmacenados in Singleton<Datos>.Instance.ListaTipos())
+            if (this.listaTipos.Contains(tipoProducto))
             {
-                if(tipoProducto == tiposAlmacenados.Nombre)
-                {
-                    return true;
-                }
+                return true;
             }
             return false; 
         }
