@@ -306,6 +306,18 @@
             <param name="rubro"></param>
             <param name="habilitacion"></param>
         </member>
+        <member name="M:Proyecto_Final.Emprendedor.AgregarHabilitacion(System.String)">
+            <summary>
+            Agrega una habilitacion.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
+            <param name="rubro"></param>
+        </member>
         <member name="M:Proyecto_Final.Emprendedor.AgregarEspecializacion(System.String)">
             <summary>
             Agrega una Especialización al Emprendedor.
@@ -365,6 +377,12 @@
             </summary>
             <param name="nombre"></param>
             <param name="ubicacion"></param>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
             <param name="rubro"></param>
         </member>
         <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.ValueTuple{System.String,System.String})">
@@ -570,6 +588,12 @@
             Esta clase representa a los administradores del programa.
             </summary>
         </member>
+        <member name="P:Proyecto_Final.UserAdmin.Id">
+            <summary>
+            Otorga el id del administrador.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Proyecto_Final.UserAdmin.Nombre">
             <summary>
             Otorga el nombre de usuario del administrador.
@@ -580,13 +604,41 @@
             <summary>
             Inicializa la clase UserAdmin.
             </summary>
+            <param name="id"></param>
             <param name="nombre"></param>
         </member>
-        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa(System.String)">
+        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa">
             <summary>
-            Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
+            Genera un token de invitacion para ser enviado y lo almacena para su verificacion.
             </summary>
-            <param name="nombreUserEmpresa"></param>
+            <returns>Devuelve un token generado como string</returns>
+        </member>
+        <member name="T:Proyecto_Final.UserCreator">
+            <summary>
+            Esta clase tiene como función crear a los usuarios.
+            Se aplica el patron Creator y SRP ya que es la experta en crear las instancia de los usuarios.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String,System.String)">
+            <summary>
+            Crea una instancia de UserAdmin y la almacena.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserEmpresa(System.String,System.String)">
+            <summary>
+            Crea una instancia de UserEmpresa y la almacena.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserEmprendedor(System.String,System.String)">
+            <summary>
+            Crea una instancia de UserEmprendedor y la almacena.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
@@ -610,6 +662,18 @@
             Inicializa la clase UserEmprendedor.
             </summary>
             <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.AgregarHabilitacion(System.String)">
+            <summary>
+            Agrega una habilitacion.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
+            <param name="rubro"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.AgregarEspecializacion(System.String)">
             <summary>
@@ -679,6 +743,12 @@
             </summary>
             <param name="id"></param>
             <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
+            <param name="rubro"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.String)">
             <summary>
