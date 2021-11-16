@@ -6,7 +6,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa a los usuarios emprendedores en el sistema.
     /// </summary>
-    public class UserEmprendedor
+    public class UserEmprendedor : IUser
     {
 
         public string Id { get; set; }
