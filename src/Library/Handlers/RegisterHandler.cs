@@ -94,19 +94,9 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_NAME")
                 {
-                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n";
-                    StringBuilder str = new StringBuilder();
-                    foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
-                    {
-                        str.Append($"- {rubro}\n");
-                    }
-                    response += str;
-                    response += $"\n\nIngrese su rubro:";
+                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\n\nIngrese su rubro:";
 
-                    UserEmpresa userEmpresa = new UserEmpresa(message.UserId, message.Text);
-                    Empresa empresa = new Empresa(message.Text, "", new Rubro(""));
-                    userEmpresa.Empresa = empresa;
-                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
+                    Singleton<UserCreator>.Instance.CrearUserEmpresa(message.UserId, message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_RUBRO");
                     return true;
@@ -121,8 +111,7 @@ namespace Proyecto_Final
                         {
                             if (userEmpresa.Id == message.UserId)
                             {
-                                Rubro newRubro = new Rubro(message.Text);
-                                userEmpresa.Empresa.Rubro = newRubro;
+                                userEmpresa.AgregarRubro(message.Text);
                             }
                         }
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_UBICACION");
@@ -130,14 +119,9 @@ namespace Proyecto_Final
                     }
                     else 
                     {
-                        response = $"Rubro invalido.\nRubros validos: ";
-                        StringBuilder str = new StringBuilder();
-                        foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
-                        {
-                            str.Append($"- {rubro}\n");
-                        }
-                        response += str;
-                        response += "\n\nIngrese su rubro nuevamente:";
+                        response = $"Rubro invalido.\nRubros validos:\n";
+                        response += generarListaRubros() + "\n\nIngrese su rubro nuevamente:";
+
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_RUBRO");
                         return true;
                     }
@@ -177,10 +161,7 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                    UserEmprendedor userEmprendedor = new UserEmprendedor(message.UserId, message.Text);
-                    Emprendedor emprendedor = new Emprendedor("", new Rubro(""), new Habilitaciones(""));
-                    userEmprendedor.Emprendedor = emprendedor;
-                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
+                    Singleton<UserCreator>.Instance.CrearUserEmprendedor(message.UserId, message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_UBICACION");
 
@@ -190,14 +171,7 @@ namespace Proyecto_Final
                 {
                     response = $"Su ubicacion es: {message.Text}.\n\nRubros validos:\n";
 
-                    StringBuilder str = new StringBuilder();
-                    foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
-                    {
-                        str.Append($"- {rubro}\n");
-                    }
-                    response += str;
-                    response += $"\n\nIngrese su rubro:";
-
+                    response += generarListaRubros() + "\n\nIngrese su rubro:";
                     
                     foreach (UserEmprendedor user in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
                     {
@@ -216,21 +190,13 @@ namespace Proyecto_Final
                     if (Singleton<Datos>.Instance.CheckRubros(message.UserId))
                     {
                         response = $"Su rubro es: {message.Text}.\n\nHabilitaciones validas:\n";
-                        StringBuilder str = new StringBuilder();
-                        foreach (string habilitacion in Singleton<Datos>.Instance.ListaHabilitaciones())
-                        {
-                            str.Append($"- {habilitacion}\n");
-                        }
-                        response += str;
-                        response += $"\n\nIngrese su habilitacion:";
-
+                        response += generarListaHabilitaciones() + "\n\nIngrese su habilitacion:";
                         
                         foreach (UserEmprendedor user in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
                         {
                             if (user.Id == message.UserId)
                             {
-                                Rubro newRubro = new Rubro(message.Text);
-                                user.Emprendedor.Rubro = newRubro;
+                                user.AgregarRubro(message.Text);
                             }
                         }
 
@@ -240,14 +206,8 @@ namespace Proyecto_Final
                     }
                     else
                     {
-                        response = $"Rubro invalido.\nRubros validos: ";
-                        StringBuilder str = new StringBuilder();
-                        foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
-                        {
-                            str.Append($"- {rubro}\n");
-                        }
-                        response += str;
-                        response += "\n\nIngrese su rubro nuevamente:";
+                        response = $"Rubro invalido.\nRubros validos:\n";
+                        response += generarListaRubros() + "\n\nIngrese su rubro nuevamente:";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
                         return true;
                     }
@@ -263,8 +223,7 @@ namespace Proyecto_Final
                         {
                             if (user.Id == message.UserId)
                             {
-                                Habilitaciones newHabilitacion = new Habilitaciones(message.Text);
-                                user.Emprendedor.Habilitacion = newHabilitacion;
+                                user.AgregarHabilitacion(message.Text);
                             }
                             
                         }
@@ -275,14 +234,8 @@ namespace Proyecto_Final
                     }
                     else
                     {
-                        response = $"Habilitacion invalida.\nHabilitaciones validas: ";
-                        StringBuilder str = new StringBuilder();
-                        foreach (string habilitacion in Singleton<Datos>.Instance.ListaHabilitaciones())
-                        {
-                            str.Append($"- {habilitacion}\n");
-                        }
-                        response += str;
-                        response += "\n\nIngrese su habilitacion nuevamente:";
+                        response = $"Habilitacion invalida.\nHabilitaciones validas:\n";
+                        response += generarListaHabilitaciones() + "\n\nIngrese su habilitacion nuevamente:";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_HABILITACIONES");
                         return true;
                     }   
@@ -290,6 +243,26 @@ namespace Proyecto_Final
             }
             response = string.Empty;
             return false;
+        }
+
+        private StringBuilder generarListaRubros()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (string rubro in Singleton<Datos>.Instance.ListaRubros())
+            {
+                str.Append($"- {rubro}\n");
+            }
+            return str;
+        }
+
+        private StringBuilder generarListaHabilitaciones()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (string habilitacion in Singleton<Datos>.Instance.ListaHabilitaciones())
+            {
+                str.Append($"- {habilitacion}\n");
+            }
+            return str;
         }
     }
 }
