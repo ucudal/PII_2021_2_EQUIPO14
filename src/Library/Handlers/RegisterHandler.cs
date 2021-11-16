@@ -82,6 +82,7 @@ namespace Proyecto_Final
                     if (Singleton<Datos>.Instance.IsTokenValid(message.Text))
                     {
                         response = $"Token valido.\n\nIngrese el nombre de su empresa: ";
+                        Singleton<Datos>.Instance.EliminarToken(message.Text);
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_NAME");
                         return true;
                     }
