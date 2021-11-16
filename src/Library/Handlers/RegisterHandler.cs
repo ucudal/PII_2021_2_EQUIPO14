@@ -216,10 +216,8 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR_HABILITACIONES")
                 {
-                    Console.Write("1");
                     if (Singleton<Datos>.Instance.CheckHabilitaciones(message.Text))
                     {
-                        Console.Write("2");
                         response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
     
                         foreach (UserEmprendedor user in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
@@ -237,7 +235,6 @@ namespace Proyecto_Final
                     }
                     else
                     {
-                        Console.Write("3");
                         response = $"Habilitacion invalida.\nHabilitaciones validas:\n";
                         response += generarListaHabilitaciones() + "\n\nIngrese su habilitacion nuevamente:";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_HABILITACIONES");
