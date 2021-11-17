@@ -112,13 +112,14 @@ namespace Proyecto_Final
         /// <param name="datosHabilitacion"></param>
         /// <param name="datosProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, (string, string, string, int, int) datosProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string nombre) // (Creator)
         {
             Producto producto = this.CrearProducto();
-            Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
+            Habilitaciones habilitacion = new Habilitaciones("");
+            Oferta newOferta = new Oferta(nombre, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
+            Singleton<Datos>.Instance.AgregarOferta(newOferta);
         }
 
         /// <summary>

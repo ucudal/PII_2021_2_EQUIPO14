@@ -7,9 +7,12 @@ namespace Proyecto_Final
     /// </summary>
     public class Oferta
     {
+        private static int id = 0;
         private bool isVendido = false;
         private ArrayList palabrasClave = new ArrayList();
         private UserEmprendedor comprador = null;
+
+        public string Id { get { return this.Id.ToString(); } }
 
         /// <summary>
         /// Otorga el nombre de la Oferta
@@ -64,7 +67,10 @@ namespace Proyecto_Final
             this.Nombre = nombre;
             this.Product = product;
             this.HabilitacionesOferta = habilitacionesOferta;
-            Singleton<Datos>.Instance.AgregarOfertas(this);
+            
+            Singleton<Datos>.Instance.AgregarOferta(this);
+
+            id += 1;
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
@@ -77,13 +78,13 @@ namespace Proyecto_Final
                     response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
                     KeyWord = message.Text;
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+                    /*foreach (KeyValuePair<string,Oferta> oferta in Singleton<Datos>.Instance.ListaOfertas())
                     {
                         if (oferta.Nombre == Oferta)
                         {
                             oferta.PalabrasClave.Add(KeyWord);
                         }
-                    }
+                    }*/
                     return true;
                 }
             }
