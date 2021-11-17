@@ -15,28 +15,6 @@ namespace Proyecto_Final
         public string Nombre { get; set;}
 
         /// <summary>
-        /// String que indica qué clase es para el atributo "Es".
-        /// </summary>
-        private string es  = "Admin";
-
-        /// <summary>
-        /// Identificador del tipo de clase.
-        /// </summary>
-        /// <value>String "Admin".</value>
-        public string Es
-        {
-            get
-            {
-                return this.Es;
-            }
-        
-            set
-            {
-                this.Es = es;
-            }
-        }
-
-        /// <summary>
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
         /// </summary>
         /// <value></value>

@@ -117,6 +117,109 @@
             </summary>
             <param name="info"></param>
         </member>
+        <member name="T:Proyecto_Final.CreadorProducto">
+            <summary>
+            Clase encargada de crear un producto al almacenar los datos en diccionarios cuyos Key son el ID del usuario y el contenido correspondiente al atributo de la clase producto correspondiente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioNombre">
+            <summary>
+            Retorna la instancia del diccionario "diccionarioNombre"
+            </summary>
+            <returns>instancia de objeto "diccionarioNombre"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioNombre(System.String,System.String)">
+            <summary>
+            Agrega el nombre que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioDescrpicion">
+            <summary>
+            Retorna la instancia del diccionario "diccionarioDescripcion"
+            </summary>
+            <returns>instancia de objeto "diccionarioDescripcion"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioDescripcion(System.String,System.String)">
+            <summary>
+            Agrega la descripción que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <param name="id"></param>
+            <param name="descripcion"></param>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioUbicacion">
+            <summary>
+            Retorna la instancia del diccionario "diccionarioUbicacion"
+            </summary>
+            <returns>instancia de objeto "diccionarioUbicacion"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioUbicacion(System.String,System.String)">
+            <summary>
+            Agrega la ubicación que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <param name="id"></param>
+            <param name="ubicacion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioValor">
+            <summary>
+            Retorna la instancia del diccionario "diccionarioValor"
+            </summary>
+            <returns>instancia de objeto "diccionarioValor"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioValor(System.String,System.String)">
+            <summary>
+            Agrega el valor que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <param name="id"></param>
+            <param name="valor"></param>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioMoneda">
+            <summary>
+            Agrega la cantidad que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <returns>Instancia de objeto "diccionarioCantidad"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioMoneda(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="moneda"></param>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioCantidad">
+            <summary>
+            Agrega la cantidad que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <returns>Instancia de objeto "diccionarioCantidad"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioCantidad(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="cantidad"></param>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioTipo">
+            <summary>
+            Retorna la instancia del diccionario "diccionarioTipo"
+            </summary>
+            <returns>instancia de objeto "diccionarioTipo"</returns>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioTipo(System.String,System.String)">
+            <summary>
+            Agrega el tipo que le designo un Emprendedor identificado por ID a un diccionario
+            </summary>
+            <param name="id"></param>
+            <param name="tipo"></param>
+        </member>
+        <member name="M:Proyecto_Final.CreadorProducto.CrearProducto(System.String)">
+            <summary>
+            Crea el producto en base a los datos almacenados por una ID en c/u de los diccionarios.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
@@ -479,6 +582,12 @@
             Esta clase representa al producto que se ofertará.
             </summary>
         </member>
+        <member name="P:Proyecto_Final.Producto.IsPesos">
+            <summary>
+            Otorga una moneda en base al valor booleano de este estado
+            </summary>
+            <value>Dólares estadounidenses si es falso, Pesos Uruguayos si es verdadero.</value>
+        </member>
         <member name="P:Proyecto_Final.Producto.Nombre">
             <summary>
             Otorga el nombre del producto.
@@ -524,7 +633,14 @@
             <param name="tipo"></param>
             <param name="ubicacion"></param>
             <param name="valor"></param>
+            <param name="isPesos"></param>
             <param name="cantidad"></param>
+        </member>
+        <member name="M:Proyecto_Final.Producto.MonetaryValue">
+            <summary>
+            Método que retorna un string con el símbolo de la moneda que se utiliza para valorar un producto; en base al valor booleano de "IsPesos".
+            </summary>
+            <returns>Dólares Estadounidenses si es falso, Pesos Uruguayos si es verdadero.</returns>
         </member>
         <member name="T:Proyecto_Final.Rubro">
             <summary>
@@ -1036,6 +1152,7 @@
             Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Proyecto_Final.PublishHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
@@ -1094,6 +1211,33 @@
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+=======
+        <member name="T:Proyecto_Final.ProductoHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que crea una instancia "Producto".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.ProductoHandler.AllowedStatus">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Proyecto_Final.ProductoHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.ProductoHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="responder"></param>
+            <returns></returns>
+>>>>>>> e2b5e900515c576ce12b33bf84fb24e0bc59dcdb
         </member>
         <member name="T:Proyecto_Final.RegisterHandler">
             <summary>
@@ -1128,25 +1272,6 @@
         <member name="M:Proyecto_Final.StartHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "start" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
-        <member name="T:Proyecto_Final.ZoneHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.ZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
-            </summary>
-            <param name="next">El próximo "handler".</param>
-        </member>
-        <member name="M:Proyecto_Final.ZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje "zone" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>

@@ -35,12 +35,13 @@ namespace Proyecto_Final
                 new StartHandler(
                 new InviteHandler(
                 new RegisterHandler(
+                new ProductoHandler(
                 new HelloHandler(
                 new GoodByeHandler(
                 new PublishHandler(
                 new AddKeyWordHandler(
                 new PhotoHandler(Bot, null)
-            )))))));
+            ))))))));
 
             var cts = new CancellationTokenSource();
 

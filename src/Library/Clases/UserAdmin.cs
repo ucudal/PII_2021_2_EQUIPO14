@@ -13,28 +13,7 @@ namespace Proyecto_Final
         /// <value>Nombre de usuario del administrador</value>
         
         public string Nombre { get; }
-
-        /// <summary>
-        /// String que indica qué clase es para el atributo "Es".
-        /// </summary>
-        private string es  = "Admin";
-
-        /// <summary>
-        /// Identificador del tipo de clase.
-        /// </summary>
-        /// <value>String "Admin".</value>
-        public string Es
-        {
-            get
-            {
-                return this.Es;
-            }
         
-            set
-            {
-                this.Es = es;
-            }
-        }
         /// <summary>
         /// Inicializa la clase UserAdmin.
         /// </summary>
