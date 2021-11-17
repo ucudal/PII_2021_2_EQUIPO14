@@ -42,11 +42,7 @@ namespace Proyecto_Final
                 new PublishHandler(
                 new AddKeyWordHandler(
                 new PhotoHandler(Bot, null)
-<<<<<<< HEAD
-            ))))))));
-=======
-            ))))));
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
+            )))))))));
 
             var cts = new CancellationTokenSource();
 

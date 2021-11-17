@@ -10,8 +10,6 @@ namespace Proyecto_Final
     {
 
         /// <summary>
-<<<<<<< HEAD
-=======
         /// Otorga el id del usuario.
         /// </summary>
         /// <value>Id del usuario.</value>
@@ -24,7 +22,6 @@ namespace Proyecto_Final
         public string Nombre { get; set;}
 
         /// <summary>
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
         /// </summary>
         /// <value></value>

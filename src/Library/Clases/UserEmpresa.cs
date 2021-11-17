@@ -114,7 +114,7 @@ namespace Proyecto_Final
         /// <param name="datosTipoProducto"></param>
         public void CrearOferta(string datosOferta, string datosHabilitacion, (string, string, string, int, int) datosProducto, string datosTipoProducto) // (Creator)
         {
-            Producto producto = this.CrearProducto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, datosTipoProducto);
+            Producto producto = this.CrearProducto();
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
             Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
 
@@ -131,10 +131,10 @@ namespace Proyecto_Final
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
+        public Producto CrearProducto() // (Creator)
         {
-            TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
-            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
+            TipoProducto newTipoProducto = new TipoProducto("");
+            Producto newProducto = new Producto("", "", "", 0, 0, newTipoProducto);
 
             return newProducto;
         }

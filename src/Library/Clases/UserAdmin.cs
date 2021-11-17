@@ -8,8 +8,6 @@ namespace Proyecto_Final
     /// </summary>
     public class UserAdmin : IUser
     {
-<<<<<<< HEAD
-=======
 
         /// <summary>
         /// Otorga el id del administrador.
@@ -17,19 +15,12 @@ namespace Proyecto_Final
         /// <value></value>
         public string Id { get; set; }
 
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
         /// <summary>
         /// Otorga el nombre de usuario del administrador.
         /// </summary>
         /// <value>Nombre de usuario del administrador</value>
-<<<<<<< HEAD
-        
-        public string Nombre { get; }
-        
-=======
         public string Nombre { get; }
 
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
         /// <summary>
         /// Inicializa la clase UserAdmin.
         /// </summary>
