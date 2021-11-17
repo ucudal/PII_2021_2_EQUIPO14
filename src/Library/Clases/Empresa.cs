@@ -23,13 +23,13 @@ namespace Proyecto_Final
         /// Obtiene un valor de la ubocacion de la Empresa.
         /// </summary>
         /// <value>Ubicacion de la empresa.</value>
-        public string Ubicacion { get; }
+        public string Ubicacion { get; set; }
 
         /// <summary>
         /// Obtiene un valor del Rubro de la empresa.
         /// </summary>
         /// <value>Objeto del tipo Rubro.</value>
-        public Rubro Rubro { get; }
+        public Rubro Rubro { get; set; }
 
         /// <summary>
         /// Obtiene un valor de las especializaciones de la empresa.
@@ -55,6 +55,16 @@ namespace Proyecto_Final
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
         }   
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            Rubro newRubro = new Rubro(rubro);
+            this.Rubro = newRubro;
+        }
 
         /// <summary>
         /// Agrega una palabra clave a una publicacion determinada.

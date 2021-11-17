@@ -122,6 +122,12 @@
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.ListaUsuariosRegistrados">
+            <summary>
+            Lista de usuarios registrados mediante el handler "RegisterHandler"
+            </summary>
+            <returns>Lista con los usuarios registrados.</returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.ListaOfertas">
             <summary>
             Otorga una lista con todas las publicaciones realizadas.
@@ -300,6 +306,18 @@
             <param name="rubro"></param>
             <param name="habilitacion"></param>
         </member>
+        <member name="M:Proyecto_Final.Emprendedor.AgregarHabilitacion(System.String)">
+            <summary>
+            Agrega una habilitacion.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
+            <param name="rubro"></param>
+        </member>
         <member name="M:Proyecto_Final.Emprendedor.AgregarEspecializacion(System.String)">
             <summary>
             Agrega una Especialización al Emprendedor.
@@ -359,6 +377,12 @@
             </summary>
             <param name="nombre"></param>
             <param name="ubicacion"></param>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
             <param name="rubro"></param>
         </member>
         <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.ValueTuple{System.String,System.String})">
@@ -564,23 +588,57 @@
             Esta clase representa a los administradores del programa.
             </summary>
         </member>
+        <member name="P:Proyecto_Final.UserAdmin.Id">
+            <summary>
+            Otorga el id del administrador.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Proyecto_Final.UserAdmin.Nombre">
             <summary>
             Otorga el nombre de usuario del administrador.
             </summary>
             <value>Nombre de usuario del administrador</value>
         </member>
-        <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String)">
+        <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserAdmin.
             </summary>
+            <param name="id"></param>
             <param name="nombre"></param>
         </member>
-        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa(System.String)">
+        <member name="M:Proyecto_Final.UserAdmin.InvitarEmpresa">
             <summary>
-            Invita a una empresa desde cualquier IUserInterface siempre y cuando esta empresa no haya sido invitada.
+            Genera un token de invitacion para ser enviado y lo almacena para su verificacion.
             </summary>
-            <param name="nombreUserEmpresa"></param>
+            <returns>Devuelve un token generado como string</returns>
+        </member>
+        <member name="T:Proyecto_Final.UserCreator">
+            <summary>
+            Esta clase tiene como función crear a los usuarios.
+            Se aplica el patron Creator y SRP ya que es la experta en crear las instancia de los usuarios.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String,System.String)">
+            <summary>
+            Crea una instancia de UserAdmin y la almacena.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserEmpresa(System.String,System.String)">
+            <summary>
+            Crea una instancia de UserEmpresa y la almacena.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserEmprendedor(System.String,System.String)">
+            <summary>
+            Crea una instancia de UserEmprendedor y la almacena.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
@@ -599,11 +657,23 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String)">
+        <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmprendedor.
             </summary>
             <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.AgregarHabilitacion(System.String)">
+            <summary>
+            Agrega una habilitacion.
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
+            <param name="rubro"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.AgregarEspecializacion(System.String)">
             <summary>
@@ -667,11 +737,18 @@
             </summary>
             <value><c>true/false</c></value>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmpresa.
             </summary>
+            <param name="id"></param>
             <param name="nombre"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.AgregarRubro(System.String)">
+            <summary>
+            Agrega un rubro.
+            </summary>
+            <param name="rubro"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.String)">
             <summary>
@@ -821,6 +898,25 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.ExitHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "salir".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ExitHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.ExitHandler"/>. Esta clase procesa el mensaje "salir".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.ExitHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "salir" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.GoodByeHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
@@ -864,6 +960,12 @@
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.InviteHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.InviteHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -986,6 +1088,12 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "registro".
             </summary>
         </member>
+        <member name="P:Proyecto_Final.RegisterHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
         <member name="M:Proyecto_Final.RegisterHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RegisterHandler"/>. Esta clase procesa el mensaje "registro".
@@ -1038,7 +1146,19 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:Proyecto_Final.IHandler" -->
+        <member name="T:Proyecto_Final.IHandler">
+            <summary>
+            Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una
+            cadena de "handlers" que pueden procesar o no el mensaje. Cada "handler" decide si procesa el mensaje, o si se lo
+            pasa al siguiente. Esta interfaz define un atributo para definir el próximo "handler" y una una operación para
+            recibir el mensaje y pasarlo al siguiente "handler" en caso que el mensaje no sea procesado. La responsabilidad de
+            decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz.
+            </summary>
+            <remarks>
+            La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de
+            responsabilidad, que pueden ser concretos, no dependan de una clase "handler" que potencialmente es abstracta.
+            </remarks>
+        </member>
         <member name="P:Proyecto_Final.IHandler.Next">
             <summary>
             Obtiene el próximo "handler".
@@ -1059,6 +1179,12 @@
             "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
             caso de error por ejemplo.
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.IUser.Id">
+            <summary>
+            String con el Id de un usuario registrado.
+            </summary>
+            <value>Devuelve el ID con el que se registro.</value>
         </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>
