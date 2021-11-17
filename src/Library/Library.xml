@@ -229,18 +229,52 @@
             <summary>
             Lista de usuarios registrados mediante el handler "RegisterHandler"
             </summary>
-<<<<<<< HEAD
-            <returns>Lista de usuarios registrados cuya Key es el ID y el contenido es la clase User que les corresponde.</returns>
+            <returns>Lista con los usuarios registrados.</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioRegistrado(System.String,Proyecto_Final.IUser)">
+        <member name="M:Proyecto_Final.Datos.IsRegistered(System.String)">
             <summary>
-            Método que agrega a un usuario en base a su ID y la clase con la que se registró.
+            Verifica si la id ya esta registrada.
             </summary>
             <param name="id"></param>
-            <param name="user"></param>
-=======
-            <returns>Lista con los usuarios registrados.</returns>
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
+            <returns>Devuelve true si la id esta registrada, false de lo contrario</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaAdmins">
+            <summary>
+            Devuelve una lista con los ids de admins validos.
+            </summary>
+            <returns>Lista de ids de admins.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.IsAdmin(System.String)">
+            <summary>
+            Verifica si es un admin.
+            </summary>
+            <param name="token"></param>
+            <returns>Devuelve true sie es un admin, false de lo contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.ListaTokens">
+            <summary>
+            Devuelve la lista de tokens validos.
+            </summary>
+            <returns>Lista de tokens validos.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.AgregarToken(System.String)">
+            <summary>
+            Agrega un token a la lista.
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.EliminarToken(System.String)">
+            <summary>
+            Elimina un token de la lista.
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.IsTokenValid(System.String)">
+            <summary>
+            Verifica si el token es valido.
+            </summary>
+            <param name="token"></param>
+            <returns>Devuelve true si es valido, false de lo contrario.</returns>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaOfertas">
             <summary>
@@ -693,6 +727,39 @@
             </summary>
             <value><c>true</c>Crea una instancia de la clase Singleton y la retorna,<c>false</c> solo retorna la instancia de clase ya existente.</value>
         </member>
+        <member name="T:Proyecto_Final.StatusManager">
+            <summary>
+            Esta clase es la responsable en gestionar y agregar los distintos status a cada usuario.
+            Esta clase fue creada en base al patron SRP ya que sus responsabilidades son especificas y unicas.
+            A su vez esta clase es una clase Singleton ya que unicamente necesitamos una instancia unica de la misma.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.StatusManager.ListaEstadoUsuario">
+            <summary>
+            Otorga un diccionario con los id de usuario como key y su estado como value.
+            </summary>
+            <returns>Diccionario de usuarios con sus estados.</returns>
+        </member>
+        <member name="M:Proyecto_Final.StatusManager.AgregarEstadoUsuario(System.String,System.String)">
+            <summary>
+            Modifica el estado del usuario.
+            </summary>
+            <param name="id"></param>
+            <param name="estado"></param>
+        </member>
+        <member name="M:Proyecto_Final.StatusManager.PrintUserStatus">
+            <summary>
+            Metodo que imprime en consola una lista con los usuarios y su estado actual.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.StatusManager.CheckStatus(System.String)">
+            <summary>
+            Verifica el status actual de un usuario y lo devuelve.
+            Si no tiene estado devuelve el status por defecto.
+            </summary>
+            <param name="id"></param>
+            <returns>Devuelve el estado actual.</returns>
+        </member>
         <member name="T:Proyecto_Final.TipoProducto">
             <summary>
             Esta clase representa una clasificación general de un producto.
@@ -727,22 +794,7 @@
             </summary>
             <value>Nombre de usuario del administrador</value>
         </member>
-<<<<<<< HEAD
-        <member name="F:Proyecto_Final.UserAdmin.es">
-            <summary>
-            String que indica qué clase es para el atributo "Es".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.UserAdmin.Es">
-            <summary>
-            Identificador del tipo de clase.
-            </summary>
-            <value>String "Admin".</value>
-        </member>
-        <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String)">
-=======
         <member name="M:Proyecto_Final.UserAdmin.#ctor(System.String,System.String)">
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
             <summary>
             Inicializa la clase UserAdmin.
             </summary>
@@ -787,22 +839,17 @@
             Esta clase representa a los usuarios emprendedores en el sistema.
             </summary>
         </member>
+        <member name="P:Proyecto_Final.UserEmprendedor.Id">
+            <summary>
+            Otorga el id del usuario.
+            </summary>
+            <value>Id del usuario.</value>
+        </member>
         <member name="P:Proyecto_Final.UserEmprendedor.Nombre">
             <summary>
             Otorga el nombre del Emprendedor.
             </summary>
             <value>Nombre del Emprendedor.</value>
-        </member>
-        <member name="F:Proyecto_Final.UserEmprendedor.es">
-            <summary>
-            String que indica qué clase es para el atributo "Es".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.UserEmprendedor.Es">
-            <summary>
-            Identificador del tipo de clase.
-            </summary>
-            <value>String "Admin".</value>
         </member>
         <member name="P:Proyecto_Final.UserEmprendedor.Emprendedor">
             <summary>
@@ -866,6 +913,12 @@
             Esta clase representa al usuario de la Empresa.
             </summary>
         </member>
+        <member name="P:Proyecto_Final.UserEmpresa.Id">
+            <summary>
+            Otorga el id del usuario.
+            </summary>
+            <value>Id del usuario.</value>
+        </member>
         <member name="P:Proyecto_Final.UserEmpresa.Invitacion">
             <summary>
             Obtiene un valor del objeto Invitacion.
@@ -877,17 +930,6 @@
             Obtiene un valor del nombre del usuario empresa.
             </summary>
             <value>Nombre de la empresa</value>
-        </member>
-        <member name="F:Proyecto_Final.UserEmpresa.es">
-            <summary>
-            String que indica qué clase es para el atributo "Es".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.UserEmpresa.Es">
-            <summary>
-            Identificador del tipo de clase.
-            </summary>
-            <value>String "Admin".</value>
         </member>
         <member name="P:Proyecto_Final.UserEmpresa.Empresa">
             <summary>
@@ -943,7 +985,7 @@
             <param name="datosProducto"></param>
             <param name="datosTipoProducto"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto">
             <summary>
             Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad, el valor (en $ o U$S) de los mismos y el lugar donde se ubican, para que de esa forma los emprendedores tengan información de materiales o residuos disponibles.
             </summary>
@@ -1256,7 +1298,32 @@
             Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
             </summary>
         </member>
-<<<<<<< HEAD
+        <member name="T:Proyecto_Final.ProductoHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que crea una instancia "Producto".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.ProductoHandler.AllowedStatus">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Proyecto_Final.ProductoHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.ProductoHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="responder"></param>
+            <returns></returns>
+        </member>
         <member name="T:Proyecto_Final.PublishHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
@@ -1315,33 +1382,6 @@
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-=======
-        <member name="T:Proyecto_Final.ProductoHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que crea una instancia "Producto".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.ProductoHandler.AllowedStatus">
-            <summary>
-            
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Proyecto_Final.ProductoHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            
-            </summary>
-            <param name="next"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.ProductoHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            
-            </summary>
-            <param name="message"></param>
-            <param name="responder"></param>
-            <returns></returns>
->>>>>>> e2b5e900515c576ce12b33bf84fb24e0bc59dcdb
         </member>
         <member name="T:Proyecto_Final.RegisterHandler">
             <summary>
@@ -1387,9 +1427,6 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
-<<<<<<< HEAD
-        <!-- Badly formed XML comment ignored for member "T:Proyecto_Final.IHandler" -->
-=======
         <member name="T:Proyecto_Final.ZoneHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
@@ -1422,7 +1459,6 @@
             responsabilidad, que pueden ser concretos, no dependan de una clase "handler" que potencialmente es abstracta.
             </remarks>
         </member>
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
         <member name="P:Proyecto_Final.IHandler.Next">
             <summary>
             Obtiene el próximo "handler".
@@ -1444,24 +1480,11 @@
             caso de error por ejemplo.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:Proyecto_Final.IUser">
-            <summary>
-            Interfaz capaz de polimorfizar las distintas clases usuario en el caso en el que se quieran almacenar que se pueda realizar en una sola lista.
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.IUser.Es">
-            <summary>
-            String identificador del tipo de clase, se utilizará para discernir de qué clase se trata.
-            </summary>
-            <value>Un string que dice "Admin", "Emprendedor" o "Empresa".</value>
-=======
         <member name="P:Proyecto_Final.IUser.Id">
             <summary>
             String con el Id de un usuario registrado.
             </summary>
             <value>Devuelve el ID con el que se registro.</value>
->>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
         </member>
         <member name="T:Proyecto_Final.IUserInterface">
             <summary>
