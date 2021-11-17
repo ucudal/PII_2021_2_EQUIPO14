@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
@@ -58,6 +59,26 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Agrega una habilitacion.
+        /// </summary>
+        /// <param name="habilitacion"></param>
+        public void AgregarHabilitacion(string habilitacion)
+        {
+            Habilitaciones newHab = new Habilitaciones(habilitacion);
+            this.Habilitacion = newHab;
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            Rubro newRubro = new Rubro(rubro);
+            this.Rubro = newRubro;
+        }
+
+        /// <summary>
         /// Agrega una Especialización al Emprendedor.
         /// </summary>
         public void AgregarEspecializacion(string especializacion)
@@ -82,13 +103,15 @@ namespace Proyecto_Final
         public string ConsumoXTiempo(UserEmprendedor userEmprendedor)
         {
             StringBuilder result = new StringBuilder();
-            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            foreach(KeyValuePair<string, Oferta> item in  Singleton<Datos>.Instance.ListaOfertas())
             {
-                if(oferta.IsVendido==true)
+                string id = item.Key;
+                Oferta auxOferta = item.Value;
+                if(auxOferta.IsVendido == true)
                 {
-                    if(userEmprendedor.Nombre == oferta.Comprador.Nombre)
+                    if(userEmprendedor.Nombre == auxOferta.Comprador.Nombre)
                     {
-                        result.Append($"Compró esta oferta: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: ${oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                        result.Append($"Compró esta oferta: \n Nombre: {auxOferta.Product.Nombre} \n Descripción: {auxOferta.Product.Descripcion} \n Tipo: {auxOferta.Product.Tipo.Nombre} \n Ubicación: {auxOferta.Product.Ubicacion} \n Valor: ${auxOferta.Product.Valor} \n Cantidad: {auxOferta.Product.Cantidad} \n Habilitaciones requeridas: {auxOferta.HabilitacionesOferta.Habilitacion} \n");
                     }
                 }
             }

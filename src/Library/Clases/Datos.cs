@@ -1,24 +1,133 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
     /// </summary>
-    public class Datos
-    {
-        private ArrayList listaOfertas = new ArrayList();
+    public sealed class Datos
+    {   
+        private string[] listaAdmins = {
+                                        "2051203726",
+                                       };
+        private ArrayList listaRubros = new ArrayList() {
+                                        "Rubro-1",
+                                        "Rubro-2",
+                                        "Rubro-3"
+                                        };
+        private ArrayList listaTipos = new ArrayList() {
+                                        "Tipo-1",
+                                        "Tipo-2",
+                                        "Tipo-3"
+                                        };
+        private ArrayList listaHabilitaciones = new ArrayList() {
+                                        "Hab-1",
+                                        "Hab-2",
+                                        "Hab-3"
+                                        };
+        private ArrayList listaTokens = new ArrayList() {
+                                        "TOKEN"
+                                        };
+        private Dictionary<string, Oferta> listaOfertas = new Dictionary<string, Oferta>();
+        private ArrayList listaUsuarioEmpresa = new ArrayList();
+        private ArrayList listaUsuarioEmprendedor = new ArrayList();
+        private ArrayList listaEmpresa = new ArrayList();
+        private ArrayList listaUsuariosRegistrados = new ArrayList();
+        
+        /// <summary>
+        /// Lista de usuarios registrados mediante el handler "RegisterHandler"
+        /// </summary>
+        /// <returns>Lista con los usuarios registrados.</returns>
+        public ArrayList ListaUsuariosRegistrados()
+        {
+            return this.listaUsuariosRegistrados;
+        }
+      
+        /// <summary>
+        /// Verifica si la id ya esta registrada.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Devuelve true si la id esta registrada, false de lo contrario</returns>
+        public bool IsRegistered(string id)
+        {
+            foreach (IUser user in this.listaUsuariosRegistrados)
+            {
+                if (id == user.Id)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
 
+        /// <summary>
+        /// Devuelve una lista con los ids de admins validos.
+        /// </summary>
+        /// <returns>Lista de ids de admins.</returns>
+        public string[] ListaAdmins()
+        {
+            return this.listaAdmins;
+        }
+
+        /// <summary>
+        /// Verifica si es un admin.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns>Devuelve true sie es un admin, false de lo contrario.</returns>
+        public bool IsAdmin(string token)
+        {
+            return this.listaAdmins.Contains(token);
+        }
+
+        /// <summary>
+        /// Devuelve la lista de tokens validos.
+        /// </summary>
+        /// <returns>Lista de tokens validos.</returns>
+        public ArrayList ListaTokens()
+        {
+            return this.listaTokens;
+        }
+
+        /// <summary>
+        /// Agrega un token a la lista.
+        /// </summary>
+        /// <param name="token"></param>
+        public void AgregarToken(string token)
+        {
+            this.listaTokens.Add(token);
+        }
+
+        /// <summary>
+        /// Elimina un token de la lista.
+        /// </summary>
+        /// <param name="token"></param>
+        public void EliminarToken(string token)
+        {
+            this.listaTokens.Remove(token);
+        }
+
+        /// <summary>
+        /// Verifica si el token es valido.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns>Devuelve true si es valido, false de lo contrario.</returns>
+        public bool IsTokenValid(string token)
+        {
+            return this.listaTokens.Contains(token);
+        }
 
         /// <summary>
         /// Otorga una lista con todas las publicaciones realizadas.
         /// </summary>
         /// <returns>Lista con Oferta.</returns>
-        public ArrayList ListaOfertas()
+        public Dictionary<string, Oferta> ListaOfertas()
         {
             return this.listaOfertas;
         }
-
 
         /// <summary>
         /// Agrega una oferta a la lista de publicaciones.
@@ -26,9 +135,8 @@ namespace Proyecto_Final
         /// <param name="oferta"></param>
         public void AgregarOferta(Oferta oferta)
         {
-            this.listaOfertas.Add(oferta);
+            this.listaOfertas[oferta.Id] = oferta;
         }
-        private ArrayList listaUsuarioEmpresa = new ArrayList();
 
         /// <summary>
         /// Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
@@ -48,8 +156,6 @@ namespace Proyecto_Final
             this.listaUsuarioEmpresa.Add(user);
         }
 
-        private ArrayList listaUsuarioEmprendedor = new ArrayList();
-
         /// <summary>
         /// Otorga una lista con todos los UserEmprendedor registrados.
         /// </summary>
@@ -68,8 +174,6 @@ namespace Proyecto_Final
             this.listaUsuarioEmprendedor.Add(user);
         }
 
-        private ArrayList listaEmpresa = new ArrayList();
-
         /// <summary>
         /// Lista con todas las Empresa registradas.
         /// </summary>
@@ -87,7 +191,6 @@ namespace Proyecto_Final
         {
             this.listaEmpresa.Add(user);
         }
-        private ArrayList listaHabilitaciones = new ArrayList();
 
         ///<summary>
         /// Otorga una lista de habilitaciones registradas por el programa <see cref="Habilitaciones"/>.
@@ -97,7 +200,6 @@ namespace Proyecto_Final
         {
             return this.listaHabilitaciones;
         }
-        private ArrayList listaTipos = new ArrayList();
 
         /// <summary>
         /// Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <see cref="TipoProducto"/>.
@@ -107,8 +209,6 @@ namespace Proyecto_Final
         {
             return this.listaTipos;
         }
-
-        private ArrayList listaRubros = new ArrayList();
 
         ///<summary>
         /// Otorga una lista de rubros disponibles para asignarle a una empresa <see cref="Rubro"/>.
@@ -159,7 +259,6 @@ namespace Proyecto_Final
         /// Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
         /// </summary>
         /// <param name="tipo"></param>
-    
         public void AgregarTipo(TipoProducto tipo)
         {
             listaTipos.Add(tipo);
@@ -173,14 +272,6 @@ namespace Proyecto_Final
         {
             listaTipos.Remove(tipo);
         }
-        /// <summary>
-        /// Agrega una oferta de la lista de ofertas.
-        /// </summary>
-        /// <param name="oferta"></param>
-        public void AgregarOfertas(Oferta oferta)
-        {
-            listaOfertas.Add(oferta);
-        }
 
         /// <summary>
         /// Elimina una oferta de la lista de ofertas.
@@ -188,7 +279,7 @@ namespace Proyecto_Final
         /// <param name="oferta"></param>
         public void EliminarOfertas(Oferta oferta)
         {
-            listaOfertas.Remove(oferta);
+            listaOfertas.Remove(oferta.Id);
         }
 
         /// <summary>
@@ -198,12 +289,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si la habilitación a agregar concuerda con las existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckHabilitaciones(string habilitacion)
         {
-            foreach(Habilitaciones habilitacionAlmacenada in Singleton<Datos>.Instance.ListaHabilitaciones())
+            if (this.listaHabilitaciones.Contains(habilitacion))
             {
-                if(habilitacion == habilitacionAlmacenada.Habilitacion)
-                {
-                    return true;
-                }
+                return true;
             }
             return false; 
         }
@@ -215,12 +303,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el tipo de producto a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckTipos(string tipoProducto)
         {
-            foreach(TipoProducto tiposAlmacenados in Singleton<Datos>.Instance.ListaTipos())
+            if (this.listaTipos.Contains(tipoProducto))
             {
-                if(tipoProducto == tiposAlmacenados.Nombre)
-                {
-                    return true;
-                }
+                return true;
             }
             return false; 
         }
@@ -231,12 +316,9 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckRubros(string rubro)
         {
-            foreach(Rubro rubroAlmacenado in Singleton<Datos>.Instance.ListaRubros())
+            if (this.listaRubros.Contains(rubro))
             {
-                if(rubro == rubroAlmacenado.Rubros)
-                {
-                    return true;
-                }
+                return true;
             }
             return false; 
         }

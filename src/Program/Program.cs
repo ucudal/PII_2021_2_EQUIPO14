@@ -1,103 +1,129 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Telegram.Bot.Extensions.Polling;
+using Telegram.Bot;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Programa de consola de demostración.
+    /// Un programa que implementa un bot de Telegram.
     /// </summary>
     public static class Program
     {
+        // La instancia del bot.
+        private static TelegramBotClient Bot;
+
+        // El token provisto por Telegram al crear el bot.
+        //
+        // *Importante*:
+        // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
+        private static string Token = "2104082857:AAGhNnhbjZtrsbCZhxlVoqW38q44xWe8H1U";
+
+        private static IHandler firstHandler;
+
         /// <summary>
-        /// Punto de entrada al programa principal.
+        /// Punto de entrada al programa.
         /// </summary>
         public static void Main()
         {
-            /* Habilitaciones */
-            Habilitaciones hab1 = new Habilitaciones("Hab-1");
-            Habilitaciones hab2 = new Habilitaciones("Hab-2");
-            Habilitaciones hab3 = new Habilitaciones("Hab-3");
-            Habilitaciones hab4 = new Habilitaciones("Hab-4");
-            Singleton<Datos>.Instance.AgregarHabilitacion(hab1);
-            Singleton<Datos>.Instance.AgregarHabilitacion(hab2);
-            Singleton<Datos>.Instance.AgregarHabilitacion(hab3);
-            Singleton<Datos>.Instance.AgregarHabilitacion(hab4);
-            /**/
+            Bot = new TelegramBotClient(Token);
 
-            /* Rubros */
-            Rubro rb1 = new Rubro("Rub-1");
-            Rubro rb2 = new Rubro("Rub-2");
-            Rubro rb3 = new Rubro("Rub-3");
-            Rubro rb4 = new Rubro("Rub-4");
-            Singleton<Datos>.Instance.AgregarRubro(rb1);
-            Singleton<Datos>.Instance.AgregarRubro(rb2);
-            Singleton<Datos>.Instance.AgregarRubro(rb3);
-            Singleton<Datos>.Instance.AgregarRubro(rb4);
-            /**/
+            firstHandler =
+                new StartHandler(
+                new ExitHandler(
+                new InviteHandler(
+                new RegisterHandler(
+                new ProductoHandler(
+                new HelloHandler(
+                new GoodByeHandler(
+                new PublishHandler(
+                new AddKeyWordHandler(
+                new PhotoHandler(Bot, null)
+            )))))))));
 
-            /* Tipos */
-            TipoProducto tipo1 = new TipoProducto("Tipo-1");
-            TipoProducto tipo2 = new TipoProducto("Tipo-2");
-            TipoProducto tipo3 = new TipoProducto("Tipo-3");
-            TipoProducto tipo4 = new TipoProducto("Tipo-4");
-            Singleton<Datos>.Instance.AgregarTipo(tipo1);
-            Singleton<Datos>.Instance.AgregarTipo(tipo2);
-            Singleton<Datos>.Instance.AgregarTipo(tipo3);
-            Singleton<Datos>.Instance.AgregarTipo(tipo4);
-            /**/
+            var cts = new CancellationTokenSource();
 
-            UserEmprendedor userEE1 = new UserEmprendedor("Juan");
-            UserEmpresa userE1 = new UserEmpresa("Pepito");
-            UserAdmin userA1 = new UserAdmin("Admin-1");
-            Singleton<Datos>.Instance.AgregarUsuarioEmprendedor(userEE1);
-            ConsoleInteraction consoleInteraction = new ConsoleInteraction();
+            // Comenzamos a escuchar mensajes. Esto se hace en otro hilo (en background). El primer método
+            // HandleUpdateAsync es invocado por el bot cuando se recibe un mensaje. El segundo método HandleErrorAsync
+            // es invocado cuando ocurre un error.
+            Bot.StartReceiving(
+                new DefaultUpdateHandler(HandleUpdateAsync, HandleErrorAsync),
+                cts.Token
+            );
 
-            Empresa empresa1 = new Empresa("Empresa", "Ubi", rb1);
-            Emprendedor emprendedor1 = new Emprendedor("Av. 8 de Octubre 2738",rb1,hab1);
+            Console.WriteLine($"Program: Bot is up!");
 
-            userE1.Empresa = empresa1;
-            userEE1.Emprendedor = emprendedor1;
-            
-            Producto newProducto = new Producto("Plastico de Botellas", "Plastico reciclable", "Gral. Urquiza 2784", 10, 100, tipo1);   
-            Oferta newOferta = new Oferta("Plastico de Botellas", newProducto, hab1);
-            userE1.Empresa.Ofertas.Add(newOferta);
+            // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
+            Console.ReadLine();
 
-            userE1.VerificarVentas();
+            // Terminamos el bot.
+            cts.Cancel();
+        }
 
-            //userEE1.VerOfertasUbicacion()
-            Console.WriteLine(userEE1.VerOfertasUbicacion());
+        /// <summary>
+        /// Maneja las actualizaciones del bot (todo lo que llega), incluyendo mensajes, ediciones de mensajes,
+        /// respuestas a botones, etc. En este ejemplo sólo manejamos mensajes de texto.
+        /// </summary>
+        public static async Task HandleUpdateAsync(Update update, CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Sólo respondemos a mensajes de texto
+                if (update.Type == UpdateType.Message)
+                {
+                    await HandleMessageReceived(new TelegramAdapter(update.Message));
+                }
+            }
+            catch(Exception e)
+            {
+                await HandleErrorAsync(e, cancellationToken);
+            }
+        }
 
-            //userEE1.VerOfertasPalabraClave(string palabraClave)
-            userE1.CrearMsjClave(("Plastico de Botellas","TeamSeas"));
-            Console.WriteLine(userEE1.VerOfertasPalabraClave("TeamSeas"));
+        /// <summary>
+        /// Maneja los mensajes que se envían al bot.
+        /// Lo único que hacemos por ahora es escuchar 3 tipos de mensajes:
+        /// - "hola": responde con texto
+        /// - "chau": responde con texto
+        /// - "foto": responde con una foto
+        /// </summary>
+        /// <param name="message">El mensaje recibido</param>
+        /// <returns></returns>
+        private static async Task HandleMessageReceived(IMessage message)
+        {
+            Console.WriteLine($"Program: < {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
 
-            //userEE1.VerOfertasTipo(string nombreTipo)
-            Console.WriteLine(userEE1.VerOfertasTipo("Tipo-1"));
+            string response = string.Empty;
 
-            Producto newProducto1 = new Producto("Plastico de Botellas", "Plastico reciclable", "Av3221", 10, 130, tipo1);   
-            Oferta newOferta1 = new Oferta("Plastico de Botellas", newProducto1, hab1);
-            userE1.Empresa.Ofertas.Add(newOferta1);
-
-            Producto newProducto2 = new Producto("Meta;", "Plastico reciclable", "Av3221", 10, 400, tipo2);   
-            Oferta newOferta2 = new Oferta("Metal", newProducto2, hab1);
-            userE1.Empresa.Ofertas.Add(newOferta2);
-
-            Producto newProducto3 = new Producto("Vidrio", "Plastico reciclable", "Av3221", 10, 2, tipo3);   
-            Oferta newOferta3 = new Oferta("Vidrio", newProducto3, hab1);
-            userE1.Empresa.Ofertas.Add(newOferta3);
-
-            userE1.ConcretarOferta(consoleInteraction.ConcretarOferta(), "Plastico de Botellas", "Juan");
-            userE1.ConcretarOferta(consoleInteraction.ConcretarOferta(), "Metal", "Juan");
-            userE1.ConcretarOferta(consoleInteraction.ConcretarOferta(), "Vidrio", "Juan");
+            if (Singleton<StatusManager>.Instance.ListaEstadoUsuario().ContainsKey(message.UserId))
+            {
+                firstHandler.Handle(message, out response);
+            }
+            else 
+            {
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                firstHandler.Handle(message, out response);
+            } 
 
 
-            Dictionary<string, int> dict = userE1.Empresa.VerificarVentas();
-            consoleInteraction.ImprimirVendidos(dict);
+            Singleton<StatusManager>.Instance.PrintUserStatus();
 
-            //userEE1.ConsumoXTiempo()
-            //Console.WriteLine(userEE1.ConsumoXTiempo());
+            if (!string.IsNullOrEmpty(response))
+            {
+                await Bot.SendTextMessageAsync(message.ChatId, response);
+            }
+        }
+
+        /// <summary>
+        /// Manejo de excepciones. Por ahora simplemente la imprimimos en la consola.
+        /// </summary>
+        public static Task HandleErrorAsync(Exception exception, CancellationToken cancellationToken)
+        {
+            Console.WriteLine(exception.Message);
+            return Task.CompletedTask;
         }
     }
 }

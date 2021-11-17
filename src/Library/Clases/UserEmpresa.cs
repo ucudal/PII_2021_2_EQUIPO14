@@ -7,10 +7,16 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
     /// </summary>
-    public class UserEmpresa
+    public class UserEmpresa : IUser
     {
         private bool isInvited = false;
         private Invitacion invitacion = null;
+        
+        /// <summary>
+        /// Otorga el id del usuario.
+        /// </summary>
+        /// <value>Id del usuario.</value>
+        public string Id { get; set; }
 
         /// <summary>
         /// Obtiene un valor del objeto Invitacion.
@@ -23,6 +29,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Nombre de la empresa</value>
         public string Nombre { get; }
+        
         /// <summary>
         /// Obtiene un valor del objeto Empresa.
         /// </summary>
@@ -38,10 +45,21 @@ namespace Proyecto_Final
         /// <summary>
         /// Inicializa la clase UserEmpresa.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="nombre"></param>
-        public UserEmpresa(string nombre)
+        public UserEmpresa(string id, string nombre)
         {
+            this.Id = id;
             this.Nombre = nombre;
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            this.Empresa.AgregarRubro(rubro);
         }
 
         /// <summary>
@@ -94,13 +112,14 @@ namespace Proyecto_Final
         /// <param name="datosHabilitacion"></param>
         /// <param name="datosProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, (string, string, string, int, int) datosProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string nombre) // (Creator)
         {
-            Producto producto = this.CrearProducto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, datosTipoProducto);
-            Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
+            Producto producto = this.CrearProducto();
+            Habilitaciones habilitacion = new Habilitaciones("");
+            Oferta newOferta = new Oferta(nombre, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
+            Singleton<Datos>.Instance.AgregarOferta(newOferta);
         }
 
         /// <summary>
@@ -113,10 +132,10 @@ namespace Proyecto_Final
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
+        public Producto CrearProducto() // (Creator)
         {
-            TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
-            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
+            TipoProducto newTipoProducto = new TipoProducto("");
+            Producto newProducto = new Producto("", "", "", 0, 0, newTipoProducto);
 
             return newProducto;
         }

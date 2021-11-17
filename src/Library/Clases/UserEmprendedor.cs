@@ -6,8 +6,15 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa a los usuarios emprendedores en el sistema.
     /// </summary>
-    public class UserEmprendedor
+    public class UserEmprendedor : IUser
     {
+
+        /// <summary>
+        /// Otorga el id del usuario.
+        /// </summary>
+        /// <value>Id del usuario.</value>
+        public string Id { get; set; }
+
         /// <summary>
         /// Otorga el nombre del Emprendedor.
         /// </summary>
@@ -18,15 +25,35 @@ namespace Proyecto_Final
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
         /// </summary>
         /// <value></value>
+        
         public Emprendedor Emprendedor { get; set; }
 
         /// <summary>
         /// Inicializa la clase UserEmprendedor.
         /// </summary>
         /// <param name="nombre"></param>
-        public UserEmprendedor(string nombre)
+        public UserEmprendedor(string id, string nombre)
         {
+            this.Id = id;
             this.Nombre = nombre;
+        }
+
+        /// <summary>
+        /// Agrega una habilitacion.
+        /// </summary>
+        /// <param name="habilitacion"></param>
+        public void AgregarHabilitacion(string habilitacion)
+        {
+            this.Emprendedor.AgregarHabilitacion(habilitacion);
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            this.Emprendedor.AgregarRubro(rubro);
         }
 
         /// <summary>
