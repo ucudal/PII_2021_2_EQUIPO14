@@ -6,7 +6,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Clase encargada de crear un producto al almacenar los datos en diccionarios cuyos Key son el ID del usuario y el contenido correspondiente al atributo de la clase producto correspondiente.
     /// </summary>
-    public class CreadorProducto
+    public class CreadorProducto //(SRP)
     {
         private Dictionary<string,string> diccionarioNombre = new Dictionary<string,string>();
 
@@ -230,7 +230,7 @@ namespace Proyecto_Final
             }
             Producto newProducto = new Producto(nombre,descripcion,ubicacion,valor,cantidad,tipo);
             newProducto.IsPesos = valorMoneda;
-            Console.WriteLine($"Nombre: {newProducto.Nombre}\n Descripción: {newProducto.Descripcion}\n Tipo: {newProducto.Tipo.Nombre}\n Ubicación: {newProducto.Ubicacion}\n Valor: {newProducto.MonetaryValue()}{newProducto.Valor}\n Cantidad: {newProducto.Cantidad}");
+            Console.WriteLine($"Nombre: {newProducto.Nombre}\nDescripción: {newProducto.Descripcion}\nTipo: {newProducto.Tipo.Nombre}\nUbicación: {newProducto.Ubicacion}\nValor: {newProducto.MonetaryValue()}{newProducto.Valor}\nCantidad: {newProducto.Cantidad}");
             return newProducto;
         }
     }
