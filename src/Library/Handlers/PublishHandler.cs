@@ -59,7 +59,8 @@ namespace Proyecto_Final
                                                "STATUS_PUBLISH_PRODUCTVALUE",
                                                "STATUS_PUBLISH_PRODUCTQUANTITY",
                                                "STATUS_PUBLISH_PRODUCTTIPE",
-                                               "STATUS_PUBLISH_HABILITACION"
+                                               "STATUS_PUBLISH_HABILITACION",
+                                               "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE",
                                                };  
         }
 
@@ -85,7 +86,7 @@ namespace Proyecto_Final
                     if (message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese el nombre de la oferta";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_OFERTANAME");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_OFERTNAME");
                         return true;
                     }
                     else
@@ -95,7 +96,7 @@ namespace Proyecto_Final
                         return true;
                     }
                 }
-                else if (check == "STATUS_PUBLISH_OFERTANAME")
+                else if (check == "STATUS_PUBLISH_OFERTNAME")
                 {
                     response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese el nombre del producto: ";
                     OfertName = message.Text;
@@ -118,10 +119,30 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_PUBLISH_PRODUCTLOCATION")
                 {
-                    response = $"La ubicación del producto es: {message.Text}.\n\nIngrese el valor del producto:";
+                    response = $"La ubicación del producto es: {message.Text}.\n\n¿En qué moneda desea registrar el valor? \nIngrese \"1\" para dolares estadounidenses.\nIngrese \"2\" para pesos uruguayos.";
                     ProductLocation = message.Text;
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTVALUE");
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE");
                     return true;
+                }
+                else if (check == "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE")
+                {
+                    if(message.Text == "1")
+                    {
+                        response = "Se ha asignado al precio en dólares.\nIndique el valor unitario del producto:";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTVALUE");
+                        return true;
+                    }
+                    else if (message.Text == "2")
+                    {
+                        response = "Se ha asignado al precio en pesos uruguayos.\nIndique el valor unitario del producto:";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.ChatId, "STATUS_PUBLISH_PRODUCTVALUE");
+                        return true;
+                    }
+                    else
+                    {
+                        response = "No entendí, por favor, responda \"1\" para dólares estadounidenses o ingrese \"2\" para pesos uruguayos";
+                        return true;
+                    }
                 }
                 else if (check == "STATUS_PUBLISH_PRODUCTVALUE")
                 {
