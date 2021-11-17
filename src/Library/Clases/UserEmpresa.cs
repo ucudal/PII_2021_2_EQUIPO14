@@ -112,13 +112,14 @@ namespace Proyecto_Final
         /// <param name="datosHabilitacion"></param>
         /// <param name="datosProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, (string, string, string, int, int) datosProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string nombre) // (Creator)
         {
-            Producto producto = this.CrearProducto(datosProducto.Item1, datosProducto.Item2, datosProducto.Item3, datosProducto.Item4, datosProducto.Item5, datosTipoProducto);
-            Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
+            Producto producto = this.CrearProducto();
+            Habilitaciones habilitacion = new Habilitaciones("");
+            Oferta newOferta = new Oferta(nombre, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
+            Singleton<Datos>.Instance.AgregarOferta(newOferta);
         }
 
         /// <summary>
@@ -131,10 +132,10 @@ namespace Proyecto_Final
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
+        public Producto CrearProducto() // (Creator)
         {
-            TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
-            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
+            TipoProducto newTipoProducto = new TipoProducto("");
+            Producto newProducto = new Producto("", "", "", 0, 0, newTipoProducto);
 
             return newProducto;
         }
