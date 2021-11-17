@@ -5,7 +5,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa a los administradores del programa.
     /// </summary>
-    public class UserAdmin
+    public class UserAdmin : IUser
     {
         /// <summary>
         /// Otorga el nombre de usuario del administrador.

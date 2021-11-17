@@ -7,7 +7,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
     /// </summary>
-    public class UserEmpresa
+    public class UserEmpresa : IUser
     {
         private bool isInvited = false;
         private Invitacion invitacion = null;
