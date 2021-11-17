@@ -37,6 +37,19 @@ namespace Proyecto_Final
         private ArrayList listaEmpresa = new ArrayList();
         private ArrayList listaUsuariosRegistrados = new ArrayList();
         
+        public IUser GetUserById(string id)
+        {
+            foreach (IUser user in this.listaUsuariosRegistrados)
+            {
+                if (user.Id == id)
+                {
+                    return user;
+                }
+                return null;
+            }
+            return null;
+        }
+
         /// <summary>
         /// Lista de usuarios registrados mediante el handler "RegisterHandler"
         /// </summary>
