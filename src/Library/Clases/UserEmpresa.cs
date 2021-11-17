@@ -11,6 +11,12 @@ namespace Proyecto_Final
     {
         private bool isInvited = false;
         private Invitacion invitacion = null;
+        
+        /// <summary>
+        /// Otorga el id del usuario.
+        /// </summary>
+        /// <value>Id del usuario.</value>
+        public string Id { get; set; }
 
         /// <summary>
         /// Obtiene un valor del objeto Invitacion.
@@ -39,10 +45,21 @@ namespace Proyecto_Final
         /// <summary>
         /// Inicializa la clase UserEmpresa.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="nombre"></param>
-        public UserEmpresa(string nombre)
+        public UserEmpresa(string id, string nombre)
         {
+            this.Id = id;
             this.Nombre = nombre;
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            this.Empresa.AgregarRubro(rubro);
         }
 
         /// <summary>

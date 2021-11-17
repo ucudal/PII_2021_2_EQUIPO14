@@ -1,8 +1,10 @@
 # Equipo14 - Programacion II - Proyecto Final
-Chatbot que permitirá conectar organizaciones o empresas con emprendedores
 
-## Documentacion
-Puede acceder a la documentacion aqui.
+## Problema/Consigna al que se le da solucion
+¿Cómo podemos nosotros, estudiantes de Programación II de la Universidad Católica del Uruguay, ayudar a poner en contacto a las empresas que generan residuos y materiales reciclables, con emprendedores que puedan utilizar esos residuos o materiales en sus propios productos, y de esa forma reducir los desechos que se generan y disminuir el impacto en el ambiente?.
+
+## Solucion
+Realzar un Chatbot que permitirá conectar organizaciones o empresas con emprendedores.
 
 ## Historias de Usuario
 Aquí veremos una explicación general e informal de las funciones del software (nuestro programa), escrita desde la perspectiva del usuario final. Su propósito es articular cómo el software proporcionará una función de valor al cliente.
@@ -33,6 +35,9 @@ Aquí veremos una explicación general e informal de las funciones del software 
 - [X] Como emprendedor, quiero saber cuándo un material o residuo se genera puntualmente, para de esa forma determinar oportunidades de desarrollar nuevos productos.
 
 - [X] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
+
+## Diagrama de Clases
+![image](docs/UML_Proyecto_FinalParte2.jpg)
 
 ## Reflexion
 Nos parecio dificil en un principio el como organizar de forma correcta las clases, es decir, que clases nececitabamos para que, y que responsabilidades debia tener cada una.

@@ -58,6 +58,26 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Agrega una habilitacion.
+        /// </summary>
+        /// <param name="habilitacion"></param>
+        public void AgregarHabilitacion(string habilitacion)
+        {
+            Habilitaciones newHab = new Habilitaciones(habilitacion);
+            this.Habilitacion = newHab;
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            Rubro newRubro = new Rubro(rubro);
+            this.Rubro = newRubro;
+        }
+
+        /// <summary>
         /// Agrega una Especialización al Emprendedor.
         /// </summary>
         public void AgregarEspecializacion(string especializacion)

@@ -8,6 +8,15 @@ namespace Proyecto_Final
     /// </summary>
     public class UserEmprendedor : IUser
     {
+
+        /// <summary>
+<<<<<<< HEAD
+=======
+        /// Otorga el id del usuario.
+        /// </summary>
+        /// <value>Id del usuario.</value>
+        public string Id { get; set; }
+
         /// <summary>
         /// Otorga el nombre del Emprendedor.
         /// </summary>
@@ -15,6 +24,7 @@ namespace Proyecto_Final
         public string Nombre { get; set;}
 
         /// <summary>
+>>>>>>> 4d41251b17fbacfc164ff1b5a71007d06f0afdd8
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
         /// </summary>
         /// <value></value>
@@ -25,9 +35,28 @@ namespace Proyecto_Final
         /// Inicializa la clase UserEmprendedor.
         /// </summary>
         /// <param name="nombre"></param>
-        public UserEmprendedor(string nombre)
+        public UserEmprendedor(string id, string nombre)
         {
+            this.Id = id;
             this.Nombre = nombre;
+        }
+
+        /// <summary>
+        /// Agrega una habilitacion.
+        /// </summary>
+        /// <param name="habilitacion"></param>
+        public void AgregarHabilitacion(string habilitacion)
+        {
+            this.Emprendedor.AgregarHabilitacion(habilitacion);
+        }
+
+        /// <summary>
+        /// Agrega un rubro.
+        /// </summary>
+        /// <param name="rubro"></param>
+        public void AgregarRubro(string rubro)
+        {
+            this.Emprendedor.AgregarRubro(rubro);
         }
 
         /// <summary>
