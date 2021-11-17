@@ -65,7 +65,7 @@ namespace Proyecto_Final
                         }
                         else
                         {
-                            Singleton<UserCreator>.Instance.CrearUserAdmin(message.UserId, message.Text); // Tiene que ir el registro de admin aqui?
+                            Singleton<UserCreator>.Instance.CrearUserAdmin(message.UserId); // Tiene que ir el registro de admin aqui?
                             foreach (UserAdmin admin in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
                             {
                                 if (admin.Id == message.UserId)

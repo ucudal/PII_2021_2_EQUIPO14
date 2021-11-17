@@ -152,8 +152,6 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                    Singleton<UserCreator>.Instance.CrearUserEmprendedor(message.UserId, message.Text);
-
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_UBICACION");
 
                     return true;
@@ -200,8 +198,8 @@ namespace Proyecto_Final
                     {
                         response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
 
-                        UserEmprendedor user = (UserEmprendedor)Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        user.Emprendedor.AgregarHabilitacion(message.Text);
+                        Singleton<UserCreator>.Instance.CrearUserEmprendedor(message.UserId);
+                        Singleton<UserCreator>.Instance.WipeDataById(message.UserId);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         

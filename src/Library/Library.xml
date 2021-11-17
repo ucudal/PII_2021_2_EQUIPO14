@@ -378,12 +378,6 @@
             </summary>
             <param name="tipo"></param>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarOfertas(Proyecto_Final.Oferta)">
-            <summary>
-            Agrega una oferta de la lista de ofertas.
-            </summary>
-            <param name="oferta"></param>
-        </member>
         <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
             <summary>
             Elimina una oferta de la lista de ofertas.
@@ -976,7 +970,7 @@
             </summary>
             <param name="datosMensaje"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.ValueTuple{System.String,System.String,System.String,System.Int32,System.Int32},System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String)">
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
