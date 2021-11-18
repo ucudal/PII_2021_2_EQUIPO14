@@ -12,30 +12,44 @@ namespace Proyecto_Final
 
         private Dictionary<string, List<string>> userData = new Dictionary<string, List<string>>();
 
+        /// <summary>
+        /// Agrega datos a la lista que contiene el id del usuario en el diccionario.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="data"></param>
         public void AddDataById(string id, string data)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
+            if (this.userData.ContainsKey(id))
             {
-                if (item.Key == id)
+                List<string> value;
+                if(this.userData.TryGetValue(id, out value))
                 {
-                    item.Value.Add(data);
-                } 
-                else
-                {
-                    this.userData.Add(id, new List<string>() {data});
+                    value.Add(data);
+                    Console.WriteLine($"{data} ADDED.");
                 }
+            }
+            else
+            {
+                this.userData.Add(id, new List<string>() {data});
+                Console.WriteLine($"{data} ADDED. Key created.");
             }
         }
 
+        /// <summary>
+        /// Elimina completamente el item del diccionario.
+        /// </summary>
+        /// <param name="id"></param>
         public void WipeDataById(string id)
         {
+            this.userData.Remove(id);
+            /*
             foreach (KeyValuePair<string, List<string>> item in this.userData)
             {
                 if (item.Key == id)
                 {
-                    item.Value.Clear();
+                    item.;
                 } 
-            }
+            }*/
         }
 
         /// <summary>
@@ -59,8 +73,7 @@ namespace Proyecto_Final
         /// Crea una instancia de UserEmpresa y la almacena.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        public void CrearUserEmpresa(string id, string nombre)
+        public void CrearUserEmpresa(string id)
         {
             foreach (KeyValuePair<string, List<string>> item in this.userData)
             {
@@ -79,7 +92,6 @@ namespace Proyecto_Final
         /// Crea una instancia de UserEmprendedor y la almacena.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="nombre"></param>
         public void CrearUserEmprendedor(string id)
         {
             foreach (KeyValuePair<string, List<string>> item in this.userData)
