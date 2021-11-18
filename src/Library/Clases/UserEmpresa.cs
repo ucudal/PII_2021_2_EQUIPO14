@@ -110,7 +110,11 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="datosOferta"></param>
         /// <param name="datosHabilitacion"></param>
-        /// <param name="datosProducto"></param>
+        /// <param name="nombreProducto"></param>
+        /// <param name="descripcionProducto"></param>
+        /// <param name="ubicacionProducto"></param>
+        /// <param name="valorProducto"></param>
+        /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
         public void CrearOferta(string datosOferta, string datosHabilitacion, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
