@@ -96,7 +96,7 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\n\nIngrese su rubro:";
 
-                    Singleton<UserCreator>.Instance.CrearUserEmpresa(message.UserId, message.Text);
+                    Singleton<UserCreator>.Instance.AddDataById(message.UserId, message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_RUBRO");
                     return true;
@@ -107,8 +107,7 @@ namespace Proyecto_Final
                     {
                         response = $"Su rubro es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                        UserEmpresa user = (UserEmpresa)Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        user.AgregarRubro(message.Text);
+                        Singleton<UserCreator>.Instance.AddDataById(message.UserId, message.Text);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRESA_UBICACION");
                         return true;
@@ -126,8 +125,9 @@ namespace Proyecto_Final
                 {
                     response = $"Su ubicacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
 
-                    UserEmpresa user = (UserEmpresa)Singleton<Datos>.Instance.GetUserById(message.UserId);
-                    user.Empresa.Ubicacion = message.Text;
+                    Singleton<UserCreator>.Instance.AddDataById(message.UserId, message.Text);
+                    Singleton<UserCreator>.Instance.CrearUserEmpresa(message.UserId);
+                    Singleton<UserCreator>.Instance.WipeDataById(message.UserId);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
 
@@ -152,8 +152,6 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                    Singleton<UserCreator>.Instance.CrearUserEmprendedor(message.UserId, message.Text);
-
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_UBICACION");
 
                     return true;
@@ -164,8 +162,7 @@ namespace Proyecto_Final
 
                     response += generarListaRubros() + "\n\nIngrese su rubro:";
                     
-                    UserEmprendedor user = (UserEmprendedor)Singleton<Datos>.Instance.GetUserById(message.UserId);
-                    user.Emprendedor.Ubicacion = message.Text;
+                    Singleton<UserCreator>.Instance.AddDataById(message.UserId, message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
 
@@ -178,8 +175,7 @@ namespace Proyecto_Final
                         response = $"Su rubro es: {message.Text}.\n\nHabilitaciones validas:\n";
                         response += generarListaHabilitaciones() + "\n\nIngrese su habilitacion:";
                         
-                        UserEmprendedor user = (UserEmprendedor)Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        user.Emprendedor.AgregarRubro(message.Text);
+                        Singleton<UserCreator>.Instance.AddDataById(message.UserId, message.Text);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_REGISTER_EMPRENDEDOR_HABILITACIONES");
 
@@ -200,8 +196,9 @@ namespace Proyecto_Final
                     {
                         response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
 
-                        UserEmprendedor user = (UserEmprendedor)Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        user.Emprendedor.AgregarHabilitacion(message.Text);
+                        Singleton<UserCreator>.Instance.AddDataById(message.UserId, message.Text);
+                        Singleton<UserCreator>.Instance.CrearUserEmprendedor(message.UserId);
+                        Singleton<UserCreator>.Instance.WipeDataById(message.UserId);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         

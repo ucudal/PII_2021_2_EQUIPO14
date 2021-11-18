@@ -32,6 +32,7 @@ namespace Proyecto_Final
         /// Inicializa la clase UserEmprendedor.
         /// </summary>
         /// <param name="nombre"></param>
+        /// <param name="id"></param>
         public UserEmprendedor(string id, string nombre)
         {
             this.Id = id;

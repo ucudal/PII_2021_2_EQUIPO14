@@ -36,12 +36,12 @@ namespace Proyecto_Final
         /// Genera un token de invitacion para ser enviado y lo almacena para su verificacion.
         /// </summary>
         /// <returns>Devuelve un token generado como string</returns>
-        public string InvitarEmpresa()
+        public static string InvitarEmpresa()
         {
-            return this.generateToken();
+            return UserAdmin.generateToken();
         }
 
-        private string generateToken()
+        private static string generateToken()
         {
             string allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
             Random random = new Random();  
