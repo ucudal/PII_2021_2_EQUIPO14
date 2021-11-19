@@ -9,7 +9,7 @@ namespace Proyecto_Final
     /// 
     /// </summary>
     public class Buscador
-    {
+    {/*
         /// <summary>
         /// 
         /// </summary>
@@ -104,6 +104,6 @@ namespace Proyecto_Final
             {
                 ContentBuilder.Append("No se encontraron ofertas que concuerden con el tipo de producto deseado.");
             }
-        }     
+        }   */  
     }
 }

@@ -1,5 +1,6 @@
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
@@ -42,7 +43,10 @@ namespace Proyecto_Final
         /// </summary>
         private Habilitaciones habilitacion;
         private string[] allowedStatus;
-
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
@@ -87,6 +91,13 @@ namespace Proyecto_Final
                     {
                         response = "Ingrese el nombre de la oferta";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_OFERTNAME");
+                        foreach (KeyValuePair<string,List<string>> item in Singleton<CreadorOferta>.Instance.DatosOferta())
+                        {
+                            if (message.UserId == item.Key)
+                            {
+                               Singleton<CreadorOferta>.Instance.DeleteData(message.UserId);
+                            }
+                        }
                         return true;
                     }
                     else
@@ -99,8 +110,8 @@ namespace Proyecto_Final
                 else if (check == "STATUS_PUBLISH_OFERTNAME")
                 {
                     response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese el nombre del producto: ";
-                    OfertName = message.Text;
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTNAME");
+
                     return true;
                 }
                 else if (check == "STATUS_PUBLISH_PRODUCTNAME")

@@ -67,8 +67,6 @@ namespace Proyecto_Final
             this.Nombre = nombre;
             this.Product = product;
             this.HabilitacionesOferta = habilitacionesOferta;
-            
-            Singleton<Datos>.Instance.AgregarOferta(this);
 
             id += 1;
         }
