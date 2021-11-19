@@ -38,19 +38,9 @@ namespace Proyecto_Final
         /// <returns>Devuelve un token generado como string</returns>
         public static string InvitarEmpresa()
         {
-            return UserAdmin.generateToken();
+            return IdGenerator.GenerateToken();
         }
 
-        private static string generateToken()
-        {
-            string allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
-            Random random = new Random();  
-            string resultToken = new string(  
-            Enumerable.Repeat(allChar , 16)  
-                        .Select(token => token[random.Next(token.Length)]).ToArray());   
-   
-            string authToken = resultToken.ToString();  
-            return authToken;
-        }
+        
     }
 }
