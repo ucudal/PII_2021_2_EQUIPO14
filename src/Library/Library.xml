@@ -811,8 +811,21 @@
         <member name="T:Proyecto_Final.UserCreator">
             <summary>
             Esta clase tiene como función crear a los usuarios.
-            Se aplica el patron Creator y SRP ya que es la experta en crear las instancia de los usuarios.
+            Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String)">
+            <summary>
+            Agrega datos a la lista que contiene el id del usuario en el diccionario.
+            </summary>
+            <param name="id"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
+            <summary>
+            Elimina completamente el item del diccionario.
+            </summary>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>
@@ -825,14 +838,12 @@
             Crea una instancia de UserEmpresa y la almacena.
             </summary>
             <param name="id"></param>
-            <param name="nombre"></param>
         </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserEmprendedor(System.String)">
             <summary>
             Crea una instancia de UserEmprendedor y la almacena.
             </summary>
             <param name="id"></param>
-            <param name="nombre"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
@@ -862,6 +873,7 @@
             Inicializa la clase UserEmprendedor.
             </summary>
             <param name="nombre"></param>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.AgregarHabilitacion(System.String)">
             <summary>
@@ -982,7 +994,11 @@
             </summary>
             <param name="datosOferta"></param>
             <param name="datosHabilitacion"></param>
-            <param name="datosProducto"></param>
+            <param name="nombreProducto"></param>
+            <param name="descripcionProducto"></param>
+            <param name="ubicacionProducto"></param>
+            <param name="valorProducto"></param>
+            <param name="cantidadProducto"></param>
             <param name="datosTipoProducto"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Int32,System.String)">

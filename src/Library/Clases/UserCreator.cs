@@ -5,7 +5,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase tiene como función crear a los usuarios.
-    /// Se aplica el patron Creator y SRP ya que es la experta en crear las instancia de los usuarios.
+    /// Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
     /// </summary>
     public sealed class  UserCreator
     {   
@@ -25,13 +25,11 @@ namespace Proyecto_Final
                 if(this.userData.TryGetValue(id, out value))
                 {
                     value.Add(data);
-                    Console.WriteLine($"{data} ADDED.");
                 }
             }
             else
             {
                 this.userData.Add(id, new List<string>() {data});
-                Console.WriteLine($"{data} ADDED. Key created.");
             }
         }
 
@@ -64,7 +62,7 @@ namespace Proyecto_Final
                 {
                     UserAdmin userAdmin = new UserAdmin(id, item.Value[0]);
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
-                    Console.WriteLine("UserCreator: Admin creado.");
+                    Console.WriteLine($"UserCreator: Admin {id} creado.");
                 }
             }
         }
@@ -83,7 +81,7 @@ namespace Proyecto_Final
                     Empresa empresa = new Empresa(item.Value[0], item.Value[2], new Rubro(item.Value[1]));
                     userEmpresa.Empresa = empresa;
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
-                    Console.WriteLine("UserCreator: Empresa creada.");
+                    Console.WriteLine($"UserCreator: Empresa {id} creada.");
                 }
             }
         }
@@ -102,7 +100,7 @@ namespace Proyecto_Final
                     Emprendedor emprendedor = new Emprendedor(item.Value[1], new Rubro(item.Value[2]), new Habilitaciones(item.Value[3]));
                     userEmprendedor.Emprendedor = emprendedor;
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
-                    Console.WriteLine("UserCreator: Emprendedor creado.");
+                    Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
                 }
             }
         }
