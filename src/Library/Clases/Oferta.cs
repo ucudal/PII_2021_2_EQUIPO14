@@ -7,17 +7,21 @@ namespace Proyecto_Final
     /// </summary>
     public class Oferta
     {
-        private static int id = 0;
+        private string id;
         private bool isVendido = false;
         private ArrayList palabrasClave = new ArrayList();
         private UserEmprendedor comprador = null;
 
+        /// <summary>
+        /// Otorga el ID de la Oferta.
+        /// </summary>
+        /// <returns>Retorna el ID.</returns>
         public string Id { get { return this.Id.ToString(); } }
 
         /// <summary>
         /// Otorga el nombre de la Oferta
         /// </summary>
-        /// <value></value>
+        /// <value>Retorna el nombre.</value>
         public string Nombre { get; }
 
         /// <summary>
@@ -68,7 +72,7 @@ namespace Proyecto_Final
             this.Product = product;
             this.HabilitacionesOferta = habilitacionesOferta;
 
-            id += 1;
+            this.id = IdGenerator.GenerateNumericId();
         }
 
         /// <summary>

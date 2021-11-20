@@ -37,6 +37,11 @@ namespace Proyecto_Final
         private ArrayList listaEmpresa = new ArrayList();
         private ArrayList listaUsuariosRegistrados = new ArrayList();
         
+        /// <summary>
+        /// Busca entre los usuarios registrados por id y retorna el usuario.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Retorna un IUser.</returns>
         public IUser GetUserById(string id)
         {
             foreach (IUser user in this.listaUsuariosRegistrados)

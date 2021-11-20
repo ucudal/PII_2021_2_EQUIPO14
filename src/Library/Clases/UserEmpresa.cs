@@ -10,19 +10,12 @@ namespace Proyecto_Final
     public class UserEmpresa : IUser
     {
         private bool isInvited = false;
-        private Invitacion invitacion = null;
         
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
         /// <value>Id del usuario.</value>
         public string Id { get; set; }
-
-        /// <summary>
-        /// Obtiene un valor del objeto Invitacion.
-        /// </summary>
-        /// <value>Devuelve una invitacion si la tiene, sino, <c>null</c></value>
-        public Invitacion Invitacion { get; set; }
 
         /// <summary>
         /// Obtiene un valor del nombre del usuario empresa.
@@ -63,25 +56,6 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
-        /// </summary>
-        /// <param name="input"></param>
-        public void AceptarInvitacion(string input)
-        {
-            if (this.Invitacion != null)
-            {
-                if (input == "Y")
-                {
-                    this.IsInvited = true;
-                }
-                else
-                {
-                    this.IsInvited = false;
-                }
-            }
-        }
-
-        /// <summary>
         /// El usuario puede crear la empresa.
         /// </summary>
         /// <param name="nombre"></param>
@@ -110,13 +84,17 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="datosOferta"></param>
         /// <param name="datosHabilitacion"></param>
-        /// <param name="datosProducto"></param>
+        /// <param name="nombreProducto"></param>
+        /// <param name="descripcionProducto"></param>
+        /// <param name="ubicacionProducto"></param>
+        /// <param name="valorProducto"></param>
+        /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string nombre) // (Creator)
+        public void CrearOferta(string datosOferta, string datosHabilitacion, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
-            Producto producto = this.CrearProducto();
-            Habilitaciones habilitacion = new Habilitaciones("");
-            Oferta newOferta = new Oferta(nombre, producto, habilitacion);
+            Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, cantidadProducto, datosTipoProducto);
+            Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
+            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
             Singleton<Datos>.Instance.AgregarOferta(newOferta);
@@ -132,10 +110,10 @@ namespace Proyecto_Final
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto() // (Creator)
+        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
         {
-            TipoProducto newTipoProducto = new TipoProducto("");
-            Producto newProducto = new Producto("", "", "", 0, 0, newTipoProducto);
+            TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
+            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
 
             return newProducto;
         }

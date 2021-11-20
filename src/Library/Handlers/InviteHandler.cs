@@ -48,37 +48,11 @@ namespace Proyecto_Final
                 {
                     if (Singleton<Datos>.Instance.IsAdmin(message.UserId))
                     {
-                        if (Singleton<Datos>.Instance.IsRegistered(message.UserId))
-                        {
-                            foreach (UserAdmin admin in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
-                            {
-                                if (admin.Id == message.UserId)
-                                {
-                                    string newToken = admin.InvitarEmpresa();
-                                    response = $"Envie este token a la persona que desea invitar como Empresa.\n\nTOKEN:\n{newToken}";
-                                    Singleton<Datos>.Instance.AgregarToken(newToken);
-                                    Console.WriteLine($"InviteHandler: TOKEN | {newToken} | generado por < {message.UserId} > ");
-                                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                                    return true;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Singleton<UserCreator>.Instance.CrearUserAdmin(message.UserId, message.Text); // Tiene que ir el registro de admin aqui?
-                            foreach (UserAdmin admin in Singleton<Datos>.Instance.ListaUsuariosRegistrados())
-                            {
-                                if (admin.Id == message.UserId)
-                                {
-                                    string newToken = admin.InvitarEmpresa();
-                                    response = $"Envie este token a la persona que desea invitar como Empresa.\n\nTOKEN:\n{newToken}";
-                                    Singleton<Datos>.Instance.AgregarToken(newToken);
-                                    Console.WriteLine($"InviteHandler: TOKEN | {newToken} | generado por < {message.UserId} > ");
-                                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                                    return true;
-                                }
-                            }
-                        }
+                        string newToken = UserAdmin.InvitarEmpresa();
+                        response = $"Envie este token a la persona que desea invitar como Empresa.\n\nTOKEN:\n{newToken}";
+                        Singleton<Datos>.Instance.AgregarToken(newToken);
+                        Console.WriteLine($"InviteHandler: TOKEN | {newToken} | generado por < {message.UserId} > ");
+                        return true;
                     }
                     else
                     {

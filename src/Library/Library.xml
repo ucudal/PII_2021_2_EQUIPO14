@@ -225,6 +225,13 @@
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.GetUserById(System.String)">
+            <summary>
+            Busca entre los usuarios registrados por id y retorna el usuario.
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna un IUser.</returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.ListaUsuariosRegistrados">
             <summary>
             Lista de usuarios registrados mediante el handler "RegisterHandler"
@@ -377,12 +384,6 @@
             Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
             </summary>
             <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarOfertas(Proyecto_Final.Oferta)">
-            <summary>
-            Agrega una oferta de la lista de ofertas.
-            </summary>
-            <param name="oferta"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
             <summary>
@@ -810,29 +811,39 @@
         <member name="T:Proyecto_Final.UserCreator">
             <summary>
             Esta clase tiene como función crear a los usuarios.
-            Se aplica el patron Creator y SRP ya que es la experta en crear las instancia de los usuarios.
+            Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String,System.String)">
+        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String)">
+            <summary>
+            Agrega datos a la lista que contiene el id del usuario en el diccionario.
+            </summary>
+            <param name="id"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
+            <summary>
+            Elimina completamente el item del diccionario.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>
             Crea una instancia de UserAdmin y la almacena.
             </summary>
             <param name="id"></param>
-            <param name="nombre"></param>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.CrearUserEmpresa(System.String,System.String)">
+        <member name="M:Proyecto_Final.UserCreator.CrearUserEmpresa(System.String)">
             <summary>
             Crea una instancia de UserEmpresa y la almacena.
             </summary>
             <param name="id"></param>
-            <param name="nombre"></param>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.CrearUserEmprendedor(System.String,System.String)">
+        <member name="M:Proyecto_Final.UserCreator.CrearUserEmprendedor(System.String)">
             <summary>
             Crea una instancia de UserEmprendedor y la almacena.
             </summary>
             <param name="id"></param>
-            <param name="nombre"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
@@ -862,6 +873,7 @@
             Inicializa la clase UserEmprendedor.
             </summary>
             <param name="nombre"></param>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.AgregarHabilitacion(System.String)">
             <summary>
@@ -976,16 +988,20 @@
             </summary>
             <param name="datosMensaje"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.ValueTuple{System.String,System.String,System.String,System.Int32,System.Int32},System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
             <param name="datosOferta"></param>
             <param name="datosHabilitacion"></param>
-            <param name="datosProducto"></param>
+            <param name="nombreProducto"></param>
+            <param name="descripcionProducto"></param>
+            <param name="ubicacionProducto"></param>
+            <param name="valorProducto"></param>
+            <param name="cantidadProducto"></param>
             <param name="datosTipoProducto"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
             <summary>
             Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad, el valor (en $ o U$S) de los mismos y el lugar donde se ubican, para que de esa forma los emprendedores tengan información de materiales o residuos disponibles.
             </summary>
