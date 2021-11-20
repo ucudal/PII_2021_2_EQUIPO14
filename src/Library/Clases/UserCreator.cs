@@ -10,26 +10,36 @@ namespace Proyecto_Final
     public sealed class  UserCreator
     {   
 
-        private Dictionary<string, List<string>> userData = new Dictionary<string, List<string>>();
+        private Dictionary<string, Dictionary<string, string>> userData = new Dictionary<string, Dictionary<string, string>>();
 
         /// <summary>
         /// Agrega datos a la lista que contiene el id del usuario en el diccionario.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="key"></param>
         /// <param name="data"></param>
-        public void AddDataById(string id, string data)
+        public void AddDataById(string id, string key, string data)
         {
             if (this.userData.ContainsKey(id))
             {
-                List<string> value;
+                Dictionary<string, string> value;
                 if(this.userData.TryGetValue(id, out value))
                 {
-                    value.Add(data);
+                    if (value.ContainsKey(key))
+                    {
+                        value[key] = data;
+                    }
+                    else
+                    {
+                        value.Add(key, data);
+                    }
                 }
             }
             else
             {
-                this.userData.Add(id, new List<string>() {data});
+                Dictionary<string, string> auxDict = new Dictionary<string, string>();
+                auxDict.Add(key, data);
+                this.userData.Add(id, auxDict);
             }
         }
 
@@ -40,14 +50,6 @@ namespace Proyecto_Final
         public void WipeDataById(string id)
         {
             this.userData.Remove(id);
-            /*
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
-            {
-                if (item.Key == id)
-                {
-                    item.;
-                } 
-            }*/
         }
 
         /// <summary>
@@ -56,11 +58,13 @@ namespace Proyecto_Final
         /// <param name="id"></param>
         public void CrearUserAdmin(string id)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
+            foreach (KeyValuePair<string, Dictionary<string, string>> item in this.userData)
             {
                 if (item.Key == id)
                 {
-                    UserAdmin userAdmin = new UserAdmin(id, item.Value[0]);
+                    Dictionary<string, string> data = item.Value;
+
+                    UserAdmin userAdmin = new UserAdmin(id, data["Nombre"]);
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
                     Console.WriteLine($"UserCreator: Admin {id} creado.");
                 }
@@ -73,15 +77,19 @@ namespace Proyecto_Final
         /// <param name="id"></param>
         public void CrearUserEmpresa(string id)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
+            foreach (KeyValuePair<string, Dictionary<string, string>> item in this.userData)
             {
                 if (item.Key == id)
                 {
-                    UserEmpresa userEmpresa = new UserEmpresa(id, item.Value[0]);
-                    Empresa empresa = new Empresa(item.Value[0], item.Value[2], new Rubro(item.Value[1]));
+                    Dictionary<string, string> data = item.Value;
+
+                    UserEmpresa userEmpresa = new UserEmpresa(id, data["Nombre"]);
+                    Empresa empresa = new Empresa(data["Nombre"], data["Ubicacion"], new Rubro(data["Rubro"]));
                     userEmpresa.Empresa = empresa;
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
                     Console.WriteLine($"UserCreator: Empresa {id} creada.");
+
+                    Console.WriteLine($"{data["Nombre"]} {data["Ubicacion"]} {data["Rubro"]}");
                 }
             }
         }
@@ -92,12 +100,14 @@ namespace Proyecto_Final
         /// <param name="id"></param>
         public void CrearUserEmprendedor(string id)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
+            foreach (KeyValuePair<string, Dictionary<string, string>> item in this.userData)
             {
                 if (item.Key == id)
                 {
-                    UserEmprendedor userEmprendedor = new UserEmprendedor(id, item.Value[0]);
-                    Emprendedor emprendedor = new Emprendedor(item.Value[1], new Rubro(item.Value[2]), new Habilitaciones(item.Value[3]));
+                    Dictionary<string, string> data = item.Value;
+
+                    UserEmprendedor userEmprendedor = new UserEmprendedor(id, data["Nombre"]);
+                    Emprendedor emprendedor = new Emprendedor(data["Ubicacion"], new Rubro(data["Rubro"]), new Habilitaciones(data["Habilitacion"]));
                     userEmprendedor.Emprendedor = emprendedor;
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
                     Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
