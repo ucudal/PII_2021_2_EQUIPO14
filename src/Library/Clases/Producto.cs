@@ -58,12 +58,13 @@ namespace Proyecto_Final
         /// <param name="valor"></param>
         /// <param name="isPesos"></param>
         /// <param name="cantidad"></param>
-        public Producto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, TipoProducto tipo)
+        public Producto(string nombre, string descripcion, string ubicacion, int valor, bool isPesos, int cantidad, TipoProducto tipo)
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.Ubicacion = ubicacion;
             this.Valor = valor;
+            this.IsPesos = isPesos;
             this.Cantidad = cantidad;
             this.Tipo = tipo;
         }

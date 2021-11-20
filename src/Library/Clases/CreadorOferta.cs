@@ -8,35 +8,74 @@ namespace Proyecto_Final
     /// </summary>
     public class CreadorOferta //(SRP)
     {
-        private Dictionary<string,List<string>> datosOferta = new Dictionary<string,List<string>>();
+        private Dictionary<string,Dictionary<string,string>> datosOferta = new Dictionary<string,Dictionary<string,string>>();
 
-        public Dictionary<string,List<string>> DatosOferta()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string,Dictionary<string,string>> DatosOferta() //(Singleton)
         {
             return this.datosOferta;
         }
 
-        public void DeleteData(string id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        public void WipeDataById(string id) //(Expert)
         {
-            foreach (KeyValuePair<string,List<string>> item in this.datosOferta)
+            this.datosOferta.Remove(id);
+        }
+
+        /// <summary>
+        /// Agrega los datos a los diccionarios temporales.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="key"></param>
+        /// <param name="data"></param>
+
+        public void AddDataById(string id, string key, string data) //(Expert)
+        {
+            if (this.datosOferta.ContainsKey(id))
             {
-                if (id == item.Key)
+                Dictionary<string,string> value;
+                if(this.datosOferta.TryGetValue(id, out value))
                 {
-                    item.Value.Clear();
+                    if(value.ContainsKey(key))
+                    {
+                        value[key] = data;
+                    }
+                    else
+                    {
+                    value.Add(key,data);
+                    }
                 }
+            }
+            else
+            {
+                Dictionary<string,string> auxDict = new Dictionary<string, string>();
+                auxDict.Add(key,data);
+                this.datosOferta.Add(id, auxDict);
             }
         }
 
-        public void AddDataById(string id, string data)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        public void EntregarDatosOferta(string id)
         {
-            foreach (KeyValuePair<string,List<string>> item in this.datosOferta)
+            foreach (KeyValuePair<string, Dictionary<string,string>> item in Singleton<CreadorOferta>.Instance.DatosOferta())
             {
-                if (id == item.Key)
+                if (item.Key == id)
                 {
-                    item.Value.Add(data);
-                }
-                else
-                {
-                    this.datosOferta.Add(id, new List<string>()  {data});
+                    Dictionary<string,string> auxDict = item.Value;
+                    UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(id);
+
+                    Console.WriteLine(auxDict["habilitacionProducto"]);
+
+                    user.CrearOferta(auxDict["nombreOferta"],auxDict["habilitacionProducto"],auxDict["recurrenciaOferta"],auxDict["nombreProducto"],auxDict["descripcionProducto"],auxDict["ubicacionProducto"],Convert.ToInt32(auxDict["valorUnitarioProducto"]),auxDict["valorMonedaProducto"],Convert.ToInt32(auxDict["cantidadProducto"]),auxDict["tipoProducto"]);
                 }
             }
         }

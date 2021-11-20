@@ -31,7 +31,7 @@ namespace Proyecto_Final
         private ArrayList listaTokens = new ArrayList() {
                                         "TOKEN"
                                         };
-        private Dictionary<string, ArrayList> listaOfertas = new Dictionary<string, ArrayList>();
+        private ArrayList listaOfertas = new ArrayList();
         private ArrayList listaUsuarioEmpresa = new ArrayList();
         private ArrayList listaUsuarioEmprendedor = new ArrayList();
         private ArrayList listaEmpresa = new ArrayList();
@@ -142,7 +142,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todas las publicaciones realizadas.
         /// </summary>
         /// <returns>Lista con Oferta.</returns>
-        public Dictionary<string, ArrayList> ListaOfertas()
+        public ArrayList ListaOfertas()
         {
             return this.listaOfertas;
         }
@@ -150,11 +150,10 @@ namespace Proyecto_Final
         /// <summary>
         /// Agrega una oferta a la lista de publicaciones.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="lista"></param>
-        public void AgregarOferta(string id, ArrayList lista)
+        /// <param name="oferta"></param>
+        public void AgregarOferta(Oferta oferta)
         {
-            this.listaOfertas.Add(id, lista);
+            this.listaOfertas.Add(oferta);
         }
 
         /// <summary>
