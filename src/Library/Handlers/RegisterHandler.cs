@@ -98,7 +98,7 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\n\nIngrese su rubro:";
 
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, "nombre", message.Text);
+                    Singleton<Temp>.Instance.AddDataById(idToUse, "nombreEmpresa", message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRESA_RUBRO");
                     return true;
@@ -109,7 +109,7 @@ namespace Proyecto_Final
                     {
                         response = $"Su rubro es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                        Singleton<UserCreator>.Instance.AddDataById(idToUse, "rubro", message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "rubroEmpresa", message.Text);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRESA_UBICACION");
                         return true;
@@ -127,9 +127,9 @@ namespace Proyecto_Final
                 {
                     response = $"Su ubicacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
 
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, "ubicacion", message.Text);
+                    Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmpresa", message.Text);
                     Singleton<UserCreator>.Instance.CrearUserEmpresa(idToUse);
-                    Singleton<UserCreator>.Instance.WipeDataById(idToUse);
+                    Singleton<Temp>.Instance.WipeDataById(idToUse);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
 
@@ -154,7 +154,7 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, "nombre", message.Text);
+                    Singleton<Temp>.Instance.AddDataById(idToUse, "nombreEmprendedor", message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_UBICACION");
 
@@ -166,7 +166,7 @@ namespace Proyecto_Final
 
                     response += generarListaRubros() + "\n\nIngrese su rubro:";
                     
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, "ubicacion", message.Text);
+                    Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmprendedor", message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
 
@@ -179,7 +179,7 @@ namespace Proyecto_Final
                         response = $"Su rubro es: {message.Text}.\n\nHabilitaciones validas:\n";
                         response += generarListaHabilitaciones() + "\n\nIngrese su habilitacion:";
                         
-                        Singleton<UserCreator>.Instance.AddDataById(idToUse, "rubro", message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "rubroEmprendedor", message.Text);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_HABILITACIONES");
 
@@ -200,9 +200,9 @@ namespace Proyecto_Final
                     {
                         response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
 
-                        Singleton<UserCreator>.Instance.AddDataById(idToUse, "habilitacion", message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "habilitacionEmprendedor", message.Text);
                         Singleton<UserCreator>.Instance.CrearUserEmprendedor(idToUse);
-                        Singleton<UserCreator>.Instance.WipeDataById(idToUse);
+                        Singleton<Temp>.Instance.WipeDataById(idToUse);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
                         
