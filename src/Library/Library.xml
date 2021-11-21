@@ -9,6 +9,38 @@
             
             </summary>
         </member>
+        <member name="P:Proyecto_Final.Buscador.Content">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.Buscador.ContentBuilder">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)">
+            <summary>
+            /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="T:Ucu.Poo.Locations.Client.LocationApiClient"/>.
+            </summary>
+            <param name="direccion"></param>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)">
+            <summary>
+            En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave
+            </summary>
+            <param name="palabraClave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Proyecto_Final.Buscador.VerOfertasTipo(System.String)">
+            <summary>
+            En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo
+            </summary>
+            <param name="tipo"></param>
+            <returns></returns>
+        </member>
         <member name="T:Proyecto_Final.ConsoleInteraction">
             <summary>
             Clase encargada de interactuar con el usuario a travez de la consola.
@@ -819,6 +851,23 @@
             Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
             <return></return>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
+            <summary>
+            En base a una palabra clave, busca todas las ofertas que la contengan.
+            </summary>
+            <return></return>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">
+            <summary>
+            En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasTipo(System.String)">
+            <summary>
+            En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo.
+            </summary>
+            <param name="tipo"></param>
         </member>
         <member name="T:Proyecto_Final.UserEmpresa">
             <summary>
