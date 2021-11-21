@@ -38,6 +38,26 @@ namespace Proyecto_Final
         private ArrayList listaUsuariosRegistrados = new ArrayList();
         
         /// <summary>
+        /// Busca las ofertas por ID y retorna la oferta.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="oferId"></param>
+        /// <returns>Retorna una Oferta.</returns>
+        public Oferta GetOfertaById(string userId, string oferId)
+        {
+            UserEmpresa user = (UserEmpresa)this.GetUserById(userId);
+            foreach (Oferta oferta in user.Empresa.Ofertas)
+            {
+                if (oferta.Id == oferId)
+                {
+                    return oferta;
+                }
+                return null;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Busca entre los usuarios registrados por id y retorna el usuario.
         /// </summary>
         /// <param name="id"></param>
