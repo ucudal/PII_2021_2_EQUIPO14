@@ -9,39 +9,6 @@ namespace Proyecto_Final
     /// </summary>
     public class PublishHandler : BaseHandler
     {
-        /// <summary>
-        /// El nombre de la oferta que el usuario creará.
-        /// </summary>
-        private string OfertName;
-        /// <summary>
-        /// El nombre del producto de la oferta que el usuario creará.
-        /// </summary>
-        private string ProductName;
-        
-        /// <summary>
-        /// La descripción del producto de la oferta que el usuario creará.
-        /// </summary>
-        private string ProductDescription;
-        /// <summary>
-        /// La ubicación del producto de la oferta que el usuario creará.
-        /// </summary>
-        private string ProductLocation;
-        /// <summary>
-        /// El valor del producto de la oferta que el usuario creará.
-        /// </summary>
-        private int ProductValue;
-        /// <summary>
-        /// La cantidad del producto de la oferta que el usuario creará.
-        /// </summary>
-        private int ProductQuantity;
-        /// <summary>
-        /// El tipo del producto de la oferta que el usuario creará.
-        /// </summary>
-        private TipoProducto tipo; 
-        /// <summary>
-        /// Las habilitaciones requeridas para comprar la oferta del producto de la oferta que el usuario creará.
-        /// </summary>
-        private Habilitaciones habilitacion;
         private string[] allowedStatus;
         /// <summary>
         /// Otorga un array con los status validos.
