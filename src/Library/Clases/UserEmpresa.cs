@@ -84,20 +84,45 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="datosOferta"></param>
         /// <param name="datosHabilitacion"></param>
+        /// <param name="isRecurrente"></param>
         /// <param name="nombreProducto"></param>
         /// <param name="descripcionProducto"></param>
         /// <param name="ubicacionProducto"></param>
         /// <param name="valorProducto"></param>
+        /// <param name="valorMoneda"></param>
         /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, int cantidadProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string datosOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
-            Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, cantidadProducto, datosTipoProducto);
+            bool recurrencia = false;
+            bool isPesos = false;
+
+            if(valorMoneda == "1")
+            {
+                isPesos = false;
+            }
+            else
+            {
+                isPesos = true;
+            }
+
+            if(isRecurrente == "1")
+            {
+                recurrencia = false;
+            }
+            else
+            {
+                recurrencia = true;
+            }
+
+            Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, isPesos, cantidadProducto, datosTipoProducto);
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
+            Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
             Singleton<Datos>.Instance.AgregarOferta(newOferta);
+
+            Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\n\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }
 
         /// <summary>
@@ -107,13 +132,14 @@ namespace Proyecto_Final
         /// <param name="descripcion"></param>
         /// <param name="ubicacion"></param>
         /// <param name="valor"></param>
+        /// <param name="isPesos"></param>
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
+        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, bool isPesos, int cantidad, string datosTipoProducto) // (Creator)
         {
             TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
-            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
+            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, isPesos, cantidad, newTipoProducto);
 
             return newProducto;
         }

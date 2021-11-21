@@ -103,7 +103,7 @@ namespace Proyecto_Final
         public string ConsumoXTiempo(UserEmprendedor userEmprendedor)
         {
             StringBuilder result = new StringBuilder();
-            foreach(KeyValuePair<string, Oferta> item in  Singleton<Datos>.Instance.ListaOfertas())
+            /*foreach(KeyValuePair<string, Oferta> item in  Singleton<Datos>.Instance.ListaOfertas())
             {
                 string id = item.Key;
                 Oferta auxOferta = item.Value;
@@ -114,7 +114,7 @@ namespace Proyecto_Final
                         result.Append($"Compró esta oferta: \n Nombre: {auxOferta.Product.Nombre} \n Descripción: {auxOferta.Product.Descripcion} \n Tipo: {auxOferta.Product.Tipo.Nombre} \n Ubicación: {auxOferta.Product.Ubicacion} \n Valor: ${auxOferta.Product.Valor} \n Cantidad: {auxOferta.Product.Cantidad} \n Habilitaciones requeridas: {auxOferta.HabilitacionesOferta.Habilitacion} \n");
                     }
                 }
-            }
+            }*/
             if(result.ToString() == "")
             {
                 result.Append("Aún no se ha comprado ningún producto.");

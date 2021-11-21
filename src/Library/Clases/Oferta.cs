@@ -55,6 +55,11 @@ namespace Proyecto_Final
         public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
         /// <summary>
+        /// Otorga un valor booleano dependiendo de si la oferta es recurrente o no.
+        /// </summary>
+        /// <value>Verdadero si es recurrente, falso si no.</value>
+        public bool IsRecurrente {get;set;}
+        /// <summary>
         /// Otorga un valor que representa al comprador de la oferta.
         /// </summary>
         /// <value></value>
@@ -65,14 +70,14 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="nombre"></param>
         /// <param name="product"></param>
+        /// <param name="isRecurrente"></param>
         /// <param name="habilitacionesOferta"></param>
-        public Oferta(string nombre, Producto product, Habilitaciones habilitacionesOferta)
+        public Oferta(string nombre, Producto product, bool isRecurrente, Habilitaciones habilitacionesOferta)
         {
             this.Nombre = nombre;
             this.Product = product;
+            this.IsRecurrente = isRecurrente;
             this.HabilitacionesOferta = habilitacionesOferta;
-            
-            Singleton<Datos>.Instance.AgregarOferta(this);
 
             this.id = IdGenerator.GenerateNumericId();
         }

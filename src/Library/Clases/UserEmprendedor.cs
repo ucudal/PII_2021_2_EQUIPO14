@@ -82,10 +82,12 @@ namespace Proyecto_Final
             return this.Emprendedor.ConsumoXTiempo(this);
         }
         
+        /*
         /// <summary>
         /// En base a una palabra clave, busca todas las ofertas que la contengan.
         /// </summary>
         /// <return></return>
+        
         public string VerOfertasPalabraClave(string palabraClave)
         {
             Buscador buscador = new Buscador();
@@ -112,5 +114,6 @@ namespace Proyecto_Final
             buscador.VerOfertasTipo(tipo);
             return buscador.Content;
         }
+        */
     }
 }
