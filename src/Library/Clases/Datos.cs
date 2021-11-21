@@ -7,6 +7,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
+    /// Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, lo cual implica que la manera de retornar las listas es en base a un método de instancia. Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
     /// </summary>
     public sealed class Datos
     {   
@@ -42,7 +43,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Retorna un IUser.</returns>
-        public IUser GetUserById(string id)
+        public IUser GetUserById(string id) //(Expert)
         {
             foreach (IUser user in this.listaUsuariosRegistrados)
             {
@@ -59,7 +60,7 @@ namespace Proyecto_Final
         /// Lista de usuarios registrados mediante el handler "RegisterHandler"
         /// </summary>
         /// <returns>Lista con los usuarios registrados.</returns>
-        public ArrayList ListaUsuariosRegistrados()
+        public ArrayList ListaUsuariosRegistrados() //(Singleton)
         {
             return this.listaUsuariosRegistrados;
         }
@@ -69,7 +70,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Devuelve true si la id esta registrada, false de lo contrario</returns>
-        public bool IsRegistered(string id)
+        public bool IsRegistered(string id) //(Expert)
         {
             foreach (IUser user in this.listaUsuariosRegistrados)
             {
@@ -86,7 +87,7 @@ namespace Proyecto_Final
         /// Devuelve una lista con los ids de admins validos.
         /// </summary>
         /// <returns>Lista de ids de admins.</returns>
-        public string[] ListaAdmins()
+        public string[] ListaAdmins() //(Singleton)
         {
             return this.listaAdmins;
         }
@@ -96,7 +97,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="token"></param>
         /// <returns>Devuelve true sie es un admin, false de lo contrario.</returns>
-        public bool IsAdmin(string token)
+        public bool IsAdmin(string token) //(Expert)
         {
             return this.listaAdmins.Contains(token);
         }
@@ -105,7 +106,7 @@ namespace Proyecto_Final
         /// Devuelve la lista de tokens validos.
         /// </summary>
         /// <returns>Lista de tokens validos.</returns>
-        public ArrayList ListaTokens()
+        public ArrayList ListaTokens() //(Singleton)
         {
             return this.listaTokens;
         }
@@ -114,7 +115,7 @@ namespace Proyecto_Final
         /// Agrega un token a la lista.
         /// </summary>
         /// <param name="token"></param>
-        public void AgregarToken(string token)
+        public void AgregarToken(string token) //(Expert)
         {
             this.listaTokens.Add(token);
         }
@@ -123,7 +124,7 @@ namespace Proyecto_Final
         /// Elimina un token de la lista.
         /// </summary>
         /// <param name="token"></param>
-        public void EliminarToken(string token)
+        public void EliminarToken(string token) //(Expert)
         {
             this.listaTokens.Remove(token);
         }
@@ -133,7 +134,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="token"></param>
         /// <returns>Devuelve true si es valido, false de lo contrario.</returns>
-        public bool IsTokenValid(string token)
+        public bool IsTokenValid(string token) //(Expert)
         {
             return this.listaTokens.Contains(token);
         }
@@ -142,7 +143,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todas las publicaciones realizadas.
         /// </summary>
         /// <returns>Lista con Oferta.</returns>
-        public ArrayList ListaOfertas()
+        public ArrayList ListaOfertas() //(Singleton)
         {
             return this.listaOfertas;
         }
@@ -151,7 +152,7 @@ namespace Proyecto_Final
         /// Agrega una oferta a la lista de publicaciones.
         /// </summary>
         /// <param name="oferta"></param>
-        public void AgregarOferta(Oferta oferta)
+        public void AgregarOferta(Oferta oferta) //(Expert)
         {
             this.listaOfertas.Add(oferta);
         }
@@ -160,7 +161,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
         /// </summary>
         /// <returns>Lista con UserEmpresa</returns>
-        public ArrayList ListaUsuarioEmpresa()
+        public ArrayList ListaUsuarioEmpresa() //(Singleton)
         {
             return this.listaUsuarioEmpresa;
         }
@@ -169,7 +170,7 @@ namespace Proyecto_Final
         /// Agrega un UserEmpresa a la aplicacion.
         /// </summary>
         /// <param name="user"></param>
-        public void AgregarUsuarioEmpresa(UserEmpresa user)
+        public void AgregarUsuarioEmpresa(UserEmpresa user) //(Expert)
         {
             this.listaUsuarioEmpresa.Add(user);
         }
@@ -178,7 +179,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todos los UserEmprendedor registrados.
         /// </summary>
         /// <returns>Lista con UserEmprendedor</returns>
-        public ArrayList ListaUsuarioEmprendedor()
+        public ArrayList ListaUsuarioEmprendedor() //(Singleton)
         {
             return this.listaUsuarioEmprendedor;
         }
@@ -187,7 +188,7 @@ namespace Proyecto_Final
         /// Agrega un UserEmprendedor a la aplicacion.
         /// </summary>
         /// <param name="user"></param>
-        public void AgregarUsuarioEmprendedor(UserEmprendedor user)
+        public void AgregarUsuarioEmprendedor(UserEmprendedor user) //(Expert)
         {
             this.listaUsuarioEmprendedor.Add(user);
         }
@@ -196,7 +197,7 @@ namespace Proyecto_Final
         /// Lista con todas las Empresa registradas.
         /// </summary>
         /// <returns>Lista con Empresa</returns>
-        public ArrayList ListaEmpresa()
+        public ArrayList ListaEmpresa() //(Singleton)
         {
             return this.listaEmpresa;
         }
@@ -205,7 +206,7 @@ namespace Proyecto_Final
         /// Agrega una empresa a la aplicacion.
         /// </summary>
         /// <param name="user"></param>
-        public void AgregarEmpresa(Empresa user)
+        public void AgregarEmpresa(Empresa user) //(Expert)
         {
             this.listaEmpresa.Add(user);
         }
@@ -214,7 +215,7 @@ namespace Proyecto_Final
         /// Otorga una lista de habilitaciones registradas por el programa <see cref="Habilitaciones"/>.
         /// </summary>
         /// <returns>Retorna la lista "listaHabilitaciones" de la clase "Datos".</returns>  
-        public ArrayList ListaHabilitaciones()
+        public ArrayList ListaHabilitaciones() //(Singleton)
         {
             return this.listaHabilitaciones;
         }
@@ -223,7 +224,7 @@ namespace Proyecto_Final
         /// Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <see cref="TipoProducto"/>.
         /// </summary>
         /// <returns>Retorna la lista "listaTipos" de la clase "Datos".</returns>
-        public ArrayList ListaTipos()
+        public ArrayList ListaTipos() //(Singleton)
         {
             return this.listaTipos;
         }
@@ -232,7 +233,7 @@ namespace Proyecto_Final
         /// Otorga una lista de rubros disponibles para asignarle a una empresa <see cref="Rubro"/>.
         /// </summary>
         /// <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
-        public ArrayList ListaRubros()
+        public ArrayList ListaRubros() //(Singleton)
         {
             return this.listaRubros;
         }
@@ -241,7 +242,7 @@ namespace Proyecto_Final
         /// Agrega una habilitación a la lista de habilitaciones permitidas por el programa.
         /// </summary>
         /// <param name="habilitacion"></param>
-        public void AgregarHabilitacion(Habilitaciones habilitacion)
+        public void AgregarHabilitacion(Habilitaciones habilitacion) //(Expert)
         {
             listaHabilitaciones.Add(habilitacion);
         }
@@ -250,7 +251,7 @@ namespace Proyecto_Final
         /// Elimina una habilitación de la lista de habilitaciones permitidas por el programa.
         /// </summary>
         /// <param name="habilitacion"></param>
-        public void EliminarHabilitacion(Habilitaciones habilitacion)
+        public void EliminarHabilitacion(Habilitaciones habilitacion) //(Expert)
         {
             listaHabilitaciones.Remove(habilitacion);
         }
@@ -259,7 +260,7 @@ namespace Proyecto_Final
         /// Agrega un rubro a la lista de rubros permitidos por el programa.
         /// </summary>
         /// <param name="rubro"></param>
-        public void AgregarRubro(Rubro rubro)
+        public void AgregarRubro(Rubro rubro) //(Expert)
         {
             listaRubros.Add(rubro);
         }
@@ -268,7 +269,7 @@ namespace Proyecto_Final
         /// Elimina un rubro de la lista de rubros permitidos por el programa.
         /// </summary>
         /// <param name="rubro"></param>
-        public void EliminarRubro(Rubro rubro)
+        public void EliminarRubro(Rubro rubro) //(Expert)
         {
             listaRubros.Remove(rubro);
         }
@@ -277,7 +278,7 @@ namespace Proyecto_Final
         /// Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
         /// </summary>
         /// <param name="tipo"></param>
-        public void AgregarTipo(TipoProducto tipo)
+        public void AgregarTipo(TipoProducto tipo) //(Expert)
         {
             listaTipos.Add(tipo);
         }
@@ -286,7 +287,7 @@ namespace Proyecto_Final
         /// Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
         /// </summary>
         /// <param name="tipo"></param>
-        public void EliminarTipo(TipoProducto tipo)
+        public void EliminarTipo(TipoProducto tipo) //(Expert)
         {
             listaTipos.Remove(tipo);
         }
@@ -295,7 +296,7 @@ namespace Proyecto_Final
         /// Elimina una oferta de la lista de ofertas.
         /// </summary>
         /// <param name="oferta"></param>
-        public void EliminarOfertas(Oferta oferta)
+        public void EliminarOfertas(Oferta oferta) //(Expert)
         {
             listaOfertas.Remove(oferta.Id);
         }
@@ -305,7 +306,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="habilitacion"></param>
         /// <returns><c>true</c>Si la habilitación a agregar concuerda con las existentes en el programa,<c>false</c> en caso contrario.</returns>
-        public bool CheckHabilitaciones(string habilitacion)
+        public bool CheckHabilitaciones(string habilitacion) //(Expert)
         {
             if (this.listaHabilitaciones.Contains(habilitacion))
             {
@@ -319,7 +320,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="tipoProducto"></param>
         /// <returns><c>true</c>Si el tipo de producto a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
-        public bool CheckTipos(string tipoProducto)
+        public bool CheckTipos(string tipoProducto) //(Expert)
         {
             if (this.listaTipos.Contains(tipoProducto))
             {
@@ -332,7 +333,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="rubro"></param>
         /// <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
-        public bool CheckRubros(string rubro)
+        public bool CheckRubros(string rubro) //(Expert)
         {
             if (this.listaRubros.Contains(rubro))
             {

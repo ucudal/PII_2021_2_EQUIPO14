@@ -5,6 +5,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa el rubro de una empresa.
+    /// La única función de existencia de esta clase es para discernir entre lo que es un rubro y lo que no es un rubro, por lo cual es una clase que cumple el SRP.
     /// </summary>
     public class Rubro
     {

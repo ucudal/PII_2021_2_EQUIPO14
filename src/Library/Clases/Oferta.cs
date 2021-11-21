@@ -4,6 +4,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa las ofertas creadas por un empresario.
+    /// Esta clase tiene como función ser una representación de una publicación de oferta, además de ser experta en modificar los atributos utilizados para representar tal oferta, por lo cual 
     /// </summary>
     public class Oferta
     {
@@ -86,7 +87,7 @@ namespace Proyecto_Final
         /// Agrega una palabra clave a la listas de palabras clave de la oferta.
         /// </summary>
         /// <param name="palabra"></param>
-        public void AgregarMsjClave(string palabra)
+        public void AgregarMsjClave(string palabra) //(Expert)
         {
             this.palabrasClave.Add(palabra);
         }

@@ -23,7 +23,7 @@ namespace Proyecto_Final
         /// 
         /// </summary>
         /// <param name="id"></param>
-        public void WipeDataById(string id) //(Expert)
+        public void WipeDataById(string id) //(SRP)
         {
             this.datosOferta.Remove(id);
         }
@@ -35,7 +35,7 @@ namespace Proyecto_Final
         /// <param name="key"></param>
         /// <param name="data"></param>
 
-        public void AddDataById(string id, string key, string data) //(Expert)
+        public void AddDataById(string id, string key, string data) //(SRP)
         {
             if (this.datosOferta.ContainsKey(id))
             {
@@ -64,7 +64,7 @@ namespace Proyecto_Final
         /// 
         /// </summary>
         /// <param name="id"></param>
-        public void EntregarDatosOferta(string id)
+        public void EntregarDatosOferta(string id) //(SRP)
         {
             foreach (KeyValuePair<string, Dictionary<string,string>> item in Singleton<CreadorOferta>.Instance.DatosOferta())
             {

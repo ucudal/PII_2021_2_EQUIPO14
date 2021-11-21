@@ -6,6 +6,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
+    /// La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como empresa. Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, los cuales se almacenan en la clase "Empresa" y los accede mediante el patrón de Delegación. Por lo cual también sigue con el patrón SRP.
     /// </summary>
     public class UserEmpresa : IUser
     {
@@ -52,7 +53,7 @@ namespace Proyecto_Final
         /// <param name="rubro"></param>
         public void AgregarRubro(string rubro)
         {
-            this.Empresa.AgregarRubro(rubro);
+            this.Empresa.AgregarRubro(rubro); //(Delegacion)
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa);
+            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>
@@ -150,7 +151,7 @@ namespace Proyecto_Final
         /// <param name="input"></param>
         /// <param name="nombreOferta"></param>
         /// <param name="nombreEmprendedor"></param>
-        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor)
+        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor) //(Expert)
         {
             if (input == "Y")
             {

@@ -2,6 +2,8 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa al producto que se ofertará.
+    /// Esta clase tiene como única funcion representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
+    /// La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses.
     /// </summary>
     public class Producto
     {
@@ -73,7 +75,7 @@ namespace Proyecto_Final
         /// Método que retorna un string con el símbolo de la moneda que se utiliza para valorar un producto; en base al valor booleano de "IsPesos".
         /// </summary>
         /// <returns>Dólares Estadounidenses si es falso, Pesos Uruguayos si es verdadero.</returns>
-        public string MonetaryValue()
+        public string MonetaryValue() //(SRP)
         {
             if (this.IsPesos == false)
             {

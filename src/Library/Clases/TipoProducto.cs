@@ -4,6 +4,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa una clasificación general de un producto.
+    /// La única función de existencia de esta clase es para discernir entre lo que es un Tipo de producto y lo que no es, por lo cual es una clase que cumple el SRP.
     /// </summary>
     public class TipoProducto
     {
