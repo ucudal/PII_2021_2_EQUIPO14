@@ -64,7 +64,7 @@ namespace Proyecto_Final
                 {
                     Dictionary<string, string> data = item.Value;
 
-                    UserAdmin userAdmin = new UserAdmin(id, data["Nombre"]);
+                    UserAdmin userAdmin = new UserAdmin(id, data["nombre"]);
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
                     Console.WriteLine($"UserCreator: Admin {id} creado.");
                 }
@@ -83,13 +83,11 @@ namespace Proyecto_Final
                 {
                     Dictionary<string, string> data = item.Value;
 
-                    UserEmpresa userEmpresa = new UserEmpresa(id, data["Nombre"]);
-                    Empresa empresa = new Empresa(data["Nombre"], data["Ubicacion"], new Rubro(data["Rubro"]));
+                    UserEmpresa userEmpresa = new UserEmpresa(id, data["nombre"]);
+                    Empresa empresa = new Empresa(data["nombre"], data["ubicacion"], new Rubro(data["rubro"]));
                     userEmpresa.Empresa = empresa;
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
                     Console.WriteLine($"UserCreator: Empresa {id} creada.");
-
-                    Console.WriteLine($"{data["Nombre"]} {data["Ubicacion"]} {data["Rubro"]}");
                 }
             }
         }
@@ -106,8 +104,8 @@ namespace Proyecto_Final
                 {
                     Dictionary<string, string> data = item.Value;
 
-                    UserEmprendedor userEmprendedor = new UserEmprendedor(id, data["Nombre"]);
-                    Emprendedor emprendedor = new Emprendedor(data["Ubicacion"], new Rubro(data["Rubro"]), new Habilitaciones(data["Habilitacion"]));
+                    UserEmprendedor userEmprendedor = new UserEmprendedor(id, data["nombre"]);
+                    Emprendedor emprendedor = new Emprendedor(data["ubicacion"], new Rubro(data["rubro"]), new Habilitaciones(data["habilitacion"]));
                     userEmprendedor.Emprendedor = emprendedor;
                     Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
                     Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
