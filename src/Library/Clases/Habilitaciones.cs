@@ -6,6 +6,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa las habilitaciones necesarias para la tenencia de productos.
+    /// Esta clase tiene una única responsabilidad que es diferenciar entre lo que es una habilitacion y lo que no, por lo cual sigue el SRP.
     /// </summary>
     public class Habilitaciones
     {

@@ -11,7 +11,8 @@ namespace Proyecto_Final
     public class Buscador
     {
         /// <summary>
-        /// 
+        /// La función de esta clase es en base a las ofertas guardadas, buscarlas en base a ciertos criterios.
+        /// Debido a que la única responsabilidad de esta clase es buscar ofertas según distintos criterios, esta sigue el SRP.
         /// </summary>
         /// <value></value>
         public string Content
@@ -32,7 +33,7 @@ namespace Proyecto_Final
         /// /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
         /// <param name="direccion"></param>
-        public async void VerOfertasUbicacion(string direccion)
+        public async void VerOfertasUbicacion(string direccion) //(SRP)
         {
             ContentBuilder.Clear();
             
@@ -66,7 +67,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="palabraClave"></param>
         /// <returns></returns>
-        public void VerOfertasPalabraClave(string palabraClave)
+        public void VerOfertasPalabraClave(string palabraClave) //(SRP)
         {
             ContentBuilder.Clear();
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
@@ -90,7 +91,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="tipo"></param>
         /// <returns></returns>
-        public void VerOfertasTipo(string tipo)
+        public void VerOfertasTipo(string tipo) //(SRP)
         {
             ContentBuilder.Clear();
             foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
