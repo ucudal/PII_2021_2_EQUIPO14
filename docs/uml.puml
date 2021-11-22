@@ -46,7 +46,7 @@ class UserEmpresa {
     + CrearEmpresa()
 }
 
-
 UserEmpresa "1" o-- "1" Empresa : Empresa
+
 
 @enduml

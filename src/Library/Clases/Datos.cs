@@ -55,8 +55,8 @@ namespace Proyecto_Final
                 {
                     return oferta;
                 }
-                return null;
             }
+            Console.WriteLine($"OFFER WITH ID: {oferId} NOT FOUND.");
             return null;
         }
 
@@ -73,8 +73,6 @@ namespace Proyecto_Final
                 {
                     return user;
                 }
-                Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
-                return null;
             }
             Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
             return null;
@@ -114,7 +112,6 @@ namespace Proyecto_Final
                 {
                     return true;
                 }
-                return false;
             }
             return false;
         }
