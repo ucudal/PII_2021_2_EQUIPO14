@@ -179,6 +179,8 @@ namespace Proyecto_Final
                         Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "tipoProducto")
                     );
+
+                    Singleton<Datos>.Instance.ImprimirUsuarios();
                     
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;
