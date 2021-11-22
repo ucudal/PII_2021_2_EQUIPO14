@@ -7,7 +7,9 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
-    /// Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, lo cual implica que la manera de retornar las listas es en base a un método de instancia. Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
+    /// Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, 
+    /// lo cual implica que la manera de retornar las listas es en base a un método de instancia. 
+    /// Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
     /// </summary>
     public sealed class Datos
     {   

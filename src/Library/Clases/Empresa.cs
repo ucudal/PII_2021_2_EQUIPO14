@@ -7,7 +7,11 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a la Empresa.
-    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Empresa, y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario Empresa, ya que las ofertas personales se contienen en esta clase. También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, que es la clase "Oferta".
+    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Empresa, 
+    /// y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario Empresa, 
+    /// ya que las ofertas personales se contienen en esta clase. 
+    /// También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, 
+    /// que es la clase "Oferta".
     /// </summary>
     public class Empresa
     {

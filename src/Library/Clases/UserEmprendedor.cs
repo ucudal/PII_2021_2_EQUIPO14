@@ -5,7 +5,9 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a los usuarios emprendedores en el sistema.
-    /// La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como emprendedor. Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, los cuales se almacenan en la clase "Emprendedor" y los accede mediante el patrón de Delegación. Por lo cual, esta clase sigue con el patrón de SRP.
+    /// La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como emprendedor. 
+    /// Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+    /// los cuales se almacenan en la clase "Emprendedor" y los accede mediante el patrón de Delegación. Por lo cual, esta clase sigue con el patrón de SRP.
     /// </summary>
     public class UserEmprendedor : IUser
     {

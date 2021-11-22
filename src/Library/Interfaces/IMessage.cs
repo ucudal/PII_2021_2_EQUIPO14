@@ -4,7 +4,8 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza, aunque es necesario que exista una API para hacer funcionar este programa.
-    /// Esta clase tiene una sola responsabilidad, que es la de obtener datos de una API y polimorfizarlos en datos de una interfaz, en pos de separar la API del código, por lo cual es un SRP de Polimorfismo.
+    /// Esta clase tiene una sola responsabilidad, que es la de obtener datos de una API y polimorfizarlos en datos de una interfaz, 
+    /// en pos de separar la API del código, por lo cual es un SRP de Polimorfismo.
     /// </summary>
     public interface IMessage
     {

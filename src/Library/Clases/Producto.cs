@@ -2,7 +2,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa al producto que se ofertará.
-    /// Esta clase tiene como única funcion representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
+    /// Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
     /// La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses.
     /// </summary>
     public class Producto

@@ -6,6 +6,7 @@ namespace Proyecto_Final
 
     /// <summary>
     /// Clase encargada de almacenar y actualizar los datos temporales.
+    /// Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos.
     /// </summary>
     public sealed class  Temp
     {   

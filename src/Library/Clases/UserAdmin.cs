@@ -5,7 +5,8 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a los administradores del programa.
-    /// La única función de esta clase es proveer al sistema una manera de que nosotros como programadores/administradores podamos agregar empresas al sistema, por lo cual entra dentro del patrón SRP.
+    /// La única función de esta clase es proveer al sistema una manera de que nosotros como programadores/administradores podamos agregar empresas al sistema, 
+    /// por lo cual entra dentro del patrón SRP.
     /// </summary>
     public class UserAdmin : IUser
     {

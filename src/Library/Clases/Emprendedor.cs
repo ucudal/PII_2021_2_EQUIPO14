@@ -8,7 +8,9 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa los datos adicionales del emprendedor.
-    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Emprendedor, y por ende es experta en la modificación de estos datos; además de ser experta en evaluar el consumo por tiempo del usuario emprendedor, ya que los datos de las compras realizadas se contienen en esta clase.
+    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Emprendedor, 
+    /// y por ende es experta en la modificación de estos datos; además de ser experta en evaluar el consumo por tiempo del usuario emprendedor,
+    /// ya que los datos de las compras realizadas se contienen en esta clase.
     /// </summary>
     public class Emprendedor
     {
