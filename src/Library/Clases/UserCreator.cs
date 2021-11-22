@@ -45,6 +45,8 @@ namespace Proyecto_Final
             userEmpresa.Empresa = empresa;
             Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
             Console.WriteLine($"UserCreator: Empresa {id} creada.");
+            
+            Singleton<Datos>.Instance.ImprimirUsuarios();
         }
 
         /// <summary>
