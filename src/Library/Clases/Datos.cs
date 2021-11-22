@@ -73,8 +73,10 @@ namespace Proyecto_Final
                 {
                     return user;
                 }
+                Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
                 return null;
             }
+            Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
             return null;
         }
 
@@ -85,6 +87,18 @@ namespace Proyecto_Final
         public ArrayList ListaUsuariosRegistrados() //(Singleton)
         {
             return this.listaUsuariosRegistrados;
+        }
+
+        public void ImprimirUsuarios()
+        {
+            int cont = 0;
+            Console.WriteLine("--LISTA DE USUARIOS REGISTRADOS--");
+            foreach (IUser user in this.listaUsuariosRegistrados)
+            {
+                Console.WriteLine($"Usuario {cont}: <{user.Id}>");
+                cont+=1;
+            }
+            Console.WriteLine("---------------------------------");
         }
       
         /// <summary>

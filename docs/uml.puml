@@ -1,0 +1,52 @@
+@startuml
+
+class TelegramAdapter
+
+class Buscador
+
+class Datos
+
+class Emrpendedor
+
+class Empresa
+
+class Habilitaciones
+
+class IdGenerator
+
+class Oferta
+
+class Producto
+
+class Rubro
+
+class Singleton << (S, SteelBlue) Singleton >>
+
+class StatusManager
+
+class Temp
+
+class TipoProducto
+
+class UserAdmin
+
+class UserCreator
+
+class UserEmprendedor
+
+class UserEmpresa
+
+
+class UserEmpresa {
+    + Invitacion Invitacion
+    + string Nombre
+    + bool IsInvited
+
+    + AceptarInvitacion()
+    + CrearEmpresa()
+}
+
+
+UserEmpresa "1" o-- "1" Empresa : Empresa
+
+@enduml

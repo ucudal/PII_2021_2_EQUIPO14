@@ -11,7 +11,8 @@
         </member>
         <member name="P:Proyecto_Final.Buscador.Content">
             <summary>
-            
+            La función de esta clase es en base a las ofertas guardadas, buscarlas en base a ciertos criterios.
+            Debido a que la única responsabilidad de esta clase es buscar ofertas según distintos criterios, esta sigue el SRP.
             </summary>
             <value></value>
         </member>
@@ -41,117 +42,21 @@
             <param name="tipo"></param>
             <returns></returns>
         </member>
-        <member name="T:Proyecto_Final.ConsoleInteraction">
-            <summary>
-            Clase encargada de interactuar con el usuario a travez de la consola.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.#ctor">
-            <summary>
-            Inicializa la clase ConsoleInteraction.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearOferta">
-            <summary>
-            Interactua con el usuario para crear una oferta.
-            </summary>
-            <returns>Datos para crear la oferta/publicacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AceptarInvitacion">
-            <summary>
-            Interactua con el usuario para aceptar la invitacion.
-            </summary>
-            <returns>Si se acepta la invitacion devuelve <c>true</c>, de lo contrario <c>false</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmpresa">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos de la empresa.
-            </summary>
-            <returns>Tupla de strings con los datos de la empresa.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmprendedor">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos del Emprendedor.
-            </summary>
-            <returns>Tupla de strings con los datos del emprendedor</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosHabilitacion">
-            <summary>
-            Interactua con el usuario para poder crear los datos de la habilitacion.
-            </summary>
-            <returns>Habilitacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosProducto">
-            <summary>
-            Interactua con el usuario para poder crear los datos del producto.
-            </summary>
-            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosOferta">
-            <summary>
-            Interactua con el usuario para crear los datos de la publicacion.
-            </summary>
-            <returns>Nombre de la publicacion</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosTipoProducto">
-            <summary>
-            Interactua con el usuario para crear los datos del tipo de producto.
-            </summary>
-            <returns>Tipo de producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave">
-            <summary>
-            Interactua con el usuario para crear un mensaje clave en una oferta especifica.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.ConcretarOferta">
-            <summary>
-            Interactua con el usuario para concretar una oferta.
-            </summary>
-            <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
-            <summary>
-            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
-            </summary>
-            <param name="info"></param>
-        </member>
-        <member name="T:Proyecto_Final.CreadorOferta">
-            <summary>
-            Clase encargada de crear un producto al almacenar los datos en diccionarios cuyos Key son el ID del usuario y el contenido correspondiente al atributo de la clase producto correspondiente.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.CreadorOferta.DatosOferta">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorOferta.WipeDataById(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorOferta.AddDataById(System.String,System.String,System.String)">
-            <summary>
-            Agrega los datos a los diccionarios temporales.
-            </summary>
-            <param name="id"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorOferta.EntregarDatosOferta(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-        </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
+            Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, 
+            lo cual implica que la manera de retornar las listas es en base a un método de instancia. 
+            Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
             </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
+            <summary>
+            Busca las ofertas por ID y retorna la oferta.
+            </summary>
+            <param name="userId"></param>
+            <param name="oferId"></param>
+            <returns>Retorna una Oferta.</returns>
         </member>
         <member name="M:Proyecto_Final.Datos.GetUserById(System.String)">
             <summary>
@@ -343,6 +248,9 @@
         <member name="T:Proyecto_Final.Emprendedor">
             <summary>
             Esta clase representa los datos adicionales del emprendedor.
+            Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Emprendedor, 
+            y por ende es experta en la modificación de estos datos; además de ser experta en evaluar el consumo por tiempo del usuario emprendedor,
+            ya que los datos de las compras realizadas se contienen en esta clase.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Emprendedor.Ubicacion">
@@ -416,6 +324,11 @@
         <member name="T:Proyecto_Final.Empresa">
             <summary>
             Esta clase representa a la Empresa.
+            Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Empresa, 
+            y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario Empresa, 
+            ya que las ofertas personales se contienen en esta clase. 
+            También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, 
+            que es la clase "Oferta".
             </summary>
         </member>
         <member name="P:Proyecto_Final.Empresa.Nombre">
@@ -483,6 +396,7 @@
         <member name="T:Proyecto_Final.Habilitaciones">
             <summary>
             Esta clase representa las habilitaciones necesarias para la tenencia de productos.
+            Esta clase tiene una única responsabilidad que es diferenciar entre lo que es una habilitacion y lo que no, por lo cual sigue el SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Habilitaciones.Habilitacion">
@@ -518,6 +432,7 @@
         <member name="T:Proyecto_Final.Oferta">
             <summary>
             Esta clase representa las ofertas creadas por un empresario.
+            Esta clase tiene como función ser una representación de una publicación de oferta, además de ser experta en modificar los atributos utilizados para representar tal oferta, por lo cual 
             </summary>
         </member>
         <member name="P:Proyecto_Final.Oferta.Id">
@@ -586,6 +501,8 @@
         <member name="T:Proyecto_Final.Producto">
             <summary>
             Esta clase representa al producto que se ofertará.
+            Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
+            La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Producto.IsPesos">
@@ -651,6 +568,7 @@
         <member name="T:Proyecto_Final.Rubro">
             <summary>
             Esta clase representa el rubro de una empresa.
+            La única función de existencia de esta clase es para discernir entre lo que es un rubro y lo que no es un rubro, por lo cual es una clase que cumple el SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Rubro.Rubros">
@@ -668,6 +586,7 @@
         <member name="T:Proyecto_Final.Singleton`1">
             <summary>
             Esta clase tiene como función funcionar como base para crear una sola instancia de clases almacenadoras de datos en el programa.
+            La única función de esta clase es proveer la capacidad de que otras clases puedan ser singleton, por lo cual esta clase cumple con SRP.
             </summary>
             <typeparam name="T"></typeparam>
         </member>
@@ -710,9 +629,44 @@
             <param name="id"></param>
             <returns>Devuelve el estado actual.</returns>
         </member>
+        <member name="T:Proyecto_Final.Temp">
+            <summary>
+            Clase encargada de almacenar y actualizar los datos temporales.
+            Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Temp.TempData">
+            <summary>
+            Otorga el diccionario de datos temporales.
+            </summary>
+            <value>Retorna un diccionario con datos temporales.</value>
+        </member>
+        <member name="M:Proyecto_Final.Temp.AddDataById(System.String,System.String,System.String)">
+            <summary>
+            Agrega datos a la lista que contiene el id del usuario en el diccionario.
+            </summary>
+            <param name="id"></param>
+            <param name="key"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Proyecto_Final.Temp.GetDataByKey(System.String,System.String)">
+            <summary>
+            Devuelve el dato almacenado en una key especifica.
+            </summary>
+            <param name="id"></param>
+            <param name="key"></param>
+            <returns>Devuelve un dato si lo encuentra.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Temp.WipeDataById(System.String)">
+            <summary>
+            Elimina completamente el item del diccionario.
+            </summary>
+            <param name="id"></param>
+        </member>
         <member name="T:Proyecto_Final.TipoProducto">
             <summary>
             Esta clase representa una clasificación general de un producto.
+            La única función de existencia de esta clase es para discernir entre lo que es un Tipo de producto y lo que no es, por lo cual es una clase que cumple el SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.TipoProducto.Nombre">
@@ -730,6 +684,8 @@
         <member name="T:Proyecto_Final.UserAdmin">
             <summary>
             Esta clase representa a los administradores del programa.
+            La única función de esta clase es proveer al sistema una manera de que nosotros como programadores/administradores podamos agregar empresas al sistema, 
+            por lo cual entra dentro del patrón SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.UserAdmin.Id">
@@ -763,19 +719,6 @@
             Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String)">
-            <summary>
-            Agrega datos a la lista que contiene el id del usuario en el diccionario.
-            </summary>
-            <param name="id"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
-            <summary>
-            Elimina completamente el item del diccionario.
-            </summary>
-            <param name="id"></param>
-        </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>
             Crea una instancia de UserAdmin y la almacena.
@@ -797,6 +740,9 @@
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
             Esta clase representa a los usuarios emprendedores en el sistema.
+            La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como emprendedor. 
+            Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+            los cuales se almacenan en la clase "Emprendedor" y los accede mediante el patrón de Delegación. Por lo cual, esta clase sigue con el patrón de SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.UserEmprendedor.Id">
@@ -872,6 +818,9 @@
         <member name="T:Proyecto_Final.UserEmpresa">
             <summary>
             Esta clase representa al usuario de la Empresa.
+            La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como empresa. 
+            Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+            los cuales se almacenan en la clase "Empresa" y los accede mediante el patrón de Delegación. Por lo cual también sigue con el patrón SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.UserEmpresa.Id">
@@ -1191,18 +1140,24 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
-        <member name="T:Proyecto_Final.MaterialsConsumend">
+        <member name="T:Proyecto_Final.MaterialsConsumedHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
             </summary>
         </member>
-        <member name="M:Proyecto_Final.MaterialsConsumend.#ctor(Proyecto_Final.BaseHandler)">
+        <member name="P:Proyecto_Final.MaterialsConsumedHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.MaterialsConsumedHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.MaterialsConsumend.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+        <member name="M:Proyecto_Final.MaterialsConsumedHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "materialsConsumend" y retorna true; retorna false en caso contrario.
             </summary>
@@ -1257,46 +1212,6 @@
         <member name="T:Proyecto_Final.PublishHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.OfertName">
-            <summary>
-            El nombre de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductName">
-            <summary>
-            El nombre del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductDescription">
-            <summary>
-            La descripción del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductLocation">
-            <summary>
-            La ubicación del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductValue">
-            <summary>
-            El valor del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductQuantity">
-            <summary>
-            La cantidad del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.tipo">
-            <summary>
-            El tipo del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.habilitacion">
-            <summary>
-            Las habilitaciones requeridas para comprar la oferta del producto de la oferta que el usuario creará.
             </summary>
         </member>
         <member name="P:Proyecto_Final.PublishHandler.AllowedStatus">
@@ -1416,82 +1331,61 @@
             caso de error por ejemplo.
             </summary>
         </member>
+        <member name="T:Proyecto_Final.IMessage">
+            <summary>
+            La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza, aunque es necesario que exista una API para hacer funcionar este programa.
+            Esta clase tiene una sola responsabilidad, que es la de obtener datos de una API y polimorfizarlos en datos de una interfaz, 
+            en pos de separar la API del código, por lo cual es un SRP de Polimorfismo.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.UserId">
+            <summary>
+            El ID del usuario que envía un mensaje
+            </summary>
+            <value>String del usuario</value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.ChatId">
+            <summary>
+            El ID del chat en el que se envía el mensaje
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.Text">
+            <summary>
+            El mensaje en sí.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.FirstName">
+            <summary>
+            El Nombre de la persona según los datos registrados en la API.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.LastName">
+            <summary>
+            El Apellido de la persona según los datos registrados en la API.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.Date">
+            <summary>
+            La fecha en la que se realizó el mensaje.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Proyecto_Final.IUser">
+            <summary>
+            Esta interfaz se utiliza para agrupar todas las clases usuario dentro de un solo tipo, el cual tiene como atributo el ID, aquello que hace cada objeto único dentro de los datos que tenemos.
+            La función de esta clase es permitir polimorfizar las clases y guardarlas todas dentro de una lista, 
+            la de los usuarios almacenados, y es la única razón por la que funcióna el método "GetUserByID" de Datos. <see cref="M:Proyecto_Final.Datos.GetUserById(System.String)"/>
+            </summary>
+        </member>
         <member name="P:Proyecto_Final.IUser.Id">
             <summary>
             String con el Id de un usuario registrado.
             </summary>
             <value>Devuelve el ID con el que se registro.</value>
-        </member>
-        <member name="T:Proyecto_Final.IUserInterface">
-            <summary>
-            Esta interface permite implementar distintas formas de que el usuario interactue con el bot.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearOferta">
-            <summary>
-            Interactua con el usuario para crear una oferta.
-            </summary>
-            <returns><c>string</c></returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AceptarInvitacion">
-            <summary>
-            Interactua con el usuario para aceptar la invitacion.
-            </summary>
-            <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos de la empresa.
-            </summary>
-            <returns>Tupla de strings con los datos de la empresa.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmprendedor">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos del emprendedor.
-            </summary>
-            <returns>Tupla de strings con los datos del emprendedor.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
-            <summary>
-            Interactua con el usuario para poder crear los datos de la habilitacion.
-            </summary>
-            <returns>Habilitacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosProducto">
-            <summary>
-            Interactua con el usuario para poder crear los datos del producto.
-            </summary>
-            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosOferta">
-            <summary>
-            Interactua con el usuario para crear los datos de la publicacion.
-            </summary>
-            <returns>Nombre de la publicacion</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosTipoProducto">
-            <summary>
-            Interactua con el usuario para crear los datos del tipo de producto.
-            </summary>
-            <returns>Tipo de producto</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
-            <summary>
-            Interactua con el usuario para agregar palabras claves a una oferta.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
-            <summary>
-            Interactua con el usuario para concretar una oferta.
-            </summary>
-            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
-            <summary>
-            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
-            </summary>
-            <param name="item"></param>
         </member>
         <member name="T:Ucu.Poo.Locations.Client.Distance">
             <summary>
