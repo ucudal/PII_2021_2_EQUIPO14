@@ -29,7 +29,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public InviteHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"invitar"};
+            this.Keywords = new string[] {"/invitar"};
             this.AllowedStatus = new string[] {"STATUS_INVITE_SEND"};
         }
 

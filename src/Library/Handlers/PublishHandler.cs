@@ -21,7 +21,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public PublishHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"Publicar"};
+            this.Keywords = new string[] {"/publicar"};
             this.AllowedStatus = new string[] {"STATUS_PUBLISH_RESPONSE",
                                                "STATUS_PUBLISH_OFFERNAME",
                                                "STATUS_PUBLISH_RESPONSE_RECURRENCY_VALUE",

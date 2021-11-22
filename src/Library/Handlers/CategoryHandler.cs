@@ -27,7 +27,7 @@ namespace Proyecto_Final
 
         public CategoryHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"category"};
+            this.Keywords = new string [] {"/buscar_categoria"};
             this.AllowedStatus = new string [] {"STATUS_CATEGORY_RESPONSE",
                                                 "STATUS_CATEGORY_RECIVED"};
         }

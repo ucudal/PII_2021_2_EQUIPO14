@@ -13,7 +13,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public ExitHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"salir"};
+            this.Keywords = new string[] {"/salir"};
         }
 
         /// <summary>
