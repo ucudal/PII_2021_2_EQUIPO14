@@ -27,7 +27,7 @@ namespace Proyecto_Final
 
         public KeyWordsHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"keyword"};
+            this.Keywords = new string [] {"/buscar_palabra"};
             this.AllowedStatus = new string [] {"STATUS_KEYWORD_RESPONSE",
                                                 "STATUS_KEYWORD_RECIVED"};
         }

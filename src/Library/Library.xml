@@ -43,6 +43,13 @@
             <returns></returns>
         </member>
         <member name="T:Proyecto_Final.Datos">
+<<<<<<< HEAD
+            <summary>
+            Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
+            Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, 
+            lo cual implica que la manera de retornar las listas es en base a un método de instancia. 
+            Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
+=======
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
             Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, 
@@ -53,6 +60,7 @@
         <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
             <summary>
             Busca las ofertas por ID y retorna la oferta.
+>>>>>>> 50492bed7a1112efcc531f5a87012fc2b805d2c2
             </summary>
             <param name="userId"></param>
             <param name="oferId"></param>
@@ -727,20 +735,6 @@
             Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String,System.String)">
-            <summary>
-            Agrega datos a la lista que contiene el id del usuario en el diccionario.
-            </summary>
-            <param name="id"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
-            <summary>
-            Elimina completamente el item del diccionario.
-            </summary>
-            <param name="id"></param>
-        </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>
             Crea una instancia de UserAdmin y la almacena.
@@ -943,15 +937,11 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Palabra".
             </summary>
         </member>
-        <member name="F:Proyecto_Final.AddKeyWordHandler.Oferta">
+        <member name="P:Proyecto_Final.AddKeyWordHandler.AllowedStatus">
             <summary>
-            El nombre de la oferta que el usuario luego ingresará.
+            Otorga un array con los status validos.
             </summary>
-        </member>
-        <member name="F:Proyecto_Final.AddKeyWordHandler.KeyWord">
-            <summary>
-            La palabra clave que el usuario luego ingresará.
-            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.AddKeyWordHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -1055,6 +1045,25 @@
         <member name="M:Proyecto_Final.CategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.CommandsHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/comandos".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.CommandsHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "/comandos".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.CommandsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/comandos" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1354,6 +1363,7 @@
             </summary>
         </member>
         <member name="T:Proyecto_Final.IMessage">
+<<<<<<< HEAD
             <summary>
             La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza, aunque es necesario que exista una API para hacer funcionar este programa.
             Esta clase tiene una sola responsabilidad, que es la de obtener datos de una API y polimorfizarlos en datos de una interfaz, 
@@ -1370,6 +1380,24 @@
             <summary>
             El ID del chat en el que se envía el mensaje
             </summary>
+=======
+            <summary>
+            La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza, aunque es necesario que exista una API para hacer funcionar este programa.
+            Esta clase tiene una sola responsabilidad, que es la de obtener datos de una API y polimorfizarlos en datos de una interfaz, 
+            en pos de separar la API del código, por lo cual es un SRP de Polimorfismo.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.UserId">
+            <summary>
+            El ID del usuario que envía un mensaje
+            </summary>
+            <value>String del usuario</value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.ChatId">
+            <summary>
+            El ID del chat en el que se envía el mensaje
+            </summary>
+>>>>>>> 50492bed7a1112efcc531f5a87012fc2b805d2c2
             <value></value>
         </member>
         <member name="P:Proyecto_Final.IMessage.Text">

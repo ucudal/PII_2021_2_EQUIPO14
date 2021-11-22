@@ -22,7 +22,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public AddKeyWordHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"Palabra"};
+            this.Keywords = new string[] {"/agregar_palabra"};
             this.AllowedStatus = new string[] {"STATUS_KEYWORD_RESPONSE",
                                                "STATUS_KEYWORD_OFERTNAME",
                                                "STATUS_KEYWORD_KEYWORD",
