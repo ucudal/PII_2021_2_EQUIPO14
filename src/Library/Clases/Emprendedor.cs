@@ -49,6 +49,11 @@ namespace Proyecto_Final
         public ArrayList Compras {get{return this.compras;}}
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Emprendedor() {}
+
+        /// <summary>
         /// Inicializa la clase Emprendedor
         /// </summary>
         /// <param name="ubicacion"></param>

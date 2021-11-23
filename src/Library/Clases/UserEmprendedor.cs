@@ -32,6 +32,11 @@ namespace Proyecto_Final
         public Emprendedor Emprendedor { get; set; }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public UserEmprendedor() {}
+
+        /// <summary>
         /// Inicializa la clase UserEmprendedor.
         /// </summary>
         /// <param name="nombre"></param>

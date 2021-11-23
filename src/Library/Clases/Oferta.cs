@@ -67,6 +67,11 @@ namespace Proyecto_Final
         public UserEmprendedor Comprador { get { return comprador; } set { this.comprador = value;} }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Oferta() {}
+
+        /// <summary>
         /// Inicializa la clase Oferta.
         /// </summary>
         /// <param name="nombre"></param>

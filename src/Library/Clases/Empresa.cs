@@ -49,6 +49,11 @@ namespace Proyecto_Final
         public ArrayList Ofertas { get { return this.ofertas; } }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Empresa() {}
+
+        /// <summary>
         /// Inicializa la clase Empresa.
         /// </summary>
         /// <param name="nombre"></param>

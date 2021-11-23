@@ -30,6 +30,7 @@ namespace Proyecto_Final
         public static void Main()
         {
             Bot = new TelegramBotClient(Token);
+            Singleton<Datos>.Instance.GetData();
 
             firstHandler =
                 new StartHandler(

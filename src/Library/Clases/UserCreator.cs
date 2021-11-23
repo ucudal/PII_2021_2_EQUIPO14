@@ -22,7 +22,7 @@ namespace Proyecto_Final
                     Dictionary<string, string> data = item.Value;
 
                     UserAdmin userAdmin = new UserAdmin(id, data["nombreAdmin"]);
-                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
+                    //Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
                     Console.WriteLine($"UserCreator: Admin {id} creado.");
                 }
             }
@@ -43,10 +43,9 @@ namespace Proyecto_Final
             );
 
             userEmpresa.Empresa = empresa;
-            Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
+            Singleton<Datos>.Instance.RegistrarUsuarioEmpresa(userEmpresa);
             Console.WriteLine($"UserCreator: Empresa {id} creada.");
             
-            Singleton<Datos>.Instance.ImprimirUsuarios();
         }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace Proyecto_Final
                 new Habilitaciones(Singleton<Temp>.Instance.GetDataByKey(id, "habilitacionEmprendedor"))
             );
             userEmprendedor.Emprendedor = emprendedor;
-            Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
+            Singleton<Datos>.Instance.RegistrarUsuarioEmprendedor(userEmprendedor);
             Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
         }
     }

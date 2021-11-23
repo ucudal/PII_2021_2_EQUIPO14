@@ -50,13 +50,10 @@
             Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
+        <member name="M:Proyecto_Final.Datos.GetData">
             <summary>
-            Busca las ofertas por ID y retorna la oferta.
+            Al inicializar el programa se obtienen todos los datos de la DB.
             </summary>
-            <param name="userId"></param>
-            <param name="oferId"></param>
-            <returns>Retorna una Oferta.</returns>
         </member>
         <member name="M:Proyecto_Final.Datos.GetUserById(System.String)">
             <summary>
@@ -283,6 +280,11 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Proyecto_Final.Emprendedor.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro,Proyecto_Final.Habilitaciones)">
             <summary>
             Inicializa la clase Emprendedor
@@ -361,6 +363,11 @@
             </summary>
             <value>Lista con ofertas publicadas por la empresa.</value>
         </member>
+        <member name="M:Proyecto_Final.Empresa.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Empresa.#ctor(System.String,System.String,Proyecto_Final.Rubro)">
             <summary>
             Inicializa la clase Empresa.
@@ -404,6 +411,11 @@
             Otorga el nombre de la Habilitación.
             </summary>
             <value>Nombre de la Habilitación.</value>
+        </member>
+        <member name="M:Proyecto_Final.Habilitaciones.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Habilitaciones.#ctor(System.String)">
             <summary>
@@ -483,6 +495,11 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Proyecto_Final.Oferta.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,System.Boolean,Proyecto_Final.Habilitaciones)">
             <summary>
             Inicializa la clase Oferta.
@@ -547,6 +564,11 @@
             </summary>
             <value>Objeto del tipo "TipoProducto".</value>
         </member>
+        <member name="M:Proyecto_Final.Producto.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Producto.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean,System.Int32,Proyecto_Final.TipoProducto)">
             <summary>
             Inicializa la clase Producto.
@@ -576,6 +598,11 @@
             Retorna el nombre del rubro de una empresa.
             </summary>
             <value>Nombre del rubro de la empresa.</value>
+        </member>
+        <member name="M:Proyecto_Final.Rubro.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Rubro.#ctor(System.String)">
             <summary>
@@ -675,6 +702,11 @@
             </summary>
             <value>Nombre del tipo de producto.</value>
         </member>
+        <member name="M:Proyecto_Final.TipoProducto.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.TipoProducto.#ctor(System.String)">
             <summary>
             Inicializa la clase TipoProducto.
@@ -763,6 +795,11 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmprendedor.
@@ -846,6 +883,11 @@
             Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
             </summary>
             <value><c>true/false</c></value>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String,System.String)">
             <summary>
@@ -1330,6 +1372,26 @@
             "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
             caso de error por ejemplo.
             </summary>
+        </member>
+        <member name="T:Proyecto_Final.IJsonConvertible">
+            <summary>
+            Define el tipo que tienen los objetos que pueder ser serializados en y deserializados desde texto en formato
+            Json.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.IJsonConvertible.ConvertToJson">
+            <summary>
+            Convirte el objeto a texto en formato Json. El objeto puede ser reconstruido a partir del texto en formato
+            Json utilizando <see cref="M:Proyecto_Final.IJsonConvertible.LoadFromJson(System.String)"/>.
+            </summary>
+            <returns>El objeto convertido a texto en formato Json.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IJsonConvertible.LoadFromJson(System.String)">
+            <summary>
+            Asigna las propiedades del objeto a partir de texto en formato Json. El texto en formato Json puede ser
+            obtenido utilizando <see cref="M:Proyecto_Final.IJsonConvertible.ConvertToJson"/>.
+            </summary>
+            <param name="json">El texto en formato Json a partir del cual asignas las propiedades del objeto.</param>
         </member>
         <member name="T:Proyecto_Final.IMessage">
             <summary>

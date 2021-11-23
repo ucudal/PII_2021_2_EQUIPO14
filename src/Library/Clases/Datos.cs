@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 
 namespace Proyecto_Final
 {
@@ -31,22 +33,30 @@ namespace Proyecto_Final
                                         "Hab-2",
                                         "Hab-3"
                                         };
-        private ArrayList listaTokens = new ArrayList() {
-                                        "TOKEN"
-                                        };
-        private ArrayList listaOfertas = new ArrayList();
-        private ArrayList listaUsuarioEmpresa = new ArrayList();
-        private ArrayList listaUsuarioEmprendedor = new ArrayList();
+        private List<string> listaTokens = new List<string>();
+        private List<Oferta> listaOfertas = new List<Oferta>();
+        private List<UserEmpresa> listaUsuarioEmpresa = new List<UserEmpresa>();
+        private List<UserEmprendedor> listaUsuarioEmprendedor = new List<UserEmprendedor>();
         private ArrayList listaEmpresa = new ArrayList();
-        private ArrayList listaUsuariosRegistrados = new ArrayList();
-        
+
+        /// <summary>
+        /// Al inicializar el programa se obtienen todos los datos de la DB.
+        /// </summary>
+        public void GetData()
+        {
+            this.LoadTokensData();
+            this.LoadRegisteredEmpresas();
+            this.LoadRegisteredEmprendedores();
+            this.LoadPublications();
+        }
+
         /// <summary>
         /// Busca las ofertas por ID y retorna la oferta.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="oferId"></param>
         /// <returns>Retorna una Oferta.</returns>
-        public Oferta GetOfertaById(string userId, string oferId)
+        /*public Oferta GetOfertaById(string userId, string oferId)
         {
             UserEmpresa user = (UserEmpresa)this.GetUserById(userId);
             foreach (Oferta oferta in user.Empresa.Ofertas)
@@ -58,7 +68,7 @@ namespace Proyecto_Final
                 return null;
             }
             return null;
-        }
+        }*/
 
         /// <summary>
         /// Busca entre los usuarios registrados por id y retorna el usuario.
@@ -67,40 +77,41 @@ namespace Proyecto_Final
         /// <returns>Retorna un IUser.</returns>
         public IUser GetUserById(string id) //(Expert)
         {
-            foreach (IUser user in this.listaUsuariosRegistrados)
+            foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
             {
-                if (user.Id == id)
+                if (userEmpresa.Id == id)
                 {
-                    return user;
+                    return userEmpresa;
                 }
-                Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
-                return null;
+                else
+                {
+                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+                    {
+                        if (userEmprendedor.Id == id)
+                        {
+                            return userEmprendedor;
+                        }
+                        Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
+                        return null;
+                    }                     
+                }
             }
             Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
             return null;
         }
 
-        /// <summary>
-        /// Lista de usuarios registrados mediante el handler "RegisterHandler"
-        /// </summary>
-        /// <returns>Lista con los usuarios registrados.</returns>
-        public ArrayList ListaUsuariosRegistrados() //(Singleton)
+        public void RegistrarUsuarioEmpresa(UserEmpresa user)
         {
-            return this.listaUsuariosRegistrados;
+            this.listaUsuarioEmpresa.Add(user);
+            this.UpdateEmpresasData();
         }
 
-        public void ImprimirUsuarios()
+        public void RegistrarUsuarioEmprendedor(UserEmprendedor user)
         {
-            int cont = 0;
-            Console.WriteLine("--LISTA DE USUARIOS REGISTRADOS--");
-            foreach (IUser user in this.listaUsuariosRegistrados)
-            {
-                Console.WriteLine($"Usuario {cont}: <{user.Id}>");
-                cont+=1;
-            }
-            Console.WriteLine("---------------------------------");
+            this.listaUsuarioEmprendedor.Add(user);
+            this.UpdateEmprendedoresData();
         }
-      
+
         /// <summary>
         /// Verifica si la id ya esta registrada.
         /// </summary>
@@ -108,13 +119,23 @@ namespace Proyecto_Final
         /// <returns>Devuelve true si la id esta registrada, false de lo contrario</returns>
         public bool IsRegistered(string id) //(Expert)
         {
-            foreach (IUser user in this.listaUsuariosRegistrados)
+            foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
             {
-                if (id == user.Id)
+                if (userEmpresa.Id == id)
                 {
                     return true;
                 }
-                return false;
+                else
+                {
+                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+                    {
+                        if (userEmprendedor.Id == id)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }                     
+                }
             }
             return false;
         }
@@ -142,7 +163,7 @@ namespace Proyecto_Final
         /// Devuelve la lista de tokens validos.
         /// </summary>
         /// <returns>Lista de tokens validos.</returns>
-        public ArrayList ListaTokens() //(Singleton)
+        public List<string> ListaTokens() //(Singleton)
         {
             return this.listaTokens;
         }
@@ -154,6 +175,8 @@ namespace Proyecto_Final
         public void AgregarToken(string token) //(Expert)
         {
             this.listaTokens.Add(token);
+            
+            this.UpdateTokensData();
         }
 
         /// <summary>
@@ -163,6 +186,8 @@ namespace Proyecto_Final
         public void EliminarToken(string token) //(Expert)
         {
             this.listaTokens.Remove(token);
+
+            this.UpdateTokensData();
         }
 
         /// <summary>
@@ -179,7 +204,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todas las publicaciones realizadas.
         /// </summary>
         /// <returns>Lista con Oferta.</returns>
-        public ArrayList ListaOfertas() //(Singleton)
+        public List<Oferta> ListaOfertas() //(Singleton)
         {
             return this.listaOfertas;
         }
@@ -197,7 +222,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todos los UserEmpresa registrados en la aplicacion.
         /// </summary>
         /// <returns>Lista con UserEmpresa</returns>
-        public ArrayList ListaUsuarioEmpresa() //(Singleton)
+        public List<UserEmpresa> ListaUsuarioEmpresa() //(Singleton)
         {
             return this.listaUsuarioEmpresa;
         }
@@ -215,7 +240,7 @@ namespace Proyecto_Final
         /// Otorga una lista con todos los UserEmprendedor registrados.
         /// </summary>
         /// <returns>Lista con UserEmprendedor</returns>
-        public ArrayList ListaUsuarioEmprendedor() //(Singleton)
+        public List<UserEmprendedor> ListaUsuarioEmprendedor() //(Singleton)
         {
             return this.listaUsuarioEmprendedor;
         }
@@ -334,7 +359,7 @@ namespace Proyecto_Final
         /// <param name="oferta"></param>
         public void EliminarOfertas(Oferta oferta) //(Expert)
         {
-            listaOfertas.Remove(oferta.Id);
+            listaOfertas.Remove(oferta);
         }
 
         /// <summary>
@@ -376,6 +401,93 @@ namespace Proyecto_Final
                 return true;
             }
             return false; 
+        }
+
+        public void LoadTokensData()
+        {
+            if (!File.Exists(@"tokens.json"))
+            {
+                string json = JsonSerializer.Serialize(this.listaTokens);
+                File.WriteAllText(@"tokens.json", json);
+            }
+            else
+            {
+                string json = File.ReadAllText(@"tokens.json");
+                this.listaTokens = JsonSerializer.Deserialize<List<string>>(json);
+            }
+            Console.WriteLine("[DATOS] : Tokens cargados.");
+        }
+
+        public void UpdateTokensData()
+        {
+            string json = JsonSerializer.Serialize(this.listaTokens);
+            File.WriteAllText(@"tokens.json", json);
+        }
+
+        public void LoadRegisteredEmpresas()
+        {
+            if (!File.Exists(@"empresas.json"))
+            {
+                string json = JsonSerializer.Serialize(this.listaUsuarioEmpresa);
+                File.WriteAllText(@"empresas.json", json);
+            }
+            else
+            {
+                string json = File.ReadAllText(@"empresas.json");
+                this.listaUsuarioEmpresa = JsonSerializer.Deserialize<List<UserEmpresa>>(json);
+            }
+            Console.WriteLine("[DATOS] : Empresas cargadas.");
+        }
+
+        public void UpdateEmpresasData()
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(this.listaUsuarioEmpresa, options);
+            File.WriteAllText(@"empresas.json", json);
+        }
+
+        public void LoadRegisteredEmprendedores()
+        {
+            if (!File.Exists(@"emprendedores.json"))
+            {
+                string json = JsonSerializer.Serialize(this.listaUsuarioEmprendedor);
+                File.WriteAllText(@"emprendedores.json", json);
+            }
+            else
+            {
+                string json = File.ReadAllText(@"emprendedores.json");
+                this.listaUsuarioEmpresa = JsonSerializer.Deserialize<List<UserEmpresa>>(json);
+            }
+            Console.WriteLine("[DATOS] : Emprendedores cargados.");
+        }
+
+        public void UpdateEmprendedoresData()
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(this.listaUsuarioEmprendedor, options);
+            File.WriteAllText(@"emprendedores.json", json);
+        }
+
+        public void LoadPublications()
+        {
+            if (!File.Exists(@"publicaciones.json"))
+            {
+                string json = JsonSerializer.Serialize(this.listaOfertas);
+                File.WriteAllText(@"publicaciones.json", json);
+            }
+            else
+            {
+                string json = File.ReadAllText(@"publicaciones.json");
+                this.listaOfertas = JsonSerializer.Deserialize<List<Oferta>>(json);
+            }
+            Console.WriteLine("[DATOS] : Publicaciones cargadas.");
+        }
+
+        public void UpdatePublicationsData()
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(this.listaOfertas, options);
+            File.WriteAllText(@"publicaciones.json", json);
         }
     }
 }
