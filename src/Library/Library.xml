@@ -55,6 +55,14 @@
             Al inicializar el programa se obtienen todos los datos de la DB.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
+            <summary>
+            Busca las ofertas por ID y retorna la oferta.
+            </summary>
+            <param name="userId"></param>
+            <param name="oferId"></param>
+            <returns>Retorna una Oferta.</returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.GetUserById(System.String)">
             <summary>
             Busca entre los usuarios registrados por id y retorna el usuario.
@@ -750,6 +758,20 @@
             Esta clase tiene como función crear a los usuarios.
             Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String,System.String)">
+            <summary>
+            Agrega datos a la lista que contiene el id del usuario en el diccionario.
+            </summary>
+            <param name="id"></param>
+            <param name="key"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
+            <summary>
+            Elimina completamente el item del diccionario.
+            </summary>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>

@@ -65,8 +65,8 @@ namespace Proyecto_Final
                 {
                     return oferta;
                 }
-                return null;
             }
+            Console.WriteLine($"OFFER WITH ID: {oferId} NOT FOUND.");
             return null;
         }*/
 
