@@ -50,6 +50,11 @@
             Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.GetData">
+            <summary>
+            Al inicializar el programa se obtienen todos los datos de la DB.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
             <summary>
             Busca las ofertas por ID y retorna la oferta.
@@ -64,6 +69,18 @@
             </summary>
             <param name="id"></param>
             <returns>Retorna un IUser.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.RegistrarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
+            <summary>
+            Agrega un usuario Empresa a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.RegistrarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
+            <summary>
+            Agrega un usuario Emprendedor a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
+            </summary>
+            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.IsRegistered(System.String)">
             <summary>
@@ -178,6 +195,46 @@
             </summary>
             <param name="rubro"></param>
             <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadTokensData">
+            <summary>
+            Carga los datos de la lista de Tokens desde el archivo ".json".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdateTokensData">
+            <summary>
+            Actualiza los datos almacenados en la listaTokens
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadRegisteredEmpresas">
+            <summary>
+            Carga los datos de una empresa en base al archivo ".json"
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdateEmpresasData">
+            <summary>
+            Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.
+            </summary>    
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadRegisteredEmprendedores">
+            <summary>
+            Carga los datos de los Emprendedores en base a un archivo ".json".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdateEmprendedoresData">
+            <summary>
+            Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadPublications">
+            <summary>
+            Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Empresa.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdatePublicationsData">
+            <summary>
+            Actualiza los datos de las publicaciones encontradas en su respectivo ".json" para que sean idénticas a las que se encontraban en la lista de publicaciones.
+            </summary>
         </member>
         <member name="T:Proyecto_Final.Emprendedor">
             <summary>
@@ -999,6 +1056,12 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
             </summary>
         </member>
+        <member name="P:Proyecto_Final.CategoryHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
         <member name="M:Proyecto_Final.CategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.CategoryHandler"/>. Esta clase procesa el mensaje "keyword".
@@ -1115,25 +1178,6 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
-        <member name="T:Proyecto_Final.KeyWordsHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.KeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
-            </summary>
-            <param name="next">El próximo "handler".</param>
-        </member>
-        <member name="M:Proyecto_Final.KeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
         <member name="T:Proyecto_Final.MaterialsConsumedHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
@@ -1147,7 +1191,7 @@
         </member>
         <member name="M:Proyecto_Final.MaterialsConsumedHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
+            Inicializa una nueva instancia de la clase <see cref="!:KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
@@ -1163,6 +1207,12 @@
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "PeriodOfTime".
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.PeriodOfTimeHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.PeriodOfTimeHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -1253,6 +1303,31 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.SearchKeyWordsHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.SearchKeyWordsHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.SearchKeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.SearchKeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.StartHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "start".
@@ -1277,9 +1352,15 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
             </summary>
         </member>
+        <member name="P:Proyecto_Final.ZoneHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
         <member name="M:Proyecto_Final.ZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
+            Inicializa una nueva instancia de la clase <see cref="!:KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
@@ -1390,19 +1471,20 @@
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Distance.Found">
             <summary>
-            Indica si se encontraron o no las coordenas o las direcciones de origen y destino.
+            Obtiene o establece un valor que indica si se encontraron o no las coordenas o las direcciones de origen y
+            destino.
             </summary>
             <value>true si se encontró la dirección; false en caso contrario.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Distance.TravelDistance">
             <summary>
-            La distancia entre las coordenadas o las direcciones de origen y destino.
+            Obtiene o establece la distancia entre las coordenadas o las direcciones de origen y destino.
             </summary>
             <value>La distancia en metros.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Distance.TravelDuration">
             <summary>
-            El tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
+            Obtiene o establece el tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
             </summary>
             <value>El tiempo que se demora en minutos.</value>
         </member>
@@ -1414,56 +1496,56 @@
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Found">
             <summary>
-            Indica si se encontró o no la dirección. En ese caso son válidos los demás valores. En caso contrario los
-            demás valores son indeterminados.
+            Obtiene o establece un valor que indica si se encontró o no la dirección. En ese caso son válidos los demás
+            valores. En caso contrario los demás valores son indeterminados.
             </summary>
             <value>true si se encontró la dirección; false en caso contrario.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.AddresLine">
             <summary>
-            La dirección: calle y número, ruta y kilómetro, etc.
+            Obtiene o establece la dirección: calle y número, ruta y kilómetro, etc.
             </summary>
             <value>Por ejemplo, Avenida 8 de Octubre 2738.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.CountryRegion">
             <summary>
-            El país.
+            Obtiene o establece el país.
             </summary>
-            <value>Por ejemplo, Uruguay</value>
+            <value>Por ejemplo, Uruguay.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.FormattedAddress">
             <summary>
-            La dirección completa, incluyendo ciudad, código postal, etc.
+            Obtiene o establece la dirección completa, incluyendo ciudad, código postal, etc.
             </summary>
             <value>Por ejemplo, Avenida 8 de Octubre 2738, Montevideo, 11200, Uruguay.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Locality">
             <summary>
-            La localidad o ciudad.
+            Obtiene o establece la localidad o ciudad.
             </summary>
-            <value>Por ejemplo, Montevideo</value>
+            <value>Por ejemplo, Montevideo.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.PostalCode">
             <summary>
-            El código postal.
+            Obtiene o establece el código postal.
             </summary>
-            <value>Por ejemplo, 11200</value>
+            <value>Por ejemplo, 11200.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Latitude">
             <summary>
-            La latitud de la dirección.
+            Obtiene o establece la latitud de la dirección.
             </summary>
             <value>El valor de la latitud en formato decimal.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Longitude">
             <summary>
-            La longitud de la dirección.
+            Obtiene o establece la longitud de la dirección.
             </summary>
             <value>El valor de la longitud en formato decimal.</value>
         </member>
         <member name="T:Ucu.Poo.Locations.Client.LocationApiClient">
             <summary>
-            Clase encargada de conseguir la localizacion y distancia.
+            Un cliente de la API de localización.
             </summary>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)">
@@ -1476,6 +1558,12 @@
             <param name="country">El país. Es opcional. El valor predeterminado es Uruguay.</param>
             <returns>Las coordenadas de la dirección.</returns>
         </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocation(System.String,System.String,System.String,System.String)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)" />
+            <remarks>
+            Versión sincrónica.
+            </remarks>
+        </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)">
             <summary>
             Obtiene la distancia entre dos coordenadas.
@@ -1484,6 +1572,12 @@
             <param name="to">La coordenada de destino.</param>
             <returns>La distancia entre las dos coordenadas.</returns>
         </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistance(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)" />
+            <remarks>
+            Versión sincrónica.
+            </remarks>
+        </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(System.String,System.String)">
             <summary>
             Obtiene la distancia entre dos direcciones.
@@ -1491,6 +1585,12 @@
             <param name="from">La dirección de origen.</param>
             <param name="to">La dirección de destino.</param>
             <returns>La distancia entre las dos direcciones.</returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistance(System.String,System.String)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(System.String,System.String)" />.
+            <remarks>
+            Versión sincrónica.
+            </remarks>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMapAsync(System.Double,System.Double,System.String,System.Int32)">
             <summary>
@@ -1501,6 +1601,15 @@
             <param name="path">La ruta del archivo donde guardar el mapa. El formato es PNG.</param>
             <param name="zoomLevel">El nivel de zoom del mapa entre 1 y 20. Es opcional. El valor predeterminado es
             15.</param>
+            <returns>
+            Una tarea que representa la operación asincrónica.
+            </returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMap(System.Double,System.Double,System.String,System.Int32)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMapAsync(System.Double,System.Double,System.String,System.Int32)" />.
+            <remarks>
+            Versión sincrónica.
+            </remarks>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRouteAsync(System.Double,System.Double,System.Double,System.Double,System.String)">
             <summary>
@@ -1511,6 +1620,21 @@
             <param name="toLatitude">La latitud de la coordenada de destino.</param>
             <param name="toLongitude">La longitud de la coordenada de destino.</param>
             <param name="path">La ruta del archivo donde guardar el mapa. Es formato es PNG.</param>
+            <returns>
+            Una tarea que representa la operación asincrónica.
+            </returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRoute(System.Double,System.Double,System.Double,System.Double,System.String)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRouteAsync(System.Double,System.Double,System.Double,System.Double,System.String)" />
+            <remarks>
+            Versión sincrónica.
+            </remarks>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.Dispose">
+            <inheritdoc cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.Dispose(System.Boolean)">
+            <inheritdoc cref="T:System.IDisposable" />
         </member>
     </members>
 </doc>

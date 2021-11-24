@@ -1,4 +1,11 @@
-﻿using System;
+
+//-----------------------------------------------------------------------------------
+// <copyright file="LocationApiClient.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//-----------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;

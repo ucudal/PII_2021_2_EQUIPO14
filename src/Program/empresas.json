@@ -1,1 +1,39 @@
-[]
+[
+  {
+    "Id": "2063183853",
+    "Nombre": "Messi Corp",
+    "Empresa": {
+      "Nombre": "Messi Corp",
+      "Ubicacion": "Gral. Urquiza 2784",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Especializaciones": [],
+      "Ofertas": [
+        {
+          "Id": "4498570389",
+          "Nombre": "Oferta de N\u00E9stor",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Madera de Roble",
+            "Descripcion": "100cm x 50 cm, 20mm de di\u00E1metro",
+            "Ubicacion": "C. Mart\u00EDn Fierro 2470",
+            "Valor": 10000,
+            "Cantidad": 50,
+            "Tipo": {
+              "Nombre": "Madera"
+            }
+          },
+          "PalabrasClave": [],
+          "HabilitacionesOferta": {
+            "Habilitacion": "No"
+          },
+          "IsVendido": false,
+          "IsRecurrente": true,
+          "Comprador": null
+        }
+      ]
+    },
+    "IsInvited": false
+  }
+]
