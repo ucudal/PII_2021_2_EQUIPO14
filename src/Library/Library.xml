@@ -1095,6 +1095,31 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.EndOfferHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.EndOfferHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.EndOfferHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.EndOfferHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "Publicar" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.ExitHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "salir".
@@ -1323,6 +1348,31 @@
         <member name="M:Proyecto_Final.SearchKeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.ShowInterestInOfferHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.ShowInterestInOfferHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.ShowInterestInOfferHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.ShowInterestInOfferHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "Publicar" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>

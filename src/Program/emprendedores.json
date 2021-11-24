@@ -1,17 +1,2 @@
 [
-  {
-    "Id": "2051203726",
-    "Nombre": "Rodrigo",
-    "Emprendedor": {
-      "Ubicacion": "Dr Jos\u00E9 Luis Bado 3186",
-      "Rubro": {
-        "Rubros": "Rubro-2"
-      },
-      "Habilitacion": {
-        "Habilitacion": "Hab-1"
-      },
-      "Especializaciones": [],
-      "Compras": []
-    }
-  }
 ]
