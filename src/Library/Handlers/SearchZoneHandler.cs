@@ -15,7 +15,7 @@ namespace Proyecto_Final
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
     /// </summary>
 
-    public class ZoneHandler: BaseHandler
+    public class SearchZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
         
@@ -26,11 +26,11 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="ZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
-        public ZoneHandler (BaseHandler next) : base(next)
+        public SearchZoneHandler (BaseHandler next) : base(next)
         {
             this.Keywords = new string [] {"/buscar_zona"};
             this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
