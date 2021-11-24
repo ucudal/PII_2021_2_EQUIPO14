@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Proyecto_Final
 {
     /// <summary>
@@ -53,6 +55,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public Producto() {} 
 
         /// <summary>

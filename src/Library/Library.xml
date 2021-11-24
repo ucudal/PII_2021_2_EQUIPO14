@@ -4,6 +4,61 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Proyecto_Final.TelegramAdapter">
+            <summary>
+            Esta es la clase encargada procesar los mensajes.
+            En este caso la plataforma es telegram, pero modificando este clase podria ser 
+            utilizada en otras plataformas como whatsapp, etc
+            </summary>
+        </member>
+        <member name="F:Proyecto_Final.TelegramAdapter.message">
+            <summary>
+            Inicializa el texto.
+            /// </summary>
+            <value>Text de telegram</value>
+        </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.Text">
+            <summary>
+            Otorga el texto.
+            /// </summary>
+            <value>Texto de telegram</value>
+        </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.UserId">
+            <summary>
+            Otorga el UserId
+            </summary>
+            <value>UserId de telegram</value>
+        </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.ChatId">
+            <summary>
+            Otorga el ChatId
+            </summary>
+            <value>ChatId de telegram</value>
+        </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.FirstName">
+            <summary>
+            Otorga el nombre del usuario
+            </summary>
+            <value>Nombre del usuario de telegram</value>
+        </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.LastName">
+            <summary>
+            Otorga el apellido del usuario
+            </summary>
+            <value>Apellido del usuario de telegram</value>
+        </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.Date">
+            <summary>
+            Otorga el tiempo del mensaje
+            </summary>
+            <value>Tiempo del mensaje de telegram</value>
+        </member>
+        <member name="M:Proyecto_Final.TelegramAdapter.#ctor(Telegram.Bot.Types.Message)">
+            <summary>
+            Inicializa la clase TelegramAdapter.
+            </summary>
+            <param name="message"></param>
+        </member>
         <member name="T:Proyecto_Final.Buscador">
             <summary>
             
@@ -133,11 +188,10 @@
             </summary>
             <returns>Lista con Oferta.</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarOferta(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.Datos.UpdateOfersData">
             <summary>
-            Agrega una oferta a la lista de publicaciones.
+            Actualiza la informacion de las publicaciones.
             </summary>
-            <param name="oferta"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaUsuarioEmpresa">
             <summary>
@@ -376,11 +430,12 @@
             </summary>
             <param name="rubro"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.ValueTuple{System.String,System.String})">
+        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.String,System.String)">
             <summary>
             Agrega una palabra clave a una publicacion determinada.
             </summary>
-            <param name="datosMensaje"></param>
+            <param name="palabra"></param>
+            <param name="oferId"></param>
         </member>
         <member name="M:Proyecto_Final.Empresa.AgregarEspecializacion(System.String)">
             <summary>
@@ -904,11 +959,12 @@
             <param name="ubicacion"></param>
             <param name="rubro"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.ValueTuple{System.String,System.String})">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.String,System.String)">
             <summary>
             Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
             </summary>
-            <param name="datosMensaje"></param>
+            <param name="oferId"></param>
+            <param name="palabra"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.String)">
             <summary>
@@ -1051,31 +1107,6 @@
             estado inicial.
             </summary>
         </member>
-        <member name="T:Proyecto_Final.CategoryHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.CategoryHandler.AllowedStatus">
-            <summary>
-            Otorga un array con los status validos.
-            </summary>
-            <value>Array de status</value>
-        </member>
-        <member name="M:Proyecto_Final.CategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.CategoryHandler"/>. Esta clase procesa el mensaje "keyword".
-            </summary>
-            <param name="next">El próximo "handler".</param>
-        </member>
-        <member name="M:Proyecto_Final.CategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
         <member name="T:Proyecto_Final.CommandsHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/comandos".
@@ -1216,7 +1247,7 @@
         </member>
         <member name="M:Proyecto_Final.PeriodOfTimeHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.CategoryHandler"/>. Esta clase procesa el mensaje "PeriodOfTime".
+            Inicializa una nueva instancia de la clase <see cref="!:CategoryHandler"/>. Esta clase procesa el mensaje "PeriodOfTime".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
@@ -1278,6 +1309,31 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.RecurrenciaHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.RecurrenciaHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.RecurrenciaHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.InviteHandler"/>. Esta clase procesa el mensaje "invitar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.RecurrenciaHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "invitar" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.RegisterHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "registro".
@@ -1298,6 +1354,31 @@
         <member name="M:Proyecto_Final.RegisterHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "registro" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.SearchCategoryHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.SearchCategoryHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.SearchCategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchCategoryHandler"/>. Esta clase procesa el mensaje "keyword".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.SearchCategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1366,7 +1447,7 @@
         </member>
         <member name="M:Proyecto_Final.ZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "zone" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>

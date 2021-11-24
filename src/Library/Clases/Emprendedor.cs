@@ -3,6 +3,7 @@ using System.Collections;
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
@@ -40,17 +41,20 @@ namespace Proyecto_Final
         /// Otorga una lista de strings que representan las especializaciones del Emprendedor.
         /// </summary>
         /// <value></value>
-        public ArrayList Especializaciones {get{return this.especializaciones;}}
+        [JsonInclude]
+        public ArrayList Especializaciones {get{return this.especializaciones;} set{this.especializaciones = value;}}
 
         /// <summary>
         /// Otorga una lista de strings que representan las compras del Emprendedor.
         /// </summary>
         /// <value></value>
-        public ArrayList Compras {get{return this.compras;}}
+        [JsonInclude]
+        public ArrayList Compras {get{return this.compras;} set {this.compras = value;}}
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public Emprendedor() {}
 
         /// <summary>
@@ -102,9 +106,7 @@ namespace Proyecto_Final
             ArrayList especializaciones = this.Especializaciones;
             especializaciones.Remove(especializacion);
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
