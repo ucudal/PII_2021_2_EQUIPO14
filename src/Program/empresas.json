@@ -3,30 +3,30 @@
     "Id": "2051203726",
     "Nombre": "Empresita",
     "Empresa": {
-      "Nombre": null,
-      "Ubicacion": "Ub 123",
+      "Nombre": "Empresita",
+      "Ubicacion": "Ubicacion 123",
       "Rubro": {
-        "Rubros": "Rubro-3"
+        "Rubros": "Rubro-1"
       },
       "Especializaciones": [],
       "Ofertas": [
         {
-          "Id": "5765257956",
-          "Nombre": "awifnawiof",
+          "Id": "0689004007",
+          "Nombre": "Ofertita",
           "Product": {
             "IsPesos": false,
-            "Nombre": "fwaofnwaoi",
-            "Descripcion": "nfawoifnawo",
-            "Ubicacion": "afwianfwaoi",
+            "Nombre": "Producto muy chico",
+            "Descripcion": "Ubicacion 123",
+            "Ubicacion": "Hab-1",
             "Valor": 10,
             "Cantidad": 100,
             "Tipo": {
-              "Nombre": "fnwaofinawo"
+              "Nombre": "Madera"
             }
           },
           "PalabrasClave": [],
           "HabilitacionesOferta": {
-            "Habilitacion": "afwianfwaoi"
+            "Habilitacion": "Hab-1"
           },
           "IsVendido": false,
           "IsRecurrente": true,

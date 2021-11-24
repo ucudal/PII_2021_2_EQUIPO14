@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
@@ -16,13 +17,13 @@ namespace Proyecto_Final
     public class Empresa
     {
         private ArrayList especializaciones = new ArrayList();
-        private ArrayList ofertas = new ArrayList();
+        private List<Oferta> ofertas = new List<Oferta>();
 
         /// <summary>
         /// Obtiene un valor del nombre de la Empresa.
         /// </summary>
         /// <value>Nombre de la empresa.</value>
-        public string Nombre { get; }
+        public string Nombre { get; set; }
 
         /// <summary>
         /// Obtiene un valor de la ubocacion de la Empresa.
@@ -40,17 +41,20 @@ namespace Proyecto_Final
         /// Obtiene un valor de las especializaciones de la empresa.
         /// </summary>
         /// <value>Lista de especializaciones.</value>
-        public ArrayList Especializaciones { get { return this.especializaciones; } }
+        [JsonInclude]
+        public ArrayList Especializaciones { get { return this.especializaciones; } set { this.especializaciones = value; } }
 
         /// <summary>
         /// Obtiene un valor de las ofertaas publicadas de la empresa.
         /// </summary>
         /// <value>Lista con ofertas publicadas por la empresa.</value>
-        public ArrayList Ofertas { get { return this.ofertas; } }
+        [JsonInclude]        
+        public List<Oferta> Ofertas { get { return this.ofertas; } set { this.ofertas = value; } }
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]      
         public Empresa() {}
 
         /// <summary>

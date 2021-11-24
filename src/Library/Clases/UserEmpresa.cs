@@ -16,7 +16,6 @@ namespace Proyecto_Final
     {
         private bool isInvited = false;
         
-        
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
@@ -39,11 +38,12 @@ namespace Proyecto_Final
         /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
         /// </summary>
         /// <value><c>true/false</c></value>
-        public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+        public bool IsInvited { get { return isInvited; }  set { this.isInvited = value;} }
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public UserEmpresa () {}
 
         /// <summary>
@@ -78,7 +78,6 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            //Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>
