@@ -27,7 +27,7 @@ namespace Proyecto_Final
 
         public ZoneHandler (BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"zone"};
+            this.Keywords = new string [] {"/buscar_zona"};
             this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
                                                 "STATUS_ZONE_RECEIVED"};
         }

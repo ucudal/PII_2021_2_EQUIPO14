@@ -27,7 +27,7 @@ namespace Proyecto_Final
 
         public PeriodOfTimeHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"PeriodOfTime"};
+            this.Keywords = new string [] {"/ventas"};
             this.AllowedStatus = new string [] {"STATUS_PERIODTIME_RESPONSE",
                                                 "STATUS_PERIODTIME_RECIVED"};
         }

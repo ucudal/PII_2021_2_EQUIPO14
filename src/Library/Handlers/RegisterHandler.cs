@@ -24,7 +24,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public RegisterHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"registro"};
+            this.Keywords = new string[] {"/registro"};
             this.AllowedStatus = new string[] {
                                                "STATUS_REGISTER_RESPONSE",
                                                "STATUS_REGISTER_EMPRENDEDOR",

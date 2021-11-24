@@ -31,7 +31,7 @@ namespace Proyecto_Final
 
         public MaterialsConsumedHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"materialsConsumend"};
+            this.Keywords = new string [] {"/materiales_consumidos"};
             this.AllowedStatus = new string [] {"STATUS_MATERIALSCONSUMED_RESPONSE",
                                                 "STATUS_MATERIALSCONSUMED_RECIVED"};
         }

@@ -12,7 +12,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public GoodByeHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "chau", "adiós" };
+            this.Keywords = new string[] { "/chau", "/adiós" };
         }
 
         /// <summary>
