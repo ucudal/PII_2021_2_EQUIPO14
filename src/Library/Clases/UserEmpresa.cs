@@ -84,10 +84,11 @@ namespace Proyecto_Final
         /// <summary>
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
-        /// <param name="datosMensaje"></param>
-        public void CrearMsjClave((string, string) datosMensaje) 
+        /// <param name="oferId"></param>
+        /// <param name="palabra"></param>
+        public void CrearMsjClave(string oferId, string palabra) 
         {
-            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2)); // (Delegacion)
+            this.Empresa.AgregarMsjClave(oferId, palabra); // (Delegacion)
         }
 
         /// <summary>
@@ -131,7 +132,7 @@ namespace Proyecto_Final
             Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Singleton<Datos>.Instance.AgregarOferta(newOferta);
+            Singleton<Datos>.Instance.UpdateOfersData();
 
             Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\n\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }

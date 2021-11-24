@@ -228,14 +228,12 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Agrega una oferta a la lista de publicaciones.
+        /// Actualiza la informacion de las publicaciones.
         /// </summary>
-        /// <param name="oferta"></param>
-        public void AgregarOferta(Oferta oferta) //(Expert)
+        public void UpdateOfersData()
         {
-            this.listaOfertas.Add(oferta);
-
             this.UpdateEmpresasData();
+            this.LoadPublications();
         }
 
         /// <summary>
@@ -351,7 +349,7 @@ namespace Proyecto_Final
                 string json = File.ReadAllText(@"tokens.json");
                 this.listaTokens = JsonSerializer.Deserialize<List<string>>(json);
             }
-            Console.WriteLine("[DATOS] : Tokens cargados.");
+            Console.WriteLine($"[DATOS] : {this.listaTokens.Count} Tokens cargados.");
         }
 
         public void UpdateTokensData()
@@ -372,7 +370,7 @@ namespace Proyecto_Final
                 string json = File.ReadAllText(@"empresas.json");
                 this.listaUsuarioEmpresa = JsonSerializer.Deserialize<List<UserEmpresa>>(json);
             }
-            Console.WriteLine("[DATOS] : Empresas cargadas.");
+            Console.WriteLine($"[DATOS] : {this.listaUsuarioEmpresa.Count} Empresas cargadas.");
         }
 
         public void UpdateEmpresasData()
@@ -394,7 +392,7 @@ namespace Proyecto_Final
                 string json = File.ReadAllText(@"emprendedores.json");
                 this.listaUsuarioEmprendedor = JsonSerializer.Deserialize<List<UserEmprendedor>>(json);
             }
-            Console.WriteLine("[DATOS] : Emprendedores cargados.");
+            Console.WriteLine($"[DATOS] : {this.listaUsuarioEmprendedor.Count} Emprendedores cargados.");
         }
 
         public void UpdateEmprendedoresData()
@@ -406,6 +404,8 @@ namespace Proyecto_Final
 
         public void LoadPublications()
         {
+            int cont = 0;
+
             foreach (UserEmpresa user in this.listaUsuarioEmpresa)
             {
                 foreach (Oferta oferta in user.Empresa.Ofertas)
@@ -413,10 +413,11 @@ namespace Proyecto_Final
                     if (oferta.Comprador == null)
                     {
                         this.listaOfertas.Add(oferta);
+                        cont+=1;
                     }
                 }
             }
-            Console.WriteLine("[DATOS] : Publicaciones cargadas.");
+            Console.WriteLine($"[DATOS] : {cont} Publicaciones cargadas.");
         }
     }
 }

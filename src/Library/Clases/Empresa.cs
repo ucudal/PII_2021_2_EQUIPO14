@@ -79,14 +79,15 @@ namespace Proyecto_Final
         /// <summary>
         /// Agrega una palabra clave a una publicacion determinada.
         /// </summary>
-        /// <param name="datosMensaje"></param>
-        public void AgregarMsjClave((string, string) datosMensaje) //(Expert)
+        /// <param name="palabra"></param>
+        /// <param name="oferId"></param>
+        public void AgregarMsjClave(string oferId, string palabra) //(Expert)
         {
             foreach (Oferta oferta in this.Ofertas)
             {
-                if (oferta.Nombre == datosMensaje.Item1)
+                if (oferta.Id == oferId)
                 {
-                    oferta.AgregarMsjClave(datosMensaje.Item2); // (Delegacion)
+                    oferta.AgregarMsjClave(palabra); // (Delegacion)
                 }
             }
         }

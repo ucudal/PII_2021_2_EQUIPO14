@@ -40,8 +40,9 @@ namespace Proyecto_Final
                 new GoodByeHandler(
                 new PublishHandler(
                 new AddKeyWordHandler(
+                new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            ))))))));
+            )))))))));
 
             var cts = new CancellationTokenSource();
 

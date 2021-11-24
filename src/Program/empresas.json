@@ -3,32 +3,30 @@
     "Id": "2051203726",
     "Nombre": "Empresita",
     "Empresa": {
-      "Nombre": "Empresita",
-      "Ubicacion": "Ubicacion 123",
+      "Nombre": null,
+      "Ubicacion": "Ub 123",
       "Rubro": {
-        "Rubros": "Rubro-2"
+        "Rubros": "Rubro-3"
       },
       "Especializaciones": [],
       "Ofertas": [
         {
-          "Id": "3664662761",
-          "Nombre": "Ofertita",
+          "Id": "5765257956",
+          "Nombre": "awifnawiof",
           "Product": {
             "IsPesos": false,
-            "Nombre": "Producto muy chico",
-            "Descripcion": "Ubi 321",
-            "Ubicacion": "Hab-1",
+            "Nombre": "fwaofnwaoi",
+            "Descripcion": "nfawoifnawo",
+            "Ubicacion": "afwianfwaoi",
             "Valor": 10,
             "Cantidad": 100,
             "Tipo": {
-              "Nombre": "Madera"
+              "Nombre": "fnwaofinawo"
             }
           },
-          "PalabrasClave": [
-            "oferta"
-          ],
+          "PalabrasClave": [],
           "HabilitacionesOferta": {
-            "Habilitacion": "Hab-1"
+            "Habilitacion": "afwianfwaoi"
           },
           "IsVendido": false,
           "IsRecurrente": true,
