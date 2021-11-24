@@ -73,8 +73,6 @@ namespace Proyecto_Final
                     response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
                     UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
                     user.CrearMsjClave((Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ofertaName"), message.Text));
-                    foreach (Oferta oferta in user.Empresa.Ofertas)
-                   
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;
                 }
