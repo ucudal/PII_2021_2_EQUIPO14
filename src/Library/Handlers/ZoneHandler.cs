@@ -18,6 +18,11 @@ namespace Proyecto_Final
     public class ZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
+
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
