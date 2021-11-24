@@ -166,7 +166,8 @@ namespace Proyecto_Final
                     response = $"Su habilitación es: {message.Text}.\n\nPublicación de la oferta realizada correctamente!";
                     Singleton<Temp>.Instance.AddDataById(message.UserId,"habilitacionProducto",message.Text);
 
-                    /*UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                    UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                    
                     user.CrearOferta(
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreOferta"),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
@@ -178,7 +179,7 @@ namespace Proyecto_Final
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorMonedaProducto"),
                         Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "tipoProducto")
-                    );*/
+                    );
                     
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;

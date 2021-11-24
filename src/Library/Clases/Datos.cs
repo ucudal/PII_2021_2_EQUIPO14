@@ -31,13 +31,13 @@ namespace Proyecto_Final
         private ArrayList listaHabilitaciones = new ArrayList() {
                                         "Hab-1",
                                         "Hab-2",
-                                        "Hab-3"
+                                        "Hab-3",
+                                        "No"
                                         };
         private List<string> listaTokens = new List<string>();
         private List<Oferta> listaOfertas = new List<Oferta>();
         private List<UserEmpresa> listaUsuarioEmpresa = new List<UserEmpresa>();
         private List<UserEmprendedor> listaUsuarioEmprendedor = new List<UserEmprendedor>();
-        private ArrayList listaEmpresa = new ArrayList();
 
         /// <summary>
         /// Al inicializar el programa se obtienen todos los datos de la DB.
@@ -56,7 +56,7 @@ namespace Proyecto_Final
         /// <param name="userId"></param>
         /// <param name="oferId"></param>
         /// <returns>Retorna una Oferta.</returns>
-        /*public Oferta GetOfertaById(string userId, string oferId)
+        public Oferta GetOfertaById(string userId, string oferId)
         {
             UserEmpresa user = (UserEmpresa)this.GetUserById(userId);
             foreach (Oferta oferta in user.Empresa.Ofertas)
@@ -68,7 +68,7 @@ namespace Proyecto_Final
             }
             Console.WriteLine($"OFFER WITH ID: {oferId} NOT FOUND.");
             return null;
-        }*/
+        }
 
         /// <summary>
         /// Busca entre los usuarios registrados por id y retorna el usuario.
@@ -216,6 +216,9 @@ namespace Proyecto_Final
         public void AgregarOferta(Oferta oferta) //(Expert)
         {
             this.listaOfertas.Add(oferta);
+
+            this.UpdateEmpresasData();
+            this.UpdatePublicationsData();
         }
 
         /// <summary>
@@ -228,48 +231,12 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Agrega un UserEmpresa a la aplicacion.
-        /// </summary>
-        /// <param name="user"></param>
-        public void AgregarUsuarioEmpresa(UserEmpresa user) //(Expert)
-        {
-            this.listaUsuarioEmpresa.Add(user);
-        }
-
-        /// <summary>
         /// Otorga una lista con todos los UserEmprendedor registrados.
         /// </summary>
         /// <returns>Lista con UserEmprendedor</returns>
         public List<UserEmprendedor> ListaUsuarioEmprendedor() //(Singleton)
         {
             return this.listaUsuarioEmprendedor;
-        }
-
-        /// <summary>
-        /// Agrega un UserEmprendedor a la aplicacion.
-        /// </summary>
-        /// <param name="user"></param>
-        public void AgregarUsuarioEmprendedor(UserEmprendedor user) //(Expert)
-        {
-            this.listaUsuarioEmprendedor.Add(user);
-        }
-
-        /// <summary>
-        /// Lista con todas las Empresa registradas.
-        /// </summary>
-        /// <returns>Lista con Empresa</returns>
-        public ArrayList ListaEmpresa() //(Singleton)
-        {
-            return this.listaEmpresa;
-        }
-
-        /// <summary>
-        /// Agrega una empresa a la aplicacion.
-        /// </summary>
-        /// <param name="user"></param>
-        public void AgregarEmpresa(Empresa user) //(Expert)
-        {
-            this.listaEmpresa.Add(user);
         }
 
         ///<summary>
@@ -300,66 +267,19 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Agrega una habilitación a la lista de habilitaciones permitidas por el programa.
-        /// </summary>
-        /// <param name="habilitacion"></param>
-        public void AgregarHabilitacion(Habilitaciones habilitacion) //(Expert)
-        {
-            listaHabilitaciones.Add(habilitacion);
-        }
-
-        /// <summary>
-        /// Elimina una habilitación de la lista de habilitaciones permitidas por el programa.
-        /// </summary>
-        /// <param name="habilitacion"></param>
-        public void EliminarHabilitacion(Habilitaciones habilitacion) //(Expert)
-        {
-            listaHabilitaciones.Remove(habilitacion);
-        }
-
-        /// <summary>
-        /// Agrega un rubro a la lista de rubros permitidos por el programa.
-        /// </summary>
-        /// <param name="rubro"></param>
-        public void AgregarRubro(Rubro rubro) //(Expert)
-        {
-            listaRubros.Add(rubro);
-        }
-
-        /// <summary>
-        /// Elimina un rubro de la lista de rubros permitidos por el programa.
-        /// </summary>
-        /// <param name="rubro"></param>
-        public void EliminarRubro(Rubro rubro) //(Expert)
-        {
-            listaRubros.Remove(rubro);
-        }
-
-        /// <summary>
-        /// Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
-        /// </summary>
-        /// <param name="tipo"></param>
-        public void AgregarTipo(TipoProducto tipo) //(Expert)
-        {
-            listaTipos.Add(tipo);
-        }
-
-        /// <summary>
-        /// Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
-        /// </summary>
-        /// <param name="tipo"></param>
-        public void EliminarTipo(TipoProducto tipo) //(Expert)
-        {
-            listaTipos.Remove(tipo);
-        }
-
-        /// <summary>
         /// Elimina una oferta de la lista de ofertas.
         /// </summary>
-        /// <param name="oferta"></param>
-        public void EliminarOfertas(Oferta oferta) //(Expert)
+        /// <param name="id"></param>
+        public void EliminarOfertas(string id) //(Expert)
         {
-            listaOfertas.Remove(oferta);
+            foreach (Oferta oferta in this.listaOfertas)
+            {
+                if (oferta.Id == id)
+                {
+                    this.listaOfertas.Remove(oferta);
+                    UpdatePublicationsData();
+                }
+            }
         }
 
         /// <summary>
@@ -456,7 +376,7 @@ namespace Proyecto_Final
             else
             {
                 string json = File.ReadAllText(@"emprendedores.json");
-                this.listaUsuarioEmpresa = JsonSerializer.Deserialize<List<UserEmpresa>>(json);
+                this.listaUsuarioEmprendedor = JsonSerializer.Deserialize<List<UserEmprendedor>>(json);
             }
             Console.WriteLine("[DATOS] : Emprendedores cargados.");
         }
@@ -470,15 +390,15 @@ namespace Proyecto_Final
 
         public void LoadPublications()
         {
-            if (!File.Exists(@"publicaciones.json"))
+            foreach (UserEmpresa user in this.listaUsuarioEmpresa)
             {
-                string json = JsonSerializer.Serialize(this.listaOfertas);
-                File.WriteAllText(@"publicaciones.json", json);
-            }
-            else
-            {
-                string json = File.ReadAllText(@"publicaciones.json");
-                this.listaOfertas = JsonSerializer.Deserialize<List<Oferta>>(json);
+                foreach (Oferta oferta in user.Empresa.Ofertas)
+                {
+                    if (oferta.Comprador == null)
+                    {
+                        this.listaOfertas.Add(oferta);
+                    }
+                }
             }
             Console.WriteLine("[DATOS] : Publicaciones cargadas.");
         }
