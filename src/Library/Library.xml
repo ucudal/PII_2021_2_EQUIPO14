@@ -70,12 +70,6 @@
             <param name="id"></param>
             <returns>Retorna un IUser.</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.ListaUsuariosRegistrados">
-            <summary>
-            Lista de usuarios registrados mediante el handler "RegisterHandler"
-            </summary>
-            <returns>Lista con los usuarios registrados.</returns>
-        </member>
         <member name="M:Proyecto_Final.Datos.IsRegistered(System.String)">
             <summary>
             Verifica si la id ya esta registrada.
@@ -139,35 +133,11 @@
             </summary>
             <returns>Lista con UserEmpresa</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
-            <summary>
-            Agrega un UserEmpresa a la aplicacion.
-            </summary>
-            <param name="user"></param>
-        </member>
         <member name="M:Proyecto_Final.Datos.ListaUsuarioEmprendedor">
             <summary>
             Otorga una lista con todos los UserEmprendedor registrados.
             </summary>
             <returns>Lista con UserEmprendedor</returns>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
-            <summary>
-            Agrega un UserEmprendedor a la aplicacion.
-            </summary>
-            <param name="user"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.ListaEmpresa">
-            <summary>
-            Lista con todas las Empresa registradas.
-            </summary>
-            <returns>Lista con Empresa</returns>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarEmpresa(Proyecto_Final.Empresa)">
-            <summary>
-            Agrega una empresa a la aplicacion.
-            </summary>
-            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
@@ -187,47 +157,11 @@
              </summary>
              <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarHabilitacion(Proyecto_Final.Habilitaciones)">
-            <summary>
-            Agrega una habilitación a la lista de habilitaciones permitidas por el programa.
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarHabilitacion(Proyecto_Final.Habilitaciones)">
-            <summary>
-            Elimina una habilitación de la lista de habilitaciones permitidas por el programa.
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarRubro(Proyecto_Final.Rubro)">
-            <summary>
-            Agrega un rubro a la lista de rubros permitidos por el programa.
-            </summary>
-            <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarRubro(Proyecto_Final.Rubro)">
-            <summary>
-            Elimina un rubro de la lista de rubros permitidos por el programa.
-            </summary>
-            <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarTipo(Proyecto_Final.TipoProducto)">
-            <summary>
-            Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
-            </summary>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarTipo(Proyecto_Final.TipoProducto)">
-            <summary>
-            Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
-            </summary>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.Datos.EliminarOfertas(System.String)">
             <summary>
             Elimina una oferta de la lista de ofertas.
             </summary>
-            <param name="oferta"></param>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.CheckHabilitaciones(System.String)">
             <summary>
@@ -759,20 +693,6 @@
             Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String,System.String)">
-            <summary>
-            Agrega datos a la lista que contiene el id del usuario en el diccionario.
-            </summary>
-            <param name="id"></param>
-            <param name="key"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
-            <summary>
-            Elimina completamente el item del diccionario.
-            </summary>
-            <param name="id"></param>
-        </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>
             Crea una instancia de UserAdmin y la almacena.
@@ -985,15 +905,11 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Palabra".
             </summary>
         </member>
-        <member name="F:Proyecto_Final.AddKeyWordHandler.Oferta">
+        <member name="P:Proyecto_Final.AddKeyWordHandler.AllowedStatus">
             <summary>
-            El nombre de la oferta que el usuario luego ingresará.
+            Otorga un array con los status validos.
             </summary>
-        </member>
-        <member name="F:Proyecto_Final.AddKeyWordHandler.KeyWord">
-            <summary>
-            La palabra clave que el usuario luego ingresará.
-            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.AddKeyWordHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -1394,26 +1310,6 @@
             "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
             caso de error por ejemplo.
             </summary>
-        </member>
-        <member name="T:Proyecto_Final.IJsonConvertible">
-            <summary>
-            Define el tipo que tienen los objetos que pueder ser serializados en y deserializados desde texto en formato
-            Json.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.IJsonConvertible.ConvertToJson">
-            <summary>
-            Convirte el objeto a texto en formato Json. El objeto puede ser reconstruido a partir del texto en formato
-            Json utilizando <see cref="M:Proyecto_Final.IJsonConvertible.LoadFromJson(System.String)"/>.
-            </summary>
-            <returns>El objeto convertido a texto en formato Json.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IJsonConvertible.LoadFromJson(System.String)">
-            <summary>
-            Asigna las propiedades del objeto a partir de texto en formato Json. El texto en formato Json puede ser
-            obtenido utilizando <see cref="M:Proyecto_Final.IJsonConvertible.ConvertToJson"/>.
-            </summary>
-            <param name="json">El texto en formato Json a partir del cual asignas las propiedades del objeto.</param>
         </member>
         <member name="T:Proyecto_Final.IMessage">
             <summary>
