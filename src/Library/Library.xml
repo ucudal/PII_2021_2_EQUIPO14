@@ -50,6 +50,11 @@
             Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
             </summary>
         </member>
+        <member name="M:Proyecto_Final.Datos.GetData">
+            <summary>
+            Al inicializar el programa se obtienen todos los datos de la DB.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
             <summary>
             Busca las ofertas por ID y retorna la oferta.

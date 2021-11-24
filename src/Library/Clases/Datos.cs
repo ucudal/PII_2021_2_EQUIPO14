@@ -112,6 +112,24 @@ namespace Proyecto_Final
             this.UpdateEmprendedoresData();
         }
 
+        public bool IsOfferValid(string userId, string oferId)
+        {
+            foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
+            {
+                if (userEmpresa.Id == userId)
+                {
+                    foreach (Oferta oferta in userEmpresa.Empresa.Ofertas)
+                    {
+                        if ((oferta.Id == oferId) && (oferta.Comprador == null))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// Verifica si la id ya esta registrada.
         /// </summary>
@@ -218,7 +236,6 @@ namespace Proyecto_Final
             this.listaOfertas.Add(oferta);
 
             this.UpdateEmpresasData();
-            this.UpdatePublicationsData();
         }
 
         /// <summary>
@@ -277,7 +294,6 @@ namespace Proyecto_Final
                 if (oferta.Id == id)
                 {
                     this.listaOfertas.Remove(oferta);
-                    UpdatePublicationsData();
                 }
             }
         }
@@ -401,13 +417,6 @@ namespace Proyecto_Final
                 }
             }
             Console.WriteLine("[DATOS] : Publicaciones cargadas.");
-        }
-
-        public void UpdatePublicationsData()
-        {
-            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string json = JsonSerializer.Serialize(this.listaOfertas, options);
-            File.WriteAllText(@"publicaciones.json", json);
         }
     }
 }

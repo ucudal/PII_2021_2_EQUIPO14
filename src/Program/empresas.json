@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "Id": "2051203726",
+    "Nombre": "Empresita",
+    "Empresa": {
+      "Nombre": "Empresita",
+      "Ubicacion": "Ubicacion 123",
+      "Rubro": {
+        "Rubros": "Rubro-2"
+      },
+      "Especializaciones": [],
+      "Ofertas": [
+        {
+          "Id": "3664662761",
+          "Nombre": "Ofertita",
+          "Product": {
+            "IsPesos": false,
+            "Nombre": "Producto muy chico",
+            "Descripcion": "Ubi 321",
+            "Ubicacion": "Hab-1",
+            "Valor": 10,
+            "Cantidad": 100,
+            "Tipo": {
+              "Nombre": "Madera"
+            }
+          },
+          "PalabrasClave": [
+            "oferta"
+          ],
+          "HabilitacionesOferta": {
+            "Habilitacion": "Hab-1"
+          },
+          "IsVendido": false,
+          "IsRecurrente": true,
+          "Comprador": null
+        }
+      ]
+    },
+    "IsInvited": false
+  }
+]
