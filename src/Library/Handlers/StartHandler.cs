@@ -26,7 +26,7 @@ namespace Proyecto_Final
         {
             if (this.CanHandle(message))
             {
-                response = $"Hola, ¿cómo estás {message.FirstName}? 👋😀\nMe llamo EXIV y soy el Bot de PII del Equipo 14.";
+                response = $"Hola, ¿cómo estás {message.FirstName}? 👋😀\nMe llamo EXIV y soy el Bot de PII del Equipo 14.\n\nPara ver una lista de comandos ingrese /comandos";
                 Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                 return true;
             }

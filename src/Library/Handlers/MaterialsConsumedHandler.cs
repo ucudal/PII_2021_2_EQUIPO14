@@ -15,9 +15,13 @@ namespace Proyecto_Final
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
     /// </summary>
 
-    public class MaterialsConsumend: BaseHandler
+    public class MaterialsConsumedHandler: BaseHandler
     {
         private string[] allowedStatus;
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
@@ -25,9 +29,9 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
-        public MaterialsConsumend(BaseHandler next) : base(next)
+        public MaterialsConsumedHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"materialsConsumend"};
+            this.Keywords = new string [] {"/materiales_consumidos"};
             this.AllowedStatus = new string [] {"STATUS_MATERIALSCONSUMED_RESPONSE",
                                                 "STATUS_MATERIALSCONSUMED_RECIVED"};
         }

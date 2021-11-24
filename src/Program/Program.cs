@@ -20,6 +20,7 @@ namespace Proyecto_Final
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
+
         private static string Token = "2100245792:AAED7VrpdfKR3hIBWU7_IUAwlcgkPnZTabk";
 
         private static IHandler firstHandler;
@@ -36,12 +37,15 @@ namespace Proyecto_Final
                 new ExitHandler(
                 new InviteHandler(
                 new RegisterHandler(
-                new ProductoHandler(
                 new HelloHandler(
                 new GoodByeHandler(
                 new PublishHandler(
                 new AddKeyWordHandler(
+
                 new RecurrenciaHandler(
+
+                new CommandsHandler(
+
                 new PhotoHandler(Bot, null)
             ))))))))));
 
@@ -56,6 +60,7 @@ namespace Proyecto_Final
             );
 
             Console.WriteLine($"Program: Bot is up!");
+            Singleton<Datos>.Instance.GetData();
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();
@@ -110,7 +115,7 @@ namespace Proyecto_Final
             } 
 
 
-            Singleton<StatusManager>.Instance.PrintUserStatus();
+            //Singleton<StatusManager>.Instance.PrintUserStatus();
 
             if (!string.IsNullOrEmpty(response))
             {

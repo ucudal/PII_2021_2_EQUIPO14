@@ -5,6 +5,9 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a los usuarios emprendedores en el sistema.
+    /// La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como emprendedor. 
+    /// Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+    /// los cuales se almacenan en la clase "Emprendedor" y los accede mediante el patrón de Delegación. Por lo cual, esta clase sigue con el patrón de SRP.
     /// </summary>
     public class UserEmprendedor : IUser
     {
@@ -29,6 +32,11 @@ namespace Proyecto_Final
         public Emprendedor Emprendedor { get; set; }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public UserEmprendedor() {}
+
+        /// <summary>
         /// Inicializa la clase UserEmprendedor.
         /// </summary>
         /// <param name="nombre"></param>
@@ -45,7 +53,7 @@ namespace Proyecto_Final
         /// <param name="habilitacion"></param>
         public void AgregarHabilitacion(string habilitacion)
         {
-            this.Emprendedor.AgregarHabilitacion(habilitacion);
+            this.Emprendedor.AgregarHabilitacion(habilitacion); //(Delegación)
         }
 
         /// <summary>
@@ -54,23 +62,23 @@ namespace Proyecto_Final
         /// <param name="rubro"></param>
         public void AgregarRubro(string rubro)
         {
-            this.Emprendedor.AgregarRubro(rubro);
+            this.Emprendedor.AgregarRubro(rubro); //(Delegación)
         }
 
         /// <summary>
         /// Agrega a la lista de especializaciones que contiene la clase "Emprendedor" una especialización.
         /// </summary>
-        public void AgregarEspecializacion(string especializacion)
+        public void AgregarEspecializacion(string especializacion) 
         {
-            this.Emprendedor.AgregarEspecializacion(especializacion);
+            this.Emprendedor.AgregarEspecializacion(especializacion); //(Delegación)
         }
         
         /// <summary>
         /// Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
         /// </summary>
-        public void EliminarEspecializacion(string especializacion)
+        public void EliminarEspecializacion(string especializacion) 
         {
-            this.Emprendedor.EliminarEspecializacion(especializacion);
+            this.Emprendedor.EliminarEspecializacion(especializacion); //(Delegacion)
         }
 
         /// <summary>
@@ -79,17 +87,19 @@ namespace Proyecto_Final
         /// <return></return>
         public string ConsumoXTiempo()
         {
-            return this.Emprendedor.ConsumoXTiempo(this);
+            return this.Emprendedor.ConsumoXTiempo(this); //(Delegación)
         }
+        
         
         /// <summary>
         /// En base a una palabra clave, busca todas las ofertas que la contengan.
         /// </summary>
         /// <return></return>
+        
         public string VerOfertasPalabraClave(string palabraClave)
         {
             Buscador buscador = new Buscador();
-            buscador.VerOfertasPalabraClave(palabraClave);
+            buscador.VerOfertasPalabraClave(palabraClave); //(Delegación)
             return buscador.Content;
         }
         /// <summary>
@@ -97,7 +107,7 @@ namespace Proyecto_Final
         /// </summary>
         public string VerOfertasUbicacion()
         {
-            Buscador buscador = new Buscador();
+            Buscador buscador = new Buscador(); //(Delegación)
             buscador.VerOfertasUbicacion(this.Emprendedor.Ubicacion);
             return buscador.Content;
         }
@@ -109,8 +119,9 @@ namespace Proyecto_Final
         public string VerOfertasTipo(string tipo)
         {
             Buscador buscador = new Buscador();
-            buscador.VerOfertasTipo(tipo);
+            buscador.VerOfertasTipo(tipo); //(Delegación)
             return buscador.Content;
         }
+        
     }
 }

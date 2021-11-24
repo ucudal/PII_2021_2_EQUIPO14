@@ -1,7 +1,6 @@
 using System.Linq;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Ucu.Poo.Locations.Client;
 using System.Text;
 
 namespace Proyecto_Final
@@ -24,7 +23,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public RegisterHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"registro"};
+            this.Keywords = new string[] {"/registro"};
             this.AllowedStatus = new string[] {
                                                "STATUS_REGISTER_RESPONSE",
                                                "STATUS_REGISTER_EMPRENDEDOR",
@@ -96,9 +95,9 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_NAME")
                 {
-                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\n\nIngrese su rubro:";
+                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\nIngrese su rubro:";
 
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, message.Text);
+                    Singleton<Temp>.Instance.AddDataById(idToUse, "nombreEmpresa", message.Text);
 
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRESA_RUBRO");
                     return true;
@@ -109,7 +108,7 @@ namespace Proyecto_Final
                     {
                         response = $"Su rubro es: {message.Text}.\n\nIngrese su ubicacion: ";
 
-                        Singleton<UserCreator>.Instance.AddDataById(idToUse, message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "rubroEmpresa", message.Text);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRESA_UBICACION");
                         return true;
@@ -125,15 +124,22 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_UBICACION")
                 {
-                    response = $"Su ubicacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
+                    LocationApiClient client = new LocationApiClient();
+                    if (client.GetLocation(message.Text).Found)
+                    {
+                        response = $"La ubicación del producto es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmpresa", message.Text);
+                        Singleton<UserCreator>.Instance.CrearUserEmpresa(idToUse);
+                        Singleton<Temp>.Instance.WipeDataById(idToUse);
 
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, message.Text);
-                    Singleton<UserCreator>.Instance.CrearUserEmpresa(idToUse);
-                    Singleton<UserCreator>.Instance.WipeDataById(idToUse);
-
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
-
-                    return true;
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
+                        return true;  
+                    }
+                    else
+                    {
+                        response = $"Disculpe, no encontramos la ubicación {message.Text}, por favor, escriba la ubicación de nuevo.";
+                        return true;
+                    }
                 }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR")
                 {
@@ -154,22 +160,33 @@ namespace Proyecto_Final
                 {
                     response = $"Su nombre es: {message.Text}.\n\nIngrese su ubicacion: ";
 
+                    Singleton<Temp>.Instance.AddDataById(idToUse, "nombreEmprendedor", message.Text);
+
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_UBICACION");
 
                     return true;
                 }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR_UBICACION")
                 {
-                    response = $"Su ubicacion es: {message.Text}.\n\nRubros validos:\n";
+                    LocationApiClient client = new LocationApiClient();
+                    if (client.GetLocation(message.Text).Found)
+                    {
+                        response = $"La ubicación del producto es: {message.Text}.\n\nRubros validos:\n";
 
-                    response += generarListaRubros() + "\n\nIngrese su rubro:";
+                        response += generarListaRubros() + "\n\nIngrese su rubro:";
                     
-                    Singleton<UserCreator>.Instance.AddDataById(idToUse, message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmprendedor", message.Text);
 
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
 
-                    return true;
-                }
+                        return true;
+                    }
+                    else
+                    {
+                        response = $"Disculpe, no encontramos la ubicación {message.Text}, por favor, escriba la ubicación de nuevo.";
+                        return true;
+                    }
+                }       
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR_RUBRO")
                 {
                     if (Singleton<Datos>.Instance.CheckRubros(message.Text))
@@ -177,7 +194,7 @@ namespace Proyecto_Final
                         response = $"Su rubro es: {message.Text}.\n\nHabilitaciones validas:\n";
                         response += generarListaHabilitaciones() + "\n\nIngrese su habilitacion:";
                         
-                        Singleton<UserCreator>.Instance.AddDataById(idToUse, message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "rubroEmprendedor", message.Text);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_HABILITACIONES");
 
@@ -198,9 +215,9 @@ namespace Proyecto_Final
                     {
                         response = $"Su habilitacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora eres un Emprendedor.";
 
-                        Singleton<UserCreator>.Instance.AddDataById(idToUse, message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "habilitacionEmprendedor", message.Text);
                         Singleton<UserCreator>.Instance.CrearUserEmprendedor(idToUse);
-                        Singleton<UserCreator>.Instance.WipeDataById(idToUse);
+                        Singleton<Temp>.Instance.WipeDataById(idToUse);
 
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
                         

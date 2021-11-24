@@ -2,6 +2,8 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa al producto que se ofertará.
+    /// Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
+    /// La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses.
     /// </summary>
     public class Producto
     {
@@ -46,7 +48,12 @@ namespace Proyecto_Final
         /// Otorga un objeto "TipoProducto" que representa el tipo de producto <see cref="TipoProducto"/>.
         /// </summary>
         /// <value>Objeto del tipo "TipoProducto".</value>
-        public TipoProducto Tipo {get;set;}       
+        public TipoProducto Tipo {get;set;}      
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Producto() {} 
 
         /// <summary>
         /// Inicializa la clase Producto.
@@ -58,12 +65,13 @@ namespace Proyecto_Final
         /// <param name="valor"></param>
         /// <param name="isPesos"></param>
         /// <param name="cantidad"></param>
-        public Producto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, TipoProducto tipo)
+        public Producto(string nombre, string descripcion, string ubicacion, int valor, bool isPesos, int cantidad, TipoProducto tipo)
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.Ubicacion = ubicacion;
             this.Valor = valor;
+            this.IsPesos = isPesos;
             this.Cantidad = cantidad;
             this.Tipo = tipo;
         }
@@ -72,7 +80,7 @@ namespace Proyecto_Final
         /// Método que retorna un string con el símbolo de la moneda que se utiliza para valorar un producto; en base al valor booleano de "IsPesos".
         /// </summary>
         /// <returns>Dólares Estadounidenses si es falso, Pesos Uruguayos si es verdadero.</returns>
-        public string MonetaryValue()
+        public string MonetaryValue() //(SRP)
         {
             if (this.IsPesos == false)
             {

@@ -9,59 +9,20 @@ namespace Proyecto_Final
     /// </summary>
     public sealed class  UserCreator
     {   
-
-        private Dictionary<string, List<string>> userData = new Dictionary<string, List<string>>();
-
-        /// <summary>
-        /// Agrega datos a la lista que contiene el id del usuario en el diccionario.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="data"></param>
-        public void AddDataById(string id, string data)
-        {
-            if (this.userData.ContainsKey(id))
-            {
-                List<string> value;
-                if(this.userData.TryGetValue(id, out value))
-                {
-                    value.Add(data);
-                }
-            }
-            else
-            {
-                this.userData.Add(id, new List<string>() {data});
-            }
-        }
-
-        /// <summary>
-        /// Elimina completamente el item del diccionario.
-        /// </summary>
-        /// <param name="id"></param>
-        public void WipeDataById(string id)
-        {
-            this.userData.Remove(id);
-            /*
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
-            {
-                if (item.Key == id)
-                {
-                    item.;
-                } 
-            }*/
-        }
-
         /// <summary>
         /// Crea una instancia de UserAdmin y la almacena.
         /// </summary>
         /// <param name="id"></param>
         public void CrearUserAdmin(string id)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
+            foreach (KeyValuePair<string, Dictionary<string, string>> item in Singleton<Temp>.Instance.TempData)
             {
                 if (item.Key == id)
                 {
-                    UserAdmin userAdmin = new UserAdmin(id, item.Value[0]);
-                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
+                    Dictionary<string, string> data = item.Value;
+
+                    UserAdmin userAdmin = new UserAdmin(id, data["nombreAdmin"]);
+                    //Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
                     Console.WriteLine($"UserCreator: Admin {id} creado.");
                 }
             }
@@ -73,17 +34,18 @@ namespace Proyecto_Final
         /// <param name="id"></param>
         public void CrearUserEmpresa(string id)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
-            {
-                if (item.Key == id)
-                {
-                    UserEmpresa userEmpresa = new UserEmpresa(id, item.Value[0]);
-                    Empresa empresa = new Empresa(item.Value[0], item.Value[2], new Rubro(item.Value[1]));
-                    userEmpresa.Empresa = empresa;
-                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
-                    Console.WriteLine($"UserCreator: Empresa {id} creada.");
-                }
-            }
+            UserEmpresa userEmpresa = new UserEmpresa(id, Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmpresa"));
+
+            Empresa empresa = new Empresa(
+                Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmpresa"),
+                Singleton<Temp>.Instance.GetDataByKey(id, "ubicacionEmpresa"),
+                new Rubro(Singleton<Temp>.Instance.GetDataByKey(id, "rubroEmpresa"))
+            );
+
+            userEmpresa.Empresa = empresa;
+            Singleton<Datos>.Instance.RegistrarUsuarioEmpresa(userEmpresa);
+            Console.WriteLine($"UserCreator: Empresa {id} creada.");
+            
         }
 
         /// <summary>
@@ -92,17 +54,15 @@ namespace Proyecto_Final
         /// <param name="id"></param>
         public void CrearUserEmprendedor(string id)
         {
-            foreach (KeyValuePair<string, List<string>> item in this.userData)
-            {
-                if (item.Key == id)
-                {
-                    UserEmprendedor userEmprendedor = new UserEmprendedor(id, item.Value[0]);
-                    Emprendedor emprendedor = new Emprendedor(item.Value[1], new Rubro(item.Value[2]), new Habilitaciones(item.Value[3]));
-                    userEmprendedor.Emprendedor = emprendedor;
-                    Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
-                    Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
-                }
-            }
+            UserEmprendedor userEmprendedor = new UserEmprendedor(id, Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmprendedor"));
+            Emprendedor emprendedor = new Emprendedor(
+                Singleton<Temp>.Instance.GetDataByKey(id, "ubicacionEmprendedor"), 
+                new Rubro(Singleton<Temp>.Instance.GetDataByKey(id, "rubroEmprendedor")),
+                new Habilitaciones(Singleton<Temp>.Instance.GetDataByKey(id, "habilitacionEmprendedor"))
+            );
+            userEmprendedor.Emprendedor = emprendedor;
+            Singleton<Datos>.Instance.RegistrarUsuarioEmprendedor(userEmprendedor);
+            Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
         }
     }
 }

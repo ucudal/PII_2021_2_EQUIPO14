@@ -1,15 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
+    /// La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como empresa. 
+    /// Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+    /// los cuales se almacenan en la clase "Empresa" y los accede mediante el patrón de Delegación. Por lo cual también sigue con el patrón SRP.
     /// </summary>
     public class UserEmpresa : IUser
     {
         private bool isInvited = false;
+        
         
         /// <summary>
         /// Otorga el id del usuario.
@@ -21,7 +27,7 @@ namespace Proyecto_Final
         /// Obtiene un valor del nombre del usuario empresa.
         /// </summary>
         /// <value>Nombre de la empresa</value>
-        public string Nombre { get; }
+        public string Nombre { get; set; }
         
         /// <summary>
         /// Obtiene un valor del objeto Empresa.
@@ -34,6 +40,11 @@ namespace Proyecto_Final
         /// </summary>
         /// <value><c>true/false</c></value>
         public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public UserEmpresa () {}
 
         /// <summary>
         /// Inicializa la clase UserEmpresa.
@@ -52,7 +63,7 @@ namespace Proyecto_Final
         /// <param name="rubro"></param>
         public void AgregarRubro(string rubro)
         {
-            this.Empresa.AgregarRubro(rubro);
+            this.Empresa.AgregarRubro(rubro); //(Delegacion)
         }
 
         /// <summary>
@@ -67,7 +78,7 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa);
+            //Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>
@@ -84,20 +95,45 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="datosOferta"></param>
         /// <param name="datosHabilitacion"></param>
+        /// <param name="isRecurrente"></param>
         /// <param name="nombreProducto"></param>
         /// <param name="descripcionProducto"></param>
         /// <param name="ubicacionProducto"></param>
         /// <param name="valorProducto"></param>
+        /// <param name="valorMoneda"></param>
         /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, int cantidadProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string datosOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
-            Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, cantidadProducto, datosTipoProducto);
+            bool recurrencia = false;
+            bool isPesos = false;
+
+            if(valorMoneda == "1")
+            {
+                isPesos = false;
+            }
+            else
+            {
+                isPesos = true;
+            }
+
+            if(isRecurrente == "1")
+            {
+                recurrencia = false;
+            }
+            else
+            {
+                recurrencia = true;
+            }
+
+            Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, isPesos, cantidadProducto, datosTipoProducto);
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, habilitacion);
+            Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
             Singleton<Datos>.Instance.AgregarOferta(newOferta);
+
+            Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }
 
         /// <summary>
@@ -107,13 +143,14 @@ namespace Proyecto_Final
         /// <param name="descripcion"></param>
         /// <param name="ubicacion"></param>
         /// <param name="valor"></param>
+        /// <param name="isPesos"></param>
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, int cantidad, string datosTipoProducto) // (Creator)
+        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, bool isPesos, int cantidad, string datosTipoProducto) // (Creator)
         {
             TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
-            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, cantidad, newTipoProducto);
+            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, isPesos, cantidad, newTipoProducto);
 
             return newProducto;
         }
@@ -124,7 +161,7 @@ namespace Proyecto_Final
         /// <param name="input"></param>
         /// <param name="nombreOferta"></param>
         /// <param name="nombreEmprendedor"></param>
-        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor)
+        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor) //(Expert)
         {
             if (input == "Y")
             {

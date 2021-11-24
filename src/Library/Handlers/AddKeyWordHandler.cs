@@ -9,16 +9,11 @@ namespace Proyecto_Final
     /// </summary>
     public class AddKeyWordHandler : BaseHandler
     {
-        /// <summary>
-        /// El nombre de la oferta que el usuario luego ingresará.
-        /// </summary>
-        private string Oferta;
-        
-        /// <summary>
-        /// La palabra clave que el usuario luego ingresará.
-        /// </summary>
-        private string KeyWord;
         private string[] allowedStatus;
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
 
         public string[] AllowedStatus { get; set;}
         /// <summary>
@@ -27,7 +22,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public AddKeyWordHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"Palabra"};
+            this.Keywords = new string[] {"/agregar_palabra"};
             this.AllowedStatus = new string[] {"STATUS_KEYWORD_RESPONSE",
                                                "STATUS_KEYWORD_OFERTNAME",
                                                "STATUS_KEYWORD_KEYWORD",
@@ -68,23 +63,17 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_KEYWORD_OFERTNAME")
                 {
-                    response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: "; 
-                    Oferta = message.Text;
+                    response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
+                    Singleton<Temp>.Instance.AddDataById(message.UserId, "ofertaName", message.Text);
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
                     return true;
                 }
                 else if (check == "STATUS_KEYWORD_KEYWORD")
                 {
                     response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
-                    KeyWord = message.Text;
+                    UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                    user.CrearMsjClave((Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ofertaName"), message.Text));
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    /*foreach (KeyValuePair<string,Oferta> oferta in Singleton<Datos>.Instance.ListaOfertas())
-                    {
-                        if (oferta.Nombre == Oferta)
-                        {
-                            oferta.PalabrasClave.Add(KeyWord);
-                        }
-                    }*/
                     return true;
                 }
             }

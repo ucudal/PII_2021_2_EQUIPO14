@@ -8,6 +8,9 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa los datos adicionales del emprendedor.
+    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Emprendedor, 
+    /// y por ende es experta en la modificación de estos datos; además de ser experta en evaluar el consumo por tiempo del usuario emprendedor,
+    /// ya que los datos de las compras realizadas se contienen en esta clase.
     /// </summary>
     public class Emprendedor
     {
@@ -46,6 +49,11 @@ namespace Proyecto_Final
         public ArrayList Compras {get{return this.compras;}}
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Emprendedor() {}
+
+        /// <summary>
         /// Inicializa la clase Emprendedor
         /// </summary>
         /// <param name="ubicacion"></param>
@@ -62,7 +70,7 @@ namespace Proyecto_Final
         /// Agrega una habilitacion.
         /// </summary>
         /// <param name="habilitacion"></param>
-        public void AgregarHabilitacion(string habilitacion)
+        public void AgregarHabilitacion(string habilitacion) //(Expert)
         {
             Habilitaciones newHab = new Habilitaciones(habilitacion);
             this.Habilitacion = newHab;
@@ -72,7 +80,7 @@ namespace Proyecto_Final
         /// Agrega un rubro.
         /// </summary>
         /// <param name="rubro"></param>
-        public void AgregarRubro(string rubro)
+        public void AgregarRubro(string rubro) //(Expert)
         {
             Rubro newRubro = new Rubro(rubro);
             this.Rubro = newRubro;
@@ -81,7 +89,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Agrega una Especialización al Emprendedor.
         /// </summary>
-        public void AgregarEspecializacion(string especializacion)
+        public void AgregarEspecializacion(string especializacion) //(Expert)
         {
             ArrayList especializaciones = this.Especializaciones;
             especializaciones.Add(especializacion);
@@ -89,7 +97,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Elimina una Especialización al Emprendedor.
         /// </summary>
-        public void EliminarEspecializacion(string especializacion)
+        public void EliminarEspecializacion(string especializacion) //(Expert)
         {
             ArrayList especializaciones = this.Especializaciones;
             especializaciones.Remove(especializacion);
@@ -100,10 +108,10 @@ namespace Proyecto_Final
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
-        public string ConsumoXTiempo(UserEmprendedor userEmprendedor)
+        public string ConsumoXTiempo(UserEmprendedor userEmprendedor) //(Expert)
         {
             StringBuilder result = new StringBuilder();
-            foreach(KeyValuePair<string, Oferta> item in  Singleton<Datos>.Instance.ListaOfertas())
+            /*foreach(KeyValuePair<string, Oferta> item in  Singleton<Datos>.Instance.ListaOfertas())
             {
                 string id = item.Key;
                 Oferta auxOferta = item.Value;
@@ -114,7 +122,7 @@ namespace Proyecto_Final
                         result.Append($"Compró esta oferta: \n Nombre: {auxOferta.Product.Nombre} \n Descripción: {auxOferta.Product.Descripcion} \n Tipo: {auxOferta.Product.Tipo.Nombre} \n Ubicación: {auxOferta.Product.Ubicacion} \n Valor: ${auxOferta.Product.Valor} \n Cantidad: {auxOferta.Product.Cantidad} \n Habilitaciones requeridas: {auxOferta.HabilitacionesOferta.Habilitacion} \n");
                     }
                 }
-            }
+            }*/
             if(result.ToString() == "")
             {
                 result.Append("Aún no se ha comprado ningún producto.");

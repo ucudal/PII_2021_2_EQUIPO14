@@ -7,6 +7,11 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a la Empresa.
+    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Empresa, 
+    /// y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario Empresa, 
+    /// ya que las ofertas personales se contienen en esta clase. 
+    /// También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, 
+    /// que es la clase "Oferta".
     /// </summary>
     public class Empresa
     {
@@ -44,6 +49,11 @@ namespace Proyecto_Final
         public ArrayList Ofertas { get { return this.ofertas; } }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Empresa() {}
+
+        /// <summary>
         /// Inicializa la clase Empresa.
         /// </summary>
         /// <param name="nombre"></param>
@@ -60,7 +70,7 @@ namespace Proyecto_Final
         /// Agrega un rubro.
         /// </summary>
         /// <param name="rubro"></param>
-        public void AgregarRubro(string rubro)
+        public void AgregarRubro(string rubro) //(Expert)
         {
             Rubro newRubro = new Rubro(rubro);
             this.Rubro = newRubro;
@@ -70,7 +80,7 @@ namespace Proyecto_Final
         /// Agrega una palabra clave a una publicacion determinada.
         /// </summary>
         /// <param name="datosMensaje"></param>
-        public void AgregarMsjClave((string, string) datosMensaje)
+        public void AgregarMsjClave((string, string) datosMensaje) //(Expert)
         {
             foreach (Oferta oferta in this.Ofertas)
             {
@@ -85,7 +95,7 @@ namespace Proyecto_Final
         /// Agrega una especializacion a la empresa y la guarda en un array.
         /// </summary>
         /// <param name="especializacion"></param>
-        public void AgregarEspecializacion(string especializacion)
+        public void AgregarEspecializacion(string especializacion) //(Expert)
         {            
             ArrayList especializaciones = this.Especializaciones;
             especializaciones.Add(especializacion);
@@ -95,7 +105,7 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public Dictionary<string, int> VerificarVentas()
+        public Dictionary<string, int> VerificarVentas() //(Expert)
         {
             Dictionary<string, int> info = new Dictionary<string, int>();
 

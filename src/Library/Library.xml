@@ -11,7 +11,8 @@
         </member>
         <member name="P:Proyecto_Final.Buscador.Content">
             <summary>
-            
+            La función de esta clase es en base a las ofertas guardadas, buscarlas en base a ciertos criterios.
+            Debido a que la única responsabilidad de esta clase es buscar ofertas según distintos criterios, esta sigue el SRP.
             </summary>
             <value></value>
         </member>
@@ -41,189 +42,26 @@
             <param name="tipo"></param>
             <returns></returns>
         </member>
-        <member name="T:Proyecto_Final.ConsoleInteraction">
-            <summary>
-            Clase encargada de interactuar con el usuario a travez de la consola.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.#ctor">
-            <summary>
-            Inicializa la clase ConsoleInteraction.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearOferta">
-            <summary>
-            Interactua con el usuario para crear una oferta.
-            </summary>
-            <returns>Datos para crear la oferta/publicacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AceptarInvitacion">
-            <summary>
-            Interactua con el usuario para aceptar la invitacion.
-            </summary>
-            <returns>Si se acepta la invitacion devuelve <c>true</c>, de lo contrario <c>false</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmpresa">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos de la empresa.
-            </summary>
-            <returns>Tupla de strings con los datos de la empresa.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosEmprendedor">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos del Emprendedor.
-            </summary>
-            <returns>Tupla de strings con los datos del emprendedor</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosHabilitacion">
-            <summary>
-            Interactua con el usuario para poder crear los datos de la habilitacion.
-            </summary>
-            <returns>Habilitacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosProducto">
-            <summary>
-            Interactua con el usuario para poder crear los datos del producto.
-            </summary>
-            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosOferta">
-            <summary>
-            Interactua con el usuario para crear los datos de la publicacion.
-            </summary>
-            <returns>Nombre de la publicacion</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.CrearDatosTipoProducto">
-            <summary>
-            Interactua con el usuario para crear los datos del tipo de producto.
-            </summary>
-            <returns>Tipo de producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.AgregarMsjClave">
-            <summary>
-            Interactua con el usuario para crear un mensaje clave en una oferta especifica.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.ConcretarOferta">
-            <summary>
-            Interactua con el usuario para concretar una oferta.
-            </summary>
-            <returns>Retorna <c>"Y"</c> si se concreta la oferta, de lo contrario retorna <c>"N"</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.ConsoleInteraction.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
-            <summary>
-            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
-            </summary>
-            <param name="info"></param>
-        </member>
-        <member name="T:Proyecto_Final.CreadorProducto">
-            <summary>
-            Clase encargada de crear un producto al almacenar los datos en diccionarios cuyos Key son el ID del usuario y el contenido correspondiente al atributo de la clase producto correspondiente.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioNombre">
-            <summary>
-            Retorna la instancia del diccionario "diccionarioNombre"
-            </summary>
-            <returns>instancia de objeto "diccionarioNombre"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioNombre(System.String,System.String)">
-            <summary>
-            Agrega el nombre que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <param name="id"></param>
-            <param name="nombre"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioDescrpicion">
-            <summary>
-            Retorna la instancia del diccionario "diccionarioDescripcion"
-            </summary>
-            <returns>instancia de objeto "diccionarioDescripcion"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioDescripcion(System.String,System.String)">
-            <summary>
-            Agrega la descripción que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <param name="id"></param>
-            <param name="descripcion"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioUbicacion">
-            <summary>
-            Retorna la instancia del diccionario "diccionarioUbicacion"
-            </summary>
-            <returns>instancia de objeto "diccionarioUbicacion"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioUbicacion(System.String,System.String)">
-            <summary>
-            Agrega la ubicación que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <param name="id"></param>
-            <param name="ubicacion"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioValor">
-            <summary>
-            Retorna la instancia del diccionario "diccionarioValor"
-            </summary>
-            <returns>instancia de objeto "diccionarioValor"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioValor(System.String,System.String)">
-            <summary>
-            Agrega el valor que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <param name="id"></param>
-            <param name="valor"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioMoneda">
-            <summary>
-            Agrega la cantidad que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <returns>Instancia de objeto "diccionarioCantidad"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioMoneda(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <param name="moneda"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioCantidad">
-            <summary>
-            Agrega la cantidad que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <returns>Instancia de objeto "diccionarioCantidad"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioCantidad(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <param name="cantidad"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.DiccionarioTipo">
-            <summary>
-            Retorna la instancia del diccionario "diccionarioTipo"
-            </summary>
-            <returns>instancia de objeto "diccionarioTipo"</returns>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.AgregarDiccionarioTipo(System.String,System.String)">
-            <summary>
-            Agrega el tipo que le designo un Emprendedor identificado por ID a un diccionario
-            </summary>
-            <param name="id"></param>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.CreadorProducto.CrearProducto(System.String)">
-            <summary>
-            Crea el producto en base a los datos almacenados por una ID en c/u de los diccionarios.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Proyecto_Final.Datos">
             <summary>
             Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.
+            Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos, 
+            lo cual implica que la manera de retornar las listas es en base a un método de instancia. 
+            Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
             </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.GetData">
+            <summary>
+            Al inicializar el programa se obtienen todos los datos de la DB.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.GetOfertaById(System.String,System.String)">
+            <summary>
+            Busca las ofertas por ID y retorna la oferta.
+            </summary>
+            <param name="userId"></param>
+            <param name="oferId"></param>
+            <returns>Retorna una Oferta.</returns>
         </member>
         <member name="M:Proyecto_Final.Datos.GetUserById(System.String)">
             <summary>
@@ -232,11 +70,17 @@
             <param name="id"></param>
             <returns>Retorna un IUser.</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.ListaUsuariosRegistrados">
+        <member name="M:Proyecto_Final.Datos.RegistrarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
             <summary>
-            Lista de usuarios registrados mediante el handler "RegisterHandler"
+            Agrega un usuario Empresa a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
             </summary>
-            <returns>Lista con los usuarios registrados.</returns>
+            <param name="user"></param>
+        </member>
+        <member name="M:Proyecto_Final.Datos.RegistrarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
+            <summary>
+            Agrega un usuario Emprendedor a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
+            </summary>
+            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.IsRegistered(System.String)">
             <summary>
@@ -301,35 +145,11 @@
             </summary>
             <returns>Lista con UserEmpresa</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
-            <summary>
-            Agrega un UserEmpresa a la aplicacion.
-            </summary>
-            <param name="user"></param>
-        </member>
         <member name="M:Proyecto_Final.Datos.ListaUsuarioEmprendedor">
             <summary>
             Otorga una lista con todos los UserEmprendedor registrados.
             </summary>
             <returns>Lista con UserEmprendedor</returns>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
-            <summary>
-            Agrega un UserEmprendedor a la aplicacion.
-            </summary>
-            <param name="user"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.ListaEmpresa">
-            <summary>
-            Lista con todas las Empresa registradas.
-            </summary>
-            <returns>Lista con Empresa</returns>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarEmpresa(Proyecto_Final.Empresa)">
-            <summary>
-            Agrega una empresa a la aplicacion.
-            </summary>
-            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
@@ -349,47 +169,11 @@
              </summary>
              <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarHabilitacion(Proyecto_Final.Habilitaciones)">
-            <summary>
-            Agrega una habilitación a la lista de habilitaciones permitidas por el programa.
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarHabilitacion(Proyecto_Final.Habilitaciones)">
-            <summary>
-            Elimina una habilitación de la lista de habilitaciones permitidas por el programa.
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarRubro(Proyecto_Final.Rubro)">
-            <summary>
-            Agrega un rubro a la lista de rubros permitidos por el programa.
-            </summary>
-            <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarRubro(Proyecto_Final.Rubro)">
-            <summary>
-            Elimina un rubro de la lista de rubros permitidos por el programa.
-            </summary>
-            <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarTipo(Proyecto_Final.TipoProducto)">
-            <summary>
-            Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
-            </summary>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarTipo(Proyecto_Final.TipoProducto)">
-            <summary>
-            Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
-            </summary>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.Datos.EliminarOfertas(System.String)">
             <summary>
             Elimina una oferta de la lista de ofertas.
             </summary>
-            <param name="oferta"></param>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.CheckHabilitaciones(System.String)">
             <summary>
@@ -412,9 +196,52 @@
             <param name="rubro"></param>
             <returns><c>true</c>Si el rubro a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         </member>
+        <member name="M:Proyecto_Final.Datos.LoadTokensData">
+            <summary>
+            Carga los datos de la lista de Tokens desde el archivo ".json".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdateTokensData">
+            <summary>
+            Actualiza los datos almacenados en la listaTokens
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadRegisteredEmpresas">
+            <summary>
+            Carga los datos de una empresa en base al archivo ".json"
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdateEmpresasData">
+            <summary>
+            Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.
+            </summary>    
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadRegisteredEmprendedores">
+            <summary>
+            Carga los datos de los Emprendedores en base a un archivo ".json".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdateEmprendedoresData">
+            <summary>
+            Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.LoadPublications">
+            <summary>
+            Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Empresa.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Datos.UpdatePublicationsData">
+            <summary>
+            Actualiza los datos de las publicaciones encontradas en su respectivo ".json" para que sean idénticas a las que se encontraban en la lista de publicaciones.
+            </summary>
+        </member>
         <member name="T:Proyecto_Final.Emprendedor">
             <summary>
             Esta clase representa los datos adicionales del emprendedor.
+            Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Emprendedor, 
+            y por ende es experta en la modificación de estos datos; además de ser experta en evaluar el consumo por tiempo del usuario emprendedor,
+            ya que los datos de las compras realizadas se contienen en esta clase.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Emprendedor.Ubicacion">
@@ -446,6 +273,11 @@
             Otorga una lista de strings que representan las compras del Emprendedor.
             </summary>
             <value></value>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro,Proyecto_Final.Habilitaciones)">
             <summary>
@@ -488,6 +320,11 @@
         <member name="T:Proyecto_Final.Empresa">
             <summary>
             Esta clase representa a la Empresa.
+            Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Empresa, 
+            y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario Empresa, 
+            ya que las ofertas personales se contienen en esta clase. 
+            También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, 
+            que es la clase "Oferta".
             </summary>
         </member>
         <member name="P:Proyecto_Final.Empresa.Nombre">
@@ -519,6 +356,11 @@
             Obtiene un valor de las ofertaas publicadas de la empresa.
             </summary>
             <value>Lista con ofertas publicadas por la empresa.</value>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Empresa.#ctor(System.String,System.String,Proyecto_Final.Rubro)">
             <summary>
@@ -555,6 +397,7 @@
         <member name="T:Proyecto_Final.Habilitaciones">
             <summary>
             Esta clase representa las habilitaciones necesarias para la tenencia de productos.
+            Esta clase tiene una única responsabilidad que es diferenciar entre lo que es una habilitacion y lo que no, por lo cual sigue el SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Habilitaciones.Habilitacion">
@@ -563,32 +406,52 @@
             </summary>
             <value>Nombre de la Habilitación.</value>
         </member>
+        <member name="M:Proyecto_Final.Habilitaciones.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Habilitaciones.#ctor(System.String)">
             <summary>
             Inicializa la clase habilitaciones.
             </summary>
             <param name="habilitacion"></param>
         </member>
-        <member name="T:Proyecto_Final.Invitacion">
+        <member name="T:Proyecto_Final.IdGenerator">
             <summary>
-            Esta clase representa una invitacion.
+            Clase que ofrece el servicio de generar IDs o Tokens unicos.
+            Aplicando SRP, es la unica capaz de realizar esta funcion. El resto de clases deberan solicitar el servicio. 
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Invitacion.#ctor">
+        <member name="M:Proyecto_Final.IdGenerator.GenerateToken">
             <summary>
-            Inicializa la clase Invitacion.
+            Genera un token.
             </summary>
+            <returns>Devuelve un token.</returns>
+        </member>
+        <member name="M:Proyecto_Final.IdGenerator.GenerateNumericId">
+            <summary>
+            Genera una ID numerica.
+            </summary>
+            <returns>Devuelve una ID numerica.</returns>
         </member>
         <member name="T:Proyecto_Final.Oferta">
             <summary>
             Esta clase representa las ofertas creadas por un empresario.
+            Esta clase tiene como función ser una representación de una publicación de oferta, además de ser experta en modificar los atributos utilizados para representar tal oferta, por lo cual 
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.Id">
+            <summary>
+            Otorga el ID de la Oferta.
+            </summary>
+            <returns>Retorna el ID.</returns>
         </member>
         <member name="P:Proyecto_Final.Oferta.Nombre">
             <summary>
             Otorga el nombre de la Oferta
             </summary>
-            <value></value>
+            <value>Retorna el nombre.</value>
         </member>
         <member name="P:Proyecto_Final.Oferta.Product">
             <summary>
@@ -614,18 +477,30 @@
             </summary>
             <value>Retorna un valor booleano</value>
         </member>
+        <member name="P:Proyecto_Final.Oferta.IsRecurrente">
+            <summary>
+            Otorga un valor booleano dependiendo de si la oferta es recurrente o no.
+            </summary>
+            <value>Verdadero si es recurrente, falso si no.</value>
+        </member>
         <member name="P:Proyecto_Final.Oferta.Comprador">
             <summary>
             Otorga un valor que representa al comprador de la oferta.
             </summary>
             <value></value>
         </member>
-        <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,Proyecto_Final.Habilitaciones)">
+        <member name="M:Proyecto_Final.Oferta.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,System.Boolean,Proyecto_Final.Habilitaciones)">
             <summary>
             Inicializa la clase Oferta.
             </summary>
             <param name="nombre"></param>
             <param name="product"></param>
+            <param name="isRecurrente"></param>
             <param name="habilitacionesOferta"></param>
         </member>
         <member name="M:Proyecto_Final.Oferta.AgregarMsjClave(System.String)">
@@ -637,6 +512,8 @@
         <member name="T:Proyecto_Final.Producto">
             <summary>
             Esta clase representa al producto que se ofertará.
+            Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
+            La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Producto.IsPesos">
@@ -681,7 +558,12 @@
             </summary>
             <value>Objeto del tipo "TipoProducto".</value>
         </member>
-        <member name="M:Proyecto_Final.Producto.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,Proyecto_Final.TipoProducto)">
+        <member name="M:Proyecto_Final.Producto.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.Producto.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean,System.Int32,Proyecto_Final.TipoProducto)">
             <summary>
             Inicializa la clase Producto.
             </summary>
@@ -702,6 +584,7 @@
         <member name="T:Proyecto_Final.Rubro">
             <summary>
             Esta clase representa el rubro de una empresa.
+            La única función de existencia de esta clase es para discernir entre lo que es un rubro y lo que no es un rubro, por lo cual es una clase que cumple el SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Rubro.Rubros">
@@ -709,6 +592,11 @@
             Retorna el nombre del rubro de una empresa.
             </summary>
             <value>Nombre del rubro de la empresa.</value>
+        </member>
+        <member name="M:Proyecto_Final.Rubro.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Rubro.#ctor(System.String)">
             <summary>
@@ -719,6 +607,7 @@
         <member name="T:Proyecto_Final.Singleton`1">
             <summary>
             Esta clase tiene como función funcionar como base para crear una sola instancia de clases almacenadoras de datos en el programa.
+            La única función de esta clase es proveer la capacidad de que otras clases puedan ser singleton, por lo cual esta clase cumple con SRP.
             </summary>
             <typeparam name="T"></typeparam>
         </member>
@@ -761,9 +650,44 @@
             <param name="id"></param>
             <returns>Devuelve el estado actual.</returns>
         </member>
+        <member name="T:Proyecto_Final.Temp">
+            <summary>
+            Clase encargada de almacenar y actualizar los datos temporales.
+            Se utilizan los patrones Expert y Singleton, ya que es necesario que exista una sola instancia de esta clase datos.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.Temp.TempData">
+            <summary>
+            Otorga el diccionario de datos temporales.
+            </summary>
+            <value>Retorna un diccionario con datos temporales.</value>
+        </member>
+        <member name="M:Proyecto_Final.Temp.AddDataById(System.String,System.String,System.String)">
+            <summary>
+            Agrega datos a la lista que contiene el id del usuario en el diccionario.
+            </summary>
+            <param name="id"></param>
+            <param name="key"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Proyecto_Final.Temp.GetDataByKey(System.String,System.String)">
+            <summary>
+            Devuelve el dato almacenado en una key especifica.
+            </summary>
+            <param name="id"></param>
+            <param name="key"></param>
+            <returns>Devuelve un dato si lo encuentra.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Temp.WipeDataById(System.String)">
+            <summary>
+            Elimina completamente el item del diccionario.
+            </summary>
+            <param name="id"></param>
+        </member>
         <member name="T:Proyecto_Final.TipoProducto">
             <summary>
             Esta clase representa una clasificación general de un producto.
+            La única función de existencia de esta clase es para discernir entre lo que es un Tipo de producto y lo que no es, por lo cual es una clase que cumple el SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.TipoProducto.Nombre">
@@ -771,6 +695,11 @@
             Otorga el nombre del tipo de clasificación del producto.
             </summary>
             <value>Nombre del tipo de producto.</value>
+        </member>
+        <member name="M:Proyecto_Final.TipoProducto.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.TipoProducto.#ctor(System.String)">
             <summary>
@@ -781,6 +710,8 @@
         <member name="T:Proyecto_Final.UserAdmin">
             <summary>
             Esta clase representa a los administradores del programa.
+            La única función de esta clase es proveer al sistema una manera de que nosotros como programadores/administradores podamos agregar empresas al sistema, 
+            por lo cual entra dentro del patrón SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.UserAdmin.Id">
@@ -814,19 +745,6 @@
             Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.AddDataById(System.String,System.String)">
-            <summary>
-            Agrega datos a la lista que contiene el id del usuario en el diccionario.
-            </summary>
-            <param name="id"></param>
-            <param name="data"></param>
-        </member>
-        <member name="M:Proyecto_Final.UserCreator.WipeDataById(System.String)">
-            <summary>
-            Elimina completamente el item del diccionario.
-            </summary>
-            <param name="id"></param>
-        </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
             <summary>
             Crea una instancia de UserAdmin y la almacena.
@@ -848,6 +766,9 @@
         <member name="T:Proyecto_Final.UserEmprendedor">
             <summary>
             Esta clase representa a los usuarios emprendedores en el sistema.
+            La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como emprendedor. 
+            Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+            los cuales se almacenan en la clase "Emprendedor" y los accede mediante el patrón de Delegación. Por lo cual, esta clase sigue con el patrón de SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.UserEmprendedor.Id">
@@ -867,6 +788,11 @@
             Otorga los datos existentes en el objeto Emprendedor <see cref="P:Proyecto_Final.UserEmprendedor.Emprendedor"/>.
             </summary>
             <value></value>
+        </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String,System.String)">
             <summary>
@@ -923,6 +849,9 @@
         <member name="T:Proyecto_Final.UserEmpresa">
             <summary>
             Esta clase representa al usuario de la Empresa.
+            La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como empresa. 
+            Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+            los cuales se almacenan en la clase "Empresa" y los accede mediante el patrón de Delegación. Por lo cual también sigue con el patrón SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.UserEmpresa.Id">
@@ -930,12 +859,6 @@
             Otorga el id del usuario.
             </summary>
             <value>Id del usuario.</value>
-        </member>
-        <member name="P:Proyecto_Final.UserEmpresa.Invitacion">
-            <summary>
-            Obtiene un valor del objeto Invitacion.
-            </summary>
-            <value>Devuelve una invitacion si la tiene, sino, <c>null</c></value>
         </member>
         <member name="P:Proyecto_Final.UserEmpresa.Nombre">
             <summary>
@@ -955,6 +878,11 @@
             </summary>
             <value><c>true/false</c></value>
         </member>
+        <member name="M:Proyecto_Final.UserEmpresa.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmpresa.
@@ -967,12 +895,6 @@
             Agrega un rubro.
             </summary>
             <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.UserEmpresa.AceptarInvitacion(System.String)">
-            <summary>
-            Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
-            </summary>
-            <param name="input"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearEmpresa(System.String,System.String,System.String)">
             <summary>
@@ -988,20 +910,22 @@
             </summary>
             <param name="datosMensaje"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.String)">
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
             <param name="datosOferta"></param>
             <param name="datosHabilitacion"></param>
+            <param name="isRecurrente"></param>
             <param name="nombreProducto"></param>
             <param name="descripcionProducto"></param>
             <param name="ubicacionProducto"></param>
             <param name="valorProducto"></param>
+            <param name="valorMoneda"></param>
             <param name="cantidadProducto"></param>
             <param name="datosTipoProducto"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearProducto(System.String,System.String,System.String,System.Int32,System.Boolean,System.Int32,System.String)">
             <summary>
             Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad, el valor (en $ o U$S) de los mismos y el lugar donde se ubican, para que de esa forma los emprendedores tengan información de materiales o residuos disponibles.
             </summary>
@@ -1009,6 +933,7 @@
             <param name="descripcion"></param>
             <param name="ubicacion"></param>
             <param name="valor"></param>
+            <param name="isPesos"></param>
             <param name="cantidad"></param>
             <param name="datosTipoProducto"></param>
             <returns></returns>
@@ -1032,15 +957,11 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Palabra".
             </summary>
         </member>
-        <member name="F:Proyecto_Final.AddKeyWordHandler.Oferta">
+        <member name="P:Proyecto_Final.AddKeyWordHandler.AllowedStatus">
             <summary>
-            El nombre de la oferta que el usuario luego ingresará.
+            Otorga un array con los status validos.
             </summary>
-        </member>
-        <member name="F:Proyecto_Final.AddKeyWordHandler.KeyWord">
-            <summary>
-            La palabra clave que el usuario luego ingresará.
-            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.AddKeyWordHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -1135,6 +1056,12 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
             </summary>
         </member>
+        <member name="P:Proyecto_Final.CategoryHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
         <member name="M:Proyecto_Final.CategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.CategoryHandler"/>. Esta clase procesa el mensaje "keyword".
@@ -1144,6 +1071,25 @@
         <member name="M:Proyecto_Final.CategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.CommandsHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/comandos".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.CommandsHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "/comandos".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.CommandsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/comandos" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1232,37 +1178,24 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
-        <member name="T:Proyecto_Final.KeyWordsHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.KeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
-            </summary>
-            <param name="next">El próximo "handler".</param>
-        </member>
-        <member name="M:Proyecto_Final.KeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
-        <member name="T:Proyecto_Final.MaterialsConsumend">
+        <member name="T:Proyecto_Final.MaterialsConsumedHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
             </summary>
         </member>
-        <member name="M:Proyecto_Final.MaterialsConsumend.#ctor(Proyecto_Final.BaseHandler)">
+        <member name="P:Proyecto_Final.MaterialsConsumedHandler.AllowedStatus">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.MaterialsConsumedHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="!:KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Proyecto_Final.MaterialsConsumend.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+        <member name="M:Proyecto_Final.MaterialsConsumedHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "materialsConsumend" y retorna true; retorna false en caso contrario.
             </summary>
@@ -1274,6 +1207,12 @@
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "PeriodOfTime".
             </summary>
+        </member>
+        <member name="P:Proyecto_Final.PeriodOfTimeHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.PeriodOfTimeHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -1314,76 +1253,16 @@
             Envía una imagen como respuesta al mensaje recibido. Como ejemplo enviamos siempre la misma foto.
             </summary>
         </member>
-        <member name="T:Proyecto_Final.ProductoHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que crea una instancia "Producto".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.ProductoHandler.AllowedStatus">
-            <summary>
-            
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Proyecto_Final.ProductoHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            
-            </summary>
-            <param name="next"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.ProductoHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            
-            </summary>
-            <param name="message"></param>
-            <param name="responder"></param>
-            <returns></returns>
-        </member>
         <member name="T:Proyecto_Final.PublishHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
             </summary>
         </member>
-        <member name="F:Proyecto_Final.PublishHandler.OfertName">
+        <member name="P:Proyecto_Final.PublishHandler.AllowedStatus">
             <summary>
-            El nombre de la oferta que el usuario creará.
+            Otorga un array con los status validos.
             </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductName">
-            <summary>
-            El nombre del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductDescription">
-            <summary>
-            La descripción del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductLocation">
-            <summary>
-            La ubicación del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductValue">
-            <summary>
-            El valor del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.ProductQuantity">
-            <summary>
-            La cantidad del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.tipo">
-            <summary>
-            El tipo del producto de la oferta que el usuario creará.
-            </summary>
-        </member>
-        <member name="F:Proyecto_Final.PublishHandler.habilitacion">
-            <summary>
-            Las habilitaciones requeridas para comprar la oferta del producto de la oferta que el usuario creará.
-            </summary>
+            <value>Array de status</value>
         </member>
         <member name="M:Proyecto_Final.PublishHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
@@ -1424,6 +1303,31 @@
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.SearchKeyWordsHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.SearchKeyWordsHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.SearchKeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.SearchKeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Proyecto_Final.StartHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "start".
@@ -1448,9 +1352,15 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
             </summary>
         </member>
+        <member name="P:Proyecto_Final.ZoneHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
         <member name="M:Proyecto_Final.ZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
+            Inicializa una nueva instancia de la clase <see cref="!:KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
@@ -1496,82 +1406,61 @@
             caso de error por ejemplo.
             </summary>
         </member>
+        <member name="T:Proyecto_Final.IMessage">
+            <summary>
+            La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza, aunque es necesario que exista una API para hacer funcionar este programa.
+            Esta clase tiene una sola responsabilidad, que es la de obtener datos de una API y polimorfizarlos en datos de una interfaz, 
+            en pos de separar la API del código, por lo cual es un SRP de Polimorfismo.
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.UserId">
+            <summary>
+            El ID del usuario que envía un mensaje
+            </summary>
+            <value>String del usuario</value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.ChatId">
+            <summary>
+            El ID del chat en el que se envía el mensaje
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.Text">
+            <summary>
+            El mensaje en sí.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.FirstName">
+            <summary>
+            El Nombre de la persona según los datos registrados en la API.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.LastName">
+            <summary>
+            El Apellido de la persona según los datos registrados en la API.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.Date">
+            <summary>
+            La fecha en la que se realizó el mensaje.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Proyecto_Final.IUser">
+            <summary>
+            Esta interfaz se utiliza para agrupar todas las clases usuario dentro de un solo tipo, el cual tiene como atributo el ID, aquello que hace cada objeto único dentro de los datos que tenemos.
+            La función de esta clase es permitir polimorfizar las clases y guardarlas todas dentro de una lista, 
+            la de los usuarios almacenados, y es la única razón por la que funcióna el método "GetUserByID" de Datos. <see cref="M:Proyecto_Final.Datos.GetUserById(System.String)"/>
+            </summary>
+        </member>
         <member name="P:Proyecto_Final.IUser.Id">
             <summary>
             String con el Id de un usuario registrado.
             </summary>
             <value>Devuelve el ID con el que se registro.</value>
-        </member>
-        <member name="T:Proyecto_Final.IUserInterface">
-            <summary>
-            Esta interface permite implementar distintas formas de que el usuario interactue con el bot.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearOferta">
-            <summary>
-            Interactua con el usuario para crear una oferta.
-            </summary>
-            <returns><c>string</c></returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AceptarInvitacion">
-            <summary>
-            Interactua con el usuario para aceptar la invitacion.
-            </summary>
-            <returns>Si se acepta la invitacion, devuelve una "Y", si no, devuelve una "N".</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmpresa">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos de la empresa.
-            </summary>
-            <returns>Tupla de strings con los datos de la empresa.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosEmprendedor">
-            <summary>
-            Interactua con el usuario para crear los datos respectivos del emprendedor.
-            </summary>
-            <returns>Tupla de strings con los datos del emprendedor.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosHabilitacion">
-            <summary>
-            Interactua con el usuario para poder crear los datos de la habilitacion.
-            </summary>
-            <returns>Habilitacion.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosProducto">
-            <summary>
-            Interactua con el usuario para poder crear los datos del producto.
-            </summary>
-            <returns>Nombre, descripcion, ubicacion, valor y cantidad del producto.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosOferta">
-            <summary>
-            Interactua con el usuario para crear los datos de la publicacion.
-            </summary>
-            <returns>Nombre de la publicacion</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.CrearDatosTipoProducto">
-            <summary>
-            Interactua con el usuario para crear los datos del tipo de producto.
-            </summary>
-            <returns>Tipo de producto</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.AgregarMsjClave">
-            <summary>
-            Interactua con el usuario para agregar palabras claves a una oferta.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.ConcretarOferta">
-            <summary>
-            Interactua con el usuario para concretar una oferta.
-            </summary>
-            <returns>Retorna <c>true</c> si se concreta la oferta, de lo contrario retorna <c>false</c>.</returns>
-        </member>
-        <member name="M:Proyecto_Final.IUserInterface.ImprimirVendidos(System.Collections.Generic.Dictionary{System.String,System.Int32})">
-            <summary>
-            Imprime en consola los materiales y la cantidad vendida a lo largo de la historia.
-            </summary>
-            <param name="item"></param>
         </member>
         <member name="T:Ucu.Poo.Locations.Client.Distance">
             <summary>
@@ -1582,19 +1471,20 @@
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Distance.Found">
             <summary>
-            Indica si se encontraron o no las coordenas o las direcciones de origen y destino.
+            Obtiene o establece un valor que indica si se encontraron o no las coordenas o las direcciones de origen y
+            destino.
             </summary>
             <value>true si se encontró la dirección; false en caso contrario.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Distance.TravelDistance">
             <summary>
-            La distancia entre las coordenadas o las direcciones de origen y destino.
+            Obtiene o establece la distancia entre las coordenadas o las direcciones de origen y destino.
             </summary>
             <value>La distancia en metros.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Distance.TravelDuration">
             <summary>
-            El tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
+            Obtiene o establece el tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
             </summary>
             <value>El tiempo que se demora en minutos.</value>
         </member>
@@ -1606,56 +1496,56 @@
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Found">
             <summary>
-            Indica si se encontró o no la dirección. En ese caso son válidos los demás valores. En caso contrario los
-            demás valores son indeterminados.
+            Obtiene o establece un valor que indica si se encontró o no la dirección. En ese caso son válidos los demás
+            valores. En caso contrario los demás valores son indeterminados.
             </summary>
             <value>true si se encontró la dirección; false en caso contrario.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.AddresLine">
             <summary>
-            La dirección: calle y número, ruta y kilómetro, etc.
+            Obtiene o establece la dirección: calle y número, ruta y kilómetro, etc.
             </summary>
             <value>Por ejemplo, Avenida 8 de Octubre 2738.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.CountryRegion">
             <summary>
-            El país.
+            Obtiene o establece el país.
             </summary>
-            <value>Por ejemplo, Uruguay</value>
+            <value>Por ejemplo, Uruguay.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.FormattedAddress">
             <summary>
-            La dirección completa, incluyendo ciudad, código postal, etc.
+            Obtiene o establece la dirección completa, incluyendo ciudad, código postal, etc.
             </summary>
             <value>Por ejemplo, Avenida 8 de Octubre 2738, Montevideo, 11200, Uruguay.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Locality">
             <summary>
-            La localidad o ciudad.
+            Obtiene o establece la localidad o ciudad.
             </summary>
-            <value>Por ejemplo, Montevideo</value>
+            <value>Por ejemplo, Montevideo.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.PostalCode">
             <summary>
-            El código postal.
+            Obtiene o establece el código postal.
             </summary>
-            <value>Por ejemplo, 11200</value>
+            <value>Por ejemplo, 11200.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Latitude">
             <summary>
-            La latitud de la dirección.
+            Obtiene o establece la latitud de la dirección.
             </summary>
             <value>El valor de la latitud en formato decimal.</value>
         </member>
         <member name="P:Ucu.Poo.Locations.Client.Location.Longitude">
             <summary>
-            La longitud de la dirección.
+            Obtiene o establece la longitud de la dirección.
             </summary>
             <value>El valor de la longitud en formato decimal.</value>
         </member>
         <member name="T:Ucu.Poo.Locations.Client.LocationApiClient">
             <summary>
-            Clase encargada de conseguir la localizacion y distancia.
+            Un cliente de la API de localización.
             </summary>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)">
@@ -1668,6 +1558,12 @@
             <param name="country">El país. Es opcional. El valor predeterminado es Uruguay.</param>
             <returns>Las coordenadas de la dirección.</returns>
         </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocation(System.String,System.String,System.String,System.String)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetLocationAsync(System.String,System.String,System.String,System.String)" />
+            <remarks>
+            Versión sincrónica.
+            </remarks>
+        </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)">
             <summary>
             Obtiene la distancia entre dos coordenadas.
@@ -1676,6 +1572,12 @@
             <param name="to">La coordenada de destino.</param>
             <returns>La distancia entre las dos coordenadas.</returns>
         </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistance(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(Ucu.Poo.Locations.Client.Location,Ucu.Poo.Locations.Client.Location)" />
+            <remarks>
+            Versión sincrónica.
+            </remarks>
+        </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(System.String,System.String)">
             <summary>
             Obtiene la distancia entre dos direcciones.
@@ -1683,6 +1585,12 @@
             <param name="from">La dirección de origen.</param>
             <param name="to">La dirección de destino.</param>
             <returns>La distancia entre las dos direcciones.</returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistance(System.String,System.String)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.GetDistanceAsync(System.String,System.String)" />.
+            <remarks>
+            Versión sincrónica.
+            </remarks>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMapAsync(System.Double,System.Double,System.String,System.Int32)">
             <summary>
@@ -1693,6 +1601,15 @@
             <param name="path">La ruta del archivo donde guardar el mapa. El formato es PNG.</param>
             <param name="zoomLevel">El nivel de zoom del mapa entre 1 y 20. Es opcional. El valor predeterminado es
             15.</param>
+            <returns>
+            Una tarea que representa la operación asincrónica.
+            </returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMap(System.Double,System.Double,System.String,System.Int32)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadMapAsync(System.Double,System.Double,System.String,System.Int32)" />.
+            <remarks>
+            Versión sincrónica.
+            </remarks>
         </member>
         <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRouteAsync(System.Double,System.Double,System.Double,System.Double,System.String)">
             <summary>
@@ -1703,6 +1620,21 @@
             <param name="toLatitude">La latitud de la coordenada de destino.</param>
             <param name="toLongitude">La longitud de la coordenada de destino.</param>
             <param name="path">La ruta del archivo donde guardar el mapa. Es formato es PNG.</param>
+            <returns>
+            Una tarea que representa la operación asincrónica.
+            </returns>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRoute(System.Double,System.Double,System.Double,System.Double,System.String)">
+            <inheritdoc cref="M:Ucu.Poo.Locations.Client.LocationApiClient.DownloadRouteAsync(System.Double,System.Double,System.Double,System.Double,System.String)" />
+            <remarks>
+            Versión sincrónica.
+            </remarks>
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.Dispose">
+            <inheritdoc cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Ucu.Poo.Locations.Client.LocationApiClient.Dispose(System.Boolean)">
+            <inheritdoc cref="T:System.IDisposable" />
         </member>
     </members>
 </doc>

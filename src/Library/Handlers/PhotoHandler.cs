@@ -22,7 +22,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         /// <param name="bot">El bot para enviar la foto.</param>
         public PhotoHandler(TelegramBotClient bot, BaseHandler next)
-            : base(new string[] { "foto" }, next)
+            : base(new string[] { "/foto" }, next)
         {
             this.bot = bot;
         }
