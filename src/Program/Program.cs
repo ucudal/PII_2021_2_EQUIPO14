@@ -95,7 +95,7 @@ namespace Proyecto_Final
         /// <returns></returns>
         private static async Task HandleMessageReceived(IMessage message)
         {
-            //Console.WriteLine($"Program: < {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
+            Console.WriteLine($"Program: < {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
 
             string response = string.Empty;
 

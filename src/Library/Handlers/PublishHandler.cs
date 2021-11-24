@@ -1,6 +1,6 @@
 using System.Linq;
 using System;
-using System.Collections.Generic;
+using Ucu.Poo.Locations.Client;
 
 namespace Proyecto_Final
 {
@@ -120,10 +120,18 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_PUBLISH_PRODUCTLOCATION")
                 {
-                    response = $"La ubicación del producto es: {message.Text}.\n\n¿En qué moneda desea registrar el valor? \nIngrese \"1\" para dolares estadounidenses.\nIngrese \"2\" para pesos uruguayos.";
-                    Singleton<Temp>.Instance.AddDataById(message.UserId,"ubicacionProducto",message.Text);
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE");
-                    return true;
+                    LocationApiClient client = new LocationApiClient();
+                    if (client.GetLocation(message.Text).Found)
+                    {
+                        response = $"La ubicación del producto es: {message.Text}.\n\n¿En qué moneda desea registrar el valor? \nIngrese \"1\" para dolares estadounidenses.\nIngrese \"2\" para pesos uruguayos.";
+                        Singleton<Temp>.Instance.AddDataById(message.UserId,"ubicacionProducto",message.Text);
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE");
+                        return true;  
+                    }
+                    else
+                    {
+                        response = $"Disculpe, no encontramos la ubicación {message.Text}, por favor, escriba la ubicación de nuevo.";
+                    }
                 }
                 else if (check == "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE")
                 {
@@ -149,17 +157,31 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_PUBLISH_PRODUCTVALUE")
                 {
-                    response = $"El valor unitario del producto es: {message.Text}.\n\nIngrese la cantidad del producto:";
-                    Singleton<Temp>.Instance.AddDataById(message.UserId,"valorUnitarioProducto",message.Text);
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTQUANTITY");
-                    return true;
+                    if (int.TryParse(message.Text, out int result))
+                    {
+                        response = $"El valor unitario del producto es: {message.Text}.\n\nIngrese la cantidad del producto:";
+                        Singleton<Temp>.Instance.AddDataById(message.UserId,"valorUnitarioProducto",message.Text);
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTQUANTITY");
+                        return true;
+                    }
+                    else
+                    {
+                        response = $"El valor que introdujo {message.Text} no es un número, por favor, vuelva a escribir el número.";
+                    }
                 }
                 else if (check == "STATUS_PUBLISH_PRODUCTQUANTITY")
                 {
-                    response = $"La cantidad del producto es: {message.Text}.\n\nIngrese la habilitacion requerida para obtener el producto:";
-                    Singleton<Temp>.Instance.AddDataById(message.UserId,"cantidadProducto",message.Text);
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_HABILITACION");
-                    return true;
+                    if (int.TryParse(message.Text, out int result))
+                    {
+                        response = $"La cantidad del producto es: {message.Text}.\n\nIngrese la habilitacion requerida para obtener el producto:";
+                        Singleton<Temp>.Instance.AddDataById(message.UserId,"cantidadProducto",message.Text);
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_HABILITACION");
+                        return true;
+                    }
+                    else
+                    {
+                        response = $"El valor que introdujo {message.Text} no es un número, por favor, vuelva a escribir el número.";
+                    }
                 }
                 else if (check == "STATUS_PUBLISH_HABILITACION")
                 {
@@ -172,9 +194,9 @@ namespace Proyecto_Final
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreOferta"),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "recurrenciaOferta"),
+                        Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreProducto"),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "descripcionProducto"),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ubicacionProducto"),
-                        Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
                         Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorUnitarioProducto")),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorMonedaProducto"),
                         Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),

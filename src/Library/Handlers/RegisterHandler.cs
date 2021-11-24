@@ -1,7 +1,6 @@
 using System.Linq;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Ucu.Poo.Locations.Client;
 using System.Text;
 
 namespace Proyecto_Final
@@ -125,15 +124,22 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_UBICACION")
                 {
-                    response = $"Su ubicacion es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
+                    LocationApiClient client = new LocationApiClient();
+                    if (client.GetLocation(message.Text).Found)
+                    {
+                        response = $"La ubicación del producto es: {message.Text}.\n\nREGISTRO COMPLETO!!!.\n\nAhora estas registrado como empresa. ";
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmpresa", message.Text);
+                        Singleton<UserCreator>.Instance.CrearUserEmpresa(idToUse);
+                        Singleton<Temp>.Instance.WipeDataById(idToUse);
 
-                    Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmpresa", message.Text);
-                    Singleton<UserCreator>.Instance.CrearUserEmpresa(idToUse);
-                    Singleton<Temp>.Instance.WipeDataById(idToUse);
-
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
-
-                    return true;
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_IDLE");
+                        return true;  
+                    }
+                    else
+                    {
+                        response = $"Disculpe, no encontramos la ubicación {message.Text}, por favor, escriba la ubicación de nuevo.";
+                        return true;
+                    }
                 }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR")
                 {
@@ -162,16 +168,25 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR_UBICACION")
                 {
-                    response = $"Su ubicacion es: {message.Text}.\n\nRubros validos:\n";
+                    LocationApiClient client = new LocationApiClient();
+                    if (client.GetLocation(message.Text).Found)
+                    {
+                        response = $"La ubicación del producto es: {message.Text}.\n\nRubros validos:\n";
 
-                    response += generarListaRubros() + "\n\nIngrese su rubro:";
+                        response += generarListaRubros() + "\n\nIngrese su rubro:";
                     
-                    Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmprendedor", message.Text);
+                        Singleton<Temp>.Instance.AddDataById(idToUse, "ubicacionEmprendedor", message.Text);
 
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(idToUse, "STATUS_REGISTER_EMPRENDEDOR_RUBRO");
 
-                    return true;
-                }
+                        return true;
+                    }
+                    else
+                    {
+                        response = $"Disculpe, no encontramos la ubicación {message.Text}, por favor, escriba la ubicación de nuevo.";
+                        return true;
+                    }
+                }       
                 else if (check == "STATUS_REGISTER_EMPRENDEDOR_RUBRO")
                 {
                     if (Singleton<Datos>.Instance.CheckRubros(message.Text))
