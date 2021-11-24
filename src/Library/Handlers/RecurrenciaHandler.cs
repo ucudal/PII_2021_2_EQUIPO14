@@ -29,7 +29,7 @@ namespace Proyecto_Final
         /// <param name="next">El próximo "handler".</param>
         public RecurrenciaHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"recurrencia"};
+            this.Keywords = new string[] {"/recurrencia"};
             this.AllowedStatus = new string[] {"STATUS_RECURRENCIA_RESPONSE", 
                                                 "STATUS_PUNTUAL_RESPONSE"};
         }
@@ -48,6 +48,7 @@ namespace Proyecto_Final
                 if (check == "STATUS_IDLE")
                 {
                    response = "¿Quieres buscar las ofertas recurrentes? Y/N";
+                   Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RECURRENCIA_RESPONSE");
                    return true;
                 }
                 else if(check == "STATUS_RECURRENCIA_RESPONSE")
@@ -64,11 +65,13 @@ namespace Proyecto_Final
                         }
                         response = "Listas de ofertas recurrentes:\n";
                         response += str;
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                     else
                     {
                         response = "¿Queres buscar las ofertas puntuales? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUNTUAL_RESPONSE");
                         return true;
                     }
                 }
@@ -86,11 +89,13 @@ namespace Proyecto_Final
                         }
                         response = "Listas de ofertas puntuales:\n";
                         response += str2;
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                     else
                     {
                         response = "Busqueda cancelada";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                 }
