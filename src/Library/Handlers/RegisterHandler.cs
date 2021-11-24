@@ -6,7 +6,7 @@ using System.Text;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "registro".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/registro".
     /// </summary>
     public class RegisterHandler : BaseHandler
     {
@@ -18,7 +18,7 @@ namespace Proyecto_Final
         /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="RegisterHandler"/>. Esta clase procesa el mensaje "registro".
+        /// Inicializa una nueva instancia de la clase <see cref="RegisterHandler"/>. Esta clase procesa el mensaje "/registro".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public RegisterHandler(BaseHandler next) : base(next)
@@ -39,7 +39,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "registro" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/registro" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>

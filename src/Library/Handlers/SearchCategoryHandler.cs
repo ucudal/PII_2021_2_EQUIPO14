@@ -12,13 +12,12 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_categoria".
     /// </summary>
 
     public class SearchCategoryHandler: BaseHandler
     {
         private string[] allowedStatus;
-        
         /// <summary>
         /// Otorga un array con los status validos.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="SearchCategoryHandler"/>. Esta clase procesa el mensaje "keyword".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchCategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
@@ -36,14 +35,11 @@ namespace Proyecto_Final
             this.Keywords = new string [] {"/buscar_categoria"};
             this.AllowedStatus = new string [] {"STATUS_SEARCH_CATEGORY_RESPONSE",
                                                 "STATUS_SEARCH_CATRGORY_ACCEPTED",
-                                
-                                                
-                                                
                                                 };
         }
 
         /// <summary>
-        /// Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/buscar_categoria" y retorna true; retorna false en caso contrario.
         /// </summary>
 
         /// <param name="message">El mensaje a procesar.</param>
@@ -54,8 +50,10 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            UserEmprendedor usercheck = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+            if (Singleton<Datos>.Instance.ListaUsuarioEmprendedor().Contains(usercheck))
             {
+                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 if (check == "STATUS_IDLE")
                 {
                     response = "¿Quieres filtrar los materiales por categoria? Y/N";
@@ -66,7 +64,7 @@ namespace Proyecto_Final
 
                 else if (check == "STATUS_SEARCH_CATEGORY_RESPONSE")
                 {
-                    if(message.Text.ToUpper() == "Y")
+                    if (message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese la categoria: ";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATRGORY_ACCEPTED");
@@ -95,25 +93,17 @@ namespace Proyecto_Final
                     UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
                     response = $"En base a la categoria {message.Text}, hemos encontrado las siguientes ofertas para tí:\n\n{user.VerOfertasTipo(message.Text)}";
                     return true; 
-                } 
+                }
+                
+                response = string.Empty;
+                return false;
             }
-
-
-
-
-            response = string.Empty;
-            return false;
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                return false;
+            }
         }
-
-
-
-
-
-
-
-
-
-
     }
 
 

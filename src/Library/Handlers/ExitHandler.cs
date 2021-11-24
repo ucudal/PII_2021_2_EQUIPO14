@@ -3,12 +3,12 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "salir".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/salir".
     /// </summary>
     public class ExitHandler : BaseHandler
     {
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="ExitHandler"/>. Esta clase procesa el mensaje "salir".
+        /// Inicializa una nueva instancia de la clase <see cref="ExitHandler"/>. Esta clase procesa el mensaje "/salir".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public ExitHandler(BaseHandler next) : base(next)
@@ -17,7 +17,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "salir" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/salir" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
