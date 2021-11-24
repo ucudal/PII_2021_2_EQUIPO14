@@ -96,7 +96,7 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_REGISTER_EMPRESA_NAME")
                 {
-                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\n\nIngrese su rubro:";
+                    response = $"Su nombre es: {message.Text}.\n\nRubros validos:\n" + generarListaRubros() + "\nIngrese su rubro:";
 
                     Singleton<Temp>.Instance.AddDataById(idToUse, "nombreEmpresa", message.Text);
 
