@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "2051203726",
+    "Nombre": "Rodrigo",
+    "Emprendedor": {
+      "Ubicacion": "Ubicacion 123",
+      "Rubro": {
+        "Rubros": "Rubro-2"
+      },
+      "Habilitacion": {
+        "Habilitacion": "Hab-1"
+      },
+      "Especializaciones": [],
+      "Compras": []
+    }
+  },
+  {
+    "Id": "2063183853",
+    "Nombre": "Lionel Messi",
+    "Emprendedor": {
+      "Ubicacion": "Gral. Urquiza 2784",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Habilitacion": {
+        "Habilitacion": "Hab-1"
+      },
+      "Especializaciones": [],
+      "Compras": []
+    }
+  }
+]

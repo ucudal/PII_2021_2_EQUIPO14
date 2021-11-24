@@ -55,6 +55,7 @@ namespace Proyecto_Final
             );
 
             Console.WriteLine($"Program: Bot is up!");
+            Singleton<Datos>.Instance.GetData();
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();

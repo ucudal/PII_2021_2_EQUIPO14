@@ -65,12 +65,6 @@
             <param name="id"></param>
             <returns>Retorna un IUser.</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.ListaUsuariosRegistrados">
-            <summary>
-            Lista de usuarios registrados mediante el handler "RegisterHandler"
-            </summary>
-            <returns>Lista con los usuarios registrados.</returns>
-        </member>
         <member name="M:Proyecto_Final.Datos.IsRegistered(System.String)">
             <summary>
             Verifica si la id ya esta registrada.
@@ -134,35 +128,11 @@
             </summary>
             <returns>Lista con UserEmpresa</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
-            <summary>
-            Agrega un UserEmpresa a la aplicacion.
-            </summary>
-            <param name="user"></param>
-        </member>
         <member name="M:Proyecto_Final.Datos.ListaUsuarioEmprendedor">
             <summary>
             Otorga una lista con todos los UserEmprendedor registrados.
             </summary>
             <returns>Lista con UserEmprendedor</returns>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarUsuarioEmprendedor(Proyecto_Final.UserEmprendedor)">
-            <summary>
-            Agrega un UserEmprendedor a la aplicacion.
-            </summary>
-            <param name="user"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.ListaEmpresa">
-            <summary>
-            Lista con todas las Empresa registradas.
-            </summary>
-            <returns>Lista con Empresa</returns>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarEmpresa(Proyecto_Final.Empresa)">
-            <summary>
-            Agrega una empresa a la aplicacion.
-            </summary>
-            <param name="user"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaHabilitaciones">
             <summary>
@@ -182,47 +152,11 @@
              </summary>
              <returns>Retorna una lista "listaRubros" de la clase "Datos".</returns>//  
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarHabilitacion(Proyecto_Final.Habilitaciones)">
-            <summary>
-            Agrega una habilitación a la lista de habilitaciones permitidas por el programa.
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarHabilitacion(Proyecto_Final.Habilitaciones)">
-            <summary>
-            Elimina una habilitación de la lista de habilitaciones permitidas por el programa.
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarRubro(Proyecto_Final.Rubro)">
-            <summary>
-            Agrega un rubro a la lista de rubros permitidos por el programa.
-            </summary>
-            <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarRubro(Proyecto_Final.Rubro)">
-            <summary>
-            Elimina un rubro de la lista de rubros permitidos por el programa.
-            </summary>
-            <param name="rubro"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.AgregarTipo(Proyecto_Final.TipoProducto)">
-            <summary>
-            Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.
-            </summary>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarTipo(Proyecto_Final.TipoProducto)">
-            <summary>
-            Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.
-            </summary>
-            <param name="tipo"></param>
-        </member>
-        <member name="M:Proyecto_Final.Datos.EliminarOfertas(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.Datos.EliminarOfertas(System.String)">
             <summary>
             Elimina una oferta de la lista de ofertas.
             </summary>
-            <param name="oferta"></param>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.CheckHabilitaciones(System.String)">
             <summary>
@@ -282,6 +216,11 @@
             Otorga una lista de strings que representan las compras del Emprendedor.
             </summary>
             <value></value>
+        </member>
+        <member name="M:Proyecto_Final.Emprendedor.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Emprendedor.#ctor(System.String,Proyecto_Final.Rubro,Proyecto_Final.Habilitaciones)">
             <summary>
@@ -361,6 +300,11 @@
             </summary>
             <value>Lista con ofertas publicadas por la empresa.</value>
         </member>
+        <member name="M:Proyecto_Final.Empresa.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Empresa.#ctor(System.String,System.String,Proyecto_Final.Rubro)">
             <summary>
             Inicializa la clase Empresa.
@@ -404,6 +348,11 @@
             Otorga el nombre de la Habilitación.
             </summary>
             <value>Nombre de la Habilitación.</value>
+        </member>
+        <member name="M:Proyecto_Final.Habilitaciones.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Habilitaciones.#ctor(System.String)">
             <summary>
@@ -483,6 +432,11 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Proyecto_Final.Oferta.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Oferta.#ctor(System.String,Proyecto_Final.Producto,System.Boolean,Proyecto_Final.Habilitaciones)">
             <summary>
             Inicializa la clase Oferta.
@@ -547,6 +501,11 @@
             </summary>
             <value>Objeto del tipo "TipoProducto".</value>
         </member>
+        <member name="M:Proyecto_Final.Producto.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.Producto.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean,System.Int32,Proyecto_Final.TipoProducto)">
             <summary>
             Inicializa la clase Producto.
@@ -576,6 +535,11 @@
             Retorna el nombre del rubro de una empresa.
             </summary>
             <value>Nombre del rubro de la empresa.</value>
+        </member>
+        <member name="M:Proyecto_Final.Rubro.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.Rubro.#ctor(System.String)">
             <summary>
@@ -675,6 +639,11 @@
             </summary>
             <value>Nombre del tipo de producto.</value>
         </member>
+        <member name="M:Proyecto_Final.TipoProducto.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.TipoProducto.#ctor(System.String)">
             <summary>
             Inicializa la clase TipoProducto.
@@ -763,6 +732,11 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Proyecto_Final.UserEmprendedor.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
+        </member>
         <member name="M:Proyecto_Final.UserEmprendedor.#ctor(System.String,System.String)">
             <summary>
             Inicializa la clase UserEmprendedor.
@@ -846,6 +820,11 @@
             Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
             </summary>
             <value><c>true/false</c></value>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.#ctor">
+            <summary>
+            Constructor vacio utilizado para la serializacion.
+            </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.#ctor(System.String,System.String)">
             <summary>

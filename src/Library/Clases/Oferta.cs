@@ -17,7 +17,7 @@ namespace Proyecto_Final
         /// Otorga el ID de la Oferta.
         /// </summary>
         /// <returns>Retorna el ID.</returns>
-        public string Id { get { return this.Id.ToString(); } }
+        public string Id { get; set; }
 
         /// <summary>
         /// Otorga el nombre de la Oferta
@@ -67,6 +67,11 @@ namespace Proyecto_Final
         public UserEmprendedor Comprador { get { return comprador; } set { this.comprador = value;} }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Oferta() {}
+
+        /// <summary>
         /// Inicializa la clase Oferta.
         /// </summary>
         /// <param name="nombre"></param>
@@ -80,7 +85,7 @@ namespace Proyecto_Final
             this.IsRecurrente = isRecurrente;
             this.HabilitacionesOferta = habilitacionesOferta;
 
-            this.id = IdGenerator.GenerateNumericId();
+            this.Id = IdGenerator.GenerateNumericId();
         }
 
         /// <summary>
