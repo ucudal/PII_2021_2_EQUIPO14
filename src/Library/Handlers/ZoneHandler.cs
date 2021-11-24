@@ -46,36 +46,45 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            UserEmprendedor usercheck = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+            if (Singleton<Datos>.Instance.ListaUsuarioEmprendedor().Contains(usercheck))
             {
-                if (check == "STATUS_IDLE")
+                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
-                    response = "¿Quiere realizar una búsqueda de ofertas por zona? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
-                    return true;
-                }
-
-                else if (check == "STATUS_ZONE_RESPONSE")
-                {
-                    if(message.Text.ToUpper() == "Y")
+                    if (check == "STATUS_IDLE")
                     {
-                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        response = user.VerOfertasUbicacion();
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
+                        response = "¿Quiere realizar una búsqueda de ofertas por zona? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                         return true;
                     }
-                }
-                else
-                {
-                    response = "Usted ha cancelado la busqueda por zona";
+
+                    else if (check == "STATUS_ZONE_RESPONSE")
+                    {
+                        if(message.Text.ToUpper() == "Y")
+                        {
+                            UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            response = user.VerOfertasUbicacion();
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        response = "Usted ha cancelado la busqueda por zona";
+                        
+                        check = "STATUS_IDLE";
+                        return true;
+                    }
                     
-                    check = "STATUS_IDLE";
-                    return true;
                 }
-                
+                response = string.Empty;
+                return false;
             }
-            response = string.Empty;
-            return false;
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                return false;
+            }
         }
 
 

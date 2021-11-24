@@ -12,16 +12,20 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "PeriodOfTime".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/ventas".
     /// </summary>
 
     public class PeriodOfTimeHandler: BaseHandler
     {
         private string[] allowedStatus;
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="CategoryHandler"/>. Esta clase procesa el mensaje "PeriodOfTime".
+        /// Inicializa una nueva instancia de la clase <see cref="CategoryHandler"/>. Esta clase procesa el mensaje "/ventas".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
@@ -33,7 +37,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "PeriodOfTime" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/ventas" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -42,39 +46,48 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            UserEmpresa usercheck = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+            if (Singleton<Datos>.Instance.ListaUsuarioEmpresa().Contains(usercheck))
             {
-                if (check == "STATUS_IDLE")
+                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
-                    response = "¿Quieres observar los materiales o residuos entregados en un periodo de tiempo? Y/N" ;
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RESPONSE");
-                    return true;
-                }
-
-                else if (check == "STATUS_PERIODTIME_RESPONSE")
-                {
-                    if(message.Text.ToUpper() == "Y")
+                    if (check == "STATUS_IDLE")
                     {
-                        response = "Ingrese el periodo de tiempo: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RECIVED");
+                        response = "¿Quieres observar los materiales o residuos entregados en un periodo de tiempo? Y/N" ;
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RESPONSE");
                         return true;
                     }
-                    else
-                    {
-                        response = "Usted no ingreso un periodo de tiempo, busqueda anulada";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                        return true;
-                    }
-                }
 
-                else if (check == "STATUS_PERIODTIME_RECIVED")
-                {
-                    //Metodo para filtrar materiales por periodo de tiempo
+                    else if (check == "STATUS_PERIODTIME_RESPONSE")
+                    {
+                        if(message.Text.ToUpper() == "Y")
+                        {
+                            response = "Ingrese el periodo de tiempo: ";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RECIVED");
+                            return true;
+                        }
+                        else
+                        {
+                            response = "Usted no ingreso un periodo de tiempo, busqueda anulada";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                            return true;
+                        }
+                    }
+
+                    else if (check == "STATUS_PERIODTIME_RECIVED")
+                    {
+                        //Metodo para filtrar materiales por periodo de tiempo
+                    }
+                    
                 }
-                
+                response = string.Empty;
+                return false;
             }
-            response = string.Empty;
-            return false;
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                return false;
+            }
         }
 
 

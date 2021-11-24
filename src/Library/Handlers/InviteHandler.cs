@@ -11,7 +11,7 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/invitar".
     /// </summary>
     public class InviteHandler : BaseHandler
     {
@@ -24,7 +24,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="InviteHandler"/>. Esta clase procesa el mensaje "invitar".
+        /// Inicializa una nueva instancia de la clase <see cref="InviteHandler"/>. Esta clase procesa el mensaje "/invitar".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public InviteHandler(BaseHandler next) : base(next)
@@ -34,7 +34,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "invitar" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/invitar" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>

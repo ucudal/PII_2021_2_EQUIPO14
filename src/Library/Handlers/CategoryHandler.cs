@@ -12,16 +12,20 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_categoria".
     /// </summary>
 
     public class CategoryHandler: BaseHandler
     {
         private string[] allowedStatus;
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="CategoryHandler"/>. Esta clase procesa el mensaje "keyword".
+        /// Inicializa una nueva instancia de la clase <see cref="CategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
@@ -33,7 +37,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/buscar_categoria" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -42,40 +46,49 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            UserEmprendedor usercheck = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+            if (Singleton<Datos>.Instance.ListaUsuarioEmprendedor().Contains(usercheck))
             {
-                if (check == "STATUS_IDLE")
+                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
-                    response = "¿Quieres filtrar los materiales por categoria?";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_CATEGORY_RESPONSE");
-                    return true;
-                }
-
-                else if (check == "STATUS_CATEGORY_RESPONSE")
-                {
-                    if(message.Text.ToUpper() == "Y")
+                    if (check == "STATUS_IDLE")
                     {
-                        response = "Ingrese la categoria: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_CATRGORY_RECIVED");
+                        response = "¿Quieres filtrar los materiales por categoria?";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_CATEGORY_RESPONSE");
                         return true;
                     }
-                }
 
-                else if (check == "STATUS_CATEGORY_RECIVED")
-                {
+                    else if (check == "STATUS_CATEGORY_RESPONSE")
+                    {
+                        if(message.Text.ToUpper() == "Y")
+                        {
+                            response = "Ingrese la categoria: ";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_CATRGORY_RECIVED");
+                            return true;
+                        }
+                    }
+
+                    else if (check == "STATUS_CATEGORY_RECIVED")
+                    {
+                        
+                    }
+                    else
+                    {
+                        response = "Usted no ingreso una categoria";
+                        
+                        check = "STATUS_IDLE";
+                        return true;
+                    }
                     
                 }
-                else
-                {
-                    response = "Usted no ingreso una categoria";
-                    
-                    check = "STATUS_IDLE";
-                    return true;
-                }
-                
+                response = string.Empty;
+                return false;
             }
-            response = string.Empty;
-            return false;
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                return false;
+            }
         }
 
 
