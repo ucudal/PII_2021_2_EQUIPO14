@@ -16,7 +16,6 @@ namespace Proyecto_Final
     {
         private bool isInvited = false;
         
-        
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
@@ -39,11 +38,12 @@ namespace Proyecto_Final
         /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
         /// </summary>
         /// <value><c>true/false</c></value>
-        public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+        public bool IsInvited { get { return isInvited; }  set { this.isInvited = value;} }
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public UserEmpresa () {}
 
         /// <summary>
@@ -78,16 +78,16 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            //Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
-        /// <param name="datosMensaje"></param>
-        public void CrearMsjClave((string, string) datosMensaje) 
+        /// <param name="oferId"></param>
+        /// <param name="palabra"></param>
+        public void CrearMsjClave(string oferId, string palabra) 
         {
-            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2)); // (Delegacion)
+            this.Empresa.AgregarMsjClave(oferId, palabra); // (Delegacion)
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Proyecto_Final
             Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Singleton<Datos>.Instance.AgregarOferta(newOferta);
+            Singleton<Datos>.Instance.UpdateOfersData();
 
             Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }

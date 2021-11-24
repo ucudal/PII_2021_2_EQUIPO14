@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Proyecto_Final
@@ -28,12 +29,12 @@ namespace Proyecto_Final
         /// Otorga los datos existentes en el objeto Emprendedor <see cref="Emprendedor"/>.
         /// </summary>
         /// <value></value>
-        
         public Emprendedor Emprendedor { get; set; }
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public UserEmprendedor() {}
 
         /// <summary>

@@ -1,17 +1,1 @@
-[
-  {
-    "Id": "1695009215",
-    "Nombre": "Yogui",
-    "Emprendedor": {
-      "Ubicacion": "Parque",
-      "Rubro": {
-        "Rubros": "Rubro-2"
-      },
-      "Habilitacion": {
-        "Habilitacion": "Hab-2"
-      },
-      "Especializaciones": [],
-      "Compras": []
-    }
-  }
-]
+[]

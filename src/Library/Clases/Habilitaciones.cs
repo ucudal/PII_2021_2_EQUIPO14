@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
@@ -14,11 +15,12 @@ namespace Proyecto_Final
         /// Otorga el nombre de la Habilitación.
         /// </summary>
         /// <value>Nombre de la Habilitación.</value>
-        public string Habilitacion { get;}
+        public string Habilitacion { get; set;}
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public Habilitaciones() {}
 
         /// <summary>

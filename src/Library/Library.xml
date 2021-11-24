@@ -188,11 +188,10 @@
             </summary>
             <returns>Lista con Oferta.</returns>
         </member>
-        <member name="M:Proyecto_Final.Datos.AgregarOferta(Proyecto_Final.Oferta)">
+        <member name="M:Proyecto_Final.Datos.UpdateOfersData">
             <summary>
-            Agrega una oferta a la lista de publicaciones.
+            Actualiza la informacion de las publicaciones.
             </summary>
-            <param name="oferta"></param>
         </member>
         <member name="M:Proyecto_Final.Datos.ListaUsuarioEmpresa">
             <summary>
@@ -431,11 +430,12 @@
             </summary>
             <param name="rubro"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.ValueTuple{System.String,System.String})">
+        <member name="M:Proyecto_Final.Empresa.AgregarMsjClave(System.String,System.String)">
             <summary>
             Agrega una palabra clave a una publicacion determinada.
             </summary>
-            <param name="datosMensaje"></param>
+            <param name="palabra"></param>
+            <param name="oferId"></param>
         </member>
         <member name="M:Proyecto_Final.Empresa.AgregarEspecializacion(System.String)">
             <summary>
@@ -959,11 +959,12 @@
             <param name="ubicacion"></param>
             <param name="rubro"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.ValueTuple{System.String,System.String})">
+        <member name="M:Proyecto_Final.UserEmpresa.CrearMsjClave(System.String,System.String)">
             <summary>
             Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
             </summary>
-            <param name="datosMensaje"></param>
+            <param name="oferId"></param>
+            <param name="palabra"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.CrearOferta(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.String)">
             <summary>
