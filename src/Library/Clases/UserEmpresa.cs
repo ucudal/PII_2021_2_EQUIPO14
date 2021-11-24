@@ -78,7 +78,7 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
+            //Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>

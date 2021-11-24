@@ -30,7 +30,6 @@ namespace Proyecto_Final
         public static void Main()
         {
             Bot = new TelegramBotClient(Token);
-            Singleton<Datos>.Instance.GetData();
 
             firstHandler =
                 new StartHandler(
@@ -55,6 +54,7 @@ namespace Proyecto_Final
             );
 
             Console.WriteLine($"Program: Bot is up!");
+            Singleton<Datos>.Instance.GetData();
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();
