@@ -100,18 +100,32 @@ namespace Proyecto_Final
             return null;
         }
 
+        /// <summary>
+        /// Registra un UserEmpresa y lo almacena.
+        /// </summary>
+        /// <param name="user"></param>
         public void RegistrarUsuarioEmpresa(UserEmpresa user)
         {
             this.listaUsuarioEmpresa.Add(user);
             this.UpdateEmpresasData();
         }
 
+        /// <summary>
+        /// Registra un UserEmprendedor y lo almacena.
+        /// </summary>
+        /// <param name="user"></param>
         public void RegistrarUsuarioEmprendedor(UserEmprendedor user)
         {
             this.listaUsuarioEmprendedor.Add(user);
             this.UpdateEmprendedoresData();
         }
 
+        /// <summary>
+        /// Verifica si una oferta es valida (no tiene comprador y existe).
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="oferId"></param>
+        /// <returns></returns>
         public bool IsOfferValid(string userId, string oferId)
         {
             foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
@@ -337,6 +351,9 @@ namespace Proyecto_Final
             return false; 
         }
 
+        /// <summary>
+        /// Carga los token del json.
+        /// </summary>
         public void LoadTokensData()
         {
             if (!File.Exists(@"tokens.json"))
@@ -352,12 +369,18 @@ namespace Proyecto_Final
             Console.WriteLine($"[DATOS] : {this.listaTokens.Count} Tokens cargados.");
         }
 
+        /// <summary>
+        /// Actualiza los tokens y los carga al json.
+        /// </summary>
         public void UpdateTokensData()
         {
             string json = JsonSerializer.Serialize(this.listaTokens);
             File.WriteAllText(@"tokens.json", json);
         }
 
+        /// <summary>
+        /// Carga los UserEmpresa registrados del json.
+        /// </summary>
         public void LoadRegisteredEmpresas()
         {
             if (!File.Exists(@"empresas.json"))
@@ -373,6 +396,9 @@ namespace Proyecto_Final
             Console.WriteLine($"[DATOS] : {this.listaUsuarioEmpresa.Count} Empresas cargadas.");
         }
 
+        /// <summary>
+        /// Actualiza los datos de los UserEmpresa y los carga al json.
+        /// </summary>
         public void UpdateEmpresasData()
         {
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
@@ -380,6 +406,9 @@ namespace Proyecto_Final
             File.WriteAllText(@"empresas.json", json);
         }
 
+        /// <summary>
+        /// Carga los datos de los UserEmprendedor registrados.
+        /// </summary>
         public void LoadRegisteredEmprendedores()
         {
             if (!File.Exists(@"emprendedores.json"))
@@ -395,6 +424,9 @@ namespace Proyecto_Final
             Console.WriteLine($"[DATOS] : {this.listaUsuarioEmprendedor.Count} Emprendedores cargados.");
         }
 
+        /// <summary>
+        /// Actualiza los datos de los UserEmprendedor y los carga al json.
+        /// </summary>
         public void UpdateEmprendedoresData()
         {
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
@@ -402,6 +434,9 @@ namespace Proyecto_Final
             File.WriteAllText(@"emprendedores.json", json);
         }
 
+        /// <summary>
+        /// Carga las publicaciones de los UserEmpresa almacenados en el archivo json.
+        /// </summary>
         public void LoadPublications()
         {
             int cont = 0;
