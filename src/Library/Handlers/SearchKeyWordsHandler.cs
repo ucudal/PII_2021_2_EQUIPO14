@@ -65,7 +65,7 @@ namespace Proyecto_Final
                     }
                     else
                     {
-                        response = $"No entendí, por favor, responda \"Y\" para realizar la búsqueda o escriba \"N\" cancelar la búsqueda.";
+                        response = $"No entendí, por favor, responda \"Y\" para realizar la búsqueda o escriba \"N\" para cancelar la búsqueda.";
                         return true;
                     }
                 }
