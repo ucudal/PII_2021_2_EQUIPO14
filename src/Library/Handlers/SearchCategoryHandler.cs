@@ -25,7 +25,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="CategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchCategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
@@ -35,9 +35,6 @@ namespace Proyecto_Final
             this.Keywords = new string [] {"/buscar_categoria"};
             this.AllowedStatus = new string [] {"STATUS_SEARCH_CATEGORY_RESPONSE",
                                                 "STATUS_SEARCH_CATRGORY_ACCEPTED",
-                                
-                                                
-                                                
                                                 };
         }
 
@@ -67,7 +64,7 @@ namespace Proyecto_Final
 
                 else if (check == "STATUS_SEARCH_CATEGORY_RESPONSE")
                 {
-                    if (check == "STATUS_IDLE")
+                    if (message.Text.ToUpper() == "Y")
                     {
                         response = "Ingrese la categoria: ";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATRGORY_ACCEPTED");

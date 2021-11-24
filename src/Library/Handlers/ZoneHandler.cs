@@ -12,7 +12,7 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
     /// </summary>
 
     public class ZoneHandler: BaseHandler
@@ -26,7 +26,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
+        /// Inicializa una nueva instancia de la clase <see cref="ZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 

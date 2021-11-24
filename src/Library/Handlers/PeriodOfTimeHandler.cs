@@ -25,7 +25,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="CategoryHandler"/>. Esta clase procesa el mensaje "/ventas".
+        /// Inicializa una nueva instancia de la clase <see cref="PeriodOfTimeHandler"/>. Esta clase procesa el mensaje "/ventas".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 

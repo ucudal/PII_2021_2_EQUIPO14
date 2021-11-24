@@ -25,7 +25,7 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="KeyWordsHandler"/>. Esta clase procesa el mensaje "/materiales_consumidos".
+        /// Inicializa una nueva instancia de la clase <see cref="MaterialsConsumedHandler"/>. Esta clase procesa el mensaje "/materiales_consumidos".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
