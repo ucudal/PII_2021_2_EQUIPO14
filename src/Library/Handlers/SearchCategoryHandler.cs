@@ -30,11 +30,13 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
+
         public SearchCategoryHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string [] {"/buscar_categoria"};
             this.AllowedStatus = new string [] {"STATUS_SEARCH_CATEGORY_RESPONSE",
-                                                "STATUS_CATEGORY_RECIVED"
+                                                "STATUS_SEARCH_CATRGORY_ACCEPTED",
+                                
                                                 
                                                 
                                                 };
@@ -95,6 +97,7 @@ namespace Proyecto_Final
                     return true; 
                 } 
             }
+
 
 
 
