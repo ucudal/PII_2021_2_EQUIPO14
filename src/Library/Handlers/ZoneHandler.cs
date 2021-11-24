@@ -12,16 +12,21 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
     /// </summary>
 
     public class ZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
+        
+        /// <summary>
+        /// Otorga un array con los status validos.
+        /// </summary>
+        /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
+        /// Inicializa una nueva instancia de la clase <see cref="ZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
@@ -33,7 +38,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "zone" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -42,40 +47,45 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            UserEmprendedor usercheck = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+            if (Singleton<Datos>.Instance.ListaUsuarioEmprendedor().Contains(usercheck))
             {
-                if (check == "STATUS_IDLE")
+                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
-                    response = "¿Quiere filtrar los materiales por zona? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
-                    return true;
-                }
-
-                else if (check == "STATUS_ZONE_RESPONSE")
-                {
-                    if(message.Text.ToUpper() == "Y")
+                    if (check == "STATUS_IDLE")
                     {
-                        response = "Ingrese la zona: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
+                        response = "¿Quiere realizar una búsqueda de ofertas por zona? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                         return true;
                     }
-                }
 
-                else if (check == "STATUS_ZONE_RECEIVED")
-                {
-                    //Metodo de filtrar por zona
-                }
-                else
-                {
-                    response = "Usted no ingreso una zona";
+                    else if (check == "STATUS_ZONE_RESPONSE")
+                    {
+                        if(message.Text.ToUpper() == "Y")
+                        {
+                            UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            response = user.VerOfertasUbicacion();
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        response = "Usted ha cancelado la busqueda por zona";
+                        
+                        check = "STATUS_IDLE";
+                        return true;
+                    }
                     
-                    check = "STATUS_IDLE";
-                    return true;
                 }
-                
+                response = string.Empty;
+                return false;
             }
-            response = string.Empty;
-            return false;
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                return false;
+            }
         }
 
 

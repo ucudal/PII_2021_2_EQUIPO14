@@ -101,7 +101,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Registra un UserEmpresa y lo almacena.
+        /// Agrega un usuario Empresa a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
         /// </summary>
         /// <param name="user"></param>
         public void RegistrarUsuarioEmpresa(UserEmpresa user)
@@ -111,7 +111,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Registra un UserEmprendedor y lo almacena.
+        /// Agrega un usuario Emprendedor a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
         /// </summary>
         /// <param name="user"></param>
         public void RegistrarUsuarioEmprendedor(UserEmprendedor user)
@@ -352,7 +352,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Carga los token del json.
+        /// Carga los datos de la lista de Tokens desde el archivo ".json".
         /// </summary>
         public void LoadTokensData()
         {
@@ -370,7 +370,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Actualiza los tokens y los carga al json.
+        /// Actualiza los datos almacenados en la listaTokens
         /// </summary>
         public void UpdateTokensData()
         {
@@ -379,7 +379,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Carga los UserEmpresa registrados del json.
+        /// Carga los datos de una empresa en base al archivo ".json"
         /// </summary>
         public void LoadRegisteredEmpresas()
         {
@@ -397,8 +397,8 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Actualiza los datos de los UserEmpresa y los carga al json.
-        /// </summary>
+        /// Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.
+        /// </summary>    
         public void UpdateEmpresasData()
         {
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
@@ -407,7 +407,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Carga los datos de los UserEmprendedor registrados.
+        /// Carga los datos de los Emprendedores en base a un archivo ".json".
         /// </summary>
         public void LoadRegisteredEmprendedores()
         {
@@ -425,7 +425,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Actualiza los datos de los UserEmprendedor y los carga al json.
+        /// Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.
         /// </summary>
         public void UpdateEmprendedoresData()
         {
@@ -435,7 +435,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Carga las publicaciones de los UserEmpresa almacenados en el archivo json.
+        /// Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Empresa.
         /// </summary>
         public void LoadPublications()
         {
@@ -453,6 +453,16 @@ namespace Proyecto_Final
                 }
             }
             Console.WriteLine($"[DATOS] : {cont} Publicaciones cargadas.");
+        }
+
+        /// <summary>
+        /// Actualiza los datos de las publicaciones encontradas en su respectivo ".json" para que sean idénticas a las que se encontraban en la lista de publicaciones.
+        /// </summary>
+        public void UpdatePublicationsData()
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(this.listaOfertas, options);
+            File.WriteAllText(@"publicaciones.json", json);
         }
     }
 }

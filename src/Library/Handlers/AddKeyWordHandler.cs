@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "Palabra".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/agregar_palabra".
     /// </summary>
     public class AddKeyWordHandler : BaseHandler
     {
@@ -17,7 +17,7 @@ namespace Proyecto_Final
 
         public string[] AllowedStatus { get; set;}
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="AddKeyWordHandler"/>. Esta clase procesa el mensaje "Palabra".
+        /// Inicializa una nueva instancia de la clase <see cref="AddKeyWordHandler"/>. Esta clase procesa el mensaje "/agregar_palabra".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public AddKeyWordHandler(BaseHandler next) : base(next)
@@ -30,7 +30,7 @@ namespace Proyecto_Final
         }
     
         /// <summary>
-        /// Procesa el mensaje "Palabra" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/agregar_palabra" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -38,54 +38,62 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            UserEmpresa usercheck = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+            if (Singleton<Datos>.Instance.ListaUsuarioEmpresa().Contains(usercheck))
             {
-                if (check == "STATUS_IDLE")
-                {   
-                    response = "¿Desea agregarle una palabra clave a una oferta? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_RESPONSE");
-                    return true;
-                }
-                else if (check == "STATUS_KEYWORD_RESPONSE")
+                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
-                    if (message.Text.ToUpper() == "Y")
-                    {
-                        response = "Ingrese el ID de la oferta a asignarle una palabra clave";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_OFERTNAME");
+                    if (check == "STATUS_IDLE")
+                    {   
+                        response = "¿Desea agregarle una palabra clave a una oferta? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_RESPONSE");
                         return true;
                     }
-                    else
+                    else if (check == "STATUS_KEYWORD_RESPONSE")
                     {
-                        response = "Se ha cancelado la asignación de una palabra clave";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                        return true;
+                        if (message.Text.ToUpper() == "Y")
+                        {
+                          response = "Ingrese el ID de la oferta a asignarle una palabra clave";
+                          Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_OFERTNAME");
+                          return true;
+                        }
+                        else
+                        {
+                            response = "Se ha cancelado la asignación de una palabra clave";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                            return true;
+                        }
                     }
-                }
-                else if (check == "STATUS_KEYWORD_OFERTNAME")
-                {
-                    if (Singleton<Datos>.Instance.IsOfferValid(message.UserId, message.Text))
-                    {
-                        response = $"El ID de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
-                        Singleton<Temp>.Instance.AddDataById(message.UserId, "oferIdKeyword", message.Text);
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
-                        return true;
-                    }
-                    response = $"ID de oferta invalido. Se ha cancelado la asignacion de palabra clave.";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    return true;
-                    
-                }
-                else if (check == "STATUS_KEYWORD_KEYWORD")
-                {
-                    response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
-                    UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                    user.CrearMsjClave(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "oferIdKeyword"), message.Text);
-                    Singleton<Datos>.Instance.UpdateEmpresasData();
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    return true;
-                }
-            }
+                  else if (check == "STATUS_KEYWORD_OFERTNAME")
+                  {
+                      if (Singleton<Datos>.Instance.IsOfferValid(message.UserId, message.Text))
+                      {
+                          response = $"El ID de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
+                          Singleton<Temp>.Instance.AddDataById(message.UserId, "oferIdKeyword", message.Text);
+                          Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
+                          return true;
+                      }
+                      response = $"ID de oferta invalido. Se ha cancelado la asignacion de palabra clave.";
+                      Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                      return true;
 
+                  }
+                  else if (check == "STATUS_KEYWORD_KEYWORD")
+                  {
+                      response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
+                      UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                      user.CrearMsjClave(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "oferIdKeyword"), message.Text);
+                      Singleton<Datos>.Instance.UpdateEmpresasData();
+                      Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                      return true;
+                  }
+            }
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                return true;
+            }
             response = string.Empty;
             return false;
         }

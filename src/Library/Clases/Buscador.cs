@@ -33,32 +33,28 @@ namespace Proyecto_Final
         /// /// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a una distancia de 10km o menos; utilizando el LocationApi <see cref="LocationApiClient"/>.
         /// </summary>
         /// <param name="direccion"></param>
-        public async void VerOfertasUbicacion(string direccion) //(SRP)
+        public void VerOfertasUbicacion(string direccion) //(SRP)
         {
             ContentBuilder.Clear();
             
             LocationApiClient client = new LocationApiClient();
-            var taskEmprendedor = client.GetLocationAsync(direccion);
-            taskEmprendedor.Wait();
-            Location ubicacionEmprendedor = taskEmprendedor.Result;
+            Location ubicacionEmprendedor = client.GetLocation(direccion);
+
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                var taskLocation = client.GetLocationAsync(oferta.Product.Ubicacion);
-                taskLocation.Wait();
-                Location ubicacionOferta = taskLocation.Result;
-                var taskDistance = client.GetDistanceAsync(ubicacionEmprendedor,ubicacionOferta);
-                taskDistance.Wait();
-                Distance distance = taskDistance.Result;
-                
+                Location ubicacionOferta = client.GetLocation(oferta.Product.Ubicacion);
+                Distance distance = client.GetDistance(ubicacionEmprendedor,ubicacionOferta);
                 if (distance.TravelDistance <= 10.0)
-                {
-                    ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
-                }
+                {                    
+                    if (distance.TravelDistance <= 10.0)
+                    {
+                        ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
+                    }   
             }
             if(ContentBuilder.ToString() == "")
-                {
-                    ContentBuilder.Append("No se encontraron ofertas que estén en su cercanía.");
-                }
+            {
+                ContentBuilder.Append("No se encontraron ofertas que estén en su cercanía.");
+            }
         }
         
 
@@ -70,20 +66,23 @@ namespace Proyecto_Final
         public void VerOfertasPalabraClave(string palabraClave) //(SRP)
         {
             ContentBuilder.Clear();
-            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            foreach (UserEmpresa usuario in Singleton<Datos>.Instance.ListaUsuarioEmpresa())
             {
-                foreach(string palabrasClave in oferta.PalabrasClave)
+                foreach(Oferta oferta in usuario.Empresa.Ofertas)
                 {
-                    if(palabraClave.ToLower() == palabrasClave.ToLower())
+                    foreach(string palabrasClave in oferta.PalabrasClave)
                     {
-                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                        if(palabraClave.ToLower() == palabrasClave.ToLower())
+                        {
+                            ContentBuilder.Append($"Esta oferta de {usuario.Empresa.Nombre} concuerda con la palabra clave que colocó: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
+                        }
                     }
                 }
-                if(ContentBuilder.ToString() == "")
-                {
-                    ContentBuilder.Append("No se encontraron ofertas que concuerdan con esa palabra clave.");
-                }
             }
+            if(ContentBuilder.ToString() == "")
+            {
+                ContentBuilder.Append("No se encontraron ofertas que concuerdan con esa palabra clave.");
+            }   
         }
 
         /// <summary>
@@ -94,11 +93,14 @@ namespace Proyecto_Final
         public void VerOfertasTipo(string tipo) //(SRP)
         {
             ContentBuilder.Clear();
-            foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            foreach (UserEmpresa usuario in Singleton<Datos>.Instance.ListaUsuarioEmpresa())
             {
-                if(tipo == oferta.Product.Tipo.Nombre)
+                foreach (Oferta oferta in usuario.Empresa.Ofertas)
                 {
-                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \n Nombre: {oferta.Product.Nombre} \n Descripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \n Valor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \n Cantidad: {oferta.Product.Cantidad} \n Habilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    if(tipo == oferta.Product.Tipo.Nombre)
+                    {
+                        ContentBuilder.Append($"Esta oferta de {usuario.Empresa.Nombre} concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    }
                 }
             }
             if(ContentBuilder.ToString() == "")
