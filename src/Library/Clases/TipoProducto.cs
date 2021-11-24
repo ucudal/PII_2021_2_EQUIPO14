@@ -15,6 +15,11 @@ namespace Proyecto_Final
         public string Nombre { get; set;}
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public TipoProducto() {}
+
+        /// <summary>
         /// Inicializa la clase TipoProducto.
         /// </summary>
         /// <param name="tipo"></param>

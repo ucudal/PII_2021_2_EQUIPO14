@@ -167,6 +167,7 @@ namespace Proyecto_Final
                     Singleton<Temp>.Instance.AddDataById(message.UserId,"habilitacionProducto",message.Text);
 
                     UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                    
                     user.CrearOferta(
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreOferta"),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
@@ -179,8 +180,6 @@ namespace Proyecto_Final
                         Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),
                         Singleton<Temp>.Instance.GetDataByKey(message.UserId, "tipoProducto")
                     );
-
-                    Singleton<Datos>.Instance.ImprimirUsuarios();
                     
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;

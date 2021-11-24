@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
@@ -14,6 +16,7 @@ namespace Proyecto_Final
     {
         private bool isInvited = false;
         
+        
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
@@ -24,7 +27,7 @@ namespace Proyecto_Final
         /// Obtiene un valor del nombre del usuario empresa.
         /// </summary>
         /// <value>Nombre de la empresa</value>
-        public string Nombre { get; }
+        public string Nombre { get; set; }
         
         /// <summary>
         /// Obtiene un valor del objeto Empresa.
@@ -37,6 +40,11 @@ namespace Proyecto_Final
         /// </summary>
         /// <value><c>true/false</c></value>
         public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public UserEmpresa () {}
 
         /// <summary>
         /// Inicializa la clase UserEmpresa.
@@ -70,7 +78,7 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
+            //Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>

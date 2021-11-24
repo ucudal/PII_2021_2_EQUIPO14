@@ -17,6 +17,11 @@ namespace Proyecto_Final
         public string Habilitacion { get;}
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Habilitaciones() {}
+
+        /// <summary>
         /// Inicializa la clase habilitaciones.
         /// </summary>
         /// <param name="habilitacion"></param>

@@ -13,7 +13,13 @@ namespace Proyecto_Final
         /// Retorna el nombre del rubro de una empresa.
         /// </summary>
         /// <value>Nombre del rubro de la empresa.</value>
-        public string Rubros { get; }
+        public string Rubros { get; set; }
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Rubro(){}
+
         /// <summary>
         /// Inicializa la clase rubro.
         /// </summary>

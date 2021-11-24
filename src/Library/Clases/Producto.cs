@@ -48,7 +48,12 @@ namespace Proyecto_Final
         /// Otorga un objeto "TipoProducto" que representa el tipo de producto <see cref="TipoProducto"/>.
         /// </summary>
         /// <value>Objeto del tipo "TipoProducto".</value>
-        public TipoProducto Tipo {get;set;}       
+        public TipoProducto Tipo {get;set;}      
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        public Producto() {} 
 
         /// <summary>
         /// Inicializa la clase Producto.
