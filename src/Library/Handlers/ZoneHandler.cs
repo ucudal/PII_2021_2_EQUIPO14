@@ -18,7 +18,7 @@ namespace Proyecto_Final
     public class ZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
-
+        
         /// <summary>
         /// Otorga un array con los status validos.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "zone" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -51,7 +51,7 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                    response = "¿Quiere filtrar los materiales por zona? Y/N";
+                    response = "¿Quiere realizar una búsqueda de ofertas por zona? Y/N";
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                     return true;
                 }
@@ -60,19 +60,15 @@ namespace Proyecto_Final
                 {
                     if(message.Text.ToUpper() == "Y")
                     {
-                        response = "Ingrese la zona: ";
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerOfertasUbicacion();
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
                         return true;
                     }
                 }
-
-                else if (check == "STATUS_ZONE_RECEIVED")
-                {
-                    //Metodo de filtrar por zona
-                }
                 else
                 {
-                    response = "Usted no ingreso una zona";
+                    response = "Usted ha cancelado la busqueda por zona";
                     
                     check = "STATUS_IDLE";
                     return true;

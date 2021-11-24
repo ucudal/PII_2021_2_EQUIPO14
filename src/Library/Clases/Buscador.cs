@@ -39,10 +39,12 @@ namespace Proyecto_Final
             
             LocationApiClient client = new LocationApiClient();
             Location ubicacionEmprendedor = client.GetLocation(direccion);
-            
-            foreach (UserEmpresa usuario in Singleton<Datos>.Instance.ListaUsuarioEmpresa())
+
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                foreach(Oferta oferta in usuario.Empresa.Ofertas)
+                Location ubicacionOferta = client.GetLocation(oferta.Product.Ubicacion);
+                Distance distance = client.GetDistance(ubicacionEmprendedor,ubicacionOferta);
+                if (distance.TravelDistance <= 10.0)
                 {
                     Location ubicacionOferta = client.GetLocation(oferta.Product.Ubicacion);
                     Distance distance = client.GetDistance(ubicacionEmprendedor,ubicacionOferta);

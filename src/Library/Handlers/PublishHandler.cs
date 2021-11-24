@@ -70,7 +70,7 @@ namespace Proyecto_Final
                 }
                 else if (check == "STATUS_PUBLISH_OFFERNAME")
                 {
-                    response = $"El nombre de la oferta es: {message.Text}.\n\n¿Su oferta es recurrente o puntual?\nIngrese \"1\" para una oferta puntual.\ningrese \"2\" para una oferta recurrente.";
+                    response = $"El nombre de la oferta es: {message.Text}.\n\n¿Su oferta es recurrente o puntual?\nIngrese \"1\" para una oferta puntual.\nIngrese \"2\" para una oferta recurrente.";
                     Singleton<Temp>.Instance.AddDataById(message.UserId,"nombreOferta",message.Text);
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_RESPONSE_RECURRENCY_VALUE");
                     return true;
