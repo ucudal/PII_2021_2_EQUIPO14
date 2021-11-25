@@ -49,7 +49,8 @@ namespace Proyecto_Final
                     if (distance.TravelDistance <= 10.0)
                     {
                         ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
-                    }   
+                    }  
+                } 
             }
             if(ContentBuilder.ToString() == "")
             {
@@ -66,16 +67,13 @@ namespace Proyecto_Final
         public void VerOfertasPalabraClave(string palabraClave) //(SRP)
         {
             ContentBuilder.Clear();
-            foreach (UserEmpresa usuario in Singleton<Datos>.Instance.ListaUsuarioEmpresa())
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                foreach(Oferta oferta in usuario.Empresa.Ofertas)
+                foreach(string palabrasClave in oferta.PalabrasClave)
                 {
-                    foreach(string palabrasClave in oferta.PalabrasClave)
+                    if(palabraClave.ToLower() == palabrasClave.ToLower())
                     {
-                        if(palabraClave.ToLower() == palabrasClave.ToLower())
-                        {
-                            ContentBuilder.Append($"Esta oferta de {usuario.Empresa.Nombre} concuerda con la palabra clave que colocó: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
-                        }
+                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
                     }
                 }
             }
@@ -93,14 +91,11 @@ namespace Proyecto_Final
         public void VerOfertasTipo(string tipo) //(SRP)
         {
             ContentBuilder.Clear();
-            foreach (UserEmpresa usuario in Singleton<Datos>.Instance.ListaUsuarioEmpresa())
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                foreach (Oferta oferta in usuario.Empresa.Ofertas)
+                if(tipo == oferta.Product.Tipo.Nombre)
                 {
-                    if(tipo == oferta.Product.Tipo.Nombre)
-                    {
-                        ContentBuilder.Append($"Esta oferta de {usuario.Empresa.Nombre} concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
-                    }
+                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
             if(ContentBuilder.ToString() == "")
