@@ -454,15 +454,5 @@ namespace Proyecto_Final
             }
             Console.WriteLine($"[DATOS] : {cont} Publicaciones cargadas.");
         }
-
-        /// <summary>
-        /// Actualiza los datos de las publicaciones encontradas en su respectivo ".json" para que sean idénticas a las que se encontraban en la lista de publicaciones.
-        /// </summary>
-        public void UpdatePublicationsData()
-        {
-            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string json = JsonSerializer.Serialize(this.listaOfertas, options);
-            File.WriteAllText(@"publicaciones.json", json);
-        }
     }
 }
