@@ -78,37 +78,15 @@ namespace Proyecto_Final
                     }
                     
                 }
-                response = string.Empty;
-                return false;
             }
             else
             {
                 response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                return false;
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                return true;
             }
+            response = string.Empty;
+            return false;
         }
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

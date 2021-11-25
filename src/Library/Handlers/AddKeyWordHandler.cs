@@ -53,9 +53,9 @@ namespace Proyecto_Final
                     {
                         if (message.Text.ToUpper() == "Y")
                         {
-                          response = "Ingrese el ID de la oferta a asignarle una palabra clave";
-                          Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_OFERTNAME");
-                          return true;
+                            response = "Ingrese el ID de la oferta a asignarle una palabra clave";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_OFERTNAME");
+                            return true;
                         }
                         else
                         {
@@ -64,29 +64,29 @@ namespace Proyecto_Final
                             return true;
                         }
                     }
-                  else if (check == "STATUS_KEYWORD_OFERTNAME")
-                  {
-                      if (Singleton<Datos>.Instance.IsOfferValid(message.UserId, message.Text))
-                      {
-                          response = $"El ID de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
-                          Singleton<Temp>.Instance.AddDataById(message.UserId, "oferIdKeyword", message.Text);
-                          Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
-                          return true;
-                      }
-                      response = $"ID de oferta invalido. Se ha cancelado la asignacion de palabra clave.";
-                      Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                      return true;
-
-                  }
-                  else if (check == "STATUS_KEYWORD_KEYWORD")
-                  {
-                      response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
-                      UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                      user.CrearMsjClave(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "oferIdKeyword"), message.Text);
-                      Singleton<Datos>.Instance.UpdateEmpresasData();
-                      Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                      return true;
-                  }
+                    else if (check == "STATUS_KEYWORD_OFERTNAME")
+                    {
+                        if (Singleton<Datos>.Instance.IsOfferValid(message.UserId, message.Text))
+                        {
+                            response = $"El ID de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
+                            Singleton<Temp>.Instance.AddDataById(message.UserId, "oferIdKeyword", message.Text);
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
+                            return true;
+                        }
+                        response = $"ID de oferta invalido. Se ha cancelado la asignacion de palabra clave.";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
+                    else if (check == "STATUS_KEYWORD_KEYWORD")
+                    {
+                        response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
+                        UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        user.CrearMsjClave(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "oferIdKeyword"), message.Text);
+                        Singleton<Datos>.Instance.UpdateEmpresasData();
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
+                }
             }
             else
             {
