@@ -76,7 +76,6 @@ namespace Proyecto_Final
                         response = $"ID de oferta invalido. Se ha cancelado la asignacion de palabra clave.";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
-
                     }
                     else if (check == "STATUS_KEYWORD_KEYWORD")
                     {

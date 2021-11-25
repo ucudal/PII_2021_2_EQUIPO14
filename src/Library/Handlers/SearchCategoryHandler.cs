@@ -94,15 +94,15 @@ namespace Proyecto_Final
                     response = $"En base a la categoria {message.Text}, hemos encontrado las siguientes ofertas para tí:\n\n{user.VerOfertasTipo(message.Text)}";
                     return true; 
                 }
-                
-                response = string.Empty;
-                return false;
             }
             else
             {
                 response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                return false;
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                return true;
             }
+            response = string.Empty;
+            return false;
         }
     }
 
