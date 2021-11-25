@@ -16,12 +16,12 @@ namespace Proyecto_Final
         /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
+        /// Inicializa una nueva instancia de la clase <see cref="PublishHandler"/>. Esta clase procesa el mensaje "/concretar_publicacion".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public EndOfferHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"/concretar_oferta"};
+            this.Keywords = new string[] {"/concretar_publicacion"};
             this.AllowedStatus = new string[] {"STATUS_SHOW_INTEREST_RESPONSE",
                                                 "STATUS_SHOW_INTEREST_SELECTED",
 
@@ -29,7 +29,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "Publicar" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/concretar_publicacion" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>

@@ -4,7 +4,7 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa las ofertas creadas por un empresario.
-    /// Esta clase tiene como función ser una representación de una publicación de oferta, además de ser experta en modificar los atributos utilizados para representar tal oferta, por lo cual 
+    /// Esta clase tiene como función ser una representación de una publicación de oferta, conociendo los datos necesarios para cumplir su función, por lo cual cumple con SRP.
     /// </summary>
     public class Oferta
     {

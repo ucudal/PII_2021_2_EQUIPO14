@@ -16,7 +16,7 @@ namespace Proyecto_Final
         /// <value>Array de status</value>
         public string[] AllowedStatus { get; set;}
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
+        /// Inicializa una nueva instancia de la clase <see cref="PublishHandler"/>. Esta clase procesa el mensaje "/interes_oferta".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public ShowInterestInOfferHandler(BaseHandler next) : base(next)
@@ -29,7 +29,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "Publicar" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "interes_oferta" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -49,11 +49,13 @@ namespace Proyecto_Final
                 {
                     if (message.Text == "Y")
                     {
-                        response = $"Procederé a mostrarle todas sus ofertas. Responda con el ID de la oferta que quiere concretar.";
-                        UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        foreach (Oferta oferta in user.Empresa.Ofertas)
+                        response = $"Procederé a mostrarle todas las ofertas. Responda con el ID de la oferta que quiere concretar.";
+                        foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
                         {
-                            response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                            if(oferta.IsVendido == false)
+                            {
+                                response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                            } 
                         }
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_OFFER_SELECTED");
                         return true;
@@ -72,14 +74,15 @@ namespace Proyecto_Final
                 }
                 else if(check == "STATUS_END_OFFER_OFFER_SELECTED")
                 {
-                   UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                   foreach (Oferta oferta in user.Empresa.Ofertas)
+                   UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                   foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
                    {
-                       if (oferta.Id == message.Text)
+                       if (oferta.Id == message.Text && oferta.Comprador != null)
                        {
-                           
+                           oferta.Comprador = user; //El punto de mostrar interés en una oferta es para hacer que cuando se concrete una oferta se identifique el que lo consumió y el que lo vendió. Siguiendo la regla del Teams, en la cual se habla de que la primera persona en mostrar interés en una oferta es el comprador; es que se ejecuta esta acción.
                        }
                    }
+                   response = $"";
                 }
             }
             response = String.Empty;
