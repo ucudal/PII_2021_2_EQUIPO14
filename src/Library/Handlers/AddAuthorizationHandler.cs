@@ -34,8 +34,8 @@ namespace Proyecto_Final
         public AddAuthorizationHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string [] {"/agregar_habilitacion"};
-            this.AllowedStatus = new string [] {"STATUS_SEARCH_CATEGORY_RESPONSE",
-                                                "STATUS_SEARCH_CATRGORY_ACCEPTED",
+            this.AllowedStatus = new string [] {"STATUS_ADD_AUTHORIZATION_RESPONSE",
+                                                "STATUS_ADD_AUTHORIZATION_ACCEPTED",
                                 
                                                 
                                                 
@@ -99,6 +99,7 @@ namespace Proyecto_Final
                     return true; 
                 } 
             }
+
 
 
             response = string.Empty;
