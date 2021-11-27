@@ -55,16 +55,8 @@ namespace Proyecto_Final
                 {
                     if(message.Text.ToUpper() == "Y")
                     {
-                        StringBuilder str = new StringBuilder();
-                        foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
-                        {
-                            if(oferta.IsRecurrente)
-                            {
-                                str.Append($"+ {oferta.Id}\n");
-                            }
-                        }
-                        response = "Listas de ofertas recurrentes:\n";
-                        response += str;
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerOfertasRecurrentes();
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
@@ -79,16 +71,8 @@ namespace Proyecto_Final
                 {
                     if(message.Text.ToUpper() == "Y")
                     {
-                        StringBuilder str2 = new StringBuilder();
-                        foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
-                        {
-                            if(!oferta.IsRecurrente)
-                            {
-                                str2.Append($"+ {oferta.Id}\n");
-                            }
-                        }
-                        response = "Listas de ofertas puntuales:\n";
-                        response += str2;
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerOfertasPuntuales();
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
@@ -104,5 +88,4 @@ namespace Proyecto_Final
             return false;
         }
     }
-
 }

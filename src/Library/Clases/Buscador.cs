@@ -48,7 +48,7 @@ namespace Proyecto_Final
                 {                    
                     if (distance.TravelDistance <= 10.0)
                     {
-                        ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \n Tipo: {oferta.Product.Tipo.Nombre} \n Ubicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
+                        ContentBuilder.Append($"Esta oferta está a {distance.TravelDistance}km de su ubicación: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }  
                 } 
             }
@@ -73,7 +73,7 @@ namespace Proyecto_Final
                 {
                     if(palabraClave.ToLower() == palabrasClave.ToLower())
                     {
-                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
+                        ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }
                 }
             }
@@ -95,13 +95,53 @@ namespace Proyecto_Final
             {
                 if(tipo == oferta.Product.Tipo.Nombre)
                 {
-                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
             }
             if(ContentBuilder.ToString() == "")
             {
                 ContentBuilder.Append("No se encontraron ofertas que concuerden con el tipo de producto deseado.");
             }
-        }     
+        } 
+
+        /// <summary>
+        /// Otorga todas las ofertas que sean recurrentes.
+        /// </summary>
+        /// <returns></returns>
+        public void VerOfertasRecurrentes()
+        {
+            ContentBuilder.Clear();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                if(oferta.IsRecurrente)
+                {
+                    ContentBuilder.Append($"Esta oferta es recurrente: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                }
+            }
+            if(ContentBuilder.ToString() == "")
+            {
+                ContentBuilder.Append("No se encontraron ofertas recurrentes.");
+            }
+        } 
+
+        /// <summary>
+        /// Otorga todas las ofertas que sean puntuales.
+        /// </summary>
+        /// <returns></returns>
+        public void VerOfertasPuntuales()
+        {
+            ContentBuilder.Clear();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                if(!oferta.IsRecurrente)
+                {
+                    ContentBuilder.Append($"Esta oferta es puntual: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                }
+            }
+            if(ContentBuilder.ToString() == "")
+            {
+                ContentBuilder.Append("No se encontraron ofertas puntuales.");
+            }
+        }    
     }
 }
