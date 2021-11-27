@@ -56,7 +56,7 @@ namespace Proyecto_Final
                 if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 if (check == "STATUS_IDLE")
                 {
-                    response = "¿Quieres filtrar los materiales por categoria? Y/N";
+                    response = "¿Desea buscar una oferta por categoria? Y/N";
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATEGORY_RESPONSE");
                     return true;
                 }
@@ -74,7 +74,7 @@ namespace Proyecto_Final
 
                     else if (message.Text.ToUpper() == "N")
                     {
-                        response = $"Se ha cancelado la busqueda.";
+                        response = $"Búsqueda cancelada.";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }

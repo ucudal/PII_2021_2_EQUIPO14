@@ -47,7 +47,7 @@ namespace Proyecto_Final
             {
                 if (check == "STATUS_IDLE")
                 {
-                   response = "¿Quieres buscar las ofertas recurrentes? Y/N";
+                   response = "¿Desea buscar las ofertas recurrentes? Y/N";
                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RECURRENCIA_RESPONSE");
                    return true;
                 }
@@ -70,7 +70,7 @@ namespace Proyecto_Final
                     }
                     else
                     {
-                        response = "¿Queres buscar las ofertas puntuales? Y/N";
+                        response = "Desea buscar las ofertas puntuales? Y/N";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUNTUAL_RESPONSE");
                         return true;
                     }
@@ -94,7 +94,7 @@ namespace Proyecto_Final
                     }
                     else
                     {
-                        response = "Busqueda cancelada";
+                        response = "Búsqueda cancelada.";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }

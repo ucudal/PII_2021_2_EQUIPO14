@@ -137,6 +137,14 @@
             </summary>
             <param name="user"></param>
         </member>
+        <member name="M:Proyecto_Final.Datos.IsOfferValid(System.String,System.String)">
+            <summary>
+            Verifica si una oferta es valida (no tiene comprador y existe).
+            </summary>
+            <param name="userId"></param>
+            <param name="oferId"></param>
+            <returns></returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.IsRegistered(System.String)">
             <summary>
             Verifica si la id ya esta registrada.
@@ -364,9 +372,6 @@
             </summary>
         </member>
         <member name="M:Proyecto_Final.Emprendedor.ConsumoXTiempo(Proyecto_Final.UserEmprendedor)">
-            <summary>
-            
-            </summary>
             <summary>
             Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
@@ -1010,7 +1015,7 @@
         </member>
         <member name="T:Proyecto_Final.AddKeyWordHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "Palabra".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/agregar_palabra".
             </summary>
         </member>
         <member name="P:Proyecto_Final.AddKeyWordHandler.AllowedStatus">
@@ -1021,13 +1026,13 @@
         </member>
         <member name="M:Proyecto_Final.AddKeyWordHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.AddKeyWordHandler"/>. Esta clase procesa el mensaje "Palabra".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.AddKeyWordHandler"/>. Esta clase procesa el mensaje "/agregar_palabra".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.AddKeyWordHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "Palabra" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/agregar_palabra" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1128,18 +1133,18 @@
         </member>
         <member name="T:Proyecto_Final.ExitHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "salir".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/salir".
             </summary>
         </member>
         <member name="M:Proyecto_Final.ExitHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.ExitHandler"/>. Esta clase procesa el mensaje "salir".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.ExitHandler"/>. Esta clase procesa el mensaje "/salir".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.ExitHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "salir" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/salir" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1147,19 +1152,19 @@
         </member>
         <member name="T:Proyecto_Final.GoodByeHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            Un "handler" del patrón Chain of Responsibility que implementa los comandos "/chau" y "/adiós".
             </summary>
         </member>
         <member name="M:Proyecto_Final.GoodByeHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.GoodByeHandler"/>. Esta clase procesa el mensaje "chau"
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.GoodByeHandler"/>. Esta clase procesa los mensajes "/chau" y "/adiós".
             y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.GoodByeHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            Procesa los mensajes "/chau" y "/adiós" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1167,18 +1172,18 @@
         </member>
         <member name="T:Proyecto_Final.HelloHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/hola".
             </summary>
         </member>
         <member name="M:Proyecto_Final.HelloHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.HelloHandler"/>. Esta clase procesa el mensaje "hola".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.HelloHandler"/>. Esta clase procesa el mensaje "/hola".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.HelloHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/hola" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1186,7 +1191,7 @@
         </member>
         <member name="T:Proyecto_Final.InviteHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/invitar".
             </summary>
         </member>
         <member name="P:Proyecto_Final.InviteHandler.AllowedStatus">
@@ -1197,13 +1202,13 @@
         </member>
         <member name="M:Proyecto_Final.InviteHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.InviteHandler"/>. Esta clase procesa el mensaje "invitar".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.InviteHandler"/>. Esta clase procesa el mensaje "/invitar".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.InviteHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "invitar" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/invitar" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1211,7 +1216,7 @@
         </member>
         <member name="T:Proyecto_Final.MaterialsConsumedHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "materialsConsumed".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/materiales_consumidos".
             </summary>
         </member>
         <member name="P:Proyecto_Final.MaterialsConsumedHandler.AllowedStatus">
@@ -1222,13 +1227,13 @@
         </member>
         <member name="M:Proyecto_Final.MaterialsConsumedHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="!:KeyWordsHandler"/>. Esta clase procesa el mensaje "materialsConsumend".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.MaterialsConsumedHandler"/>. Esta clase procesa el mensaje "/materiales_consumidos".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.MaterialsConsumedHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "materialsConsumend" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/materiales_consumidos" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1236,7 +1241,7 @@
         </member>
         <member name="T:Proyecto_Final.PeriodOfTimeHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "PeriodOfTime".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/ventas".
             </summary>
         </member>
         <member name="P:Proyecto_Final.PeriodOfTimeHandler.AllowedStatus">
@@ -1247,13 +1252,13 @@
         </member>
         <member name="M:Proyecto_Final.PeriodOfTimeHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="!:CategoryHandler"/>. Esta clase procesa el mensaje "PeriodOfTime".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PeriodOfTimeHandler"/>. Esta clase procesa el mensaje "/ventas".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.PeriodOfTimeHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "PeriodOfTime" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/ventas" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1286,7 +1291,7 @@
         </member>
         <member name="T:Proyecto_Final.PublishHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/publicar".
             </summary>
         </member>
         <member name="P:Proyecto_Final.PublishHandler.AllowedStatus">
@@ -1297,38 +1302,13 @@
         </member>
         <member name="M:Proyecto_Final.PublishHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "Publicar".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "/publicar".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.PublishHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "Publicar" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
-        <member name="T:Proyecto_Final.RecurrenciaHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "invitar".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.RecurrenciaHandler.AllowedStatus">
-            <summary>
-            Otorga un array con los status validos.
-            </summary>
-            <value>Array de status</value>
-        </member>
-        <member name="M:Proyecto_Final.RecurrenciaHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.InviteHandler"/>. Esta clase procesa el mensaje "invitar".
-            </summary>
-            <param name="next">El próximo "handler".</param>
-        </member>
-        <member name="M:Proyecto_Final.RecurrenciaHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje "invitar" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/publicar" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1336,7 +1316,7 @@
         </member>
         <member name="T:Proyecto_Final.RegisterHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "registro".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/registro".
             </summary>
         </member>
         <member name="P:Proyecto_Final.RegisterHandler.AllowedStatus">
@@ -1347,13 +1327,13 @@
         </member>
         <member name="M:Proyecto_Final.RegisterHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RegisterHandler"/>. Esta clase procesa el mensaje "registro".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RegisterHandler"/>. Esta clase procesa el mensaje "/registro".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.RegisterHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "registro" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/registro" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1361,7 +1341,7 @@
         </member>
         <member name="T:Proyecto_Final.SearchCategoryHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "category".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_categoria".
             </summary>
         </member>
         <member name="P:Proyecto_Final.SearchCategoryHandler.AllowedStatus">
@@ -1372,13 +1352,13 @@
         </member>
         <member name="M:Proyecto_Final.SearchCategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchCategoryHandler"/>. Esta clase procesa el mensaje "keyword".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchCategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.SearchCategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "category" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/buscar_categoria" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1386,7 +1366,7 @@
         </member>
         <member name="T:Proyecto_Final.SearchKeyWordsHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "keyword".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_palabra".
             </summary>
         </member>
         <member name="P:Proyecto_Final.SearchKeyWordsHandler.AllowedStatus">
@@ -1397,13 +1377,63 @@
         </member>
         <member name="M:Proyecto_Final.SearchKeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>. Esta clase procesa el mensaje "keyword".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>. Esta clase procesa el mensaje "/buscar_palabra".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.SearchKeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "keyword" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/buscar_palabra" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.RecurrenciaHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_recurrencia".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.RecurrenciaHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.RecurrenciaHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RecurrenciaHandler"/>. Esta clase procesa el mensaje "/buscar_recurrencia".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.RecurrenciaHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/buscar_recurrencia" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.SearchZoneHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.SearchZoneHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.SearchZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.SearchZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1411,43 +1441,18 @@
         </member>
         <member name="T:Proyecto_Final.StartHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "start".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/start".
             </summary>
         </member>
         <member name="M:Proyecto_Final.StartHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.StartHandler"/>. Esta clase procesa el mensaje "start".
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.StartHandler"/>. Esta clase procesa el mensaje "/start".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.StartHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
-            Procesa el mensaje "start" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
-        <member name="T:Proyecto_Final.ZoneHandler">
-            <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "zone".
-            </summary>
-        </member>
-        <member name="P:Proyecto_Final.ZoneHandler.AllowedStatus">
-            <summary>
-            Otorga un array con los status validos.
-            </summary>
-            <value>Array de status</value>
-        </member>
-        <member name="M:Proyecto_Final.ZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="!:KeyWordsHandler"/>. Esta clase procesa el mensaje "zone".
-            </summary>
-            <param name="next">El próximo "handler".</param>
-        </member>
-        <member name="M:Proyecto_Final.ZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
+            Procesa el mensaje "/start" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>

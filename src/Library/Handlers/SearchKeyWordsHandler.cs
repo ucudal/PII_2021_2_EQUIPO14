@@ -62,7 +62,7 @@ namespace Proyecto_Final
                         }
                         else if (message.Text.ToUpper() == "N")
                         {
-                            response = $"Se ha cancelado la busqueda.";
+                            response = $"Búsqueda cancelada.";
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                             return true;
                         }
