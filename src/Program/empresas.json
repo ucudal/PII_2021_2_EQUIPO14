@@ -1,1 +1,39 @@
-[]
+[
+  {
+    "Id": "2063183853",
+    "Nombre": "Nestor Corp",
+    "Empresa": {
+      "Nombre": "Nestor Corp",
+      "Ubicacion": "Maip\u00FA 1751",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Especializaciones": [],
+      "Ofertas": [
+        {
+          "Id": "0357490505",
+          "Nombre": "Oferta de Nestor",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Tablas de 110x50 cm, 20 mm di\u00E1metro",
+            "Descripcion": "Maip\u00FA 1751",
+            "Ubicacion": "No",
+            "Valor": 500,
+            "Cantidad": 25,
+            "Tipo": {
+              "Nombre": "Madera"
+            }
+          },
+          "PalabrasClave": [],
+          "HabilitacionesOferta": {
+            "Habilitacion": "No"
+          },
+          "IsVendido": false,
+          "IsRecurrente": false,
+          "Comprador": null
+        }
+      ]
+    },
+    "IsInvited": false
+  }
+]

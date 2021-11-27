@@ -43,9 +43,9 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            if(Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
             {
-                if (check == "STATUS_IDLE")
+                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
                    response = "¿Desea buscar las ofertas recurrentes? Y/N";
                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RECURRENCIA_RESPONSE");
@@ -60,7 +60,7 @@ namespace Proyecto_Final
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
-                    else
+                    else if(check == "STATUS_PUNTUAL_RESPONSE")
                     {
                         response = "Desea buscar las ofertas puntuales? Y/N";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUNTUAL_RESPONSE");
@@ -84,8 +84,14 @@ namespace Proyecto_Final
                     }
                 }
             }
-            response = string.Empty;
-            return false;
+        else
+        {
+            response = "Usted no tiene los permisos necesarios para realizar esta acción";
+            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+            return true;
         }
+        response = string.Empty;
+        return false;
+    }
     }
 }

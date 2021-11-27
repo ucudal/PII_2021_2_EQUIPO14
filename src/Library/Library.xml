@@ -165,6 +165,20 @@
             <param name="token"></param>
             <returns>Devuelve true sie es un admin, false de lo contrario.</returns>
         </member>
+        <member name="M:Proyecto_Final.Datos.IsUserEmprendedor(System.String)">
+            <summary>
+            Checkea en base a un ID si esta ID pertenece a un UserEmprendedor
+            </summary>
+            <param name="id"></param>
+            <returns>true si la ID es de un objeto de UserEmprendedor, false si no lo es.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.IsUserEmpresa(System.String)">
+            <summary>
+            Checkea en base a un ID si esta ID pertenece a un UserEmpresa
+            </summary>
+            <param name="id"></param>
+            <returns>true si la ID es de un objeto de UserEmprensa, false si no lo es.</returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.ListaTokens">
             <summary>
             Devuelve la lista de tokens validos.
@@ -498,7 +512,7 @@
         <member name="T:Proyecto_Final.Oferta">
             <summary>
             Esta clase representa las ofertas creadas por un empresario.
-            Esta clase tiene como función ser una representación de una publicación de oferta, además de ser experta en modificar los atributos utilizados para representar tal oferta, por lo cual 
+            Esta clase tiene como función ser una representación de una publicación de oferta, conociendo los datos necesarios para cumplir su función, por lo cual cumple con SRP.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Oferta.Id">
@@ -573,7 +587,7 @@
             <summary>
             Esta clase representa al producto que se ofertará.
             Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. 
-            La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses.
+            La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses, según lo que declare el usuario, pero sigue siendo esencial para cumplir la función de representar un producto ofertado.
             </summary>
         </member>
         <member name="P:Proyecto_Final.Producto.IsPesos">
@@ -999,13 +1013,12 @@
             <param name="datosTipoProducto"></param>
             <returns></returns>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(System.String,System.String,System.String)">
+        <member name="M:Proyecto_Final.UserEmpresa.ConcretarOferta(System.String,System.String)">
             <summary>
             Cambia el estado de la oferta especifica a vendido.
             </summary>
             <param name="input"></param>
             <param name="nombreOferta"></param>
-            <param name="nombreEmprendedor"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas">
             <summary>
@@ -1126,6 +1139,31 @@
         <member name="M:Proyecto_Final.CommandsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/comandos" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.EndOfferHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.EndOfferHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.EndOfferHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "/concretar_publicacion".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.EndOfferHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/concretar_publicacion" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1309,6 +1347,8 @@
         <member name="M:Proyecto_Final.PublishHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/publicar" y retorna true; retorna false en caso contrario.
+<<<<<<< HEAD
+=======
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1334,6 +1374,7 @@
         <member name="M:Proyecto_Final.RegisterHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/registro" y retorna true; retorna false en caso contrario.
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1341,7 +1382,11 @@
         </member>
         <member name="T:Proyecto_Final.SearchCategoryHandler">
             <summary>
+<<<<<<< HEAD
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/registro".
+=======
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_categoria".
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
         </member>
         <member name="P:Proyecto_Final.SearchCategoryHandler.AllowedStatus">
@@ -1352,13 +1397,21 @@
         </member>
         <member name="M:Proyecto_Final.SearchCategoryHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
+<<<<<<< HEAD
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RegisterHandler"/>. Esta clase procesa el mensaje "/registro".
+=======
             Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchCategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.SearchCategoryHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
+<<<<<<< HEAD
+            Procesa el mensaje "/registro" y retorna true; retorna false en caso contrario.
+=======
             Procesa el mensaje "/buscar_categoria" y retorna true; retorna false en caso contrario.
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
@@ -1366,7 +1419,11 @@
         </member>
         <member name="T:Proyecto_Final.SearchKeyWordsHandler">
             <summary>
+<<<<<<< HEAD
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_categoria".
+=======
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_palabra".
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
         </member>
         <member name="P:Proyecto_Final.SearchKeyWordsHandler.AllowedStatus">
@@ -1377,18 +1434,64 @@
         </member>
         <member name="M:Proyecto_Final.SearchKeyWordsHandler.#ctor(Proyecto_Final.BaseHandler)">
             <summary>
+<<<<<<< HEAD
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchCategoryHandler"/>. Esta clase procesa el mensaje "/buscar_categoria".
+=======
             Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>. Esta clase procesa el mensaje "/buscar_palabra".
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Proyecto_Final.SearchKeyWordsHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
+<<<<<<< HEAD
+            Procesa el mensaje "/buscar_categoria" y retorna true; retorna false en caso contrario.
+=======
             Procesa el mensaje "/buscar_palabra" y retorna true; retorna false en caso contrario.
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
+        <member name="T:Proyecto_Final.RecurrenciaHandler">
+            <summary>
+<<<<<<< HEAD
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_palabra".
+=======
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_recurrencia".
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.RecurrenciaHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.RecurrenciaHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+<<<<<<< HEAD
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>. Esta clase procesa el mensaje "/buscar_palabra".
+=======
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.RecurrenciaHandler"/>. Esta clase procesa el mensaje "/buscar_recurrencia".
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.RecurrenciaHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+<<<<<<< HEAD
+            Procesa el mensaje "/buscar_palabra" y retorna true; retorna false en caso contrario.
+=======
+            Procesa el mensaje "/buscar_recurrencia" y retorna true; retorna false en caso contrario.
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+<<<<<<< HEAD
         <member name="T:Proyecto_Final.RecurrenciaHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_recurrencia".
@@ -1409,11 +1512,7 @@
         <member name="M:Proyecto_Final.RecurrenciaHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/buscar_recurrencia" y retorna true; retorna false en caso contrario.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
+=======
         <member name="T:Proyecto_Final.SearchZoneHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
@@ -1434,6 +1533,70 @@
         <member name="M:Proyecto_Final.SearchZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+<<<<<<< HEAD
+        <member name="T:Proyecto_Final.SearchZoneHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.SearchZoneHandler.AllowedStatus">
+=======
+        <member name="T:Proyecto_Final.ShowInterestInOfferHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "Publicar".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.ShowInterestInOfferHandler.AllowedStatus">
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+<<<<<<< HEAD
+        <member name="M:Proyecto_Final.SearchZoneHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.SearchZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.SearchZoneHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+=======
+        <member name="M:Proyecto_Final.ShowInterestInOfferHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.PublishHandler"/>. Esta clase procesa el mensaje "/interes_oferta".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.ShowInterestInOfferHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+>>>>>>> 193f2bedb00e8561216dfcdd82cece76b62037dc
+            <summary>
+            Procesa el mensaje "interes_oferta" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Proyecto_Final.StartHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/start".
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.StartHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.StartHandler"/>. Esta clase procesa el mensaje "/start".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.StartHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/start" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>

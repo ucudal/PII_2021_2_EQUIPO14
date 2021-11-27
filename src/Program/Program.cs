@@ -21,7 +21,7 @@ namespace Proyecto_Final
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
 
-        private static string Token = "2100245792:AAED7VrpdfKR3hIBWU7_IUAwlcgkPnZTabk";
+        private static string Token = "2135269832:AAFLneVWbn_FduSGcpKCCIfiIJyDzoH3oTk";
 
         private static IHandler firstHandler;
 
@@ -40,6 +40,9 @@ namespace Proyecto_Final
                 new InviteHandler(
                 new RegisterHandler(
                 new PublishHandler(
+                new SearchCategoryHandler(
+                new SearchKeyWordsHandler(
+                new SearchZoneHandler(
                 new AddKeyWordHandler(
                 new PeriodOfTimeHandler(
                 new SearchCategoryHandler(
@@ -49,7 +52,7 @@ namespace Proyecto_Final
                 new MaterialsConsumedHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            )))))))))))))));
+            ))))))))))))))))));
 
             var cts = new CancellationTokenSource();
 

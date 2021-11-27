@@ -71,7 +71,7 @@ namespace Proyecto_Final
             {
                 foreach(string palabrasClave in oferta.PalabrasClave)
                 {
-                    if(palabraClave.ToLower() == palabrasClave.ToLower())
+                    if(palabraClave.ToLower() == palabrasClave.ToLower() && oferta.IsVendido == false)
                     {
                         ContentBuilder.Append($"Esta oferta concuerda con la palabra clave que colocó: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                     }
@@ -93,7 +93,7 @@ namespace Proyecto_Final
             ContentBuilder.Clear();
             foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
             {
-                if(tipo == oferta.Product.Tipo.Nombre)
+                if(tipo == oferta.Product.Tipo.Nombre && oferta.IsVendido == false)
                 {
                     ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
                 }
