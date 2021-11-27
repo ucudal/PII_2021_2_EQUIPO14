@@ -77,7 +77,15 @@ namespace Proyecto_Final
                    {
                        if (oferta.Id == message.Text)
                        {
-                           
+                           if (oferta.Comprador != null)
+                           {
+                               user.ConcretarOferta("Y",oferta.Nombre);
+                           }
+                           else
+                           {
+                               user.Empresa.Ofertas.Remove(oferta);
+                               Singleton<Datos>.Instance.EliminarOfertas(oferta.Id);
+                           }
                        }
                    }
                 }

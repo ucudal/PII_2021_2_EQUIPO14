@@ -1,24 +1,2 @@
 [
-  {
-    "Id": "4498570389",
-    "Nombre": "Oferta de N\u00E9stor",
-    "Product": {
-      "IsPesos": true,
-      "Nombre": "100cm x 50 cm, 20mm de di\u00E1metro",
-      "Descripcion": "C. Mart\u00EDn Fierro 2470",
-      "Ubicacion": "No",
-      "Valor": 10000,
-      "Cantidad": 50,
-      "Tipo": {
-        "Nombre": "Madera"
-      }
-    },
-    "PalabrasClave": [],
-    "HabilitacionesOferta": {
-      "Habilitacion": "No"
-    },
-    "IsVendido": false,
-    "IsRecurrente": true,
-    "Comprador": null
-  }
 ]

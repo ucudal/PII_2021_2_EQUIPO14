@@ -77,12 +77,15 @@ namespace Proyecto_Final
                    UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
                    foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
                    {
-                       if (oferta.Id == message.Text && oferta.Comprador != null)
+                       if (oferta.Id == message.Text && oferta.Comprador == null)
                        {
-                           oferta.Comprador = user; //El punto de mostrar interés en una oferta es para hacer que cuando se concrete una oferta se identifique el que lo consumió y el que lo vendió. Siguiendo la regla del Teams, en la cual se habla de que la primera persona en mostrar interés en una oferta es el comprador; es que se ejecuta esta acción.
+                           oferta.Comprador = user; //El punto de mostrar interés en una oferta es para hacer que cuando se concrete una oferta se identifique el que lo consumió y el que lo vendió. Siguiendo la regla del Teams, en la cual se habla de que la primera persona en mostrar interés en una oferta es el comprador; es que se ejecuta esta acción si nadie se había registrado anteriormente como comprador.
+                           response = $"Se ha notificado a la Empresa que está interesado en la oferta que publicó.";
+                           return true;
                        }
                    }
-                   response = $"";
+                   response = $"Ya hay alguien que expresó su interés en la oferta.";
+                   return true;
                 }
             }
             response = String.Empty;
