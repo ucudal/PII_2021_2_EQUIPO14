@@ -12,12 +12,13 @@ using System;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/materiales_consumidos".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
     /// </summary>
 
-    public class MaterialsConsumedHandler: BaseHandler
+    public class SearchZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
+        
         /// <summary>
         /// Otorga un array con los status validos.
         /// </summary>
@@ -25,19 +26,19 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="MaterialsConsumedHandler"/>. Esta clase procesa el mensaje "/materiales_consumidos".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
-        public MaterialsConsumedHandler(BaseHandler next) : base(next)
+        public SearchZoneHandler (BaseHandler next) : base(next)
         {
-            this.Keywords = new string [] {"/materiales_consumidos"};
-            this.AllowedStatus = new string [] {"STATUS_MATERIALSCONSUMED_RESPONSE",
-                                                "STATUS_MATERIALSCONSUMED_RECIVED"};
+            this.Keywords = new string [] {"/buscar_zona"};
+            this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
+                                                "STATUS_ZONE_RECEIVED"};
         }
 
         /// <summary>
-        /// Procesa el mensaje "/materiales_consumidos" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/buscar_zona" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -53,33 +54,29 @@ namespace Proyecto_Final
                 {
                     if (check == "STATUS_IDLE")
                     {
-                        response = "¿Quieres observar los materiales o residuos consumidos en un periodo de tiempo? Y/N";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_MATERIALSCONSUMED_RESPONSE");
+                        response = "¿Quiere realizar una búsqueda de ofertas por zona? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                         return true;
                     }
 
-                    else if (check == "STATUS_MATERIALSCONSUMED_RESPONSE")
+                    else if (check == "STATUS_ZONE_RESPONSE")
                     {
                         if(message.Text.ToUpper() == "Y")
                         {
-                            response = "Ingrese el periodo de tiempo: ";
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_MATERIALSCONSUMED_RECIVED");
+                            UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            response = user.VerOfertasUbicacion();
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
                             return true;
-                        }
-                        else
-                        {
-                            response = "Usted no ingreso un periodo de tiempo, busqueda anulada";
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                            return true;
-
                         }
                     }
-
-                    else if (check == "STATUS_MATERIALSCONSUMED_RECIVED")
+                    else
                     {
-                    //Metodo para ver los materiales consumidos en un periodo de tiempo
-
+                        response = "Usted ha cancelado la busqueda por zona";
+                        
+                        check = "STATUS_IDLE";
+                        return true;
                     }
+                    
                 }
             }
             else
@@ -91,28 +88,5 @@ namespace Proyecto_Final
             response = string.Empty;
             return false;
         }
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -36,13 +36,12 @@ namespace Proyecto_Final
         {
             UserEmpresa userEmpresa = new UserEmpresa(id, Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmpresa"));
 
-            Empresa empresa = new Empresa(
+            userEmpresa.CrearEmpresa(
                 Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmpresa"),
                 Singleton<Temp>.Instance.GetDataByKey(id, "ubicacionEmpresa"),
-                new Rubro(Singleton<Temp>.Instance.GetDataByKey(id, "rubroEmpresa"))
+                Singleton<Temp>.Instance.GetDataByKey(id, "rubroEmpresa")
             );
-
-            userEmpresa.Empresa = empresa;
+            
             Singleton<Datos>.Instance.RegistrarUsuarioEmpresa(userEmpresa);
             Console.WriteLine($"UserCreator: Empresa {id} creada.");
             
