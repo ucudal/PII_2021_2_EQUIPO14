@@ -13,7 +13,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_recurrencia".
     /// </summary>
-    public class RecurrenciaHandler : BaseHandler
+    public class SearchRecurrencyHandler : BaseHandler
     {
         private string[] allowedStatus;
         
@@ -24,10 +24,10 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="RecurrenciaHandler"/>. Esta clase procesa el mensaje "/buscar_recurrencia".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchRecurrencyHandler"/>. Esta clase procesa el mensaje "/buscar_recurrencia".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public RecurrenciaHandler(BaseHandler next) : base(next)
+        public SearchRecurrencyHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"/buscar_recurrencia"};
             this.AllowedStatus = new string[] {"STATUS_RECURRENCIA_RESPONSE", 

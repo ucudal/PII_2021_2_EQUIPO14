@@ -35,16 +35,21 @@ namespace Proyecto_Final
             firstHandler =
                 new StartHandler(
                 new ExitHandler(
-                new InviteHandler(
-                new RegisterHandler(
                 new HelloHandler(
                 new GoodByeHandler(
+                new InviteHandler(
+                new RegisterHandler(
                 new PublishHandler(
                 new AddKeyWordHandler(
-                new RecurrenciaHandler(
+                new PeriodOfTimeHandler(
+                new SearchCategoryHandler(
+                new SearchKeyWordsHandler(
+                new SearchZoneHandler(
+                new SearchRecurrencyHandler(
+                new MaterialsConsumedHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            )))))))));
+            )))))))))))))));
 
             var cts = new CancellationTokenSource();
 
