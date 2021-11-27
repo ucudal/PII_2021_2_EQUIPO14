@@ -38,8 +38,7 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            UserEmpresa usercheck = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-            if (Singleton<Datos>.Instance.ListaUsuarioEmpresa().Contains(usercheck))
+            if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
             {
                 if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {

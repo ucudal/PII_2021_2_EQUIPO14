@@ -37,58 +37,67 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+            if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
             {
-                if (check == "STATUS_IDLE")
+                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
                 {
-                    response = $"¿Quiere avisarle a una empresa que está interesado en su oferta? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_RESPONSE");
-                    return true;
-                }
-                else if (check == "STATUS_SHOW_INTEREST_RESPONSE")
-                {
-                    if (message.Text == "Y")
+                    if (check == "STATUS_IDLE")
                     {
-                        response = $"Procederé a mostrarle todas sus ofertas existentes. Responda con el ID de la oferta .";
+                        response = $"¿Quiere avisarle a una empresa que está interesado en su oferta? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_RESPONSE");
+                        return true;
+                    }
+                    else if (check == "STATUS_SHOW_INTEREST_RESPONSE")
+                    {
+                        if (message.Text == "Y")
+                        {
+                            response = $"Procederé a mostrarle todas sus ofertas existentes. Responda con el ID de la oferta .";
+                            UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            foreach (Oferta oferta in user.Empresa.Ofertas)
+                            {
+                                response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                            }
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_OFFER_SELECTED");
+                            return true;
+                        }
+                        else if (message.Text == "N")
+                        {
+                            response = "Operacion abortada correctamente.";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
+                            return true;
+                        }
+                        else
+                        {
+                            response = $"No entendí, por favor, responda \"Y\" para concretar una oferta o escriba \"N\" para cancelar la operación.";
+                            return true;
+                        }
+                    }
+                    else if(check == "STATUS_END_OFFER_OFFER_SELECTED")
+                    {
                         UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
                         foreach (Oferta oferta in user.Empresa.Ofertas)
                         {
-                            response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                            if (oferta.Id == message.Text)
+                            {
+                                if (oferta.Comprador != null)
+                                {
+                                    user.ConcretarOferta("Y",oferta.Nombre);
+                                }
+                                else
+                                {
+                                    user.Empresa.Ofertas.Remove(oferta);
+                                    Singleton<Datos>.Instance.EliminarOfertas(oferta.Id);
+                                }
+                            }
                         }
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_OFFER_SELECTED");
-                        return true;
-                    }
-                    else if (message.Text == "N")
-                    {
-                        response = "Operacion abortada correctamente.";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
-                        return true;
-                    }
-                    else
-                    {
-                        response = $"No entendí, por favor, responda \"Y\" para concretar una oferta o escriba \"N\" para cancelar la operación.";
-                        return true;
                     }
                 }
-                else if(check == "STATUS_END_OFFER_OFFER_SELECTED")
-                {
-                   UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                   foreach (Oferta oferta in user.Empresa.Ofertas)
-                   {
-                       if (oferta.Id == message.Text)
-                       {
-                           if (oferta.Comprador != null)
-                           {
-                               user.ConcretarOferta("Y",oferta.Nombre);
-                           }
-                           else
-                           {
-                               user.Empresa.Ofertas.Remove(oferta);
-                               Singleton<Datos>.Instance.EliminarOfertas(oferta.Id);
-                           }
-                       }
-                   }
-                }
+            }
+            else
+            {
+                response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                return true;
             }
             response = String.Empty;
             return false;

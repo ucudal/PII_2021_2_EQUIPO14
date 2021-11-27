@@ -50,10 +50,10 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            UserEmprendedor usercheck = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
-            if (Singleton<Datos>.Instance.ListaUsuarioEmprendedor().Contains(usercheck))
+            if (Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
             {
                 if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                {
                 if (check == "STATUS_IDLE")
                 {
                     response = "¿Quieres filtrar los materiales por categoria? Y/N";
@@ -92,8 +92,10 @@ namespace Proyecto_Final
                 {
                     UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
                     response = $"En base a la categoria {message.Text}, hemos encontrado las siguientes ofertas para tí:\n\n{user.VerOfertasTipo(message.Text)}";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true; 
                 }
+                
             }
             else
             {
@@ -101,21 +103,10 @@ namespace Proyecto_Final
                 Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                 return true;
             }
-            response = string.Empty;
-            return false;
+            
         }
+        response = string.Empty;
+        return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }

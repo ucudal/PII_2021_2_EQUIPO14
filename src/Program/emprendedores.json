@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "Id": "2121606788",
+    "Nombre": "Eleonor Vi\u00F1a",
+    "Emprendedor": {
+      "Ubicacion": "Urquiza 2784",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Habilitacion": {
+        "Habilitacion": "No"
+      },
+      "Especializaciones": [],
+      "Compras": []
+    }
+  },
+  {
+    "Id": "2100276214",
+    "Nombre": "Juan",
+    "Emprendedor": {
+      "Ubicacion": "Minas",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Habilitacion": {
+        "Habilitacion": "No"
+      },
+      "Especializaciones": [],
+      "Compras": []
+    }
+  }
+]

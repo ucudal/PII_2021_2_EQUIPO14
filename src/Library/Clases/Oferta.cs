@@ -92,6 +92,7 @@ namespace Proyecto_Final
             this.Product = product;
             this.IsRecurrente = isRecurrente;
             this.HabilitacionesOferta = habilitacionesOferta;
+            this.IsVendido = false;
 
             this.Id = IdGenerator.GenerateNumericId();
         }
