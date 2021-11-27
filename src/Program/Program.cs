@@ -44,7 +44,7 @@ namespace Proyecto_Final
                 new RecurrenciaHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            )))))))));
+            ))))))))));
 
             var cts = new CancellationTokenSource();
 
