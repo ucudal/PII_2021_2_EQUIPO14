@@ -77,26 +77,6 @@ namespace Proyecto_Final
         /// <returns>Retorna un IUser.</returns>
         public IUser GetUserById(string id) //(Expert)
         {
-            /*foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
-            {
-                if (userEmpresa.Id == id)
-                {
-                    return userEmpresa;
-                }
-                else
-                {
-                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
-                    {
-                        if (userEmprendedor.Id == id)
-                        {
-                            return userEmprendedor;
-                        }
-                    }                     
-                }
-            }
-            Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
-            return null;
-            Néstor*/
             foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
             {
                 if (userEmpresa.Id == id)
@@ -174,16 +154,12 @@ namespace Proyecto_Final
                 {
                     return true;
                 }
-                else
+            }
+            foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+            {
+                if (userEmprendedor.Id == id)
                 {
-                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
-                    {
-                        if (userEmprendedor.Id == id)
-                        {
-                            return true;
-                        }
-                        return false;
-                    }                     
+                    return true;
                 }
             }
             return false;
