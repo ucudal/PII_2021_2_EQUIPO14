@@ -9,6 +9,7 @@ namespace Proyecto_Final
     /// </summary>
     public class CommandsHandler : BaseHandler
     {
+        Dictionary<string, string> Commands;
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="PublishHandler"/>. Esta clase procesa el mensaje "/comandos".
         /// </summary>
@@ -16,6 +17,9 @@ namespace Proyecto_Final
         public CommandsHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"/comandos"};  
+            this.Commands = new Dictionary<string, string> () {
+                {"/comandos","Lista de comandos"},
+            };
         }
 
         /// <summary>
