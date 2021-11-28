@@ -21,7 +21,7 @@ namespace Proyecto_Final
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
 
-        private static string Token = "2100245792:AAED7VrpdfKR3hIBWU7_IUAwlcgkPnZTabk";
+        private static string Token = "2004584466:AAEgtrmxu4kgJwBAomfmRPuovsGTI9pAwAg";
 
         private static IHandler firstHandler;
 
@@ -40,14 +40,18 @@ namespace Proyecto_Final
                 new HelloHandler(
                 new GoodByeHandler(
                 new PublishHandler(
+                new SearchCategoryHandler(
+                new SearchKeyWordsHandler(
+                new SearchZoneHandler(
+                new MaterialsConsumedHandler(
                 new AddKeyWordHandler(
-
+                new PeriodOfTimeHandler(
                 new RecurrenciaHandler(
-
+                new ShowInterestInOfferHandler(
+                new EndOfferHandler(
                 new CommandsHandler(
-
                 new PhotoHandler(Bot, null)
-            ))))))))));
+            )))))))))))))))));
 
             var cts = new CancellationTokenSource();
 
@@ -60,7 +64,7 @@ namespace Proyecto_Final
             );
 
             Console.WriteLine($"Program: Bot is up!");
-            Singleton<Datos>.Instance.GetData();
+            Singleton<Datos>.Instance.LoadData();
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();

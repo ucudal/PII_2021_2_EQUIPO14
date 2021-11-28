@@ -38,10 +38,9 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            UserEmpresa usercheck = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-            if (Singleton<Datos>.Instance.ListaUsuarioEmpresa().Contains(usercheck))
+            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
                 {
                     if (check == "STATUS_IDLE")
                     {   
@@ -53,7 +52,7 @@ namespace Proyecto_Final
                     {
                         if (message.Text.ToUpper() == "Y")
                         {
-                            response = "Ingrese el nombre de la oferta a asignarle una palabra clave";
+                            response = "Ingrese el ID de la oferta a asignarle una palabra clave";
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_OFERTNAME");
                             return true;
                         }
@@ -66,29 +65,36 @@ namespace Proyecto_Final
                     }
                     else if (check == "STATUS_KEYWORD_OFERTNAME")
                     {
-                        response = $"El nombre de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
-                        Singleton<Temp>.Instance.AddDataById(message.UserId, "ofertaName", message.Text);
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
+                        if (Singleton<Datos>.Instance.IsOfferValid(message.UserId, message.Text))
+                        {
+                            response = $"El ID de la oferta es: {message.Text}.\n\nIngrese la palabra clave a asignarle: ";
+                            Singleton<Temp>.Instance.AddDataById(message.UserId, "oferIdKeyword", message.Text);
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_KEYWORD_KEYWORD");
+                            return true;
+                        }
+                        response = $"ID de oferta invalido. Se ha cancelado la asignacion de palabra clave.";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                     else if (check == "STATUS_KEYWORD_KEYWORD")
                     {
                         response = $"La palabra clave es: {message.Text}.\n\nPalabra clave asignada correctamente!! ";
                         UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        user.CrearMsjClave((Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ofertaName"), message.Text));
+                        user.CrearMsjClave(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "oferIdKeyword"), message.Text);
+                        Singleton<Datos>.Instance.UpdateEmpresasData();
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
                 }
-
-                response = string.Empty;
-                return false;
+                else
+                {
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    return true;
+                }
             }
-            else
-            {
-                response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                return false;
-            }
+            response = string.Empty;
+            return false;
         }
     }
 }

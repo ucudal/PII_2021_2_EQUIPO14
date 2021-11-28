@@ -1,10 +1,11 @@
 using System.Collections;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa las ofertas creadas por un empresario.
-    /// Esta clase tiene como función ser una representación de una publicación de oferta, además de ser experta en modificar los atributos utilizados para representar tal oferta, por lo cual 
+    /// Esta clase tiene como función ser una representación de una publicación de oferta, conociendo los datos necesarios para cumplir su función, por lo cual cumple con SRP.
     /// </summary>
     public class Oferta
     {
@@ -23,23 +24,29 @@ namespace Proyecto_Final
         /// Otorga el nombre de la Oferta
         /// </summary>
         /// <value>Retorna el nombre.</value>
-        public string Nombre { get; }
+        public string Nombre { get; set; }
 
         /// <summary>
         /// Otorga un objeto del Producto que se está ofertando <see cref="Producto"/>.
         /// </summary>
         /// <value>Objeto del tipo "Producto".</value>
-        public Producto Product {get;}
+        public Producto Product { get; set; }
 
         /// <summary>
         /// Otorga una lista de strings "Palabras Clave" que pueden utilizarse para buscar la oferta.
         /// </summary>
         /// <value>Retorna la lista "palabrasClave".</value>
+        [JsonInclude]
         public ArrayList PalabrasClave 
         {
             get
             {
                 return this.palabrasClave;
+            }
+
+            set
+            {
+                this.palabrasClave = value;
             }
         }
         
@@ -47,7 +54,7 @@ namespace Proyecto_Final
         /// Otorga las habilitaciones requeridas para que un emprendedor pueda aceptar la oferta <see cref="Habilitaciones"/>.
         /// </summary>
         /// <value>Objeto del tipo Habilitaciones.</value>
-        public Habilitaciones HabilitacionesOferta {get;}
+        public Habilitaciones HabilitacionesOferta { get; set; }
 
         /// <summary>
         /// Otorga un valor booleano dependiendo de si la oferta fue vendida o no.
@@ -69,6 +76,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public Oferta() {}
 
         /// <summary>
@@ -84,6 +92,7 @@ namespace Proyecto_Final
             this.Product = product;
             this.IsRecurrente = isRecurrente;
             this.HabilitacionesOferta = habilitacionesOferta;
+            this.IsVendido = false;
 
             this.Id = IdGenerator.GenerateNumericId();
         }

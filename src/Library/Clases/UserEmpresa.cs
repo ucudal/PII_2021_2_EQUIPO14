@@ -16,7 +16,6 @@ namespace Proyecto_Final
     {
         private bool isInvited = false;
         
-        
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
@@ -39,11 +38,12 @@ namespace Proyecto_Final
         /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
         /// </summary>
         /// <value><c>true/false</c></value>
-        public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+        public bool IsInvited { get { return isInvited; }  set { this.isInvited = value;} }
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public UserEmpresa () {}
 
         /// <summary>
@@ -78,22 +78,22 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            //Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa); //(Delegacion)
         }
 
         /// <summary>
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
-        /// <param name="datosMensaje"></param>
-        public void CrearMsjClave((string, string) datosMensaje) 
+        /// <param name="oferId"></param>
+        /// <param name="palabra"></param>
+        public void CrearMsjClave(string oferId, string palabra) 
         {
-            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2)); // (Delegacion)
+            this.Empresa.AgregarMsjClave(oferId, palabra); // (Delegacion)
         }
 
         /// <summary>
         /// Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
         /// </summary>
-        /// <param name="datosOferta"></param>
+        /// <param name="nombreOferta"></param>
         /// <param name="datosHabilitacion"></param>
         /// <param name="isRecurrente"></param>
         /// <param name="nombreProducto"></param>
@@ -103,7 +103,7 @@ namespace Proyecto_Final
         /// <param name="valorMoneda"></param>
         /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string nombreOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
             bool recurrencia = false;
             bool isPesos = false;
@@ -128,10 +128,16 @@ namespace Proyecto_Final
 
             Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, isPesos, cantidadProducto, datosTipoProducto);
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
+            Oferta newOferta = new Oferta(nombreOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Singleton<Datos>.Instance.AgregarOferta(newOferta);
+
+            this.CrearMsjClave(newOferta.Id,nombreOferta);
+            this.CrearMsjClave(newOferta.Id,datosTipoProducto);
+            this.CrearMsjClave(newOferta.Id,nombreProducto);
+            this.CrearMsjClave(newOferta.Id,Id);
+
+            Singleton<Datos>.Instance.UpdateOfersData();
 
             Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }
@@ -160,8 +166,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <param name="input"></param>
         /// <param name="nombreOferta"></param>
-        /// <param name="nombreEmprendedor"></param>
-        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor) //(Expert)
+        public void ConcretarOferta(string input, string nombreOferta) //(Expert)
         {
             if (input == "Y")
             {
@@ -169,13 +174,9 @@ namespace Proyecto_Final
                 {
                     if (oferta.Nombre == nombreOferta)
                     {
-                        foreach (UserEmprendedor emprendedor in Singleton<Datos>.Instance.ListaUsuarioEmprendedor())
+                        if (oferta.Comprador != null)
                         {
-                            if (emprendedor.Nombre == nombreEmprendedor)
-                            {
-                                oferta.IsVendido = true;
-                                oferta.Comprador = emprendedor;
-                            }
+                            oferta.IsVendido = true;
                         }
                     }
                 }

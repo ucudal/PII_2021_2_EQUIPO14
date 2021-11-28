@@ -42,7 +42,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Al inicializar el programa se obtienen todos los datos de la DB.
         /// </summary>
-        public void GetData()
+        public void LoadData()
         {
             this.LoadTokensData();
             this.LoadRegisteredEmpresas();
@@ -81,21 +81,18 @@ namespace Proyecto_Final
             {
                 if (userEmpresa.Id == id)
                 {
+                    Console.WriteLine($"USEREMPRESA {id} ENCONTRADO");
                     return userEmpresa;
                 }
-                else
-                {
-                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
-                    {
-                        if (userEmprendedor.Id == id)
-                        {
-                            return userEmprendedor;
-                        }
-                        Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
-                        return null;
-                    }                     
-                }
             }
+            foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+            {
+                if (userEmprendedor.Id == id)
+                {
+                    Console.WriteLine($"USEREMPRENDEDOR {id} ENCONTRADO");
+                    return userEmprendedor;
+                }
+            }                     
             Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
             return null;
         }
@@ -121,6 +118,30 @@ namespace Proyecto_Final
         }
 
         /// <summary>
+        /// Verifica si una oferta es valida (no tiene comprador y existe).
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="oferId"></param>
+        /// <returns></returns>
+        public bool IsOfferValid(string userId, string oferId)
+        {
+            foreach (UserEmpresa userEmpresa in this.listaUsuarioEmpresa)
+            {
+                if (userEmpresa.Id == userId)
+                {
+                    foreach (Oferta oferta in userEmpresa.Empresa.Ofertas)
+                    {
+                        if ((oferta.Id == oferId) && (oferta.Comprador == null))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Verifica si la id ya esta registrada.
         /// </summary>
         /// <param name="id"></param>
@@ -133,16 +154,12 @@ namespace Proyecto_Final
                 {
                     return true;
                 }
-                else
+            }
+            foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+            {
+                if (userEmprendedor.Id == id)
                 {
-                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
-                    {
-                        if (userEmprendedor.Id == id)
-                        {
-                            return true;
-                        }
-                        return false;
-                    }                     
+                    return true;
                 }
             }
             return false;
@@ -165,6 +182,40 @@ namespace Proyecto_Final
         public bool IsAdmin(string token) //(Expert)
         {
             return this.listaAdmins.Contains(token);
+        }
+
+        /// <summary>
+        /// Checkea en base a un ID si esta ID pertenece a un UserEmprendedor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true si la ID es de un objeto de UserEmprendedor, false si no lo es.</returns>
+        public bool IsUserEmprendedor(string id)
+        {
+            foreach (UserEmprendedor user in this.listaUsuarioEmprendedor)
+            {
+                if (user.Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checkea en base a un ID si esta ID pertenece a un UserEmpresa
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true si la ID es de un objeto de UserEmprensa, false si no lo es.</returns>
+        public bool IsUserEmpresa(string id)
+        {
+            foreach (UserEmpresa user in this.listaUsuarioEmpresa)
+            {
+                if (user.Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -218,15 +269,12 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Agrega una oferta a la lista de publicaciones.
+        /// Actualiza la informacion de las publicaciones.
         /// </summary>
-        /// <param name="oferta"></param>
-        public void AgregarOferta(Oferta oferta) //(Expert)
+        public void UpdateOfersData()
         {
-            this.listaOfertas.Add(oferta);
-
             this.UpdateEmpresasData();
-            this.UpdatePublicationsData();
+            this.LoadPublications();
         }
 
         /// <summary>
@@ -285,7 +333,6 @@ namespace Proyecto_Final
                 if (oferta.Id == id)
                 {
                     this.listaOfertas.Remove(oferta);
-                    UpdatePublicationsData();
                 }
             }
         }
@@ -334,7 +381,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Carga los datos de la lista de Tokens desde el archivo ".json".
         /// </summary>
-        public void LoadTokensData()
+        private void LoadTokensData()
         {
             if (!File.Exists(@"tokens.json"))
             {
@@ -346,7 +393,7 @@ namespace Proyecto_Final
                 string json = File.ReadAllText(@"tokens.json");
                 this.listaTokens = JsonSerializer.Deserialize<List<string>>(json);
             }
-            Console.WriteLine("[DATOS] : Tokens cargados.");
+            Console.WriteLine($"[DATOS] : {this.listaTokens.Count} Tokens cargados.");
         }
 
         /// <summary>
@@ -373,7 +420,7 @@ namespace Proyecto_Final
                 string json = File.ReadAllText(@"empresas.json");
                 this.listaUsuarioEmpresa = JsonSerializer.Deserialize<List<UserEmpresa>>(json);
             }
-            Console.WriteLine("[DATOS] : Empresas cargadas.");
+            Console.WriteLine($"[DATOS] : {this.listaUsuarioEmpresa.Count} Empresas cargadas.");
         }
 
         /// <summary>
@@ -401,7 +448,7 @@ namespace Proyecto_Final
                 string json = File.ReadAllText(@"emprendedores.json");
                 this.listaUsuarioEmprendedor = JsonSerializer.Deserialize<List<UserEmprendedor>>(json);
             }
-            Console.WriteLine("[DATOS] : Emprendedores cargados.");
+            Console.WriteLine($"[DATOS] : {this.listaUsuarioEmprendedor.Count} Emprendedores cargados.");
         }
 
         /// <summary>
@@ -419,6 +466,8 @@ namespace Proyecto_Final
         /// </summary>
         public void LoadPublications()
         {
+            int cont = 0;
+
             foreach (UserEmpresa user in this.listaUsuarioEmpresa)
             {
                 foreach (Oferta oferta in user.Empresa.Ofertas)
@@ -426,20 +475,11 @@ namespace Proyecto_Final
                     if (oferta.Comprador == null)
                     {
                         this.listaOfertas.Add(oferta);
+                        cont+=1;
                     }
                 }
             }
-            Console.WriteLine("[DATOS] : Publicaciones cargadas.");
-        }
-
-        /// <summary>
-        /// Actualiza los datos de las publicaciones encontradas en su respectivo ".json" para que sean idénticas a las que se encontraban en la lista de publicaciones.
-        /// </summary>
-        public void UpdatePublicationsData()
-        {
-            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string json = JsonSerializer.Serialize(this.listaOfertas, options);
-            File.WriteAllText(@"publicaciones.json", json);
+            Console.WriteLine($"[DATOS] : {cont} Publicaciones cargadas.");
         }
     }
 }

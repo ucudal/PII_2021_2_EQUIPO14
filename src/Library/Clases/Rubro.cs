@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
@@ -18,6 +19,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
         /// </summary>
+        [JsonConstructor]
         public Rubro(){}
 
         /// <summary>

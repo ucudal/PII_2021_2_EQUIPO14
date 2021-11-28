@@ -15,7 +15,7 @@ namespace Proyecto_Final
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_zona".
     /// </summary>
 
-    public class ZoneHandler: BaseHandler
+    public class SearchZoneHandler: BaseHandler
     {
         private string[] allowedStatus;
         
@@ -26,15 +26,14 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="ZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchZoneHandler"/>. Esta clase procesa el mensaje "/buscar_zona".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
 
-        public ZoneHandler (BaseHandler next) : base(next)
+        public SearchZoneHandler (BaseHandler next) : base(next)
         {
             this.Keywords = new string [] {"/buscar_zona"};
-            this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
-                                                "STATUS_ZONE_RECEIVED"};
+            this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE"};
         }
 
         /// <summary>
@@ -47,10 +46,9 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            UserEmprendedor usercheck = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
-            if (Singleton<Datos>.Instance.ListaUsuarioEmprendedor().Contains(usercheck))
+            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if (Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
                 {
                     if (check == "STATUS_IDLE")
                     {
@@ -65,50 +63,26 @@ namespace Proyecto_Final
                         {
                             UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
                             response = user.VerOfertasUbicacion();
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                             return true;
                         }
                     }
                     else
                     {
                         response = "Usted ha cancelado la busqueda por zona";
-                        
-                        check = "STATUS_IDLE";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                         return true;
                     }
-                    
                 }
-                response = string.Empty;
-                return false;
+                else
+                {
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    return true;
+                }
             }
-            else
-            {
-                response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                return false;
-            }
+            response = string.Empty;
+            return false;
         }
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
