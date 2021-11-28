@@ -81,21 +81,18 @@ namespace Proyecto_Final
             {
                 if (userEmpresa.Id == id)
                 {
+                    Console.WriteLine($"USEREMPRESA {id} ENCONTRADO");
                     return userEmpresa;
                 }
-                else
-                {
-                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
-                    {
-                        if (userEmprendedor.Id == id)
-                        {
-                            return userEmprendedor;
-                        }
-                        Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
-                        return null;
-                    }                     
-                }
             }
+            foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+            {
+                if (userEmprendedor.Id == id)
+                {
+                    Console.WriteLine($"USEREMPRENDEDOR {id} ENCONTRADO");
+                    return userEmprendedor;
+                }
+            }                     
             Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
             return null;
         }
@@ -157,16 +154,12 @@ namespace Proyecto_Final
                 {
                     return true;
                 }
-                else
+            }
+            foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
+            {
+                if (userEmprendedor.Id == id)
                 {
-                    foreach (UserEmprendedor userEmprendedor in this.listaUsuarioEmprendedor)
-                    {
-                        if (userEmprendedor.Id == id)
-                        {
-                            return true;
-                        }
-                        return false;
-                    }                     
+                    return true;
                 }
             }
             return false;
@@ -189,6 +182,40 @@ namespace Proyecto_Final
         public bool IsAdmin(string token) //(Expert)
         {
             return this.listaAdmins.Contains(token);
+        }
+
+        /// <summary>
+        /// Checkea en base a un ID si esta ID pertenece a un UserEmprendedor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true si la ID es de un objeto de UserEmprendedor, false si no lo es.</returns>
+        public bool IsUserEmprendedor(string id)
+        {
+            foreach (UserEmprendedor user in this.listaUsuarioEmprendedor)
+            {
+                if (user.Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checkea en base a un ID si esta ID pertenece a un UserEmpresa
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>true si la ID es de un objeto de UserEmprensa, false si no lo es.</returns>
+        public bool IsUserEmpresa(string id)
+        {
+            foreach (UserEmpresa user in this.listaUsuarioEmpresa)
+            {
+                if (user.Id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>

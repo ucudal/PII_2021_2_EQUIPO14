@@ -40,11 +40,17 @@ namespace Proyecto_Final
                 new HelloHandler(
                 new GoodByeHandler(
                 new PublishHandler(
+                new SearchCategoryHandler(
+                new SearchKeyWordsHandler(
+                new SearchZoneHandler(
                 new AddKeyWordHandler(
+                new PeriodOfTimeHandler(
                 new RecurrenciaHandler(
+                new ShowInterestInOfferHandler(
+                new EndOfferHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            ))))))))));
+            ))))))))))))))));
 
             var cts = new CancellationTokenSource();
 
