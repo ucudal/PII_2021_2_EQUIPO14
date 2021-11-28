@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Text.Json.Serialization;
 
@@ -13,7 +14,8 @@ namespace Proyecto_Final
         private bool isVendido = false;
         private ArrayList palabrasClave = new ArrayList();
         private UserEmprendedor comprador = null;
-
+        private DateTime soldDate;
+ 
         /// <summary>
         /// Otorga el ID de la Oferta.
         /// </summary>
@@ -31,6 +33,12 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Objeto del tipo "Producto".</value>
         public Producto Product { get; set; }
+
+        /// <summary>
+        /// Otorga la fecha de venta de una oferta.
+        /// </summary>
+        /// <value></value>
+        public DateTime SoldDate { get; set; }
 
         /// <summary>
         /// Otorga una lista de strings "Palabras Clave" que pueden utilizarse para buscar la oferta.

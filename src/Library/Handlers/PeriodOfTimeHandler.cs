@@ -75,7 +75,10 @@ namespace Proyecto_Final
 
                     else if (check == "STATUS_PERIODTIME_RECIVED")
                     {
-                        //Metodo para filtrar materiales por periodo de tiempo
+                        UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerificarVentas();
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
                     }
                     
                 }

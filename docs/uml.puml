@@ -6,14 +6,14 @@ class Buscador {}
 
 class Datos << (S, SteelBlue) Singleton >> {
     __<<Properties>>__
-    - ListaAdmins: string[]
-    - ListaRubros: ArrayList
-    - ListaTipos: ArrayList
-    - ListaHabilitaciones: ArrayList
-    - ListaTokens: List<string>
-    - ListaOfertas: List<Oferta>
-    - ListaUsuarioEmpresa: List<UserEmpresa>
-    - ListaUsuarioEmprendedor: List<UserEmprendedor>
+    + ListaAdmins: string[]
+    + ListaRubros: ArrayList
+    + ListaTipos: ArrayList
+    + ListaHabilitaciones: ArrayList
+    + ListaTokens: List<string>
+    + ListaOfertas: List<Oferta>
+    + ListaUsuarioEmpresa: List<UserEmpresa>
+    + ListaUsuarioEmprendedor: List<UserEmprendedor>
     __<<Public Methods>>__
     + LoadData() : void
     + GetOfertaById(userId: string, oferId: string) : Oferta
