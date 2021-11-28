@@ -105,7 +105,7 @@
             Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Datos.GetData">
+        <member name="M:Proyecto_Final.Datos.LoadData">
             <summary>
             Al inicializar el programa se obtienen todos los datos de la DB.
             </summary>
@@ -305,11 +305,6 @@
         <member name="M:Proyecto_Final.Datos.LoadPublications">
             <summary>
             Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Empresa.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.Datos.UpdatePublicationsData">
-            <summary>
-            Actualiza los datos de las publicaciones encontradas en su respectivo ".json" para que sean idénticas a las que se encontraban en la lista de publicaciones.
             </summary>
         </member>
         <member name="T:Proyecto_Final.Emprendedor">

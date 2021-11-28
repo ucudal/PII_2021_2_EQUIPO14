@@ -131,11 +131,12 @@ namespace Proyecto_Final
             Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Singleton<Datos>.Instance.UpdateOfersData();
 
             this.CrearMsjClave(newOferta.Id,datosOferta);
             this.CrearMsjClave(newOferta.Id,datosTipoProducto);
             this.CrearMsjClave(newOferta.Id,nombreProducto);
+
+            Singleton<Datos>.Instance.UpdateOfersData();
 
             Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }
