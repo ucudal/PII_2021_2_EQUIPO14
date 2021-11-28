@@ -191,5 +191,14 @@ namespace Proyecto_Final
         {
             return this.Empresa.VerificarVentas(); // (Delegacion)
         }
+
+        /// <summary>
+        /// Devuelve un string con la lista de ofertas con compradores.
+        /// </summary>
+        /// <returns>string</returns>
+        public string CheckBuyers()
+        {
+            return this.Empresa.CheckBuyers();
+        }
     }
 }

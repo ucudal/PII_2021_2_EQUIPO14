@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
@@ -129,6 +130,23 @@ namespace Proyecto_Final
                 }
             }
             return info;
+        }
+
+        /// <summary>
+        /// Devuelve un string con la lista de ofertas con compradores.
+        /// </summary>
+        /// <returns>string</returns>
+        public string CheckBuyers()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (Oferta oferta in this.Ofertas)
+            {
+                if (oferta.Comprador != null)
+                {
+                    str.Append($"{oferta.Id} :\nNombre: {oferta.Comprador.Nombre}\n");
+                }
+            }
+            return str.ToString();
         }
     }
 }
