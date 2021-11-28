@@ -56,6 +56,12 @@ namespace Proyecto_Final
         public DateTime Date { get { return this.message.Date; } }
 
         /// <summary>
+        /// Otorga el número de teléfono del usuario que envió el mensaje
+        /// </summary>
+        /// <value>String del número de teléfono del usuario.</value>
+        public string PhoneNumber {get {return this.message.Contact.PhoneNumber;} }
+
+        /// <summary>
         /// Inicializa la clase TelegramAdapter.
         /// </summary>
         /// <param name="message"></param>

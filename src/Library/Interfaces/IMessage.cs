@@ -44,5 +44,11 @@ namespace Proyecto_Final
         /// </summary>
         /// <value></value>
         DateTime Date {get;}
+        
+        /// <summary>
+        /// El número de teléfono del usuario
+        /// </summary>
+        /// <value></value>
+        string PhoneNumber {get;}
     }
 }
