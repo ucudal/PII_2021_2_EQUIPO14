@@ -43,6 +43,7 @@ namespace Proyecto_Final
                 new SearchCategoryHandler(
                 new SearchKeyWordsHandler(
                 new SearchZoneHandler(
+                new MaterialsConsumedHandler(
                 new AddKeyWordHandler(
                 new PeriodOfTimeHandler(
                 new RecurrenciaHandler(
@@ -50,7 +51,7 @@ namespace Proyecto_Final
                 new EndOfferHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            ))))))))))))))));
+            )))))))))))))))));
 
             var cts = new CancellationTokenSource();
 
