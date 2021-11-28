@@ -187,7 +187,7 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public Dictionary<string, int> VerificarVentas()
+        public string VerificarVentas()
         {
             return this.Empresa.VerificarVentas(); // (Delegacion)
         }
