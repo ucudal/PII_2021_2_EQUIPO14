@@ -45,9 +45,9 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
+            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
                 {
                     if (check == "STATUS_IDLE")
                     {   
@@ -174,9 +174,9 @@ namespace Proyecto_Final
                             Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreOferta"),
                             Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
                             Singleton<Temp>.Instance.GetDataByKey(message.UserId, "recurrenciaOferta"),
+                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreProducto"),
                             Singleton<Temp>.Instance.GetDataByKey(message.UserId, "descripcionProducto"),
                             Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ubicacionProducto"),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
                             Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorUnitarioProducto")),
                             Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorMonedaProducto"),
                             Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),
@@ -187,15 +187,15 @@ namespace Proyecto_Final
                         return true;
                     }
                 }
+                else
+                {
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    return true;
+                }
             }
-            else
-            {
-                response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                return true;
-            }
-        response = string.Empty;
-        return false;
+            response = string.Empty;
+            return false;
         }
     }
 }

@@ -24,7 +24,6 @@ namespace Proyecto_Final
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override bool InternalHandle(IMessage message, out string response)
         {
-
             if (this.CanHandle(message))
             {
                 string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);

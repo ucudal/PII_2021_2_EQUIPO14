@@ -31,6 +31,76 @@
           "IsVendido": false,
           "IsRecurrente": false,
           "Comprador": null
+        },
+        {
+          "Id": "8320822710",
+          "Nombre": "Messi Oferat",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Es Nestor",
+            "Descripcion": "Gral. Urquiza 2784",
+            "Ubicacion": "Hab-1",
+            "Valor": 10000,
+            "Cantidad": 20,
+            "Tipo": {
+              "Nombre": "Persona"
+            }
+          },
+          "PalabrasClave": [],
+          "HabilitacionesOferta": {
+            "Habilitacion": "Hab-1"
+          },
+          "IsVendido": false,
+          "IsRecurrente": true,
+          "Comprador": null
+        },
+        {
+          "Id": "7112759629",
+          "Nombre": "Nueva Oferta de N\u00E9stor",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Tapitas de botellas de Coca Cola",
+            "Descripcion": "Gral. Urquiza 2784",
+            "Ubicacion": "No",
+            "Valor": 10,
+            "Cantidad": 500,
+            "Tipo": {
+              "Nombre": "Pl\u00E1stico"
+            }
+          },
+          "PalabrasClave": [],
+          "HabilitacionesOferta": {
+            "Habilitacion": "No"
+          },
+          "IsVendido": false,
+          "IsRecurrente": false,
+          "Comprador": null
+        },
+        {
+          "Id": "4798455385",
+          "Nombre": "Nueva nueva oferta de N\u00E9stor",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Tapas de botellas de Coca Cola",
+            "Descripcion": "Gral. Urquiza 2784",
+            "Ubicacion": "No",
+            "Valor": 5,
+            "Cantidad": 10000,
+            "Tipo": {
+              "Nombre": "Pl\u00E1stico"
+            }
+          },
+          "PalabrasClave": [
+            "Nueva nueva oferta de N\u00E9stor",
+            "Pl\u00E1stico",
+            "Tapas de botellas de Coca Cola"
+          ],
+          "HabilitacionesOferta": {
+            "Habilitacion": "No"
+          },
+          "IsVendido": false,
+          "IsRecurrente": true,
+          "Comprador": null
         }
       ]
     },

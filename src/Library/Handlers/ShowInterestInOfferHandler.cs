@@ -22,8 +22,8 @@ namespace Proyecto_Final
         public ShowInterestInOfferHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"/interes_oferta"};
-            this.AllowedStatus = new string[] {"STATUS_END_OFFER_RESPONSE",
-                                                "STATUS_END_OFFER_OFFER_SELECTED",
+            this.AllowedStatus = new string[] {"STATUS_SHOW_INTEREST_RESPONSE",
+                                                "STATUS_SHOW_INTEREST_OFFER_SELECTED",
 
                                                };  
         }
@@ -37,21 +37,21 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
+            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if (Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
                 {
                     if (check == "STATUS_IDLE")
                     {
-                        response = $"";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_RESPONSE");
+                        response = $"¿Quiere avisarle a una empresa que está interesado en su oferta? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SHOW_INTEREST_RESPONSE");
                         return true;
                     }
-                    else if (check == "STATUS_END_OFFER_RESPONSE")
+                    else if (check == "STATUS_SHOW_INTEREST_RESPONSE")
                     {
                         if (message.Text == "Y")
                         {
-                            response = $"Procederé a mostrarle todas las ofertas. Responda con el ID de la oferta que quiere concretar.";
+                            response = $"Procederé a mostrarle todas las ofertas. Responda con el ID de la oferta que le interese.";
                             foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
                             {
                                 if(oferta.IsVendido == false)
@@ -59,7 +59,7 @@ namespace Proyecto_Final
                                     response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
                                 } 
                             }
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_OFFER_SELECTED");
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SHOW_INTEREST_OFFER_SELECTED");
                             return true;
                         }
                         else if (message.Text == "N")
@@ -74,7 +74,7 @@ namespace Proyecto_Final
                             return true;
                         }
                     }
-                    else if(check == "STATUS_END_OFFER_OFFER_SELECTED")
+                    else if(check == "STATUS_SHOW_INTEREST_OFFER_SELECTED")
                     {
                     UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
                     foreach (Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
@@ -83,6 +83,7 @@ namespace Proyecto_Final
                         {
                             oferta.Comprador = user; //El punto de mostrar interés en una oferta es para hacer que cuando se concrete una oferta se identifique el que lo consumió y el que lo vendió. Siguiendo la regla del Teams, en la cual se habla de que la primera persona en mostrar interés en una oferta es el comprador; es que se ejecuta esta acción si nadie se había registrado anteriormente como comprador.
                             response = $"Se ha notificado a la Empresa que está interesado en la oferta que publicó.";
+                            Singleton<Datos>.Instance.UpdateOfersData();
                             return true;
                         }
                     }
@@ -90,12 +91,12 @@ namespace Proyecto_Final
                     return true;
                     }
                 }
-            }
-            else
-            {
-                response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                return true;
+                else
+                {
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    return true;
+                }
             }
             response = String.Empty;
             return false;

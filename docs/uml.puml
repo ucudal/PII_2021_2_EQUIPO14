@@ -1,52 +1,130 @@
 @startuml
 
-class TelegramAdapter
+class TelegramAdapter {}
 
-class Buscador
+class Buscador {}
 
-class Datos
+class Datos << (S, SteelBlue) Singleton >> {
+    __<<Properties>>__
+    - ListaAdmins: string[]
+    - ListaRubros: ArrayList
+    - ListaTipos: ArrayList
+    - ListaHabilitaciones: ArrayList
+    - ListaTokens: List<string>
+    - ListaOfertas: List<Oferta>
+    - ListaUsuarioEmpresa: List<UserEmpresa>
+    - ListaUsuarioEmprendedor: List<UserEmprendedor>
+    __<<Public Methods>>__
+    + LoadData() : void
+    + GetOfertaById(userId: string, oferId: string) : Oferta
+    + GetUserById(id: string) : IUser
+    + RegistrarUsuarioEmpresa(user: UserEmpresa) : void
+    + RegistrarUsuarioEmprendedor(user: UserEmprendedor) : void
+    + AgregarToken(token: string) : void
+    + EliminarToken(token: string) : void
+    + IsOfferValid(userId: string, oferId: string) : bool
+    + IsRegistered(id: string) : bool
+    + IsAdmin(id: string) : bool 
+    + IsTokenValid(token: string) : bool
+    + CheckHabilitaciones(habilitacion: string) : bool
+    + CheckTipos(tipoProducto: string) : bool
+    + CheckRubros(rubro: string) : bool
+    + UpdateOfersData() : void
+    + UpdateTokensData() : void
+    + UpdateEmpresasData() : void
+    + UpdateEmprendedoresData() : void
+    __<<Private Methods>>__
+    - LoadTokensData() : void
+    - LoadRegisteredEmpresas() : void
+    - LoadRegisteredEmprendedores() : void
+    - LoadPublications() : void
+}
 
-class Emrpendedor
+class Emrpendedor {}
 
-class Empresa
+class Empresa {
+    __<<Properties>>__
+    + Nombre: string
+    + Ubicacion: string
+    + Rubro: Rubro
+    + Especializaciones: ArrayList
+    + Ofertas: List<Ofertas>
+    __<<Constructor>>__
+    + Empresa() <<JsonConstructor>>
+    + Empresa(nombre: string, ubicacion: string, rubro: Rubro) <<Constructor>>
+    __<<Methods>>__
+    + AgregarRubro(rubro: string) : void
+    + CrearEmpresa(nombre: string, ubicacion: string, rubro: string) : void
+    + AgregarMsjClave(oferId: string, palabra: string) : void
+    + AgregarEspecializacion(especializacion: string) : void
+    + VerificarVentas()
+}
 
-class Habilitaciones
+class Habilitaciones {}
 
-class IdGenerator
+class IdGenerator {}
 
-class Oferta
+class Oferta {}
 
-class Producto
+class Producto {}
 
-class Rubro
+class Rubro {}
 
-class Singleton << (S, SteelBlue) Singleton >>
+class Singleton << (S, SteelBlue) Singleton >> {}
 
-class StatusManager
+class StatusManager {}
 
-class Temp
+class Temp {
+    __<<Properties>>__
+    __<<Constructor>>__
+    __<<Methods>>__
+}
 
-class TipoProducto
+class TipoProducto {
+    __<<Properties>>__
+    __<<Constructor>>__
+    __<<Methods>>__
+}
 
-class UserAdmin
+class UserAdmin {
+    __<<Properties>>__
+    __<<Constructor>>__
+    __<<Methods>>__
+}
 
-class UserCreator
-
-class UserEmprendedor
-
-class UserEmpresa
-
+class UserCreator {
+    __<<Properties>>__
+    __<<Constructor>>__
+    __<<Methods>>__
+}
+ 
+class UserEmprendedor {
+    __<<Properties>>__
+    __<<Constructor>>__
+    __<<Methods>>__
+}
 
 class UserEmpresa {
-    + Invitacion Invitacion
-    + string Nombre
-    + bool IsInvited
-
-    + AceptarInvitacion()
-    + CrearEmpresa()
+     __<<Properties>>__
+    + Id: string
+    + Nombre: string
+    + Empresa: Empresa
+    + IsInvited: bool
+    __<<Constructor>>__
+    + UserEmpresa() <<JsonConstructor>>
+    + UserEmpresa(id: string, nombre: string) <<Constructor>>
+    __<<Methods>>__
+    + AgregarRubro(rubro: string) : void
+    + CrearEmpresa(nombre: string, ubicacion: string, rubro: string) : void
+    + CrearMsjClave(oferId: string, palabra: string) : void
+    + CrearOferta(datosOferta: string, datosHabilitacion: string, isRecurrente: string, nombreProducto: string, descripcionProducto: string, ubicacionProducto: string, valorProducto: int, valorMoneda: string, cantidadProducto: int, datosTipoProducto: string): void
+    + CrearProducto(nombre: string, descripcion: string, ubicacion: string, valor: int, isPesos: bool, cantidad: int, datosTipoProducto: string): Producto
+    + ConcretarOferta()
+    + VerificarVentas()
 }
 
 UserEmpresa "1" o-- "1" Empresa : Empresa
+UserEmpresa --o  Datos
 
 
 @enduml

@@ -28,5 +28,20 @@
       "Especializaciones": [],
       "Compras": []
     }
+  },
+  {
+    "Id": "2051203726",
+    "Nombre": "Rodrigo Luque",
+    "Emprendedor": {
+      "Ubicacion": "Bvar Artigas 1498",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Habilitacion": {
+        "Habilitacion": "Hab-1"
+      },
+      "Especializaciones": [],
+      "Compras": []
+    }
   }
 ]

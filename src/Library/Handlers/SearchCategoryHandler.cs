@@ -50,63 +50,62 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
+            if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if  (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if (Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
                 {
-                if (check == "STATUS_IDLE")
+                    if (check == "STATUS_IDLE")
+                    {
+                        response = "¿Quieres filtrar los materiales por categoria? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATEGORY_RESPONSE");
+                        return true;
+                    }
+    
+
+                    else if (check == "STATUS_SEARCH_CATEGORY_RESPONSE")
+                    {
+                        if (message.Text.ToUpper() == "Y")
+                        {
+                            response = "Ingrese la categoria: ";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATRGORY_ACCEPTED");
+                            return true;
+                        }
+
+
+                        else if (message.Text.ToUpper() == "N")
+                        {
+                            response = $"Se ha cancelado la busqueda.";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                            return true;
+                        }
+
+
+                        else
+                        {
+                            response = $"No entendí, por favor, responda \"Y\" para realizar la búsqueda o escriba \"N\" cancelar la búsqueda.";
+                            return true;
+                        }
+                    }
+
+
+                    else if (check == "STATUS_SEARCH_CATRGORY_ACCEPTED")
+                    {
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = $"En base a la categoria {message.Text}, hemos encontrado las siguientes ofertas para tí:\n\n{user.VerOfertasTipo(message.Text)}";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true; 
+                    }
+                    
+                }
+                else
                 {
-                    response = "¿Desea buscar una oferta por categoria? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATEGORY_RESPONSE");
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;
                 }
- 
-
-                else if (check == "STATUS_SEARCH_CATEGORY_RESPONSE")
-                {
-                    if (message.Text.ToUpper() == "Y")
-                    {
-                        response = "Ingrese la categoria: ";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SEARCH_CATRGORY_ACCEPTED");
-                        return true;
-                    }
-
-
-                    else if (message.Text.ToUpper() == "N")
-                    {
-                        response = $"Búsqueda cancelada.";
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                        return true;
-                    }
-
-
-                    else
-                    {
-                        response = $"No entendí, por favor, responda \"Y\" para realizar la búsqueda o escriba \"N\" cancelar la búsqueda.";
-                        return true;
-                    }
-                }
-
-
-                else if (check == "STATUS_SEARCH_CATRGORY_ACCEPTED")
-                {
-                    UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                    response = $"En base a la categoria {message.Text}, hemos encontrado las siguientes ofertas para tí:\n\n{user.VerOfertasTipo(message.Text)}";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                    return true; 
-                }
-                
             }
-            else
-            {
-                response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                return true;
-            }
-            
+            response = string.Empty;
+            return false;
         }
-        response = string.Empty;
-        return false;
-    }
     }
 }
