@@ -24,7 +24,7 @@ namespace Proyecto_Final
             this.Keywords = new string[] {"/concretar_publicacion"};
             this.AllowedStatus = new string[] {"STATUS_END_OFFER_RESPONSE",
                                                 "STATUS_END_OFFER_OFFER_SELECTED",
-
+                                                "STATUS_END_OFFER_TYPO"
                                                };  
         }
 
@@ -82,16 +82,52 @@ namespace Proyecto_Final
                                 if (oferta.Comprador != null)
                                 {
                                     user.ConcretarOferta("Y",oferta.Nombre);
+                                    response = $"Se ha concretado correctamente la oferta.";
+                                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
+                                    return true;
                                 }
                                 else
                                 {
-                                    user.Empresa.Ofertas.Remove(oferta);
-                                    Singleton<Datos>.Instance.EliminarOfertas(oferta.Id);
-                                    Singleton<Datos>.Instance.UpdateEmprendedoresData();
-                                    Singleton<Datos>.Instance.UpdateOfersData();
+                                    response = $"¿Está seguro de que quiere concretar esta oferta? Nadie ha mostrado interés en ella. Si quiere hacerlo de todas formas, escriba la ID de la oferta que quiere borrar nuevamente. En caso contrario, escriba \"CANCELAR\"";
+                                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_TYPO");
+                                    return true;
                                 }
                             }
                         }
+                        response = $"Disculpe, no encontré la oferta a la que le corresponde la ID que escribió. Pruebe de nuevo.";
+                        response += $"\nProcederé a mostrarle todas sus ofertas existentes. Responda con el ID de la oferta.";
+                        foreach (Oferta offer in user.Empresa.Ofertas)
+                        {
+                            response += $"\nID: {offer.Id} \nNombre: {offer.Product.Nombre} \nDescripción: {offer.Product.Descripcion} \nTipo: {offer.Product.Tipo.Nombre} \nUbicación: {offer.Product.Ubicacion} \nValor: {offer.Product.MonetaryValue()}{offer.Product.Valor} \nCantidad: {offer.Product.Cantidad} \nHabilitaciones requeridas: {offer.HabilitacionesOferta.Habilitacion} \n";
+                        }
+                    }
+                    else if (check == "STATUS_END_OFFER_TYPO")
+                    {
+                       if (message.Text == "CANCELAR")
+                        {
+                            response = "Operacion abortada correctamente.";
+                            return true;
+                        }
+                        else if (Singleton<Datos>.Instance.IsOfferValid(message.UserId,message.Text))
+                        {
+                            UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            foreach (Oferta offer in user.Empresa.Ofertas)
+                            {
+                                if(offer.Id == message.Text)
+                                {
+                                    response = $"Oferta removida correctamente";
+                                    user.Empresa.Ofertas.Remove(offer);
+                                    Singleton<Datos>.Instance.UpdateOfersData();
+                                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
+                                    return true;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            response = $"No encontré la oferta que esperabas. A menos que no hayas querido escribir una oferta. En ese caso, por favor, escriba \"CANCELAR\".";
+                            return true;
+                        } 
                     }
                 }
                 else
