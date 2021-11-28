@@ -42,7 +42,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Al inicializar el programa se obtienen todos los datos de la DB.
         /// </summary>
-        public void GetData()
+        public void LoadData()
         {
             this.LoadTokensData();
             this.LoadRegisteredEmpresas();
@@ -354,7 +354,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Carga los datos de la lista de Tokens desde el archivo ".json".
         /// </summary>
-        public void LoadTokensData()
+        private void LoadTokensData()
         {
             if (!File.Exists(@"tokens.json"))
             {
