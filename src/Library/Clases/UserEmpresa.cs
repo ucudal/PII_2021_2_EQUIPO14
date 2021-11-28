@@ -132,10 +132,10 @@ namespace Proyecto_Final
 
             this.Empresa.Ofertas.Add(newOferta);
 
-            this.CrearMsjClave(newOferta.Id,nombreOferta);
-            this.CrearMsjClave(newOferta.Id,datosTipoProducto);
-            this.CrearMsjClave(newOferta.Id,nombreProducto);
-            this.CrearMsjClave(newOferta.Id,Id);
+            this.CrearMsjClave(newOferta.Id, nombreOferta);
+            this.CrearMsjClave(newOferta.Id, datosTipoProducto);
+            this.CrearMsjClave(newOferta.Id, nombreProducto);
+            this.CrearMsjClave(newOferta.Id, newOferta.Id);
 
             Singleton<Datos>.Instance.UpdateOfersData();
 
