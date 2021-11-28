@@ -33,8 +33,7 @@ namespace Proyecto_Final
         public SearchZoneHandler (BaseHandler next) : base(next)
         {
             this.Keywords = new string [] {"/buscar_zona"};
-            this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE",
-                                                "STATUS_ZONE_RECEIVED"};
+            this.AllowedStatus = new string [] {"STATUS_ZONE_RESPONSE"};
         }
 
         /// <summary>
@@ -64,18 +63,16 @@ namespace Proyecto_Final
                         {
                             UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
                             response = user.VerOfertasUbicacion();
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RECEIVED");
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                             return true;
                         }
                     }
                     else
                     {
                         response = "Usted ha cancelado la busqueda por zona";
-                        
-                        check = "STATUS_IDLE";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                         return true;
                     }
-                    
                 }
                 else
                 {
