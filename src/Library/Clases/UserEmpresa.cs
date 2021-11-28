@@ -13,9 +13,7 @@ namespace Proyecto_Final
     /// los cuales se almacenan en la clase "Empresa" y los accede mediante el patrón de Delegación. Por lo cual también sigue con el patrón SRP.
     /// </summary>
     public class UserEmpresa : IUser
-    {
-        private bool isInvited = false;
-        
+    {        
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
@@ -33,12 +31,6 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Objeto del tipo Empresa</value>
         public Empresa Empresa { get; set; }
-
-        /// <summary>
-        /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
-        /// </summary>
-        /// <value><c>true/false</c></value>
-        public bool IsInvited { get { return isInvited; }  set { this.isInvited = value;} }
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
@@ -177,6 +169,7 @@ namespace Proyecto_Final
                         if (oferta.Comprador != null)
                         {
                             oferta.IsVendido = true;
+                            oferta.SoldDate = DateTime.Now;
                         }
                     }
                 }
@@ -187,9 +180,9 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public string VerificarVentas()
+        public string VerificarVentas(string date)
         {
-            return this.Empresa.VerificarVentas(); // (Delegacion)
+            return this.Empresa.VerificarVentas(date); // (Delegacion)
         }
 
         /// <summary>

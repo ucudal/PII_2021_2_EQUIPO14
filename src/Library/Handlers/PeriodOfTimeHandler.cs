@@ -61,7 +61,7 @@ namespace Proyecto_Final
                     {
                         if(message.Text.ToUpper() == "Y")
                         {
-                            response = "Ingrese el periodo de tiempo: ";
+                            response = "Ingrese el numero del mes: ";
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RECIVED");
                             return true;
                         }
@@ -76,7 +76,7 @@ namespace Proyecto_Final
                     else if (check == "STATUS_PERIODTIME_RECIVED")
                     {
                         UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        response = user.VerificarVentas();
+                        response = user.VerificarVentas(message.Text);
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                         return true;
                     }
