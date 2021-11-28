@@ -88,7 +88,7 @@ namespace Proyecto_Final
                                     user.Empresa.Ofertas.Remove(oferta);
                                     Singleton<Datos>.Instance.EliminarOfertas(oferta.Id);
                                     Singleton<Datos>.Instance.UpdateEmprendedoresData();
-                                    Singleton<Datos>.Instance.UpdatePublicationsData();
+                                    Singleton<Datos>.Instance.UpdateOfersData();
                                 }
                             }
                         }
