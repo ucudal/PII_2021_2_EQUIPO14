@@ -93,7 +93,7 @@ namespace Proyecto_Final
         /// <summary>
         /// Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
         /// </summary>
-        /// <param name="datosOferta"></param>
+        /// <param name="nombreOferta"></param>
         /// <param name="datosHabilitacion"></param>
         /// <param name="isRecurrente"></param>
         /// <param name="nombreProducto"></param>
@@ -103,7 +103,7 @@ namespace Proyecto_Final
         /// <param name="valorMoneda"></param>
         /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string datosOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
+        public void CrearOferta(string nombreOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
             bool recurrencia = false;
             bool isPesos = false;
@@ -128,12 +128,12 @@ namespace Proyecto_Final
 
             Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, isPesos, cantidadProducto, datosTipoProducto);
             Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
-            Oferta newOferta = new Oferta(datosOferta, producto, recurrencia, habilitacion);
+            Oferta newOferta = new Oferta(nombreOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
             Singleton<Datos>.Instance.UpdateOfersData();
 
-            this.CrearMsjClave(newOferta.Id,datosOferta);
+            this.CrearMsjClave(newOferta.Id,nombreOferta);
             this.CrearMsjClave(newOferta.Id,datosTipoProducto);
             this.CrearMsjClave(newOferta.Id,nombreProducto);
             this.CrearMsjClave(newOferta.Id,Id);
