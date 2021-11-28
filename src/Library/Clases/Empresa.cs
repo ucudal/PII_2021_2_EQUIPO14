@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
@@ -110,9 +111,10 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public Dictionary<string, int> VerificarVentas() //(Expert)
+        public string VerificarVentas() //(Expert)
         {
             Dictionary<string, int> info = new Dictionary<string, int>();
+            StringBuilder str = new StringBuilder();
 
             foreach (Oferta oferta in this.Ofertas)
             {
@@ -128,7 +130,29 @@ namespace Proyecto_Final
                     }
                 }
             }
-            return info;
+
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                str.Append($"{item.Key} = {item.Value}");
+            }
+            return str.ToString();
+        }
+
+        /// <summary>
+        /// Devuelve un string con la lista de ofertas con compradores.
+        /// </summary>
+        /// <returns>string</returns>
+        public string CheckBuyers()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (Oferta oferta in this.Ofertas)
+            {
+                if (oferta.Comprador != null)
+                {
+                    str.Append($"{oferta.Id} :\nNombre: {oferta.Comprador.Nombre}\n");
+                }
+            }
+            return str.ToString();
         }
     }
 }

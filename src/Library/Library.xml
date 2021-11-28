@@ -984,7 +984,7 @@
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
-            <param name="datosOferta"></param>
+            <param name="nombreOferta"></param>
             <param name="datosHabilitacion"></param>
             <param name="isRecurrente"></param>
             <param name="nombreProducto"></param>

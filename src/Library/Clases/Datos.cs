@@ -466,8 +466,6 @@ namespace Proyecto_Final
         /// </summary>
         public void LoadPublications()
         {
-            int cont = 0;
-
             foreach (UserEmpresa user in this.listaUsuarioEmpresa)
             {
                 foreach (Oferta oferta in user.Empresa.Ofertas)
@@ -475,11 +473,10 @@ namespace Proyecto_Final
                     if (oferta.Comprador == null)
                     {
                         this.listaOfertas.Add(oferta);
-                        cont+=1;
                     }
                 }
             }
-            Console.WriteLine($"[DATOS] : {cont} Publicaciones cargadas.");
+            Console.WriteLine($"[DATOS] : {this.listaOfertas.Count} Publicaciones cargadas.");
         }
     }
 }
