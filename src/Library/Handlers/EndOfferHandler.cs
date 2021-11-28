@@ -55,7 +55,10 @@ namespace Proyecto_Final
                             UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
                             foreach (Oferta oferta in user.Empresa.Ofertas)
                             {
-                                response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                                if (oferta.IsVendido == false)
+                                {
+                                    response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                                }
                             }
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_OFFER_SELECTED");
                             return true;
