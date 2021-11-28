@@ -22,8 +22,8 @@ namespace Proyecto_Final
         public EndOfferHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"/concretar_publicacion"};
-            this.AllowedStatus = new string[] {"STATUS_SHOW_INTEREST_RESPONSE",
-                                                "STATUS_SHOW_INTEREST_SELECTED",
+            this.AllowedStatus = new string[] {"STATUS_END_OFFER_RESPONSE",
+                                                "STATUS_END_OFFER_OFFER_SELECTED",
 
                                                };  
         }
@@ -37,17 +37,17 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
+            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if (Singleton<Datos>.Instance.IsUserEmpresa(message.UserId))
                 {
                     if (check == "STATUS_IDLE")
                     {
-                        response = $"¿Quiere avisarle a una empresa que está interesado en su oferta? Y/N";
+                        response = $"¿Quiere finalizar una oferta Y/N";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_RESPONSE");
                         return true;
                     }
-                    else if (check == "STATUS_SHOW_INTEREST_RESPONSE")
+                    else if (check == "STATUS_END_OFFER_RESPONSE")
                     {
                         if (message.Text == "Y")
                         {
@@ -87,17 +87,19 @@ namespace Proyecto_Final
                                 {
                                     user.Empresa.Ofertas.Remove(oferta);
                                     Singleton<Datos>.Instance.EliminarOfertas(oferta.Id);
+                                    Singleton<Datos>.Instance.UpdateEmprendedoresData();
+                                    Singleton<Datos>.Instance.UpdatePublicationsData();
                                 }
                             }
                         }
                     }
                 }
-            }
-            else
-            {
-                response = "Usted no tiene los permisos necesarios para realizar esta acción";
-                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                return true;
+                else
+                {
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    return true;
+                }
             }
             response = String.Empty;
             return false;

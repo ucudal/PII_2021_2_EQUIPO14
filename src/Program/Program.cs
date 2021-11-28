@@ -44,10 +44,13 @@ namespace Proyecto_Final
                 new SearchKeyWordsHandler(
                 new SearchZoneHandler(
                 new AddKeyWordHandler(
+                new PeriodOfTimeHandler(
                 new RecurrenciaHandler(
+                new ShowInterestInOfferHandler(
+                new EndOfferHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            )))))))))))));
+            ))))))))))))))));
 
             var cts = new CancellationTokenSource();
 

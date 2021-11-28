@@ -31,6 +31,28 @@
           "IsVendido": false,
           "IsRecurrente": false,
           "Comprador": null
+        },
+        {
+          "Id": "8320822710",
+          "Nombre": "Messi Oferat",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Es Nestor",
+            "Descripcion": "Gral. Urquiza 2784",
+            "Ubicacion": "Hab-1",
+            "Valor": 10000,
+            "Cantidad": 20,
+            "Tipo": {
+              "Nombre": "Persona"
+            }
+          },
+          "PalabrasClave": [],
+          "HabilitacionesOferta": {
+            "Habilitacion": "Hab-1"
+          },
+          "IsVendido": false,
+          "IsRecurrente": true,
+          "Comprador": null
         }
       ]
     },

@@ -43,9 +43,9 @@ namespace Proyecto_Final
         protected override bool InternalHandle(IMessage message, out string response)
         {
             string check = Singleton<StatusManager>.Instance.CheckStatus(message.UserId);
-            if(Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
+            if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
             {
-                if (this.CanHandle(message) || (this.AllowedStatus.Contains(check)))
+                if(Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
                 {
                     if (check == "STATUS_IDLE")
                     {
@@ -102,15 +102,15 @@ namespace Proyecto_Final
                         }
                     }
                 }
+                else
+                {
+                    response = "Usted no tiene los permisos necesarios para realizar esta acción";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                    return true;
+                }
             }
-        else
-        {
-            response = "Usted no tiene los permisos necesarios para realizar esta acción";
-            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-            return true;
+            response = string.Empty;
+            return false;
         }
-        response = string.Empty;
-        return false;
-    }
     }
 }
