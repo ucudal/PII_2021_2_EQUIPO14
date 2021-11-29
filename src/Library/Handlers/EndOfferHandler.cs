@@ -84,7 +84,7 @@ namespace Proyecto_Final
                             {
                                 if (oferta.Comprador != null)
                                 {
-                                    user.ConcretarOferta("Y",oferta.Nombre);
+                                    user.ConcretarOferta("Y",oferta.Id);
                                     response = $"Se ha concretado correctamente la oferta.";
                                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                                     Singleton<Datos>.Instance.UpdateOfersData();
