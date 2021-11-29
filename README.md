@@ -50,5 +50,7 @@ Tuvimos muchos contratiempos, especialmente para construir la base de la aplicac
 
 Como ya mencionamos antes, debido a la falta de tiempo, algunas funcionalidades quedaron pendientes las cuales posiblemente sean implementada en la entrega final del proyecto.
 
+Ahora que se viene la entrega final del proyecto, nos parece ideal realizar una mirada retrospectiva al proyecto en su totalidad. Este proyecto es usufructo del laburo que metimos como equipo, el cual requirió no solo la capacitación en POO, sino que también la coordinación entre todos nosotros como equipo. Atravesamos muchísimas adversidades a lo largo que ahora son aprendizajes a utilizar en nuestro futuro. Ya sea cómo representar las distintas partes que interactuan en el programa, la interacción entre las mismas o hacer que las partes interactuen sin la necesidad de un tercero supervisando las interacciones, todos estos desafíos contribuyen a la satisfacción que nos da el saber que logramos cumplir con lo que se requirió de nuestra parte en tiempo y forma (o por lo menos eso creemos). 
+
 ## Recursos
 [refactoring.guru/design-patterns](https://refactoring.guru/design-patterns)
