@@ -23,10 +23,13 @@ namespace Proyecto_Final
                                         "Rubro-2",
                                         "Rubro-3"
                                         };
-        private ArrayList listaTipos = new ArrayList() {
-                                        "Tipo-1",
-                                        "Tipo-2",
-                                        "Tipo-3"
+        private Dictionary<string,string> listaTipos = new Dictionary<string, string>() {
+                                        {"Madera", "unidades"},
+                                        {"Pvc", "Láminas"},
+                                        {"Yeso", "kg"},
+                                        {"Metalurgia","unidades"},
+                                        {"Ladrillos","unidades"},
+                                        {"Arena","Bolsas"},
                                         };
         private ArrayList listaHabilitaciones = new ArrayList() {
                                         "Hab-1",
@@ -94,6 +97,23 @@ namespace Proyecto_Final
                 }
             }                     
             Console.WriteLine($"USER WITH ID: {id} NOT FOUND.");
+            return null;
+        }
+
+        /// <summary>
+        /// En base a un tipo de Producto, otorga la medida que utiliza
+        /// </summary>
+        /// <param name="tipoProducto"></param>
+        /// <returns>Un string que representa la unidad de medida de un producto.</returns>
+        public string GetUnidadMedida(string tipoProducto)
+        {
+            foreach(KeyValuePair<string,string> tipo_Unidad in this.listaTipos)
+            {
+                if(tipo_Unidad.Key == tipoProducto)
+                {
+                    return tipo_Unidad.Value;
+                }
+            }
             return null;
         }
 
@@ -308,7 +328,7 @@ namespace Proyecto_Final
         /// Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <see cref="TipoProducto"/>.
         /// </summary>
         /// <returns>Retorna la lista "listaTipos" de la clase "Datos".</returns>
-        public ArrayList ListaTipos() //(Singleton)
+        public Dictionary<string,string> ListaTipos() //(Singleton)
         {
             return this.listaTipos;
         }
@@ -358,9 +378,12 @@ namespace Proyecto_Final
         /// <returns><c>true</c>Si el tipo de producto a agregar concuerda con los existentes en el programa,<c>false</c> en caso contrario.</returns>
         public bool CheckTipos(string tipoProducto) //(Expert)
         {
-            if (this.listaTipos.Contains(tipoProducto))
+            foreach (KeyValuePair<string,string> Tipos in this.listaTipos)
             {
-                return true;
+                if (tipoProducto == Tipos.Key)
+                {
+                    return true;
+                }
             }
             return false; 
         }

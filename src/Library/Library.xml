@@ -53,6 +53,12 @@
             </summary>
             <value>Tiempo del mensaje de telegram</value>
         </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.PhoneNumber">
+            <summary>
+            Otorga el número de teléfono del usuario que envió el mensaje
+            </summary>
+            <value>String del número de teléfono del usuario.</value>
+        </member>
         <member name="M:Proyecto_Final.TelegramAdapter.#ctor(Telegram.Bot.Types.Message)">
             <summary>
             Inicializa la clase TelegramAdapter.
@@ -124,6 +130,13 @@
             </summary>
             <param name="id"></param>
             <returns>Retorna un IUser.</returns>
+        </member>
+        <member name="M:Proyecto_Final.Datos.GetUnidadMedida(System.String)">
+            <summary>
+            En base a un tipo de Producto, otorga la medida que utiliza
+            </summary>
+            <param name="tipoProducto"></param>
+            <returns>Un string que representa la unidad de medida de un producto.</returns>
         </member>
         <member name="M:Proyecto_Final.Datos.RegistrarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
             <summary>
@@ -463,6 +476,12 @@
             </summary>
             <returns>Retorna un diccionario con los datos de las ventas</returns>
         </member>
+        <member name="M:Proyecto_Final.Empresa.CheckBuyers">
+            <summary>
+            Devuelve un string con la lista de ofertas con compradores.
+            </summary>
+            <returns>string</returns>
+        </member>
         <member name="T:Proyecto_Final.Habilitaciones">
             <summary>
             Esta clase representa las habilitaciones necesarias para la tenencia de productos.
@@ -527,6 +546,12 @@
             Otorga un objeto del Producto que se está ofertando <see cref="T:Proyecto_Final.Producto"/>.
             </summary>
             <value>Objeto del tipo "Producto".</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.SoldDate">
+            <summary>
+            Otorga la fecha de venta de una oferta.
+            </summary>
+            <value></value>
         </member>
         <member name="P:Proyecto_Final.Oferta.PalabrasClave">
             <summary>
@@ -1020,6 +1045,12 @@
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
             <returns>Retorna un diccionario con los datos de las ventas</returns>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresa.CheckBuyers">
+            <summary>
+            Devuelve un string con la lista de ofertas con compradores.
+            </summary>
+            <returns>string</returns>
         </member>
         <member name="T:Proyecto_Final.AddKeyWordHandler">
             <summary>
@@ -1590,6 +1621,12 @@
         <member name="P:Proyecto_Final.IMessage.Date">
             <summary>
             La fecha en la que se realizó el mensaje.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.PhoneNumber">
+            <summary>
+            El número de teléfono del usuario
             </summary>
             <value></value>
         </member>
