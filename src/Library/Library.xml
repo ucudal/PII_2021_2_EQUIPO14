@@ -1032,7 +1032,7 @@
             Cambia el estado de la oferta especifica a vendido.
             </summary>
             <param name="input"></param>
-            <param name="nombreOferta"></param>
+            <param name="id"></param>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(System.String)">
             <summary>
