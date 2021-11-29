@@ -61,7 +61,7 @@ namespace Proyecto_Final
                     {
                         if(message.Text.ToUpper() == "Y")
                         {
-                            response = "Ingrese el periodo de tiempo: ";
+                            response = "Ingrese el numero del mes: ";
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_MATERIALSCONSUMED_RECIVED");
                             return true;
                         }
@@ -76,8 +76,10 @@ namespace Proyecto_Final
 
                     else if (check == "STATUS_MATERIALSCONSUMED_RECIVED")
                     {
-                    //Metodo para ver los materiales consumidos en un periodo de tiempo
-
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerificarConsumo(message.Text);
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
                     }
                 }
                 else
