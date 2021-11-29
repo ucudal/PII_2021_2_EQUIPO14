@@ -1,5 +1,7 @@
 using System.Linq;
 using System;
+using System.Text;
+using System.Collections.Generic;
 using Ucu.Poo.Locations.Client;
 
 namespace Proyecto_Final
@@ -108,17 +110,31 @@ namespace Proyecto_Final
                     }
                     else if (check == "STATUS_PUBLISH_PRODUCTDESCRIPTION")
                     {
-                        response = $"La descripción del producto es: {message.Text}.\n\nIngrese el tipo de producto (Tela,Metal,Madera,Cerámica,etc...):";
+                        response = $"La descripción del producto es: {message.Text}.\n\nIngrese el tipo de producto dentro de los tipos válidos: ";
+                        response += generarListaTipoProducto();
                         Singleton<Temp>.Instance.AddDataById(message.UserId,"descripcionProducto",message.Text);
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTTYPE");
                         return true;
                     }
                     else if (check == "STATUS_PUBLISH_PRODUCTTYPE")
                     {
-                        response = $"El tipo del producto es: {message.Text}.\n\nIngrese la ubicación del producto:";
-                        Singleton<Temp>.Instance.AddDataById(message.UserId,"tipoProducto",message.Text);
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTLOCATION");
-                        return true;
+                        foreach (KeyValuePair<string,string> tipo_Unidad in Singleton<Datos>.Instance.ListaTipos())
+                        {
+                            if(tipo_Unidad.Key == message.Text)
+                            {
+                                response = $"El tipo del producto es: {message.Text}.\n\nIngrese la ubicación del producto:";
+                                Singleton<Temp>.Instance.AddDataById(message.UserId,"tipoProducto",message.Text);
+                                Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTLOCATION");
+                                return true;
+                            }
+                            else
+                            {
+                                response = $"Disculpe, lo que escribió no es un tipo válido. Debe de escribir un tipo dentro de la lista de los tipos válidos de producto:";
+                                response += generarListaTipoProducto() + "Ingrese nuevamente un tipo de producto válido.";
+                                return true;
+                            }
+                        }
+                        
                     }
                     else if (check == "STATUS_PUBLISH_PRODUCTLOCATION")
                     {
@@ -158,33 +174,43 @@ namespace Proyecto_Final
                     }
                     else if (check == "STATUS_PUBLISH_PRODUCTQUANTITY")
                     {
-                        response = $"La cantidad del producto es: {message.Text}.\n\nIngrese la habilitacion requerida para obtener el producto:";
+                        response = $"La cantidad del producto es: {message.Text}.\n\nIngrese una habilitacion válida:\n";
+                        response += generarListaHabilitaciones();
                         Singleton<Temp>.Instance.AddDataById(message.UserId,"cantidadProducto",message.Text);
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_HABILITACION");
                         return true;
                     }
                     else if (check == "STATUS_PUBLISH_HABILITACION")
                     {
-                        response = $"Su habilitación es: {message.Text}.\n\nPublicación de la oferta realizada correctamente!";
-                        Singleton<Temp>.Instance.AddDataById(message.UserId,"habilitacionProducto",message.Text);
+                        if(Singleton<Datos>.Instance.ListaHabilitaciones().Contains(message.Text))
+                        {
+                            response = $"Su habilitación es: {message.Text}.\n\nPublicación de la oferta realizada correctamente!";
+                            Singleton<Temp>.Instance.AddDataById(message.UserId,"habilitacionProducto",message.Text);
 
-                        UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        
-                        user.CrearOferta(
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreOferta"),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "recurrenciaOferta"),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreProducto"),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "descripcionProducto"),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ubicacionProducto"),
-                            Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorUnitarioProducto")),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorMonedaProducto"),
-                            Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),
-                            Singleton<Temp>.Instance.GetDataByKey(message.UserId, "tipoProducto")
-                        );
-                        
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                        return true;
+                            UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            
+                            user.CrearOferta(
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreOferta"),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "habilitacionProducto"),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "recurrenciaOferta"),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "nombreProducto"),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "descripcionProducto"),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "ubicacionProducto"),
+                                Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorUnitarioProducto")),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "valorMonedaProducto"),
+                                Convert.ToInt32(Singleton<Temp>.Instance.GetDataByKey(message.UserId, "cantidadProducto")),
+                                Singleton<Temp>.Instance.GetDataByKey(message.UserId, "tipoProducto")
+                            );
+                            
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                            return true;
+                        }
+                        else
+                        {
+                            response = $"Disculpe, la habilitación que escribió no se encuentra dentro de las habilitaciones válidas.";
+                            response += generarListaHabilitaciones() + "Ingrese nuevamente una habilitación válida.";
+                            return true;
+                        }
                     }
                 }
                 else
@@ -196,6 +222,24 @@ namespace Proyecto_Final
             }
             response = string.Empty;
             return false;
+        }
+        private StringBuilder generarListaHabilitaciones()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (string habilitacion in Singleton<Datos>.Instance.ListaHabilitaciones())
+            {
+                str.Append($"- {habilitacion}\n");
+            }
+            return str;
+        }
+        private StringBuilder generarListaTipoProducto()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach(KeyValuePair<string,string> tipo_Unidad in Singleton<Datos>.Instance.ListaTipos())
+            {
+                str.Append($"\n{tipo_Unidad.Key}");
+            }
+            return str;
         }
     }
 }
