@@ -61,7 +61,7 @@ namespace Proyecto_Final
             DateTime fechaTest = new DateTime(2021,11,16,15,57,34);
             ofertaTest.SoldDate = fechaTest;
 
-            string expected = "Madera = 1000unidades";
+            string expected = "Madera = 1000 unidades";
             Assert.AreEqual(expected,userTest.VerificarConsumo("11"));
         }
 

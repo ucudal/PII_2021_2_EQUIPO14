@@ -86,32 +86,42 @@
         </member>
         <member name="M:Proyecto_Final.UserEmprendedorTests.VerOfertasPalabraClave">
             <summary>
-            Test para revisar si la clase es capaz de buscar ofertas mediante una palabra clave ingresada que existe dentro de alguna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona esta clase, por ende funciona la clase buscador.
+            Test para revisar si la clase es capaz de buscar ofertas mediante una palabra clave ingresada que existe dentro de alguna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este test, por ende el método funciona la clase buscador. <see cref="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)"/>,<see cref="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)"/>
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedorTests.VerOfertasPalabraClaveFailTest">
             <summary>
-            Test para revisar si la clase es capaz de buscar ofertas mediante una palabra clave ingresada que no existe en ningúna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona esta clase, por ende funciona la clase buscador.
+            Test para revisar si la clase es capaz de buscar ofertas mediante una palabra clave ingresada que no existe en ningúna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este test , por ende el método funciona la clase buscador <see cref="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)"/>,<see cref="M:Proyecto_Final.Buscador.VerOfertasPalabraClave(System.String)"/>.
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedorTests.VerOfertasTipoTest">
             <summary>
-            Test para revisar si la clase es capaz de buscar ofertas mediante un tipo de producto ingresado que existe dentro de alguna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este método, por ende funciona en la clase buscador.
+            Test para revisar si la clase es capaz de buscar ofertas mediante un tipo de producto ingresado que existe dentro de alguna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este test , por ende el método funciona en la clase buscador. <see cref="M:Proyecto_Final.UserEmprendedor.VerOfertasTipo(System.String)"/>, <see cref="M:Proyecto_Final.Buscador.VerOfertasTipo(System.String)"/>
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedorTests.VerOfertasTipoFailTest">
             <summary>
-            Test para revisar si la clase es capaz de buscar ofertas mediante un tipo de producto ingresado que existe dentro de alguna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este método, por ende funciona en la clase buscador.
+            Test para revisar si la clase es capaz de buscar ofertas mediante un tipo de producto ingresado que existe dentro de alguna oferta. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este test; por ende el método funciona en la clase buscador. <see cref="M:Proyecto_Final.UserEmprendedor.VerOfertasTipo(System.String)"/>,<see cref="M:Proyecto_Final.Buscador.VerOfertasTipo(System.String)"/>.
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedorTests.VerOfertasUbicacionTest">
             <summary>
-            Test para revisar si la clase es capaz de buscar ofertas mediante la ubicacion de 2 objetos, uno de ellos es el Emprendedor que llama la función, y el otro objeto es la oferta que se encuentra almacenada en una lista de la clase "Datos". Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este método, por ende funciona en la clase buscador.
+            Test para revisar si la clase es capaz de buscar ofertas mediante la ubicacion de 2 objetos, uno de ellos es el Emprendedor que llama la función, y el otro objeto es la oferta que se encuentra almacenada en una lista de la clase "Datos". Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este test, por ende el método funciona en la clase buscador. <see cref="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion"/>,<see cref="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)"/>.
             </summary>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedorTests.VerOfertasUbicacionFailTest">
             <summary>
-            Test para revisar si la clase es capaz de verificar el consumo de un Emprendedor correctamente. En este caso, quiero saber si es capaz de diferenciar entre los meses.
+            Test para revisar si la clase es capaz de buscar ofertas mediante la ubicacion de 2 objetos, uno de ellos es el Emprendedor que llama la función, y el otro objeto es la oferta que se encuentra almacenada en una lista de la clase "Datos". En este caso particular, la oferta se encuentra a más de 10km de distancia, lo cual debería de hacer que no se muestre nada en la oferta, ya que el límite para designar ofertas como cercanas es 10km. Este método es una delegación del método de la clase <see cref="T:Proyecto_Final.Buscador"/>, por lo cual si funciona este test, por ende el método funciona en la clase buscador. <see cref="M:Proyecto_Final.UserEmprendedor.VerOfertasUbicacion"/>,  <see cref="M:Proyecto_Final.Buscador.VerOfertasUbicacion(System.String)"/>
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.UserEmpresaTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.UserAdmin"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.InvitarEmpresaTest">
+            <summary>
+            Test para revisar si se genera correctamente un código de 10 letras.
             </summary>
         </member>
     </members>
