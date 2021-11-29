@@ -24,7 +24,7 @@
               "Nombre": "Madera"
             }
           },
-          "SoldDate": "0001-01-01T00:00:00",
+          "SoldDate": "2021-11-29T18:23:25.0878503-03:00",
           "PalabrasClave": [
             "Mi Oferta",
             "Madera",
@@ -34,12 +34,25 @@
           "HabilitacionesOferta": {
             "Habilitacion": "No"
           },
-          "IsVendido": false,
+          "IsVendido": true,
           "IsRecurrente": false,
-          "Comprador": null
+          "Comprador": {
+            "Id": "2100276214",
+            "Nombre": "Juan",
+            "Emprendedor": {
+              "Ubicacion": "Minas",
+              "Rubro": {
+                "Rubros": "Rubro-1"
+              },
+              "Habilitacion": {
+                "Habilitacion": "No"
+              },
+              "Especializaciones": [],
+              "Compras": []
+            }
+          }
         }
       ]
-    },
-    "IsInvited": false
+    }
   }
 ]

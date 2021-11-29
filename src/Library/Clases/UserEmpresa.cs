@@ -157,18 +157,18 @@ namespace Proyecto_Final
         /// Cambia el estado de la oferta especifica a vendido.
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="nombreOferta"></param>
-        public void ConcretarOferta(string input, string nombreOferta) //(Expert)
+        /// <param name="id"></param>
+        public void ConcretarOferta(string input, string id) //(Expert)
         {
             if (input == "Y")
             {
                 foreach (Oferta oferta in this.Empresa.Ofertas)
                 {
-                    if (oferta.Id == nombreOferta)
+                    if (oferta.Id == id)
                     {
                         if (oferta.Comprador != null)
                         {
-                            UserEmprendedor user = oferta.Comprador;
+                            UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(oferta.Comprador.Id);
                             user.Emprendedor.Compras.Add(oferta);
                             oferta.IsVendido = true;
                             oferta.SoldDate = DateTime.Now;

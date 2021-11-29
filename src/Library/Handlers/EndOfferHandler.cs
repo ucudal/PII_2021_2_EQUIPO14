@@ -84,10 +84,11 @@ namespace Proyecto_Final
                             {
                                 if (oferta.Comprador != null)
                                 {
-                                    user.ConcretarOferta("Y",oferta.Id);
+                                    user.ConcretarOferta("Y", oferta.Id);
                                     response = $"Se ha concretado correctamente la oferta.";
                                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                                     Singleton<Datos>.Instance.UpdateOfersData();
+                                    Singleton<Datos>.Instance.UpdateEmprendedoresData();
                                     return true;
                                 }
                                 else
