@@ -132,7 +132,7 @@ namespace Proyecto_Final
 
             foreach (KeyValuePair<string, int> item in info)
             {
-                str.Append($"{item.Key} = {item.Value}");
+                str.Append($"{item.Key} = {item.Value}{Singleton<Datos>.Instance.GetUnidadMedida(item.Key)}");
             }
             return str.ToString();
         }
