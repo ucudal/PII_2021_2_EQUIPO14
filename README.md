@@ -40,17 +40,25 @@ Aquí veremos una explicación general e informal de las funciones del software 
 ![image](docs/UML_Proyecto_FinalParte2.jpg)
 
 ## Reflexion
+
+Primer entrega:
+
 Nos parecio dificil en un principio el como organizar de forma correcta las clases, es decir, que clases nececitabamos para que, y que responsabilidades debia tener cada una.
 A su vez nos costo bastante imaginarnos todo el programa de principio a fin, ya que si bien las pautas eran claras, plasmar las mismas en el codigo de principio a fin se veia un poco borroso.
 
 Por otra parte, compartiendo ideas tanto entre nosotros, con algunos integrantes de otros equipos y con los profesores, pudimos ir armando de a poco la idea general y la estructura del programa.
 Aprendimos a utilizar Doxygen y a formular documentacion utilizando comentarios XML, lo cual para nosotros era completamente nuevo.
 
+Segunda entrega:
+
 Tuvimos muchos contratiempos, especialmente para construir la base de la aplicacion dado que no lograbamos entender la consigna en su totalidad. Por esto tuvimos que reescribir varias veces las clases que habiamos creado o modificar las ya existentes. A su vez, a medida que la aplicacion se iba haciendo mas y mas grandes, nos dimos cuenta que nos faltaban mas funcionalidades, por lo cual tuvimos que implementarlas.
 
 Como ya mencionamos antes, debido a la falta de tiempo, algunas funcionalidades quedaron pendientes las cuales posiblemente sean implementada en la entrega final del proyecto.
 
-Ahora que se viene la entrega final del proyecto, nos parece ideal realizar una mirada retrospectiva al proyecto en su totalidad. Este proyecto es usufructo del laburo que metimos como equipo, el cual requirió no solo la capacitación en POO, sino que también la coordinación entre todos nosotros como equipo. Atravesamos muchísimas adversidades a lo largo que ahora son aprendizajes a utilizar en nuestro futuro. Ya sea cómo representar las distintas partes que interactuan en el programa, la interacción entre las mismas o hacer que las partes interactuen sin la necesidad de un tercero supervisando las interacciones, todos estos desafíos contribuyen a la satisfacción que nos da el saber que logramos cumplir con lo que se requirió de nuestra parte en tiempo y forma (o por lo menos eso creemos). 
+Tercera entrega:
+
+Para la entrega final ya nos sentiamos un poco mas comodos con el codigo. Nos llevo tiempo pero formamos una buena estructura para el programa de modo que pudieramos reutilizar y agilizar el trabajo. Esto nos dio tiempo para pulir algunas otras cosas y pensar algunas otras con un poco mas de libertad.
+A diferencia de las instancias anteriores, para esta ultima ya teniamos una estructura, lo que mas nos dificulto fue la implementacion de los handlers y pensar como guardar los datos de forma temporal. 
 
 ## Recursos
 [refactoring.guru/design-patterns](https://refactoring.guru/design-patterns)

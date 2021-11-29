@@ -26,7 +26,7 @@ namespace Proyecto_Final
                 {"/comandos", "Para desplegar la lista de comandos."},
                 {"/hola", "Para saludar a EXIV."},
                 {"/exit", "Para salir."},
-                {"/registro", "Para registrarte."},
+                {"/registro", "Para registrarte."}
             };
             this.AdminCommands = new Dictionary<string, string> () {
                 // Comandos Admin.
@@ -37,13 +37,15 @@ namespace Proyecto_Final
                 {"/publicar", "Para publicar una oferta."},
                 {"/agergar_palabra", "Para agregar una palabra clave a una oferta."},
                 {"/ventas", "Para ver tus ventas."},
+                {"/concretar_publicacion", "Para concretar una oferta."}
             };
             this.EmprendedorCommands = new Dictionary<string, string> () {
                  // Comandos Emprendedor.
                 {"/buscar_categoria", "Para buscar una oferta por su categoria."},
                 {"/buscar_palabra", "Para buscar una oferta por su palabra clave."},
                 {"/buscar_zona", "Para buscar una oferta por su zona."},
-                {"/materiales_consumidos", "Para ver los materiales consumididos."}
+                {"/materiales_consumidos", "Para ver los materiales consumididos."},
+                {"/interes_oferta", "Para mostrar interes por una oferta."}
             };
         }
 
