@@ -122,7 +122,7 @@ namespace Proyecto_Final
                         {
                             if(tipo_Unidad.Key == message.Text)
                             {
-                                response = $"El tipo del producto es: {message.Text}.\n\nIngrese la ubicación del producto:";
+                                response = $"El tipo del producto es: {message.Text}.\nIngrese la ubicación del producto:";
                                 Singleton<Temp>.Instance.AddDataById(message.UserId,"tipoProducto",message.Text);
                                 Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_PRODUCTLOCATION");
                                 return true;
@@ -130,7 +130,7 @@ namespace Proyecto_Final
                             else
                             {
                                 response = $"Disculpe, lo que escribió no es un tipo válido. Debe de escribir un tipo dentro de la lista de los tipos válidos de producto:";
-                                response += generarListaTipoProducto() + "Ingrese nuevamente un tipo de producto válido.";
+                                response += generarListaTipoProducto() + "\nIngrese nuevamente un tipo de producto válido.";
                                 return true;
                             }
                         }
@@ -138,10 +138,19 @@ namespace Proyecto_Final
                     }
                     else if (check == "STATUS_PUBLISH_PRODUCTLOCATION")
                     {
+                        LocationApiClient client = new LocationApiClient();
+                        if (client.GetLocation(message.Text).Found)
+                        {
                         response = $"La ubicación del producto es: {message.Text}.\n\n¿En qué moneda desea registrar el valor? \nIngrese \"1\" para dolares estadounidenses.\nIngrese \"2\" para pesos uruguayos.";
                         Singleton<Temp>.Instance.AddDataById(message.UserId,"ubicacionProducto",message.Text);
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE");
                         return true;
+                        }
+                        else
+                        {
+                            response = $"Disculpe, no encontramos la ubicación {message.Text}, por favor, escriba la ubicación de nuevo.";
+                            return true;
+                        }
                     }
                     else if (check == "STATUS_PUBLISH_RESPONSE_MONETARY_VALUE")
                     {
@@ -237,7 +246,7 @@ namespace Proyecto_Final
             StringBuilder str = new StringBuilder();
             foreach(KeyValuePair<string,string> tipo_Unidad in Singleton<Datos>.Instance.ListaTipos())
             {
-                str.Append($"\n{tipo_Unidad.Key}");
+                str.Append($"- {tipo_Unidad.Key}\n");
             }
             return str;
         }

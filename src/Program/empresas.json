@@ -1,3 +1,45 @@
 [
-  
+  {
+    "Id": "2063183853",
+    "Nombre": "Nestor CORP",
+    "Empresa": {
+      "Nombre": "Nestor CORP",
+      "Ubicacion": "Gral. Urquiza 2784",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Especializaciones": [],
+      "Ofertas": [
+        {
+          "Id": "5126016643",
+          "Nombre": "Mi Oferta",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Madera",
+            "Descripcion": "Tablas de 100x50cm, 20mm grosor",
+            "Ubicacion": "Gral. Urquiza 2784",
+            "Valor": 250,
+            "Cantidad": 300,
+            "Tipo": {
+              "Nombre": "Madera"
+            }
+          },
+          "SoldDate": "0001-01-01T00:00:00",
+          "PalabrasClave": [
+            "Mi Oferta",
+            "Madera",
+            "Madera",
+            "5126016643"
+          ],
+          "HabilitacionesOferta": {
+            "Habilitacion": "No"
+          },
+          "IsVendido": false,
+          "IsRecurrente": false,
+          "Comprador": null
+        }
+      ]
+    },
+    "IsInvited": false
+  }
 ]
