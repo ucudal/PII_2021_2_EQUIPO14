@@ -8,7 +8,7 @@ namespace Proyecto_Final
     [TestFixture]
 
     
-    public class AdminTests
+    public class UserEmpresaTests
     {
         
 

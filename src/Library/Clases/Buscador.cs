@@ -92,7 +92,7 @@ namespace Proyecto_Final
             {
                 if(tipo == oferta.Product.Tipo.Nombre && oferta.IsVendido == false)
                 {
-                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} {Singleton<Datos>.Instance.GetUnidadMedida(oferta.Product.Tipo.Nombre)} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                    ContentBuilder.Append($"Esta oferta concuerda con el tipo que describió: \nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} {Singleton<Datos>.Instance.GetUnidadMedida(oferta.Product.Tipo.Nombre)} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n\n");
                 }
             }
             if(ContentBuilder.ToString() == "")

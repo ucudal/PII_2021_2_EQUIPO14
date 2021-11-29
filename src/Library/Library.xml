@@ -393,7 +393,7 @@
             Elimina una Especialización al Emprendedor.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.ConsumoXTiempo(Proyecto_Final.UserEmprendedor)">
+        <member name="M:Proyecto_Final.Emprendedor.VerificarConsumo(System.String)">
             <summary>
             Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
@@ -470,7 +470,7 @@
             </summary>
             <param name="especializacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.VerificarVentas">
+        <member name="M:Proyecto_Final.Empresa.VerificarVentas(System.String)">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
@@ -917,11 +917,11 @@
             Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.ConsumoXTiempo">
+        <member name="M:Proyecto_Final.UserEmprendedor.VerificarConsumo(System.String)">
             <summary>
             Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
-            <return></return>
+            <return>string</return>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
             <summary>
@@ -965,12 +965,6 @@
             Obtiene un valor del objeto Empresa.
             </summary>
             <value>Objeto del tipo Empresa</value>
-        </member>
-        <member name="P:Proyecto_Final.UserEmpresa.IsInvited">
-            <summary>
-            Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
-            </summary>
-            <value><c>true/false</c></value>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.#ctor">
             <summary>
@@ -1040,7 +1034,7 @@
             <param name="input"></param>
             <param name="nombreOferta"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas">
+        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(System.String)">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
