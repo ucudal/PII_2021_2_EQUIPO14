@@ -10,12 +10,9 @@ namespace Proyecto_Final
     
     public class UserEmpresaTests
     {
-        
-
         /// <summary>
         /// Test para revisar si se genera correctamente un código de 10 letras.
         /// </summary>
-        
         [Test]
         public void InvitarEmpresaTest()
         {
