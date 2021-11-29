@@ -164,10 +164,12 @@ namespace Proyecto_Final
             {
                 foreach (Oferta oferta in this.Empresa.Ofertas)
                 {
-                    if (oferta.Nombre == nombreOferta)
+                    if (oferta.Id == nombreOferta)
                     {
                         if (oferta.Comprador != null)
                         {
+                            UserEmprendedor user = oferta.Comprador;
+                            user.Emprendedor.Compras.Add(oferta);
                             oferta.IsVendido = true;
                             oferta.SoldDate = DateTime.Now;
                         }
