@@ -58,6 +58,9 @@ Como ya mencionamos antes, debido a la falta de tiempo, algunas funcionalidades 
 Tercera entrega:
 
 Para la entrega final ya nos sentiamos un poco mas comodos con el codigo. Nos llevo tiempo pero formamos una buena estructura para el programa de modo que pudieramos reutilizar y agilizar el trabajo. Esto nos dio tiempo para pulir algunas otras cosas y pensar algunas otras con un poco mas de libertad.
+
+El desafío central era lograr la manera de realizar una lógica funcional que pudiera replicar lo que realizábamos en base a métodos en el Program. Claramente, al aprender del patrón Chain of Responsibility una gran parte de ese problema se solucionó, pero hacer que el bot pueda mantener una conversación, adaptarnos a las herramientas que provee una API de mensajería y utilizarlas a nuestro favor, como mantener a los usuarios fuera de métodos en los que no deberían de entrar ahora que no usamos métodos de clase para interactuar entre las clases son desafíos que con el tiempo logramos solventar y llegamos a un punto en el que estamos satisfechos.
+
 A diferencia de las instancias anteriores, para esta ultima ya teniamos una estructura, lo que mas nos dificulto fue la implementacion de los handlers y pensar como guardar los datos de forma temporal. 
 
 ## Recursos
