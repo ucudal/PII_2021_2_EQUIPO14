@@ -111,14 +111,14 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public string VerificarVentas() //(Expert)
+        public string VerificarVentas(string date) //(Expert)
         {
             Dictionary<string, int> info = new Dictionary<string, int>();
             StringBuilder str = new StringBuilder();
 
             foreach (Oferta oferta in this.Ofertas)
             {
-                if (oferta.IsVendido == true)
+                if (oferta.IsVendido == true && oferta.SoldDate.Month == Int32.Parse(date))
                 {
                     if (info.ContainsKey(oferta.Product.Tipo.Nombre))
                     {
@@ -133,7 +133,7 @@ namespace Proyecto_Final
 
             foreach (KeyValuePair<string, int> item in info)
             {
-                str.Append($"{item.Key} = {item.Value}");
+                str.Append($"{item.Key} = {item.Value} {Singleton<Datos>.Instance.GetUnidadMedida(item.Key)}");
             }
             return str.ToString();
         }

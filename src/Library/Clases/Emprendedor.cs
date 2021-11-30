@@ -15,7 +15,7 @@ namespace Proyecto_Final
     /// </summary>
     public class Emprendedor
     {
-        private ArrayList compras = new ArrayList();
+        private List<Oferta> compras = new List<Oferta>();
 
         private ArrayList especializaciones = new ArrayList();
 
@@ -49,7 +49,7 @@ namespace Proyecto_Final
         /// </summary>
         /// <value></value>
         [JsonInclude]
-        public ArrayList Compras {get{return this.compras;} set {this.compras = value;}}
+        public List<Oferta> Compras {get{return this.compras;} set {this.compras = value;}}
 
         /// <summary>
         /// Constructor vacio utilizado para la serializacion.
@@ -110,26 +110,31 @@ namespace Proyecto_Final
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
-        public string ConsumoXTiempo(UserEmprendedor userEmprendedor) //(Expert)
+        public string VerificarConsumo(string date) //(Expert)
         {
-            StringBuilder result = new StringBuilder();
-            /*foreach(KeyValuePair<string, Oferta> item in  Singleton<Datos>.Instance.ListaOfertas())
+            Dictionary<string, int> info = new Dictionary<string, int>();
+            StringBuilder str = new StringBuilder();
+
+            foreach (Oferta oferta in this.Compras)
             {
-                string id = item.Key;
-                Oferta auxOferta = item.Value;
-                if(auxOferta.IsVendido == true)
+                if (oferta.IsVendido == true && oferta.SoldDate.Month == Int32.Parse(date))
                 {
-                    if(userEmprendedor.Nombre == auxOferta.Comprador.Nombre)
+                    if (info.ContainsKey(oferta.Product.Tipo.Nombre))
                     {
-                        result.Append($"Compró esta oferta: \n Nombre: {auxOferta.Product.Nombre} \n Descripción: {auxOferta.Product.Descripcion} \n Tipo: {auxOferta.Product.Tipo.Nombre} \n Ubicación: {auxOferta.Product.Ubicacion} \n Valor: ${auxOferta.Product.Valor} \n Cantidad: {auxOferta.Product.Cantidad} \n Habilitaciones requeridas: {auxOferta.HabilitacionesOferta.Habilitacion} \n");
+                        info[oferta.Product.Tipo.Nombre] += oferta.Product.Cantidad;
+                    }
+                    else
+                    {
+                        info.Add(oferta.Product.Tipo.Nombre, oferta.Product.Cantidad);
                     }
                 }
-            }*/
-            if(result.ToString() == "")
-            {
-                result.Append("Aún no se ha comprado ningún producto.");
             }
-            return result.ToString();
+
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                str.Append($"{item.Key} = {item.Value} {Singleton<Datos>.Instance.GetUnidadMedida(item.Key)}");
+            }
+            return str.ToString();
         }
     }
 }

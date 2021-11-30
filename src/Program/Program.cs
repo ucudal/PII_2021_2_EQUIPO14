@@ -21,7 +21,7 @@ namespace Proyecto_Final
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
 
-        private static string Token = "2004584466:AAEgtrmxu4kgJwBAomfmRPuovsGTI9pAwAg";
+        private static string Token = "2135269832:AAFLneVWbn_FduSGcpKCCIfiIJyDzoH3oTk";
 
         private static IHandler firstHandler;
 
@@ -45,13 +45,14 @@ namespace Proyecto_Final
                 new SearchZoneHandler(
                 new MaterialsConsumedHandler(
                 new AddKeyWordHandler(
+                new AddAuthorizationHandler(
                 new PeriodOfTimeHandler(
                 new SearchRecurrencyHandler(
                 new ShowInterestInOfferHandler(
                 new EndOfferHandler(
                 new CommandsHandler(
                 new PhotoHandler(Bot, null)
-            )))))))))))))))));
+            ))))))))))))))))));
 
             var cts = new CancellationTokenSource();
 
@@ -63,7 +64,7 @@ namespace Proyecto_Final
                 cts.Token
             );
 
-            Console.WriteLine($"Program: Bot is up!");
+            Console.WriteLine($"[PROGRAM] : BOT STARTED.");
             Singleton<Datos>.Instance.LoadData();
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
@@ -104,7 +105,7 @@ namespace Proyecto_Final
         /// <returns></returns>
         private static async Task HandleMessageReceived(IMessage message)
         {
-            Console.WriteLine($"Program: < {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
+            Console.WriteLine($"[PROGRAM] : < {message.UserId} > | Received a message from {message.FirstName} saying: {message.Text} | Chat: {message.ChatId} | {message.Date} | Status: {Singleton<StatusManager>.Instance.CheckStatus(message.UserId)}");
 
             string response = string.Empty;
 

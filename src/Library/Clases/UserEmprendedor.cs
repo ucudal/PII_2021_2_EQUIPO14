@@ -85,10 +85,10 @@ namespace Proyecto_Final
         /// <summary>
         /// Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
         /// </summary>
-        /// <return></return>
-        public string ConsumoXTiempo()
+        /// <return>string</return>
+        public string VerificarConsumo(string date)
         {
-            return this.Emprendedor.ConsumoXTiempo(this); //(Delegación)
+            return this.Emprendedor.VerificarConsumo(date); //(Delegación)
         }
         
         

@@ -61,13 +61,13 @@ namespace Proyecto_Final
                     {
                         if(message.Text.ToUpper() == "Y")
                         {
-                            response = "Ingrese el periodo de tiempo: ";
+                            response = "Ingrese el numero del mes: ";
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_PERIODTIME_RECIVED");
                             return true;
                         }
                         else
                         {
-                            response = "Usted no ingreso un periodo de tiempo, busqueda anulada";
+                            response = "Busqueda anulada";
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                             return true;
                         }
@@ -75,10 +75,19 @@ namespace Proyecto_Final
 
                     else if (check == "STATUS_PERIODTIME_RECIVED")
                     {
-                        UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
-                        response = user.VerificarVentas();
-                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                        return true;
+                        if (Int32.Parse(message.Text) < 13 && Int32.Parse(message.Text) > 0)
+                        {
+                            UserEmpresa user = (UserEmpresa) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                            response = user.VerificarVentas(message.Text);
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                            return true;
+                        }
+                        else
+                        {
+                            response = "Dato ingresado incorrecto. Busqueda anulada.";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                            return true;
+                        }
                     }
                     
                 }
