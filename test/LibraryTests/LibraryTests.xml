@@ -119,9 +119,24 @@
             Prueba de la clase <see cref="T:Proyecto_Final.UserAdmin"/>.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresaTests.InvitarEmpresaTest">
+        <member name="M:Proyecto_Final.UserEmpresaTests.AgregarRubroTest">
             <summary>
-            Test para revisar si se genera correctamente un código de 10 letras.
+            Test para revisar si se agrega un rubro correctamente a los datos de la Empresa
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearEmpresaTest">
+            <summary>
+            Test para revisar si se agrega una empresa correctamente al usuarioEmpresa
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearMsjClaveTest">
+            <summary>
+            Test para revisar si la Empresa puede agregar correctamente una palabra clave.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearOfertaTest">
+            <summary>
+            Test para revisar si la Empresa puede agregar correctamente una palabra clave.
             </summary>
         </member>
     </members>
