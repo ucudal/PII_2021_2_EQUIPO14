@@ -1,19 +1,38 @@
 @startuml
 
-class TelegramAdapter {}
+class TelegramAdapter {
+    __<<Properties>>__
+    + Text: string
+    + UserId: string
+    + ChatId: string
+    + FirstName: string
+    + LastName: string
+    + Date: DateTime
+    + PhoneNumber: string
+    __<<Constructor>>__
+    + TelegramAdapter(message: Message)
+}
 
-class Buscador {}
+class Buscador {
+    __<<Properties>>__
+    + Content: string
+    - ContentBuilder: StringBuilder
+    __<<Public Methods>>__
+    + VerOfertasUbicacion(direccion: string): void
+    + VerOfertasPalabrasClave(palabrasClave: string): void
+    + VerOfertasTipo(tipo: string): void
+}
 
 class Datos << (S, SteelBlue) Singleton >> {
     __<<Properties>>__
-    + ListaAdmins: string[]
-    + ListaRubros: ArrayList
-    + ListaTipos: ArrayList
-    + ListaHabilitaciones: ArrayList
-    + ListaTokens: List<string>
-    + ListaOfertas: List<Oferta>
-    + ListaUsuarioEmpresa: List<UserEmpresa>
-    + ListaUsuarioEmprendedor: List<UserEmprendedor>
+    - listaAdmins: string[]
+    - listaRubros: ArrayList
+    - listaTipos: ArrayList
+    - listaHabilitaciones: ArrayList
+    - listaTokens: List<string>
+    - listaOfertas: List<Oferta>
+    - listaUsuarioEmpresa: List<UserEmpresa>
+    - listaUsuarioEmprendedor: List<UserEmprendedor>
     __<<Public Methods>>__
     + LoadData() : void
     + GetOfertaById(userId: string, oferId: string) : Oferta
@@ -24,7 +43,7 @@ class Datos << (S, SteelBlue) Singleton >> {
     + EliminarToken(token: string) : void
     + IsOfferValid(userId: string, oferId: string) : bool
     + IsRegistered(id: string) : bool
-    + IsAdmin(id: string) : bool 
+    + IsAdmin(id: string) : bool
     + IsTokenValid(token: string) : bool
     + CheckHabilitaciones(habilitacion: string) : bool
     + CheckTipos(tipoProducto: string) : bool
@@ -40,7 +59,25 @@ class Datos << (S, SteelBlue) Singleton >> {
     - LoadPublications() : void
 }
 
-class Emrpendedor {}
+class Emprendedor{
+    __<<Properties>>__
+    - compras: ArrayList
+    - especializaciones: ArrayList
+    + Ubicacion: string
+    + Rubro: Rubro
+    + Habilitacion: Habilitaciones
+    + Especializaciones: ArrayList
+    + Compras: ArrayList
+    __<<Constructor>>__
+    + Emprendedor() <<JsonConstructor>>
+    + Emprendedor(ubicacion: string, rubro: Rubro, Habilitacion: Habilitaciones)
+    __<<Methods>>__
+    + AgregarHabilitacion(habilitacion: string) : void
+    + AgregarRubro(rubro: string) : void
+    + AgregarEspecializacion(especializacion: string) : void
+    + EliminarEspecializacion(especializacion: string) : void
+    + ConsumoXTiempo(userEmprendedor: UserEmprendedor) : string
+}
 
 class Empresa {
     __<<Properties>>__
@@ -51,80 +88,647 @@ class Empresa {
     + Ofertas: List<Ofertas>
     __<<Constructor>>__
     + Empresa() <<JsonConstructor>>
-    + Empresa(nombre: string, ubicacion: string, rubro: Rubro) <<Constructor>>
+    + Empresa(nombre: string, ubicacion: string, rubro: Rubro)
     __<<Methods>>__
     + AgregarRubro(rubro: string) : void
     + CrearEmpresa(nombre: string, ubicacion: string, rubro: string) : void
     + AgregarMsjClave(oferId: string, palabra: string) : void
     + AgregarEspecializacion(especializacion: string) : void
-    + VerificarVentas()
+    + VerificarVentas(): Dictionary<string, int>
 }
 
-class Habilitaciones {}
+class Habilitaciones {
+    __<<Properties>>__
+    + Habilitaciones: string
+    __<<Constructor>>__
+    + Habilitaciones() <<JsonConstructor>>
+    + Habilitaciones(habilitacion: string)
+}
 
-class IdGenerator {}
+class IdGenerator {
+    __<<Methods>>__
+    {static}  + GenerateToken(): string
+    {static}  + GenerateNumercId(): string
+    {static} - generator(lengh: int, charString: string): string
+}
 
-class Oferta {}
+class Oferta {
+    __<<Properties>>__
+    - palabrasClave: ArrayList
+    - comprador: UserEmprendedor
+    + Id: string
+    + Nombre: string
+    + Product: Producto
+    + PalabrasClave: ArrayList <<JsonConstructor>>
+    + HabilitacionesOferta: Habilitaciones
+    + IsVendido: bool
+    + isRecurrente: bool
+    + Comprador: UserEmprendedor
+    __<<Constructor>>__
+    + Oferta() <<JsonConstructor>>
+    + Oferta(nombre: string, product: Producto, isRecurrente: bool, habilitacionesOferta: Habilitaciones)
+    __<<Methods>>__
+    + AgregarMsjClave(palabra: string): void
+}
 
-class Producto {}
+class Producto {
+    __<<Properties>>__
+    + IsPesos: bool
+    + Nombre: string
+    + Descripcion: string
+    + Ubicacion: string
+    + Valor: int
+    + Cantidad: int
+    + Tipo: TipoProducto
+    __<<Constructor>>__
+    + Producto() <<JsonConstructor>>
+    + Producto(nombre: string, descripcion: string, ubicacion: string, valor: int, isPesos: bool, cantidad: int, tipo: TipoProducto)
+    __<<Methods>>__
+    + MonetaryValue(): string
+}
 
-class Rubro {}
+class Rubro {
+    __<<Properties>>__
+    + Rubros: string
+    __<<Constructor>>__
+    + Rubro() <<JsonConstructor>>
+    + Rubro(rubro: string)
+}
 
-class Singleton << (S, SteelBlue) Singleton >> {}
+class Singleton << (S, SteelBlue) Singleton >> {
+    __<<Properties>>__
+    {static} - instance: Singleton
+    __<<Methods>>__
+    - Singleton()
+    {static} + getInstance(): Singleton
+}
 
-class StatusManager {}
+class StatusManager  << (S, SteelBlue) Singleton >> {
+    __<<Properties>>__
+    - userData: Dictionary <string, string>
+    __<<Methods>>__
+    + ListaEstadoUsuario(): Dictionary <string, string>
+    + AgregarEstadoUsuario(id: string, estado: string): void
+    + PrintUserStatus(): void
+    + CheckStatus(id: string): string
+}
 
 class Temp {
     __<<Properties>>__
-    __<<Constructor>>__
+    + TempData: Dictionary <string, Dictionary<string,string>>
     __<<Methods>>__
+    + AddDataById(id: string, key: string, data: string): void
+    + GetDataByKey(id: string, key: string): string
+    + WipeDataById(id: string): void
 }
 
 class TipoProducto {
     __<<Properties>>__
+    + Nombre: string
     __<<Constructor>>__
-    __<<Methods>>__
+    + TipoProducto() <<JsonConstructor>>
+    + TipoProducto(tipo: string)
 }
 
 class UserAdmin {
     __<<Properties>>__
+    + Id: string
+    + Nombre: string
     __<<Constructor>>__
+    + UserAdmin(id: string, nombre: string)
     __<<Methods>>__
+    {static} + InvitarEmpresa(): string
 }
 
-class UserCreator {
-    __<<Properties>>__
-    __<<Constructor>>__
+class UserCreator << (S, SteelBlue) Singleton >>{
     __<<Methods>>__
+    + CrearUserAdmin(id: string): void
+    + CrearUserEmpresa(id: string): void
+    + CrearUserEmprendedor(id: string): void
 }
- 
+
 class UserEmprendedor {
     __<<Properties>>__
+    + Id: string
+    + Nombre: string
+    + Emprendedor: Emprendedor
     __<<Constructor>>__
+    + UserEmprendedor() <<JsonConstructor>>
+    + UserEmprendedor(id: string, nombre: string)
     __<<Methods>>__
+    + AgregarHabilitacion(habilitacion: string): void
+    + AgregarRubro(rubro: string): void
+    + AgregarEspecializacion(especializacion: string): void
+    + EliminarEspecializacion(especializacion: string): void
+    + ConsumoXTiempo(): string
+    + VerOfertasPalabrasClave(palabraClave: string): string
+    + VerOfertasUbicacion(): string
+    + VerOfertasTipo(tipo: string): string
 }
 
 class UserEmpresa {
-     __<<Properties>>__
+    __<<Properties>>__
     + Id: string
     + Nombre: string
     + Empresa: Empresa
     + IsInvited: bool
     __<<Constructor>>__
     + UserEmpresa() <<JsonConstructor>>
-    + UserEmpresa(id: string, nombre: string) <<Constructor>>
+    + UserEmpresa(id: string, nombre: string)
     __<<Methods>>__
     + AgregarRubro(rubro: string) : void
     + CrearEmpresa(nombre: string, ubicacion: string, rubro: string) : void
     + CrearMsjClave(oferId: string, palabra: string) : void
     + CrearOferta(datosOferta: string, datosHabilitacion: string, isRecurrente: string, nombreProducto: string, descripcionProducto: string, ubicacionProducto: string, valorProducto: int, valorMoneda: string, cantidadProducto: int, datosTipoProducto: string): void
     + CrearProducto(nombre: string, descripcion: string, ubicacion: string, valor: int, isPesos: bool, cantidad: int, datosTipoProducto: string): Producto
-    + ConcretarOferta()
-    + VerificarVentas()
+    + ConcretarOferta(input: string, nombreOferta: string): void
+    + VerificarVentas(): Dictionary<string, int>
 }
 
+
+interface IMessage << Interface >> {
+    __<<Properties>>__
+    UserId: string
+    ChatId: string
+    Text: string
+    FirstName: string
+    LastName: string
+    Date: DateTime
+    PhoneNumber: string
+}
+
+interface IUser << Interface >> {
+    __<<Properties>>__
+    Id: string
+}
+
+interface IHandler << Interface >> {
+    __<<Properties>>__
+    Next: IHandler
+    __<<Methods>>__
+    Handle(message: IMessage, response: out string): IHandler
+    Cancel(): void
+}
+
+
+class Distance{
+    __<<Properties>>__
+    + Found: bool
+    + TravelDistance: double
+    + TravelDuration: double
+}
+
+class Location{
+    __<<Properties>>__
+    + Found: bool
+    + AddresLine: string
+    + CountryRegion: string
+    + FormattedAddress: string
+    + Locality: string
+    + PostalCode: string
+    + Latitude: double
+    + Longitude: double
+}
+
+
+class LocationApiClient{
+    __<<Properties>>__
+    {static} - DistanceUrl: string
+    {static} - Location: string
+    {static} - MapUrl: string
+    {static} - RouteUrl: string
+    __<<Methods>>__
+    + GetLocationAsync(address: string, city: string, department: string, country: string): async Task<Location>
+    + GetLocation(address: string, city: string, department: string, country: string): Location
+    + GetDistanceAsync(from: Location, to: Location): async Task<Distance>
+    + GetDistance(from: Location, to: Location): Distance
+    + GetDistanceAsync(from: string, to: string): async Task<Distance>
+    + GetDistance(from: string, to: string): Distance
+    + DownloadMapAsync(latitude: double, longitude: double, path: string, zoomLevel: int): async Task
+    + DownloadMap(latitude: double, longitude: double, zoomLevel: int): void
+    + DownloadRouteAsync(fromLatitude: double, fromLongitude: double, toLatitude: double, toLongitude: double, path: string): async Task
+    + DownloadRoute(fromLatitude: double, fromLongitude: double, toLatitude: double, toLongitude: double, path: string): void
+    + Dispose(): void
+    # Dispose(disposing: bool): virtual void
+    __<<Private Methods>>__
+    {static} - GetUri(baseUrl: string, parameters: IDictionary<string, string>): Uri
+}
+
+
+abstract class BaseHandler{
+    __<<Properties>>__
+    + Next: IHandler
+    + Keywords: string[]
+    __<<Constructor>>__
+    + BaseHandler(next: IHandler)
+    + BaseHandler(keywords: string[], next: BaseHandler)
+    __<<Methods>>__
+    {abstract} # InternalHandle(message: IMessage, responder: out string): bool
+    # InternalCancel(): virtual void
+    # CanHandle(message: IMessage): virtual void
+    + Handle(message: IMessage, response: out string): IHandler
+    + Cancel(): virtual void
+}
+
+class StartHandler{
+    __<<Constructor>>__
+    + StartHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IHandler, response: out string): override bool
+}
+
+
+class PhotoHandler{
+    __<<Constructor>>__
+    + PhotoHandler(bot: TelegramBotClient, next: BaseHandler)
+    __<<Methods>>__
+    # InternalHandle(message: IHandler, response: out string): override bool
+    - SendProfileImage(message: IMessage): async Task
+}
+
+
+
+
+
+
+
+
+class AddAuthorizationHandler {
+
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + AddAuthorizationHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+class AddKeyWordHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + AddKeyWordHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class CommandsHandler{
+    __<<Constructor>>__
+    + CommandsHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class EndOfferHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + EndOfferHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class ExitHandler{
+    __<<Constructor>>__
+    + ExitHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+class GoodByeHandler{
+    __<<Constructor>>__
+    + GoodByeHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class HelloHandler{
+    __<<Constructor>>__
+    + HelloHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+class InviteHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + InviteHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+
+class MaterialsConsumedHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + MaterialsConsumedHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class PeriodOfTimeHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + PeriodOfTimeHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class PublishHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + PublishHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+
+class RegisterHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + RegisterHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+    - generarListaRubros(): StringBuilder
+    - generarListaHabilitaciones(): StringBuilder
+}
+
+
+
+
+
+
+class SearchCategoryHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + SearchCategoryHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class SearchKeyWordsHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + SearchKeyWordsHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class SearchRecurrenciaHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + RecurrenciaHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+class SearchZoneHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + SearchZoneHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+class ShowInterestInOfferHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + ShowInterestInOfferHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+
+
+
+Datos "1" o-- "1" UserEmpresa : UserEmpresa
+Datos "1" o-- "1" Rubro : listaRubro
+Datos "1" o-- "1" UserEmprendedor: listaUsusarioEmprendedor
+Datos "1" o-- "1" Emprendedor: listaEmprendedor
+Datos "1" o-- "1" Habilitaciones: listaHabilitaciones
+Datos "1" o-- "1" Oferta: listaOferta
+Datos "1" o-- "1" TipoProducto: listaTipos
+
+
+Emprendedor "1" o-- "1" Rubro: Rubro
+Emprendedor "1" o-- "1" Habilitaciones: Habilitaciones
+
+UserEmprendedor "1" o-- "1" Emprendedor: Emprendedor
+
+
+UserEmpresa "1" o-- "1" Empresa: Empresa
+
+
+IUser ..|> UserEmprendedor
+IUser ..|> UserEmpresa
+IUser ..|> UserAdmin
+
+Empresa o-- Oferta
+Empresa o-- Rubro
+
+
+Oferta o-- UserEmprendedor
+Oferta o-- Producto
+Oferta o-- Habilitaciones
+Oferta o-- UserEmprendedor
+Oferta ..> IdGenerator: Metodo GenerateNumericId()
+
+
+Producto o-- TipoProducto
+
+UserEmpresa ..> UserCreator
+UserEmprendedor ..> UserCreator
+
+
+ShowInterestInOfferHandler ..> StatusManager
+AddAuthorizationHandler ..> StatusManager
+AddKeyWordHandler ..> StatusManager
+CommandsHandler ..> StatusManager
+EndOfferHandler ..> StatusManager
+ExitHandler ..> StatusManager
+GoodByeHandler ..> StatusManager
+HelloHandler ..> StatusManager
+InviteHandler ..> StatusManager
+MaterialsConsumedHandler ..> StatusManager
+PeriodOfTimeHandler ..> StatusManager
+PhotoHandler ..> StatusManager
+PublishHandler ..> StatusManager
+RegisterHandler ..> StatusManager
+SearchCategoryHandler ..> StatusManager
+SearchKeyWordsHandler ..> StatusManager
+RecurrenciaHandler ..> StatusManager
+SearchZoneHandler ..> StatusManager
+ShowInterestInOfferHandler ..> StatusManager
+StartHandler ..> StatusManager
+
+BaseHandler ..> IMessage
+ShowInterestInOfferHandler ..> IMessage
+AddAuthorizationHandler ..> IMessage
+AddKeyWordHandler ..> IMessage
+CommandsHandler ..> IMessage
+EndOfferHandler ..> IMessage
+ExitHandler ..> IMessage
+GoodByeHandler ..> IMessage
+HelloHandler ..> IMessage
+InviteHandler ..> IMessage
+MaterialsConsumedHandler ..> IMessage
+PeriodOfTimeHandler ..> IMessage
+PhotoHandler ..> IMessage
+PublishHandler ..> IMessage
+RegisterHandler ..> IMessage
+SearchCategoryHandler ..> IMessage
+SearchKeyWordsHandler ..> IMessage
+RecurrenciaHandler ..> IMessage
+SearchZoneHandler ..> IMessage
+ShowInterestInOfferHandler ..> IMessage
+StartHandler ..> IMessage
+
+ShowInterestInOfferHandler <|-- BaseHandler
+AddAuthorizationHandler <|-- BaseHandler
+AddKeyWordHandler <|-- BaseHandler
+CommandsHandler <|-- BaseHandler
+EndOfferHandler <|-- BaseHandler
+ExitHandler <|-- BaseHandler
+GoodByeHandler <|-- BaseHandler
+HelloHandler <|-- BaseHandler
+InviteHandler <|-- BaseHandler
+MaterialsConsumedHandler <|-- BaseHandler
+PeriodOfTimeHandler <|-- BaseHandler
+PhotoHandler <|-- BaseHandler
+PublishHandler <|-- BaseHandler
+RegisterHandler <|-- BaseHandler
+SearchCategoryHandler <|-- BaseHandler
+SearchKeyWordsHandler <|-- BaseHandler
+RecurrenciaHandler <|-- BaseHandler
+SearchZoneHandler <|-- BaseHandler
+ShowInterestInOfferHandler <|-- BaseHandler
+StartHandler <|-- BaseHandler
+
+
+
+ShowInterestInOfferHandler --> Datos
+AddAuthorizationHandler --> Datos
+AddKeyWordHandler --> Datos
+EndOfferHandler --> Datos
+InviteHandler --> Datos
+MaterialsConsumedHandler --> Datos
+PeriodOfTimeHandler --> Datos
+PublishHandler --> Datos
+RegisterHandler --> Datos
+SearchCategoryHandler --> Datos
+SearchKeyWordsHandler --> Datos
+RecurrenciaHandler --> Datos
+SearchZoneHandler --> Datos
+ShowInterestInOfferHandler --> Datos
+
+AddAuthorizationHandler <-- UserEmprendedor
+
+
+AddKeyWordHandler <-- UserEmpresa
+AddKeyWordHandler <-- Temp
+
+
+EndOfferHandler <|-- BaseHandler
+EndOfferHandler --> UserEmpresa
+
+InviteHandler --> UserEmprendedor
+
+MaterialsConsumedHandler --> UserEmprendedor
+
+PeriodOfTimeHandler --> UserEmpresa
+
+PublishHandler --> UserEmpresa
+PublishHandler --> Temp
+PublishHandler --> LocationApiClient
+PublishHandler --> Location
+
+
+RegisterHandler --> UserCreator
+RegisterHandler --> Temp
+RegisterHandler --> LocationApiClient
+RegisterHandler --> Location
+
+Buscador --> Distance
+
+SearchCategoryHandler --> UserEmprendedor
+
+SearchKeyWordsHandler --> UserEmprendedor
+
+SearchRecurrencyHandler --> UserEmprendedor
+
+SearchZoneHandler --> UserEmprendedor
+
+ShowInterestInOfferHandler --> UserEmprendedor
+
+
+AddAuthorizationHandler <|-- BaseHandler
+ExitHandler <|-- BaseHandler
+GoodByeHandler <|-- BaseHandler
+HelloHandler <|-- BaseHandler
+InviteHandler <|-- BaseHandler
+MaterialsConsumedHandler <|-- BaseHandler
+PeriodOfTimeHandler <|-- BaseHandler
+PhotoHandler <|-- BaseHandler
+PublishHandler <|-- BaseHandler
+RegisterHandler <|-- BaseHandler
+SearchCategoryHandler <|-- BaseHandler
+SearchKeyWordsHandler <|-- BaseHandler
+RecurrenciaHandler <|-- BaseHandler
+SearchZoneHandler <|-- BaseHandler
+ShowInterestInOfferHandler <|-- BaseHandler
+StartHandler <|-- BaseHandler
+
+IMessage <|-- TelegramAdapter
+
+IHandler <|-- BaseHandler
+
+IUser ..> Datos: GetUserById()
+
+
+
+
+
+
+
+
+
+
+
+
+
 UserEmpresa "1" o-- "1" Empresa : Empresa
-UserEmpresa --o  Datos
+
+
 
 
 @enduml

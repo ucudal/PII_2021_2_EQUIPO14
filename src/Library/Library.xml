@@ -1040,11 +1040,30 @@
             </summary>
             <returns>Retorna un diccionario con los datos de las ventas</returns>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.CheckBuyers">
+        <member name="T:Proyecto_Final.AddAuthorizationHandler">
             <summary>
-            Devuelve un string con la lista de ofertas con compradores.
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "authorization".
             </summary>
-            <returns>string</returns>
+        </member>
+        <member name="P:Proyecto_Final.AddAuthorizationHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.AddAuthorizationHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.AddAuthorizationHandler"/>. Esta clase procesa el mensaje "authorization".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.AddAuthorizationHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "authorization" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
         <member name="T:Proyecto_Final.AddKeyWordHandler">
             <summary>
