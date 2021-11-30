@@ -7,10 +7,10 @@ class TelegramAdapter {
     + ChatId: string
     + FirstName: string
     + LastName: string
-    + Date: DateTime 
+    + Date: DateTime
     + PhoneNumber: string
     __<<Constructor>>__
-    + TelegramAdapter(message: Message) 
+    + TelegramAdapter(message: Message)
 }
 
 class Buscador {
@@ -43,7 +43,7 @@ class Datos << (S, SteelBlue) Singleton >> {
     + EliminarToken(token: string) : void
     + IsOfferValid(userId: string, oferId: string) : bool
     + IsRegistered(id: string) : bool
-    + IsAdmin(id: string) : bool 
+    + IsAdmin(id: string) : bool
     + IsTokenValid(token: string) : bool
     + CheckHabilitaciones(habilitacion: string) : bool
     + CheckTipos(tipoProducto: string) : bool
@@ -206,7 +206,7 @@ class UserCreator << (S, SteelBlue) Singleton >>{
     + CrearUserEmpresa(id: string): void
     + CrearUserEmprendedor(id: string): void
 }
- 
+
 class UserEmprendedor {
     __<<Properties>>__
     + Id: string
@@ -276,7 +276,7 @@ class Distance{
     + Found: bool
     + TravelDistance: double
     + TravelDuration: double
-    }
+}
 
 class Location{
     __<<Properties>>__
@@ -353,7 +353,8 @@ class PhotoHandler{
 
 
 
-class AddAuthorizationHandler { 
+class AddAuthorizationHandler {
+
     __<<Properties>>__
     + AllowedStatus: string[]
     __<<Constructor>>__
@@ -542,14 +543,14 @@ Datos "1" o-- "1" TipoProducto: listaTipos
 Emprendedor "1" o-- "1" Rubro: Rubro
 Emprendedor "1" o-- "1" Habilitaciones: Habilitaciones
 
-UserEmprendedor "1" o-- "1" Emprendedor: Emprendedor 
+UserEmprendedor "1" o-- "1" Emprendedor: Emprendedor
 
 
 UserEmpresa "1" o-- "1" Empresa: Empresa
 
 
-IUser ..|> UserEmprendedor 
-IUser ..|> UserEmpresa 
+IUser ..|> UserEmprendedor
+IUser ..|> UserEmpresa
 IUser ..|> UserAdmin
 
 Empresa o-- Oferta
@@ -730,4 +731,4 @@ UserEmpresa "1" o-- "1" Empresa : Empresa
 
 
 
-@enduml 
+@enduml
