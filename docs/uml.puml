@@ -234,7 +234,7 @@ class UserEmpresa {
     + IsInvited: bool
     __<<Constructor>>__
     + UserEmpresa() <<JsonConstructor>>
-    + UserEmpresa(id: string, nombre: string) <<Constructor>>
+    + UserEmpresa(id: string, nombre: string)
     __<<Methods>>__
     + AgregarRubro(rubro: string) : void
     + CrearEmpresa(nombre: string, ubicacion: string, rubro: string) : void
@@ -315,8 +315,260 @@ class LocationApi{
 }
 
 
+abstract class BaseHandler{
+    __<<Properties>>__
+    + Next: IHandler
+    + Keywords: string[]
+    __<<Constructor>>__
+    + BaseHandler(next: IHandler)
+    + BaseHandler(keywords: string[], next: BaseHandler)
+    __<<Methods>>__
+    {abstract} # InternalHandle(message: IMessage, responder: out string): bool
+    # InternalCancel(): virtual void
+    # CanHandle(message: IMessage): virtual void
+    + Handle(message: IMessage, response: out string): IHandler
+    + Cancel(): virtual void
+}
+
+class StartHandler{
+    __<<Constructor>>__
+    + StartHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IHandler, response: out string): override bool
+}
+
+
+class PhotoHandler{
+    __<<Constructor>>__
+    + PhotoHandler(bot: TelegramBotClient, next: BaseHandler)
+    __<<Methods>>__
+    # InternalHandle(message: IHandler, response: out string): override bool
+    - SendProfileImage(message: IMessage): async Task
+}
+
+
+
+
+
+
+
+class AddAuthorizationHandler{ 
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + AddAuthorizationHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+class AddKeyWordHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + AddKeyWordHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class CommandsHandler{
+    __<<Constructor>>__
+    + CommandsHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class EndOfferHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + EndOfferHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class ExitHandler{
+    __<<Constructor>>__
+    + ExitHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+class GoodByeHandler{
+    __<<Constructor>>__
+    + GoodByeHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class HelloHandler{
+    __<<Constructor>>__
+    + HelloHandler(next: BaseHandler): base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+class InviteHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + InviteHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+
+class MaterialsConsumedHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + MaterialsConsumedHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class PeriodOfTimeHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + PeriodOfTimeHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class PublishHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + PublishHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+
+class RegisterHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + RegisterHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+    - generarListaRubros(): StringBuilder
+    - generarListaHabilitaciones(): StringBuilder
+}
+
+
+
+
+
+
+class SearchCategoryHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + SearchCategoryHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class SearchKeyWordsHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + SearchKeyWordsHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+class RecurrenciaHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + RecurrenciaHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+class SearchZoneHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + SearchZoneHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+class ShowInterestInOfferHandler{
+    __<<Properties>>__
+    + AllowedStatus: string[]
+    __<<Constructor>>__
+    + ShowInterestInOfferHandler(next: BaseHandler) : base(next)
+    __<<Methods>>__
+    # InternalHandle(message: IMessage, response: out string): override bool
+}
+
+
+
+
+
+
+
+Datos "1" o-- "1" UserEmpresa : UserEmpresa
+Datos "1" o-- "1" Rubro : listaRubro
+Datos "1" o-- "1" UserEmprendedor: listaUsusarioEmprendedor
+Datos "1" o-- "1" Emprendedor: listaEmprendedor
+Datos "1" o-- "1" Habilitaciones: listaHabilitaciones
+Datos "1" o-- "1" Oferta: listaOferta
+Datos "1" o-- "1" TipoProducto: listaTipos
+
+
+Emprendedor "1" o-- "1" Rubro: Rubro
+Emprendedor "1" o-- "1" Habilitaciones: Habilitaciones
+
+UserEmprendedor "1" o-- "1" Emprendedor: Emprendedor 
+
+
+UserEmpresa "1" o-- "1" Empresa: Empresa
+
+
+IUser ..|> UserEmprendedor 
+IUser ..|> UserEmpresa 
+IUser ..|> UserAdmin
+
+Empresa o-- Oferta
+Empresa o-- Rubro
+
+
+Oferta o-- UserEmprendedor
+Oferta o-- Producto
+Oferta o-- Habilitaciones
+Oferta o-- UserEmprendedor
+
+Producto o-- TipoProducto
+
+
+
+
+
 UserEmpresa "1" o-- "1" Empresa : Empresa
-UserEmpresa --o  Datos
+
 
 
 @enduml 
