@@ -62,7 +62,7 @@ namespace Proyecto_Final
                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ADD_AUTHORIZATION_RESPONSE");
                     return true;
                 }
- 
+
 
                 else if (check == "STATUS_ADD_AUTHORIZATION_RESPONSE")
                 {

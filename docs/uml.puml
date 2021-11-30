@@ -352,7 +352,8 @@ class PhotoHandler{
 
 
 
-class AddAuthorizationHandler{ 
+
+class AddAuthorizationHandler { 
     __<<Properties>>__
     + AllowedStatus: string[]
     __<<Constructor>>__
@@ -529,7 +530,6 @@ class ShowInterestInOfferHandler{
 
 
 
-
 Datos "1" o-- "1" UserEmpresa : UserEmpresa
 Datos "1" o-- "1" Rubro : listaRubro
 Datos "1" o-- "1" UserEmprendedor: listaUsusarioEmprendedor
@@ -560,14 +560,123 @@ Oferta o-- UserEmprendedor
 Oferta o-- Producto
 Oferta o-- Habilitaciones
 Oferta o-- UserEmprendedor
+Oferta ..> IdGenerator: Metodo GenerateNumericId()
+
 
 Producto o-- TipoProducto
+
+UserEmpresa ..> UserCreator
+UserEmprendedor ..> UserCreator
+
+
+ShowInterestInOfferHandler ..> StatusManager
+AddAuthorizationHandler ..> StatusManager
+AddKeyWordHandler ..> StatusManager
+CommandsHandler ..> StatusManager
+EndOfferHandler ..> StatusManager
+ExitHandler ..> StatusManager
+GoodByeHandler ..> StatusManager
+HelloHandler ..> StatusManager
+InviteHandler ..> StatusManager
+MaterialsConsumedHandler ..> StatusManager
+PeriodOfTimeHandler ..> StatusManager
+PhotoHandler ..> StatusManager
+PublishHandler ..> StatusManager
+RegisterHandler ..> StatusManager
+SearchCategoryHandler ..> StatusManager
+SearchKeyWordsHandler ..> StatusManager
+RecurrenciaHandler ..> StatusManager
+SearchZoneHandler ..> StatusManager
+ShowInterestInOfferHandler ..> StatusManager
+StartHandler ..> StatusManager
+
+
+
+ShowInterestInOfferHandler <|-- BaseHandler
+AddAuthorizationHandler <|-- BaseHandler
+AddKeyWordHandler <|-- BaseHandler
+CommandsHandler <|-- BaseHandler
+EndOfferHandler <|-- BaseHandler
+ExitHandler <|-- BaseHandler
+GoodByeHandler <|-- BaseHandler
+HelloHandler <|-- BaseHandler
+InviteHandler <|-- BaseHandler
+MaterialsConsumedHandler <|-- BaseHandler
+PeriodOfTimeHandler <|-- BaseHandler
+PhotoHandler <|-- BaseHandler
+PublishHandler <|-- BaseHandler
+RegisterHandler <|-- BaseHandler
+SearchCategoryHandler <|-- BaseHandler
+SearchKeyWordsHandler <|-- BaseHandler
+RecurrenciaHandler <|-- BaseHandler
+SearchZoneHandler <|-- BaseHandler
+ShowInterestInOfferHandler <|-- BaseHandler
+StartHandler <|-- BaseHandler
+
+
+
+ShowInterestInOfferHandler --> Datos
+AddAuthorizationHandler --> Datos
+AddKeyWordHandler --> Datos
+EndOfferHandler --> Datos
+InviteHandler --> Datos
+MaterialsConsumedHandler --> Datos
+PeriodOfTimeHandler --> Datos
+PublishHandler --> Datos
+RegisterHandler --> Datos
+SearchCategoryHandler --> Datos
+SearchKeyWordsHandler --> Datos
+RecurrenciaHandler --> Datos
+SearchZoneHandler --> Datos
+ShowInterestInOfferHandler --> Datos
+
+AddAuthorizationHandler 
+
+
+AddKeyWordHandler <-- UserEmpresa
+AddKeyWordHandler <-- Temp
+
+
+EndOfferHandler <|-- BaseHandler
+EndOfferHandler --> UserEmpresa
+
+InviteHandler --> UserEmprendedor
+
+AddAuthorizationHandler <|-- BaseHandler
+ExitHandler <|-- BaseHandler
+GoodByeHandler <|-- BaseHandler
+HelloHandler <|-- BaseHandler
+InviteHandler <|-- BaseHandler
+MaterialsConsumedHandler <|-- BaseHandler
+PeriodOfTimeHandler <|-- BaseHandler
+PhotoHandler <|-- BaseHandler
+PublishHandler <|-- BaseHandler
+RegisterHandler <|-- BaseHandler
+SearchCategoryHandler <|-- BaseHandler
+SearchKeyWordsHandler <|-- BaseHandler
+RecurrenciaHandler <|-- BaseHandler
+SearchZoneHandler <|-- BaseHandler
+ShowInterestInOfferHandler <|-- BaseHandler
+StartHandler <|-- BaseHandler
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 UserEmpresa "1" o-- "1" Empresa : Empresa
+
 
 
 

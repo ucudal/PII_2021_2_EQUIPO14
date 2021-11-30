@@ -53,6 +53,12 @@
             </summary>
             <value>Tiempo del mensaje de telegram</value>
         </member>
+        <member name="P:Proyecto_Final.TelegramAdapter.PhoneNumber">
+            <summary>
+            Otorga el número de teléfono del usuario que envió el mensaje
+            </summary>
+            <value>String del número de teléfono del usuario.</value>
+        </member>
         <member name="M:Proyecto_Final.TelegramAdapter.#ctor(Telegram.Bot.Types.Message)">
             <summary>
             Inicializa la clase TelegramAdapter.
@@ -984,7 +990,7 @@
             <summary>
             Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
             </summary>
-            <param name="datosOferta"></param>
+            <param name="nombreOferta"></param>
             <param name="datosHabilitacion"></param>
             <param name="isRecurrente"></param>
             <param name="nombreProducto"></param>
@@ -1020,6 +1026,31 @@
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
             <returns>Retorna un diccionario con los datos de las ventas</returns>
+        </member>
+        <member name="T:Proyecto_Final.AddAuthorizationHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "authorization".
+            </summary>
+        </member>
+        <member name="P:Proyecto_Final.AddAuthorizationHandler.AllowedStatus">
+            <summary>
+            Otorga un array con los status validos.
+            </summary>
+            <value>Array de status</value>
+        </member>
+        <member name="M:Proyecto_Final.AddAuthorizationHandler.#ctor(Proyecto_Final.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Proyecto_Final.AddAuthorizationHandler"/>. Esta clase procesa el mensaje "authorization".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Proyecto_Final.AddAuthorizationHandler.InternalHandle(Proyecto_Final.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "authorization" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
         <member name="T:Proyecto_Final.AddKeyWordHandler">
             <summary>
@@ -1590,6 +1621,12 @@
         <member name="P:Proyecto_Final.IMessage.Date">
             <summary>
             La fecha en la que se realizó el mensaje.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Proyecto_Final.IMessage.PhoneNumber">
+            <summary>
+            El número de teléfono del usuario
             </summary>
             <value></value>
         </member>
