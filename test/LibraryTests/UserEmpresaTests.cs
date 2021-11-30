@@ -8,14 +8,11 @@ namespace Proyecto_Final
     [TestFixture]
 
     
-    public class AdminTests
+    public class UserEmpresaTests
     {
-        
-
         /// <summary>
         /// Test para revisar si se genera correctamente un código de 10 letras.
         /// </summary>
-        
         [Test]
         public void InvitarEmpresaTest()
         {

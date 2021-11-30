@@ -105,28 +105,5 @@ namespace Proyecto_Final
             response = string.Empty;
             return false;
         }
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

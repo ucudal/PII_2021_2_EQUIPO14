@@ -131,6 +131,13 @@
             <param name="id"></param>
             <returns>Retorna un IUser.</returns>
         </member>
+        <member name="M:Proyecto_Final.Datos.GetUnidadMedida(System.String)">
+            <summary>
+            En base a un tipo de Producto, otorga la medida que utiliza
+            </summary>
+            <param name="tipoProducto"></param>
+            <returns>Un string que representa la unidad de medida de un producto.</returns>
+        </member>
         <member name="M:Proyecto_Final.Datos.RegistrarUsuarioEmpresa(Proyecto_Final.UserEmpresa)">
             <summary>
             Agrega un usuario Empresa a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.
@@ -386,7 +393,7 @@
             Elimina una Especialización al Emprendedor.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.Emprendedor.ConsumoXTiempo(Proyecto_Final.UserEmprendedor)">
+        <member name="M:Proyecto_Final.Emprendedor.VerificarConsumo(System.String)">
             <summary>
             Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
@@ -463,11 +470,17 @@
             </summary>
             <param name="especializacion"></param>
         </member>
-        <member name="M:Proyecto_Final.Empresa.VerificarVentas">
+        <member name="M:Proyecto_Final.Empresa.VerificarVentas(System.String)">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>
             <returns>Retorna un diccionario con los datos de las ventas</returns>
+        </member>
+        <member name="M:Proyecto_Final.Empresa.CheckBuyers">
+            <summary>
+            Devuelve un string con la lista de ofertas con compradores.
+            </summary>
+            <returns>string</returns>
         </member>
         <member name="T:Proyecto_Final.Habilitaciones">
             <summary>
@@ -533,6 +546,12 @@
             Otorga un objeto del Producto que se está ofertando <see cref="T:Proyecto_Final.Producto"/>.
             </summary>
             <value>Objeto del tipo "Producto".</value>
+        </member>
+        <member name="P:Proyecto_Final.Oferta.SoldDate">
+            <summary>
+            Otorga la fecha de venta de una oferta.
+            </summary>
+            <value></value>
         </member>
         <member name="P:Proyecto_Final.Oferta.PalabrasClave">
             <summary>
@@ -898,11 +917,11 @@
             Elimina de la lista de especializaciones que contiene la clase "Emprendedor una especialización.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmprendedor.ConsumoXTiempo">
+        <member name="M:Proyecto_Final.UserEmprendedor.VerificarConsumo(System.String)">
             <summary>
             Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
             </summary>
-            <return></return>
+            <return>string</return>
         </member>
         <member name="M:Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave(System.String)">
             <summary>
@@ -946,12 +965,6 @@
             Obtiene un valor del objeto Empresa.
             </summary>
             <value>Objeto del tipo Empresa</value>
-        </member>
-        <member name="P:Proyecto_Final.UserEmpresa.IsInvited">
-            <summary>
-            Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
-            </summary>
-            <value><c>true/false</c></value>
         </member>
         <member name="M:Proyecto_Final.UserEmpresa.#ctor">
             <summary>
@@ -1019,9 +1032,9 @@
             Cambia el estado de la oferta especifica a vendido.
             </summary>
             <param name="input"></param>
-            <param name="nombreOferta"></param>
+            <param name="id"></param>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas">
+        <member name="M:Proyecto_Final.UserEmpresa.VerificarVentas(System.String)">
             <summary>
             Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
             </summary>

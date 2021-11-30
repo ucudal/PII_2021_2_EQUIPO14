@@ -291,7 +291,7 @@ class Location{
 }
 
 
-class LocationApi{
+class LocationApiClient{
     __<<Properties>>__
     {static} - DistanceUrl: string
     {static} - Location: string
@@ -496,7 +496,7 @@ class SearchKeyWordsHandler{
 }
 
 
-class RecurrenciaHandler{
+class SearchRecurrenciaHandler{
     __<<Properties>>__
     + AllowedStatus: string[]
     __<<Constructor>>__
@@ -590,7 +590,27 @@ SearchZoneHandler ..> StatusManager
 ShowInterestInOfferHandler ..> StatusManager
 StartHandler ..> StatusManager
 
-
+BaseHandler ..> IMessage
+ShowInterestInOfferHandler ..> IMessage
+AddAuthorizationHandler ..> IMessage
+AddKeyWordHandler ..> IMessage
+CommandsHandler ..> IMessage
+EndOfferHandler ..> IMessage
+ExitHandler ..> IMessage
+GoodByeHandler ..> IMessage
+HelloHandler ..> IMessage
+InviteHandler ..> IMessage
+MaterialsConsumedHandler ..> IMessage
+PeriodOfTimeHandler ..> IMessage
+PhotoHandler ..> IMessage
+PublishHandler ..> IMessage
+RegisterHandler ..> IMessage
+SearchCategoryHandler ..> IMessage
+SearchKeyWordsHandler ..> IMessage
+RecurrenciaHandler ..> IMessage
+SearchZoneHandler ..> IMessage
+ShowInterestInOfferHandler ..> IMessage
+StartHandler ..> IMessage
 
 ShowInterestInOfferHandler <|-- BaseHandler
 AddAuthorizationHandler <|-- BaseHandler
@@ -630,7 +650,7 @@ RecurrenciaHandler --> Datos
 SearchZoneHandler --> Datos
 ShowInterestInOfferHandler --> Datos
 
-AddAuthorizationHandler 
+AddAuthorizationHandler <-- UserEmprendedor
 
 
 AddKeyWordHandler <-- UserEmpresa
@@ -641,6 +661,34 @@ EndOfferHandler <|-- BaseHandler
 EndOfferHandler --> UserEmpresa
 
 InviteHandler --> UserEmprendedor
+
+MaterialsConsumedHandler --> UserEmprendedor
+
+PeriodOfTimeHandler --> UserEmpresa
+
+PublishHandler --> UserEmpresa
+PublishHandler --> Temp
+PublishHandler --> LocationApiClient
+PublishHandler --> Location
+
+
+RegisterHandler --> UserCreator
+RegisterHandler --> Temp
+RegisterHandler --> LocationApiClient
+RegisterHandler --> Location
+
+Buscador --> Distance
+
+SearchCategoryHandler --> UserEmprendedor
+
+SearchKeyWordsHandler --> UserEmprendedor
+
+SearchRecurrencyHandler --> UserEmprendedor
+
+SearchZoneHandler --> UserEmprendedor
+
+ShowInterestInOfferHandler --> UserEmprendedor
+
 
 AddAuthorizationHandler <|-- BaseHandler
 ExitHandler <|-- BaseHandler
@@ -659,9 +707,11 @@ SearchZoneHandler <|-- BaseHandler
 ShowInterestInOfferHandler <|-- BaseHandler
 StartHandler <|-- BaseHandler
 
+IMessage <|-- TelegramAdapter
 
+IHandler <|-- BaseHandler
 
-
+IUser ..> Datos: GetUserById()
 
 
 

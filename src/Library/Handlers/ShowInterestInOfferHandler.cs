@@ -56,7 +56,7 @@ namespace Proyecto_Final
                             {
                                 if(oferta.IsVendido == false)
                                 {
-                                    response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                                    response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} {Singleton<Datos>.Instance.GetUnidadMedida(oferta.Product.Tipo.Nombre)} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
                                 } 
                             }
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_SHOW_INTEREST_OFFER_SELECTED");
@@ -83,11 +83,13 @@ namespace Proyecto_Final
                         {
                             oferta.Comprador = user; //El punto de mostrar interés en una oferta es para hacer que cuando se concrete una oferta se identifique el que lo consumió y el que lo vendió. Siguiendo la regla del Teams, en la cual se habla de que la primera persona en mostrar interés en una oferta es el comprador; es que se ejecuta esta acción si nadie se había registrado anteriormente como comprador.
                             response = $"Se ha notificado a la Empresa que está interesado en la oferta que publicó.";
+                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                             Singleton<Datos>.Instance.UpdateOfersData();
                             return true;
                         }
                     }
                     response = $"Ya hay alguien que expresó su interés en la oferta.";
+                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                     return true;
                     }
                 }

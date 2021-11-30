@@ -1,109 +1,58 @@
 [
   {
-    "Id": "2063183853",
-    "Nombre": "Nestor Corp",
+    "Id": "2100276214",
+    "Nombre": "Nestor CORP",
     "Empresa": {
-      "Nombre": "Nestor Corp",
-      "Ubicacion": "Maip\u00FA 1751",
+      "Nombre": "Nestor CORP",
+      "Ubicacion": "Gral. Urquiza 2784",
       "Rubro": {
         "Rubros": "Rubro-1"
       },
       "Especializaciones": [],
       "Ofertas": [
         {
-          "Id": "0357490505",
-          "Nombre": "Oferta de Nestor",
+          "Id": "5126016643",
+          "Nombre": "Mi Oferta",
           "Product": {
             "IsPesos": true,
-            "Nombre": "Tablas de 110x50 cm, 20 mm di\u00E1metro",
-            "Descripcion": "Maip\u00FA 1751",
-            "Ubicacion": "No",
-            "Valor": 500,
-            "Cantidad": 25,
+            "Nombre": "Madera",
+            "Descripcion": "Tablas de 100x50cm, 20mm grosor",
+            "Ubicacion": "Gral. Urquiza 2784",
+            "Valor": 250,
+            "Cantidad": 300,
             "Tipo": {
               "Nombre": "Madera"
             }
           },
-          "PalabrasClave": [],
-          "HabilitacionesOferta": {
-            "Habilitacion": "No"
-          },
-          "IsVendido": false,
-          "IsRecurrente": false,
-          "Comprador": null
-        },
-        {
-          "Id": "8320822710",
-          "Nombre": "Messi Oferat",
-          "Product": {
-            "IsPesos": true,
-            "Nombre": "Es Nestor",
-            "Descripcion": "Gral. Urquiza 2784",
-            "Ubicacion": "Hab-1",
-            "Valor": 10000,
-            "Cantidad": 20,
-            "Tipo": {
-              "Nombre": "Persona"
-            }
-          },
-          "PalabrasClave": [],
-          "HabilitacionesOferta": {
-            "Habilitacion": "Hab-1"
-          },
-          "IsVendido": false,
-          "IsRecurrente": true,
-          "Comprador": null
-        },
-        {
-          "Id": "7112759629",
-          "Nombre": "Nueva Oferta de N\u00E9stor",
-          "Product": {
-            "IsPesos": true,
-            "Nombre": "Tapitas de botellas de Coca Cola",
-            "Descripcion": "Gral. Urquiza 2784",
-            "Ubicacion": "No",
-            "Valor": 10,
-            "Cantidad": 500,
-            "Tipo": {
-              "Nombre": "Pl\u00E1stico"
-            }
-          },
-          "PalabrasClave": [],
-          "HabilitacionesOferta": {
-            "Habilitacion": "No"
-          },
-          "IsVendido": false,
-          "IsRecurrente": false,
-          "Comprador": null
-        },
-        {
-          "Id": "4798455385",
-          "Nombre": "Nueva nueva oferta de N\u00E9stor",
-          "Product": {
-            "IsPesos": true,
-            "Nombre": "Tapas de botellas de Coca Cola",
-            "Descripcion": "Gral. Urquiza 2784",
-            "Ubicacion": "No",
-            "Valor": 5,
-            "Cantidad": 10000,
-            "Tipo": {
-              "Nombre": "Pl\u00E1stico"
-            }
-          },
+          "SoldDate": "2021-11-29T18:23:25.0878503-03:00",
           "PalabrasClave": [
-            "Nueva nueva oferta de N\u00E9stor",
-            "Pl\u00E1stico",
-            "Tapas de botellas de Coca Cola"
+            "Mi Oferta",
+            "Madera",
+            "Madera",
+            "5126016643"
           ],
           "HabilitacionesOferta": {
             "Habilitacion": "No"
           },
-          "IsVendido": false,
-          "IsRecurrente": true,
-          "Comprador": null
+          "IsVendido": true,
+          "IsRecurrente": false,
+          "Comprador": {
+            "Id": "2063183853",
+            "Nombre": "Juan",
+            "Emprendedor": {
+              "Ubicacion": "Minas",
+              "Rubro": {
+                "Rubros": "Rubro-1"
+              },
+              "Habilitacion": {
+                "Habilitacion": "No"
+              },
+              "Especializaciones": [],
+              "Compras": []
+            }
+          }
         }
       ]
-    },
-    "IsInvited": false
+    }
   }
 ]

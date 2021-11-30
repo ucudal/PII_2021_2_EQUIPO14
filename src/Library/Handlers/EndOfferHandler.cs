@@ -57,7 +57,7 @@ namespace Proyecto_Final
                             {
                                 if (oferta.IsVendido == false)
                                 {
-                                    response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
+                                    response += $"\nID: {oferta.Id} \nNombre: {oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} {Singleton<Datos>.Instance.GetUnidadMedida(oferta.Product.Tipo.Nombre)} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n";
                                 }
                             }
                             Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_END_OFFER_OFFER_SELECTED");
@@ -84,10 +84,13 @@ namespace Proyecto_Final
                             {
                                 if (oferta.Comprador != null)
                                 {
-                                    user.ConcretarOferta("Y",oferta.Nombre);
+                                    user.ConcretarOferta("Y", oferta.Id);
                                     response = $"Se ha concretado correctamente la oferta.";
+                                    UserEmprendedor userEmprendedor = oferta.Comprador;
+                                    userEmprendedor.Emprendedor.Compras.Add(oferta);
                                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                                     Singleton<Datos>.Instance.UpdateOfersData();
+                                    Singleton<Datos>.Instance.UpdateEmprendedoresData();
                                     return true;
                                 }
                                 else
