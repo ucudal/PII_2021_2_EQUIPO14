@@ -839,12 +839,6 @@
             Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserCreator.CrearUserAdmin(System.String)">
-            <summary>
-            Crea una instancia de UserAdmin y la almacena.
-            </summary>
-            <param name="id"></param>
-        </member>
         <member name="M:Proyecto_Final.UserCreator.CrearUserEmpresa(System.String)">
             <summary>
             Crea una instancia de UserEmpresa y la almacena.

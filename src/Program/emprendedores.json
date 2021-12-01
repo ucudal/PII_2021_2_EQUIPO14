@@ -1,24 +1,9 @@
 [
   {
     "Id": "2121606788",
-    "Nombre": "Eleonor Vi\u00F1a",
+    "Nombre": "Messi CORP",
     "Emprendedor": {
-      "Ubicacion": "Urquiza 2784",
-      "Rubro": {
-        "Rubros": "Rubro-1"
-      },
-      "Habilitacion": {
-        "Habilitacion": "No"
-      },
-      "Especializaciones": [],
-      "Compras": []
-    }
-  },
-  {
-    "Id": "2063183853",
-    "Nombre": "Juan",
-    "Emprendedor": {
-      "Ubicacion": "Minas",
+      "Ubicacion": "Gral. Urquiza 2784",
       "Rubro": {
         "Rubros": "Rubro-1"
       },
@@ -28,25 +13,25 @@
       "Especializaciones": [],
       "Compras": [
         {
-          "Id": "5126016643",
+          "Id": "4780830859",
           "Nombre": "Mi Oferta",
           "Product": {
             "IsPesos": true,
-            "Nombre": "Madera",
-            "Descripcion": "Tablas de 100x50cm, 20mm grosor",
+            "Nombre": "Madera de Roble",
+            "Descripcion": "110x55 cm, 20mm grosor",
             "Ubicacion": "Gral. Urquiza 2784",
-            "Valor": 250,
-            "Cantidad": 300,
+            "Valor": 30,
+            "Cantidad": 600,
             "Tipo": {
               "Nombre": "Madera"
             }
           },
-          "SoldDate": "2021-11-29T18:23:25.0878503-03:00",
+          "SoldDate": "2021-11-30T22:29:41.8275057-03:00",
           "PalabrasClave": [
             "Mi Oferta",
             "Madera",
-            "Madera",
-            "5126016643"
+            "Madera de Roble",
+            "4780830859"
           ],
           "HabilitacionesOferta": {
             "Habilitacion": "No"
@@ -54,10 +39,10 @@
           "IsVendido": true,
           "IsRecurrente": false,
           "Comprador": {
-            "Id": "2100276214",
-            "Nombre": "Juan",
+            "Id": "2121606788",
+            "Nombre": "Messi CORP",
             "Emprendedor": {
-              "Ubicacion": "Minas",
+              "Ubicacion": "Gral. Urquiza 2784",
               "Rubro": {
                 "Rubros": "Rubro-1"
               },
@@ -70,21 +55,6 @@
           }
         }
       ]
-    }
-  },
-  {
-    "Id": "2051203726",
-    "Nombre": "Rodrigo Luque",
-    "Emprendedor": {
-      "Ubicacion": "Bvar Artigas 1498",
-      "Rubro": {
-        "Rubros": "Rubro-1"
-      },
-      "Habilitacion": {
-        "Habilitacion": "Hab-1"
-      },
-      "Especializaciones": [],
-      "Compras": []
     }
   }
 ]

@@ -86,7 +86,7 @@ namespace Proyecto_Final
                                 {
                                     user.ConcretarOferta("Y", oferta.Id);
                                     response = $"Se ha concretado correctamente la oferta.";
-                                    UserEmprendedor userEmprendedor = oferta.Comprador;
+                                    UserEmprendedor userEmprendedor = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(oferta.Comprador.Id);
                                     userEmprendedor.Emprendedor.Compras.Add(oferta);
                                     Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_IDLE");
                                     Singleton<Datos>.Instance.UpdateOfersData();
