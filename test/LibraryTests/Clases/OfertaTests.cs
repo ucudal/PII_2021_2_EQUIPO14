@@ -6,7 +6,7 @@ namespace Proyecto_Final
     /// Prueba de la clase <see cref="Oferta"/>.
     /// </summary>
     [TestFixture]
-    public class OfertaTest
+    public class OfertaTests
     {
         /// <summary>
         /// Testea si el método agrega una palabra clave a la oferta.

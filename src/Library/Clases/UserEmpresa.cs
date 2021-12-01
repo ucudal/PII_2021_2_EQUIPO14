@@ -168,8 +168,8 @@ namespace Proyecto_Final
                     {
                         if (oferta.Comprador != null)
                         {
-                            UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(oferta.Comprador.Id);
-                            user.Emprendedor.Compras.Add(oferta);
+                            //UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(oferta.Comprador.Id);
+                            //user.Emprendedor.Compras.Add(oferta);
                             oferta.IsVendido = true;
                             oferta.SoldDate = DateTime.Now;
                         }

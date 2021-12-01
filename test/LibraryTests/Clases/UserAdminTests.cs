@@ -6,16 +6,11 @@ namespace Proyecto_Final
     /// Prueba de la clase <see cref="UserAdmin"/>.
     /// </summary>
     [TestFixture]
-
-    
-    public class AdminTests
+    public class UserAdminTests
     {
-        
-
         /// <summary>
         /// Test para revisar si se genera correctamente un código de 10 letras.
         /// </summary>
-        
         [Test]
         public void InvitarEmpresaTest()
         {

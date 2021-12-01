@@ -10,25 +10,6 @@ namespace Proyecto_Final
     public sealed class  UserCreator
     {   
         /// <summary>
-        /// Crea una instancia de UserAdmin y la almacena.
-        /// </summary>
-        /// <param name="id"></param>
-        public void CrearUserAdmin(string id)
-        {
-            foreach (KeyValuePair<string, Dictionary<string, string>> item in Singleton<Temp>.Instance.TempData)
-            {
-                if (item.Key == id)
-                {
-                    Dictionary<string, string> data = item.Value;
-
-                    UserAdmin userAdmin = new UserAdmin(id, data["nombreAdmin"]);
-                    //Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
-                    Console.WriteLine($"UserCreator: Admin {id} creado.");
-                }
-            }
-        }
-
-        /// <summary>
         /// Crea una instancia de UserEmpresa y la almacena.
         /// </summary>
         /// <param name="id"></param>
