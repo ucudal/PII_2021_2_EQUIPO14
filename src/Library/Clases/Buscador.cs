@@ -99,6 +99,46 @@ namespace Proyecto_Final
             {
                 ContentBuilder.Append("No se encontraron ofertas que concuerden con el tipo de producto deseado.");
             }
-        }     
+        } 
+
+        /// <summary>
+        /// Otorga todas las ofertas que sean recurrentes.
+        /// </summary>
+        /// <returns></returns>
+        public void VerOfertasRecurrentes()
+        {
+            ContentBuilder.Clear();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                if(oferta.IsRecurrente)
+                {
+                    ContentBuilder.Append($"Esta oferta es recurrente: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                }
+            }
+            if(ContentBuilder.ToString() == "")
+            {
+                ContentBuilder.Append("No se encontraron ofertas recurrentes.");
+            }
+        } 
+
+        /// <summary>
+        /// Otorga todas las ofertas que sean puntuales.
+        /// </summary>
+        /// <returns></returns>
+        public void VerOfertasPuntuales()
+        {
+            ContentBuilder.Clear();
+            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
+            {
+                if(!oferta.IsRecurrente)
+                {
+                    ContentBuilder.Append($"Esta oferta es puntual: \nID: {oferta.Id} \nNombre: {oferta.Nombre} \nProducto:{oferta.Product.Nombre} \nDescripción: {oferta.Product.Descripcion} \nTipo: {oferta.Product.Tipo.Nombre} \nUbicación: {oferta.Product.Ubicacion} \nValor: {oferta.Product.MonetaryValue()}{oferta.Product.Valor} \nCantidad: {oferta.Product.Cantidad} \nHabilitaciones requeridas: {oferta.HabilitacionesOferta.Habilitacion} \n");
+                }
+            }
+            if(ContentBuilder.ToString() == "")
+            {
+                ContentBuilder.Append("No se encontraron ofertas puntuales.");
+            }
+        }    
     }
 }

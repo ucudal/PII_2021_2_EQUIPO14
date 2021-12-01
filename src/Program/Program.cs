@@ -35,10 +35,10 @@ namespace Proyecto_Final
             firstHandler =
                 new StartHandler(
                 new ExitHandler(
-                new InviteHandler(
-                new RegisterHandler(
                 new HelloHandler(
                 new GoodByeHandler(
+                new InviteHandler(
+                new RegisterHandler(
                 new PublishHandler(
                 new SearchCategoryHandler(
                 new SearchKeyWordsHandler(
@@ -47,7 +47,7 @@ namespace Proyecto_Final
                 new AddKeyWordHandler(
                 new AddAuthorizationHandler(
                 new PeriodOfTimeHandler(
-                new RecurrenciaHandler(
+                new SearchRecurrencyHandler(
                 new ShowInterestInOfferHandler(
                 new EndOfferHandler(
                 new CommandsHandler(

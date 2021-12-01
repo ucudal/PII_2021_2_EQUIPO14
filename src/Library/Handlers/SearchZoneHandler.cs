@@ -52,7 +52,7 @@ namespace Proyecto_Final
                 {
                     if (check == "STATUS_IDLE")
                     {
-                        response = "¿Quiere realizar una búsqueda de ofertas por zona? Y/N";
+                        response = $"¿Desea buscar ofertas por zona? Y/N";
                         Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId,"STATUS_ZONE_RESPONSE");
                         return true;
                     }

@@ -123,6 +123,28 @@ namespace Proyecto_Final
             buscador.VerOfertasTipo(tipo); //(Delegación)
             return buscador.Content;
         }
+
+        /// <summary>
+        /// Otorga todas las ofertas que sean recurrentes.
+        /// </summary>
+        /// <returns></returns>
+        public string VerOfertasRecurrentes()
+        {
+            Buscador buscador = new Buscador(); //(Delegación)
+            buscador.VerOfertasRecurrentes();
+            return buscador.Content;
+        }
+
+        /// <summary>
+        /// Otorga todas las ofertas que sean puntuales.
+        /// </summary>
+        /// <returns></returns>
+        public string VerOfertasPuntuales()
+        {
+            Buscador buscador = new Buscador(); //(Delegación)
+            buscador.VerOfertasPuntuales();
+            return buscador.Content;
+        }
         
     }
 }
