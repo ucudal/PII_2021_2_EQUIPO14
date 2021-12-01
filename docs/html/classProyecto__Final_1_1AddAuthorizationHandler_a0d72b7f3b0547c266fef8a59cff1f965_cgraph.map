@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.AddAuthorizationHandler.InternalHandle" name="Proyecto_Final.AddAuthorizationHandler.InternalHandle">
+<area shape="rect" id="node1" title="Procesa el mensaje &quot;authorization&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,39,217,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserEmprendedor.html#a7566bd7d788d42dfef23657716990a68" title="Agrega una habilitacion." alt="" coords="265,5,487,47"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81" title="Determina si este &quot;handler&quot; puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..." alt="" coords="281,71,471,112"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1Emprendedor.html#a894784589345061a12f5ba88b5dcd5b2" title="Agrega una habilitacion." alt="" coords="535,5,729,47"/>
+</map>

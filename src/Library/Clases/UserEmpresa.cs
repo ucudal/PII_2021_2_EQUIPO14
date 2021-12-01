@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa al usuario de la Empresa.
+    /// La función de esta clase es la de representar a un usuario que interactúa con el sistema que se identifica como empresa. 
+    /// Debido a esto, la única responsabilidad de esta clase es la de proveer con un nexo entre las interacciones de usuario y los datos de este usuario, 
+    /// los cuales se almacenan en la clase "Empresa" y los accede mediante el patrón de Delegación. Por lo cual también sigue con el patrón SRP.
     /// </summary>
     public class UserEmpresa : IUser
-    {
-        private bool isInvited = false;
-        private Invitacion invitacion = null;
-        
+    {        
         /// <summary>
         /// Otorga el id del usuario.
         /// </summary>
@@ -19,16 +21,10 @@ namespace Proyecto_Final
         public string Id { get; set; }
 
         /// <summary>
-        /// Obtiene un valor del objeto Invitacion.
-        /// </summary>
-        /// <value>Devuelve una invitacion si la tiene, sino, <c>null</c></value>
-        public Invitacion Invitacion { get; set; }
-
-        /// <summary>
         /// Obtiene un valor del nombre del usuario empresa.
         /// </summary>
         /// <value>Nombre de la empresa</value>
-        public string Nombre { get; }
+        public string Nombre { get; set; }
         
         /// <summary>
         /// Obtiene un valor del objeto Empresa.
@@ -37,10 +33,10 @@ namespace Proyecto_Final
         public Empresa Empresa { get; set; }
 
         /// <summary>
-        /// Obtiene un valor booleano dependiendo de si la empresa fue invitada o no.
+        /// Constructor vacio utilizado para la serializacion.
         /// </summary>
-        /// <value><c>true/false</c></value>
-        public bool IsInvited { get { return isInvited; } private set { this.isInvited = value;} }
+        [JsonConstructor]
+        public UserEmpresa () {}
 
         /// <summary>
         /// Inicializa la clase UserEmpresa.
@@ -59,26 +55,7 @@ namespace Proyecto_Final
         /// <param name="rubro"></param>
         public void AgregarRubro(string rubro)
         {
-            this.Empresa.AgregarRubro(rubro);
-        }
-
-        /// <summary>
-        /// Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.
-        /// </summary>
-        /// <param name="input"></param>
-        public void AceptarInvitacion(string input)
-        {
-            if (this.Invitacion != null)
-            {
-                if (input == "Y")
-                {
-                    this.IsInvited = true;
-                }
-                else
-                {
-                    this.IsInvited = false;
-                }
-            }
+            this.Empresa.AgregarRubro(rubro); //(Delegacion)
         }
 
         /// <summary>
@@ -93,33 +70,68 @@ namespace Proyecto_Final
             Empresa newEmpresa = new Empresa(nombre, ubicacion, newRubro);
 
             this.Empresa = newEmpresa;
-            Singleton<Datos>.Instance.AgregarEmpresa(newEmpresa);
         }
 
         /// <summary>
         /// Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.
         /// </summary>
-        /// <param name="datosMensaje"></param>
-        public void CrearMsjClave((string, string) datosMensaje) 
+        /// <param name="oferId"></param>
+        /// <param name="palabra"></param>
+        public void CrearMsjClave(string oferId, string palabra) 
         {
-            this.Empresa.AgregarMsjClave((datosMensaje.Item1, datosMensaje.Item2)); // (Delegacion)
+            this.Empresa.AgregarMsjClave(oferId, palabra); // (Delegacion)
         }
 
         /// <summary>
         /// Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma los emprendedores que lo necesiten puedan reutilizarlos.
         /// </summary>
-        /// <param name="datosOferta"></param>
+        /// <param name="nombreOferta"></param>
         /// <param name="datosHabilitacion"></param>
-        /// <param name="datosProducto"></param>
+        /// <param name="isRecurrente"></param>
+        /// <param name="nombreProducto"></param>
+        /// <param name="descripcionProducto"></param>
+        /// <param name="ubicacionProducto"></param>
+        /// <param name="valorProducto"></param>
+        /// <param name="valorMoneda"></param>
+        /// <param name="cantidadProducto"></param>
         /// <param name="datosTipoProducto"></param>
-        public void CrearOferta(string nombre) // (Creator)
+        public void CrearOferta(string nombreOferta, string datosHabilitacion, string isRecurrente, string nombreProducto, string descripcionProducto, string ubicacionProducto, int valorProducto, string valorMoneda, int cantidadProducto, string datosTipoProducto) // (Creator)
         {
-            Producto producto = this.CrearProducto();
-            Habilitaciones habilitacion = new Habilitaciones("");
-            Oferta newOferta = new Oferta(nombre, producto, habilitacion);
+            bool recurrencia = false;
+            bool isPesos = false;
+
+            if(valorMoneda == "1")
+            {
+                isPesos = false;
+            }
+            else
+            {
+                isPesos = true;
+            }
+
+            if(isRecurrente == "1")
+            {
+                recurrencia = false;
+            }
+            else
+            {
+                recurrencia = true;
+            }
+
+            Producto producto = this.CrearProducto(nombreProducto, descripcionProducto, ubicacionProducto, valorProducto, isPesos, cantidadProducto, datosTipoProducto);
+            Habilitaciones habilitacion = new Habilitaciones(datosHabilitacion);
+            Oferta newOferta = new Oferta(nombreOferta, producto, recurrencia, habilitacion);
 
             this.Empresa.Ofertas.Add(newOferta);
-            Singleton<Datos>.Instance.AgregarOferta(newOferta);
+
+            this.CrearMsjClave(newOferta.Id, nombreOferta);
+            this.CrearMsjClave(newOferta.Id, datosTipoProducto);
+            this.CrearMsjClave(newOferta.Id, nombreProducto);
+            this.CrearMsjClave(newOferta.Id, newOferta.Id);
+
+            Singleton<Datos>.Instance.UpdateOfersData();
+
+            Console.WriteLine($"Oferta creada:\nNombre: {newOferta.Nombre} \nRecurrencia: {newOferta.IsRecurrente} \n\nProducto:\nNombre: {newOferta.Product.Nombre} \nDescripción: {newOferta.Product.Descripcion} \nTipo: {newOferta.Product.Tipo.Nombre} \nUbicación: {newOferta.Product.Ubicacion} \nValor: {newOferta.Product.MonetaryValue()}{newOferta.Product.Valor} \nCantidad: {newOferta.Product.Cantidad} \nHabilitaciones requeridas: {newOferta.HabilitacionesOferta.Habilitacion}\n");
         }
 
         /// <summary>
@@ -129,13 +141,14 @@ namespace Proyecto_Final
         /// <param name="descripcion"></param>
         /// <param name="ubicacion"></param>
         /// <param name="valor"></param>
+        /// <param name="isPesos"></param>
         /// <param name="cantidad"></param>
         /// <param name="datosTipoProducto"></param>
         /// <returns></returns>
-        public Producto CrearProducto() // (Creator)
+        public Producto CrearProducto(string nombre, string descripcion, string ubicacion, int valor, bool isPesos, int cantidad, string datosTipoProducto) // (Creator)
         {
-            TipoProducto newTipoProducto = new TipoProducto("");
-            Producto newProducto = new Producto("", "", "", 0, 0, newTipoProducto);
+            TipoProducto newTipoProducto = new TipoProducto(datosTipoProducto);
+            Producto newProducto = new Producto(nombre, descripcion, ubicacion, valor, isPesos, cantidad, newTipoProducto);
 
             return newProducto;
         }
@@ -144,23 +157,21 @@ namespace Proyecto_Final
         /// Cambia el estado de la oferta especifica a vendido.
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="nombreOferta"></param>
-        /// <param name="nombreEmprendedor"></param>
-        public void ConcretarOferta(string input, string nombreOferta, string nombreEmprendedor)
+        /// <param name="id"></param>
+        public void ConcretarOferta(string input, string id) //(Expert)
         {
             if (input == "Y")
             {
                 foreach (Oferta oferta in this.Empresa.Ofertas)
                 {
-                    if (oferta.Nombre == nombreOferta)
+                    if (oferta.Id == id)
                     {
-                        foreach (UserEmprendedor emprendedor in Singleton<Datos>.Instance.ListaUsuarioEmprendedor())
+                        if (oferta.Comprador != null)
                         {
-                            if (emprendedor.Nombre == nombreEmprendedor)
-                            {
-                                oferta.IsVendido = true;
-                                oferta.Comprador = emprendedor;
-                            }
+                            //UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(oferta.Comprador.Id);
+                            //user.Emprendedor.Compras.Add(oferta);
+                            oferta.IsVendido = true;
+                            oferta.SoldDate = DateTime.Now;
                         }
                     }
                 }
@@ -171,9 +182,18 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public Dictionary<string, int> VerificarVentas()
+        public string VerificarVentas(string date)
         {
-            return this.Empresa.VerificarVentas(); // (Delegacion)
+            return this.Empresa.VerificarVentas(date); // (Delegacion)
+        }
+
+        /// <summary>
+        /// Devuelve un string con la lista de ofertas con compradores.
+        /// </summary>
+        /// <returns>string</returns>
+        public string CheckBuyers()
+        {
+            return this.Empresa.CheckBuyers();
         }
     }
 }

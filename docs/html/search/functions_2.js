@@ -1,5 +1,19 @@
 var searchData=
 [
-  ['downloadmapasync_0',['DownloadMapAsync',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a21e183b7fb6a9752ef6dc64da5164f0e',1,'Ucu::Poo::Locations::Client::LocationApiClient']]],
-  ['downloadrouteasync_1',['DownloadRouteAsync',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#ac1c5d9cdee6a219cbb32aa660c213dc5',1,'Ucu::Poo::Locations::Client::LocationApiClient']]]
+  ['cancel_0',['Cancel',['../classProyecto__Final_1_1BaseHandler.html#a60e6277c6d1dd83c135e0e6f2b2976fe',1,'Proyecto_Final.BaseHandler.Cancel()'],['../interfaceProyecto__Final_1_1IHandler.html#a8a0b8f3049153294caef7d925f6f89d5',1,'Proyecto_Final.IHandler.Cancel()']]],
+  ['canhandle_1',['CanHandle',['../classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81',1,'Proyecto_Final::BaseHandler']]],
+  ['checkbuyers_2',['CheckBuyers',['../classProyecto__Final_1_1Empresa.html#aad178e20495c250fc862641516535ab9',1,'Proyecto_Final.Empresa.CheckBuyers()'],['../classProyecto__Final_1_1UserEmpresa.html#a606ac3e6b1f6ab2c638fbbbae2e42829',1,'Proyecto_Final.UserEmpresa.CheckBuyers()']]],
+  ['checkhabilitaciones_3',['CheckHabilitaciones',['../classProyecto__Final_1_1Datos.html#a44b1d4b7aea890efa8b53ca3fa7d9761',1,'Proyecto_Final::Datos']]],
+  ['checkrubros_4',['CheckRubros',['../classProyecto__Final_1_1Datos.html#a84e339c8c6935c3eae564218baec74df',1,'Proyecto_Final::Datos']]],
+  ['checkstatus_5',['CheckStatus',['../classProyecto__Final_1_1StatusManager.html#ad2b98fc66378c31a2bf4438653bef4f1',1,'Proyecto_Final::StatusManager']]],
+  ['checktipos_6',['CheckTipos',['../classProyecto__Final_1_1Datos.html#a3f661a8003f4d195d5bce83276f62510',1,'Proyecto_Final::Datos']]],
+  ['commandshandler_7',['CommandsHandler',['../classProyecto__Final_1_1CommandsHandler.html#a531e38c18f759d847bc3dce5937e3e29',1,'Proyecto_Final::CommandsHandler']]],
+  ['concretaroferta_8',['ConcretarOferta',['../classProyecto__Final_1_1UserEmpresa.html#a7751aa63162bddcfd94fc59085386a55',1,'Proyecto_Final::UserEmpresa']]],
+  ['crearempresa_9',['CrearEmpresa',['../classProyecto__Final_1_1UserEmpresa.html#a76d0c2878e9390916da4bc33a5b9daf8',1,'Proyecto_Final::UserEmpresa']]],
+  ['crearmsjclave_10',['CrearMsjClave',['../classProyecto__Final_1_1UserEmpresa.html#a39d58c8a2fbc7b08395014dbebb891e6',1,'Proyecto_Final::UserEmpresa']]],
+  ['crearoferta_11',['CrearOferta',['../classProyecto__Final_1_1UserEmpresa.html#a281d3324e4fc157b938dc1d4a0a1f006',1,'Proyecto_Final::UserEmpresa']]],
+  ['crearproducto_12',['CrearProducto',['../classProyecto__Final_1_1UserEmpresa.html#ab2f62906e4c081e1618bceaf5b8e97e7',1,'Proyecto_Final::UserEmpresa']]],
+  ['crearuseradmin_13',['CrearUserAdmin',['../classProyecto__Final_1_1UserCreator.html#ac258e84ffa2ed346d444ce99b99b48eb',1,'Proyecto_Final::UserCreator']]],
+  ['crearuseremprendedor_14',['CrearUserEmprendedor',['../classProyecto__Final_1_1UserCreator.html#afad108aff38e8e72ab3ae59ee1e7c505',1,'Proyecto_Final::UserCreator']]],
+  ['crearuserempresa_15',['CrearUserEmpresa',['../classProyecto__Final_1_1UserCreator.html#a2212faea4e061d855378efeac8c42c72',1,'Proyecto_Final::UserCreator']]]
 ];

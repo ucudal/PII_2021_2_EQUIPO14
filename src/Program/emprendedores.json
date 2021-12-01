@@ -1,0 +1,60 @@
+[
+  {
+    "Id": "2121606788",
+    "Nombre": "Messi CORP",
+    "Emprendedor": {
+      "Ubicacion": "Gral. Urquiza 2784",
+      "Rubro": {
+        "Rubros": "Rubro-1"
+      },
+      "Habilitacion": {
+        "Habilitacion": "No"
+      },
+      "Especializaciones": [],
+      "Compras": [
+        {
+          "Id": "4780830859",
+          "Nombre": "Mi Oferta",
+          "Product": {
+            "IsPesos": true,
+            "Nombre": "Madera de Roble",
+            "Descripcion": "110x55 cm, 20mm grosor",
+            "Ubicacion": "Gral. Urquiza 2784",
+            "Valor": 30,
+            "Cantidad": 600,
+            "Tipo": {
+              "Nombre": "Madera"
+            }
+          },
+          "SoldDate": "2021-11-30T22:29:41.8275057-03:00",
+          "PalabrasClave": [
+            "Mi Oferta",
+            "Madera",
+            "Madera de Roble",
+            "4780830859"
+          ],
+          "HabilitacionesOferta": {
+            "Habilitacion": "No"
+          },
+          "IsVendido": true,
+          "IsRecurrente": false,
+          "Comprador": {
+            "Id": "2121606788",
+            "Nombre": "Messi CORP",
+            "Emprendedor": {
+              "Ubicacion": "Gral. Urquiza 2784",
+              "Rubro": {
+                "Rubros": "Rubro-1"
+              },
+              "Habilitacion": {
+                "Habilitacion": "No"
+              },
+              "Especializaciones": [],
+              "Compras": []
+            }
+          }
+        }
+      ]
+    }
+  }
+]

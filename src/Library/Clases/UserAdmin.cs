@@ -5,6 +5,8 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a los administradores del programa.
+    /// La única función de esta clase es proveer al sistema una manera de que nosotros como programadores/administradores podamos agregar empresas al sistema, 
+    /// por lo cual entra dentro del patrón SRP.
     /// </summary>
     public class UserAdmin : IUser
     {
@@ -36,21 +38,11 @@ namespace Proyecto_Final
         /// Genera un token de invitacion para ser enviado y lo almacena para su verificacion.
         /// </summary>
         /// <returns>Devuelve un token generado como string</returns>
-        public string InvitarEmpresa()
+        public static string InvitarEmpresa()
         {
-            return this.generateToken();
+            return IdGenerator.GenerateToken();
         }
 
-        private string generateToken()
-        {
-            string allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
-            Random random = new Random();  
-            string resultToken = new string(  
-            Enumerable.Repeat(allChar , 16)  
-                        .Select(token => token[random.Next(token.Length)]).ToArray());   
-   
-            string authToken = resultToken.ToString();  
-            return authToken;
-        }
+        
     }
 }

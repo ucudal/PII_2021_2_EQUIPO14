@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.Buscador.VerOfertasTipo" name="Proyecto_Final.Buscador.VerOfertasTipo">
+<area shape="rect" id="node1" title="En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo" alt="" coords="540,39,712,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserEmprendedor.html#a39280f4417c1a567dd77bcb73d738e69" title="En base a un tipo de producto recibido, otorga todas las ofertas que tengan el mismo tipo." alt="" coords="271,39,492,80"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmprendedorTests.html#a185cbf0f5f41f93292da31d576a6af43" title="Test para revisar si la clase es capaz de buscar ofertas mediante un tipo de producto ingresado que e..." alt="" coords="5,5,223,47"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1UserEmprendedorTests.html#af1faa9a1c18606dfee1e1ecb2841fafc" title="Test para revisar si la clase es capaz de buscar ofertas mediante un tipo de producto ingresado que e..." alt="" coords="5,71,223,112"/>
+</map>

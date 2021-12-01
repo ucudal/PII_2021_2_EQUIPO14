@@ -2,9 +2,10 @@ namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase tiene como función funcionar como base para crear una sola instancia de clases almacenadoras de datos en el programa.
+    /// La única función de esta clase es proveer la capacidad de que otras clases puedan ser singleton, por lo cual esta clase cumple con SRP.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Singleton<T> where T : new()
+    public sealed class Singleton<T> where T : new()
     {
     
         private static T instance;

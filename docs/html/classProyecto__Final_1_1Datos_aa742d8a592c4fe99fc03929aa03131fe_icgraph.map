@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.Datos.LoadPublications" name="Proyecto_Final.Datos.LoadPublications">
+<area shape="rect" id="node1" title="Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Em..." alt="" coords="260,27,439,69"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1Datos.html#a8c24cd44b6a4a31c4997e12aa37c44f5" title="Al inicializar el programa se obtienen todos los datos de la DB." alt="" coords="5,5,212,32"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1Datos.html#a9c9266cfd3975bdd6fa1ff33f4a0a18f" title="Actualiza la informacion de las publicaciones." alt="" coords="13,57,205,98"/>
+</map>

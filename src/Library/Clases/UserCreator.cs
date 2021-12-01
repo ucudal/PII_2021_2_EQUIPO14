@@ -1,52 +1,48 @@
 using System;
+using System.Collections.Generic;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase tiene como función crear a los usuarios.
-    /// Se aplica el patron Creator y SRP ya que es la experta en crear las instancia de los usuarios.
+    /// Se aplica el patron Creator y SRP ya que es la responsable en crear las instancia de los usuarios.
     /// </summary>
     public sealed class  UserCreator
     {   
         /// <summary>
-        /// Crea una instancia de UserAdmin y la almacena.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        public void CrearUserAdmin(string id, string nombre)
-        {
-            UserAdmin userAdmin = new UserAdmin(id, nombre);
-            Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userAdmin);
-            Console.WriteLine("UserCreator: Admin creado.");
-        }
-
-        /// <summary>
         /// Crea una instancia de UserEmpresa y la almacena.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        public void CrearUserEmpresa(string id, string nombre)
+        public void CrearUserEmpresa(string id)
         {
-            UserEmpresa userEmpresa = new UserEmpresa(id, nombre);
-            Empresa empresa = new Empresa(nombre, "", new Rubro(""));
-            userEmpresa.Empresa = empresa;
-            Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmpresa);
-            Console.WriteLine("UserCreator: Empresa creada.");
+            UserEmpresa userEmpresa = new UserEmpresa(id, Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmpresa"));
+
+            userEmpresa.CrearEmpresa(
+                Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmpresa"),
+                Singleton<Temp>.Instance.GetDataByKey(id, "ubicacionEmpresa"),
+                Singleton<Temp>.Instance.GetDataByKey(id, "rubroEmpresa")
+            );
+            
+            Singleton<Datos>.Instance.RegistrarUsuarioEmpresa(userEmpresa);
+            Console.WriteLine($"UserCreator: Empresa {id} creada.");
+            
         }
 
         /// <summary>
         /// Crea una instancia de UserEmprendedor y la almacena.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        public void CrearUserEmprendedor(string id, string nombre)
+        public void CrearUserEmprendedor(string id)
         {
-            UserEmprendedor userEmprendedor = new UserEmprendedor(id, nombre);
-            Emprendedor emprendedor = new Emprendedor("", new Rubro(""), new Habilitaciones(""));
+            UserEmprendedor userEmprendedor = new UserEmprendedor(id, Singleton<Temp>.Instance.GetDataByKey(id, "nombreEmprendedor"));
+            Emprendedor emprendedor = new Emprendedor(
+                Singleton<Temp>.Instance.GetDataByKey(id, "ubicacionEmprendedor"), 
+                new Rubro(Singleton<Temp>.Instance.GetDataByKey(id, "rubroEmprendedor")),
+                new Habilitaciones(Singleton<Temp>.Instance.GetDataByKey(id, "habilitacionEmprendedor"))
+            );
             userEmprendedor.Emprendedor = emprendedor;
-            Singleton<Datos>.Instance.ListaUsuariosRegistrados().Add(userEmprendedor);
-            Console.WriteLine("UserCreator: Emprendedor creado.");
+            Singleton<Datos>.Instance.RegistrarUsuarioEmprendedor(userEmprendedor);
+            Console.WriteLine($"UserCreator: Emprendedor {id} creado.");
         }
-
     }
 }

@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.IUser" name="Proyecto_Final.IUser">
+<area shape="rect" id="node1" title="Esta interfaz se utiliza para agrupar todas las clases usuario dentro de un solo tipo,..." alt="" coords="244,5,387,83"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserAdmin.html" title="Esta clase representa a los administradores del programa. La única función de esta clase es proveer a..." alt="" coords="5,197,183,303"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r..." alt="" coords="207,131,424,369"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us..." alt="" coords="449,131,641,369"/>
+</map>

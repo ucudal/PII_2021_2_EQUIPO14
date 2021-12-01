@@ -1,40 +1,60 @@
+using System;
 using System.Collections;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa las ofertas creadas por un empresario.
+    /// Esta clase tiene como función ser una representación de una publicación de oferta, conociendo los datos necesarios para cumplir su función, por lo cual cumple con SRP.
     /// </summary>
     public class Oferta
     {
-        private static int id = 0;
+        private string id;
         private bool isVendido = false;
         private ArrayList palabrasClave = new ArrayList();
         private UserEmprendedor comprador = null;
-
-        public string Id { get { return this.Id.ToString(); } }
+        private DateTime soldDate;
+ 
+        /// <summary>
+        /// Otorga el ID de la Oferta.
+        /// </summary>
+        /// <returns>Retorna el ID.</returns>
+        public string Id { get; set; }
 
         /// <summary>
         /// Otorga el nombre de la Oferta
         /// </summary>
-        /// <value></value>
-        public string Nombre { get; }
+        /// <value>Retorna el nombre.</value>
+        public string Nombre { get; set; }
 
         /// <summary>
         /// Otorga un objeto del Producto que se está ofertando <see cref="Producto"/>.
         /// </summary>
         /// <value>Objeto del tipo "Producto".</value>
-        public Producto Product {get;}
+        public Producto Product { get; set; }
+
+        /// <summary>
+        /// Otorga la fecha de venta de una oferta.
+        /// </summary>
+        /// <value></value>
+        public DateTime SoldDate { get; set; }
 
         /// <summary>
         /// Otorga una lista de strings "Palabras Clave" que pueden utilizarse para buscar la oferta.
         /// </summary>
         /// <value>Retorna la lista "palabrasClave".</value>
+        [JsonInclude]
         public ArrayList PalabrasClave 
         {
             get
             {
                 return this.palabrasClave;
+            }
+
+            set
+            {
+                this.palabrasClave = value;
             }
         }
         
@@ -42,7 +62,7 @@ namespace Proyecto_Final
         /// Otorga las habilitaciones requeridas para que un emprendedor pueda aceptar la oferta <see cref="Habilitaciones"/>.
         /// </summary>
         /// <value>Objeto del tipo Habilitaciones.</value>
-        public Habilitaciones HabilitacionesOferta {get;}
+        public Habilitaciones HabilitacionesOferta { get; set; }
 
         /// <summary>
         /// Otorga un valor booleano dependiendo de si la oferta fue vendida o no.
@@ -51,33 +71,45 @@ namespace Proyecto_Final
         public bool IsVendido { get { return isVendido; } set { this.isVendido = value;} }
 
         /// <summary>
+        /// Otorga un valor booleano dependiendo de si la oferta es recurrente o no.
+        /// </summary>
+        /// <value>Verdadero si es recurrente, falso si no.</value>
+        public bool IsRecurrente {get;set;}
+        /// <summary>
         /// Otorga un valor que representa al comprador de la oferta.
         /// </summary>
         /// <value></value>
         public UserEmprendedor Comprador { get { return comprador; } set { this.comprador = value;} }
 
         /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        [JsonConstructor]
+        public Oferta() {}
+
+        /// <summary>
         /// Inicializa la clase Oferta.
         /// </summary>
         /// <param name="nombre"></param>
         /// <param name="product"></param>
+        /// <param name="isRecurrente"></param>
         /// <param name="habilitacionesOferta"></param>
-        public Oferta(string nombre, Producto product, Habilitaciones habilitacionesOferta)
+        public Oferta(string nombre, Producto product, bool isRecurrente, Habilitaciones habilitacionesOferta)
         {
             this.Nombre = nombre;
             this.Product = product;
+            this.IsRecurrente = isRecurrente;
             this.HabilitacionesOferta = habilitacionesOferta;
-            
-            Singleton<Datos>.Instance.AgregarOferta(this);
+            this.IsVendido = false;
 
-            id += 1;
+            this.Id = IdGenerator.GenerateNumericId();
         }
 
         /// <summary>
         /// Agrega una palabra clave a la listas de palabras clave de la oferta.
         /// </summary>
         /// <param name="palabra"></param>
-        public void AgregarMsjClave(string palabra)
+        public void AgregarMsjClave(string palabra) //(Expert)
         {
             this.palabrasClave.Add(palabra);
         }

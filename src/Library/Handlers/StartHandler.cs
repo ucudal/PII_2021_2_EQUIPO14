@@ -3,12 +3,12 @@ using Telegram.Bot.Types;
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "start".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/start".
     /// </summary>
     public class StartHandler : BaseHandler
     {
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="StartHandler"/>. Esta clase procesa el mensaje "start".
+        /// Inicializa una nueva instancia de la clase <see cref="StartHandler"/>. Esta clase procesa el mensaje "/start".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public StartHandler(BaseHandler next) : base(next)
@@ -17,7 +17,7 @@ namespace Proyecto_Final
         }
 
         /// <summary>
-        /// Procesa el mensaje "start" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/start" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
@@ -26,7 +26,7 @@ namespace Proyecto_Final
         {
             if (this.CanHandle(message))
             {
-                response = $"Hola, ¿cómo estás {message.FirstName}? 👋😀\nMe llamo EXIV y soy el Bot de PII del Equipo 14.";
+                response = $"Hola, ¿cómo estás {message.FirstName}? 👋😀\nMe llamo EXIV y soy el Bot de PII del Equipo 14.\n\nPara ver una lista de comandos ingrese /comandos";
                 Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
                 return true;
             }

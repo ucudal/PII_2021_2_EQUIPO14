@@ -2,22 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa a la Empresa.
+    /// Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario Empresa, 
+    /// y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario Empresa, 
+    /// ya que las ofertas personales se contienen en esta clase. 
+    /// También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, 
+    /// que es la clase "Oferta".
     /// </summary>
     public class Empresa
     {
         private ArrayList especializaciones = new ArrayList();
-        private ArrayList ofertas = new ArrayList();
+        private List<Oferta> ofertas = new List<Oferta>();
 
         /// <summary>
         /// Obtiene un valor del nombre de la Empresa.
         /// </summary>
         /// <value>Nombre de la empresa.</value>
-        public string Nombre { get; }
+        public string Nombre { get; set; }
 
         /// <summary>
         /// Obtiene un valor de la ubocacion de la Empresa.
@@ -35,13 +42,21 @@ namespace Proyecto_Final
         /// Obtiene un valor de las especializaciones de la empresa.
         /// </summary>
         /// <value>Lista de especializaciones.</value>
-        public ArrayList Especializaciones { get { return this.especializaciones; } }
+        [JsonInclude]
+        public ArrayList Especializaciones { get { return this.especializaciones; } set { this.especializaciones = value; } }
 
         /// <summary>
         /// Obtiene un valor de las ofertaas publicadas de la empresa.
         /// </summary>
         /// <value>Lista con ofertas publicadas por la empresa.</value>
-        public ArrayList Ofertas { get { return this.ofertas; } }
+        [JsonInclude]        
+        public List<Oferta> Ofertas { get { return this.ofertas; } set { this.ofertas = value; } }
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        [JsonConstructor]      
+        public Empresa() {}
 
         /// <summary>
         /// Inicializa la clase Empresa.
@@ -60,7 +75,7 @@ namespace Proyecto_Final
         /// Agrega un rubro.
         /// </summary>
         /// <param name="rubro"></param>
-        public void AgregarRubro(string rubro)
+        public void AgregarRubro(string rubro) //(Expert)
         {
             Rubro newRubro = new Rubro(rubro);
             this.Rubro = newRubro;
@@ -69,14 +84,15 @@ namespace Proyecto_Final
         /// <summary>
         /// Agrega una palabra clave a una publicacion determinada.
         /// </summary>
-        /// <param name="datosMensaje"></param>
-        public void AgregarMsjClave((string, string) datosMensaje)
+        /// <param name="palabra"></param>
+        /// <param name="oferId"></param>
+        public void AgregarMsjClave(string oferId, string palabra) //(Expert)
         {
             foreach (Oferta oferta in this.Ofertas)
             {
-                if (oferta.Nombre == datosMensaje.Item1)
+                if (oferta.Id == oferId)
                 {
-                    oferta.AgregarMsjClave(datosMensaje.Item2); // (Delegacion)
+                    oferta.AgregarMsjClave(palabra); // (Delegacion)
                 }
             }
         }
@@ -85,7 +101,7 @@ namespace Proyecto_Final
         /// Agrega una especializacion a la empresa y la guarda en un array.
         /// </summary>
         /// <param name="especializacion"></param>
-        public void AgregarEspecializacion(string especializacion)
+        public void AgregarEspecializacion(string especializacion) //(Expert)
         {            
             ArrayList especializaciones = this.Especializaciones;
             especializaciones.Add(especializacion);
@@ -95,13 +111,14 @@ namespace Proyecto_Final
         /// Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.
         /// </summary>
         /// <returns>Retorna un diccionario con los datos de las ventas</returns>
-        public Dictionary<string, int> VerificarVentas()
+        public string VerificarVentas(string date) //(Expert)
         {
             Dictionary<string, int> info = new Dictionary<string, int>();
+            StringBuilder str = new StringBuilder();
 
             foreach (Oferta oferta in this.Ofertas)
             {
-                if (oferta.IsVendido == true)
+                if (oferta.IsVendido == true && oferta.SoldDate.Month == Int32.Parse(date))
                 {
                     if (info.ContainsKey(oferta.Product.Tipo.Nombre))
                     {
@@ -113,7 +130,29 @@ namespace Proyecto_Final
                     }
                 }
             }
-            return info;
+
+            foreach (KeyValuePair<string, int> item in info)
+            {
+                str.Append($"{item.Key} = {item.Value} {Singleton<Datos>.Instance.GetUnidadMedida(item.Key)}");
+            }
+            return str.ToString();
+        }
+
+        /// <summary>
+        /// Devuelve un string con la lista de ofertas con compradores.
+        /// </summary>
+        /// <returns>string</returns>
+        public string CheckBuyers()
+        {
+            StringBuilder str = new StringBuilder();
+            foreach (Oferta oferta in this.Ofertas)
+            {
+                if (oferta.Comprador != null)
+                {
+                    str.Append($"{oferta.Id} :\nNombre: {oferta.Comprador.Nombre}\n");
+                }
+            }
+            return str.ToString();
         }
     }
 }

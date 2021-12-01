@@ -1,11 +1,13 @@
 
 using System;
 using System.Collections;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa las habilitaciones necesarias para la tenencia de productos.
+    /// Esta clase tiene una única responsabilidad que es diferenciar entre lo que es una habilitacion y lo que no, por lo cual sigue el SRP.
     /// </summary>
     public class Habilitaciones
     {
@@ -13,7 +15,13 @@ namespace Proyecto_Final
         /// Otorga el nombre de la Habilitación.
         /// </summary>
         /// <value>Nombre de la Habilitación.</value>
-        public string Habilitacion { get;}
+        public string Habilitacion { get; set;}
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        [JsonConstructor]
+        public Habilitaciones() {}
 
         /// <summary>
         /// Inicializa la clase habilitaciones.

@@ -90,49 +90,79 @@ $(document).ready(function(){initNavTree('classProyecto__Final_1_1Producto.html'
 </div><!--header-->
 <div class="contents">
 
-<p>Esta clase representa al producto que se ofertará.  
+<p>Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses, según lo que declare el usuario, pero sigue siendo esencial para cumplir la función de representar un producto ofertado.  
  <a href="classProyecto__Final_1_1Producto.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for Proyecto_Final.Producto:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 -->
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Producto__coll__graph.svg" width="176" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afebb5490201d9c107458935317711afb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#afebb5490201d9c107458935317711afb">Producto</a> (string nombre, string descripcion, string ubicacion, int valor, int cantidad, <a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a> tipo)</td></tr>
-<tr class="memdesc:afebb5490201d9c107458935317711afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa la clase <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará.">Producto</a>.  <a href="classProyecto__Final_1_1Producto.html#afebb5490201d9c107458935317711afb">More...</a><br /></td></tr>
-<tr class="separator:afebb5490201d9c107458935317711afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a616024db2950b149ed93beb7b14f9146"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a616024db2950b149ed93beb7b14f9146">Producto</a> ()</td></tr>
+<tr class="memdesc:a616024db2950b149ed93beb7b14f9146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor vacio utilizado para la serializacion.  <a href="classProyecto__Final_1_1Producto.html#a616024db2950b149ed93beb7b14f9146">More...</a><br /></td></tr>
+<tr class="separator:a616024db2950b149ed93beb7b14f9146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab9bb8426a0370bdce0e8a8a1e07185c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#aab9bb8426a0370bdce0e8a8a1e07185c">Producto</a> (string nombre, string descripcion, string ubicacion, int valor, bool isPesos, int cantidad, <a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a> tipo)</td></tr>
+<tr class="memdesc:aab9bb8426a0370bdce0e8a8a1e07185c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa la clase <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) represen...">Producto</a>.  <a href="classProyecto__Final_1_1Producto.html#aab9bb8426a0370bdce0e8a8a1e07185c">More...</a><br /></td></tr>
+<tr class="separator:aab9bb8426a0370bdce0e8a8a1e07185c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec67064db1b1bd9154a2252f511a9de"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a3ec67064db1b1bd9154a2252f511a9de">MonetaryValue</a> ()</td></tr>
+<tr class="memdesc:a3ec67064db1b1bd9154a2252f511a9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que retorna un string con el símbolo de la moneda que se utiliza para valorar un producto; en base al valor booleano de "IsPesos".  <a href="classProyecto__Final_1_1Producto.html#a3ec67064db1b1bd9154a2252f511a9de">More...</a><br /></td></tr>
+<tr class="separator:a3ec67064db1b1bd9154a2252f511a9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a3d7212ec124863ed165aeb07e116a340"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a3d7212ec124863ed165aeb07e116a340">Nombre</a><code> [get]</code></td></tr>
+<tr class="memitem:afd03062c4f81e91509fb1b19e0291ed8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#afd03062c4f81e91509fb1b19e0291ed8">IsPesos</a><code> [getset]</code></td></tr>
+<tr class="memdesc:afd03062c4f81e91509fb1b19e0291ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una moneda en base al valor booleano de este estado  <a href="classProyecto__Final_1_1Producto.html#afd03062c4f81e91509fb1b19e0291ed8">More...</a><br /></td></tr>
+<tr class="separator:afd03062c4f81e91509fb1b19e0291ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7212ec124863ed165aeb07e116a340"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a3d7212ec124863ed165aeb07e116a340">Nombre</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a3d7212ec124863ed165aeb07e116a340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga el nombre del producto.  <a href="classProyecto__Final_1_1Producto.html#a3d7212ec124863ed165aeb07e116a340">More...</a><br /></td></tr>
 <tr class="separator:a3d7212ec124863ed165aeb07e116a340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80f828ba3f95a52d598e357c1111b3b4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a80f828ba3f95a52d598e357c1111b3b4">Descripcion</a><code> [get]</code></td></tr>
+<tr class="memitem:a80f828ba3f95a52d598e357c1111b3b4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a80f828ba3f95a52d598e357c1111b3b4">Descripcion</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a80f828ba3f95a52d598e357c1111b3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una descripción breve del producto.  <a href="classProyecto__Final_1_1Producto.html#a80f828ba3f95a52d598e357c1111b3b4">More...</a><br /></td></tr>
 <tr class="separator:a80f828ba3f95a52d598e357c1111b3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6082b6cafb93b90db0e77786a28a1779"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a6082b6cafb93b90db0e77786a28a1779">Ubicacion</a><code> [get]</code></td></tr>
+<tr class="memitem:a6082b6cafb93b90db0e77786a28a1779"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a6082b6cafb93b90db0e77786a28a1779">Ubicacion</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a6082b6cafb93b90db0e77786a28a1779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una ubicación en la que se encuentra el producto.  <a href="classProyecto__Final_1_1Producto.html#a6082b6cafb93b90db0e77786a28a1779">More...</a><br /></td></tr>
 <tr class="separator:a6082b6cafb93b90db0e77786a28a1779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fd41f5d927c8025b03ce55109377090"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a2fd41f5d927c8025b03ce55109377090">Valor</a><code> [get]</code></td></tr>
+<tr class="memitem:a2fd41f5d927c8025b03ce55109377090"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a2fd41f5d927c8025b03ce55109377090">Valor</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a2fd41f5d927c8025b03ce55109377090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga el valor monetario del producto.  <a href="classProyecto__Final_1_1Producto.html#a2fd41f5d927c8025b03ce55109377090">More...</a><br /></td></tr>
 <tr class="separator:a2fd41f5d927c8025b03ce55109377090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cb2268a4dad42b60c6fb1f076676a53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a8cb2268a4dad42b60c6fb1f076676a53">Cantidad</a><code> [get]</code></td></tr>
+<tr class="memitem:a8cb2268a4dad42b60c6fb1f076676a53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a8cb2268a4dad42b60c6fb1f076676a53">Cantidad</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a8cb2268a4dad42b60c6fb1f076676a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga la cantidad ofertable del producto.  <a href="classProyecto__Final_1_1Producto.html#a8cb2268a4dad42b60c6fb1f076676a53">More...</a><br /></td></tr>
 <tr class="separator:a8cb2268a4dad42b60c6fb1f076676a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8314fbdfee2ea38c1dc65f9a1f9a386e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a8314fbdfee2ea38c1dc65f9a1f9a386e">Tipo</a><code> [get]</code></td></tr>
-<tr class="memdesc:a8314fbdfee2ea38c1dc65f9a1f9a386e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga un objeto "TipoProducto" que representa el tipo de producto <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto.">TipoProducto</a>.  <a href="classProyecto__Final_1_1Producto.html#a8314fbdfee2ea38c1dc65f9a1f9a386e">More...</a><br /></td></tr>
+<tr class="memitem:a8314fbdfee2ea38c1dc65f9a1f9a386e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Producto.html#a8314fbdfee2ea38c1dc65f9a1f9a386e">Tipo</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a8314fbdfee2ea38c1dc65f9a1f9a386e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga un objeto "TipoProducto" que representa el tipo de producto <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto. La única función de existencia de est...">TipoProducto</a>.  <a href="classProyecto__Final_1_1Producto.html#a8314fbdfee2ea38c1dc65f9a1f9a386e">More...</a><br /></td></tr>
 <tr class="separator:a8314fbdfee2ea38c1dc65f9a1f9a386e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Esta clase representa al producto que se ofertará. </p>
+<div class="textblock"><p >Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) representar un producto ofertado el cual contiene todos los atributos y un método de instancia que permiten que se realize una representación acorde a lo requerido. La razón de la existencia del método es para que exista la posibilidad de que la clase se adapte a tener como moneda pesos uruguayos o dólares estadounidenses, según lo que declare el usuario, pero sigue siendo esencial para cumplir la función de representar un producto ofertado. </p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00006">6</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00010">10</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afebb5490201d9c107458935317711afb" name="afebb5490201d9c107458935317711afb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afebb5490201d9c107458935317711afb">&#9670;&nbsp;</a></span>Producto()</h2>
+<a id="a616024db2950b149ed93beb7b14f9146" name="a616024db2950b149ed93beb7b14f9146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a616024db2950b149ed93beb7b14f9146">&#9670;&nbsp;</a></span>Producto() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Proyecto_Final.Producto.Producto </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor vacio utilizado para la serializacion. </p>
+
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00059">59</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+
+</div>
+</div>
+<a id="aab9bb8426a0370bdce0e8a8a1e07185c" name="aab9bb8426a0370bdce0e8a8a1e07185c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab9bb8426a0370bdce0e8a8a1e07185c">&#9670;&nbsp;</a></span>Producto() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,6 +194,12 @@ Properties</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isPesos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>cantidad</em>, </td>
         </tr>
@@ -181,7 +217,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializa la clase <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará.">Producto</a>. </p>
+<p>Inicializa la clase <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) represen...">Producto</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombre</td><td></td></tr>
@@ -189,12 +225,36 @@ Properties</h2></td></tr>
     <tr><td class="paramname">tipo</td><td></td></tr>
     <tr><td class="paramname">ubicacion</td><td></td></tr>
     <tr><td class="paramname">valor</td><td></td></tr>
+    <tr><td class="paramname">isPesos</td><td></td></tr>
     <tr><td class="paramname">cantidad</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00053">53</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00071">71</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3ec67064db1b1bd9154a2252f511a9de" name="a3ec67064db1b1bd9154a2252f511a9de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec67064db1b1bd9154a2252f511a9de">&#9670;&nbsp;</a></span>MonetaryValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Proyecto_Final.Producto.MonetaryValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método que retorna un string con el símbolo de la moneda que se utiliza para valorar un producto; en base al valor booleano de "IsPesos". </p>
+<dl class="section return"><dt>Returns</dt><dd>Dólares Estadounidenses si es falso, Pesos Uruguayos si es verdadero.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00086">86</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
@@ -214,7 +274,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -222,7 +282,7 @@ Properties</h2></td></tr>
 <p>Otorga la cantidad ofertable del producto. </p>
 <p >Cantidad del producto.</p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00036">36</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00047">47</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
@@ -241,15 +301,42 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Otorga una descripción breve del producto. </p>
-<p >Descripción del <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará.">Producto</a>.</p>
+<p >Descripción del <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) represen...">Producto</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00018">18</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00029">29</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+
+</div>
+</div>
+<a id="afd03062c4f81e91509fb1b19e0291ed8" name="afd03062c4f81e91509fb1b19e0291ed8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd03062c4f81e91509fb1b19e0291ed8">&#9670;&nbsp;</a></span>IsPesos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Producto.IsPesos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Otorga una moneda en base al valor booleano de este estado </p>
+<p >Dólares estadounidenses si es falso, Pesos Uruguayos si es verdadero.</p>
+
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00016">16</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
@@ -268,7 +355,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -276,7 +363,7 @@ Properties</h2></td></tr>
 <p>Otorga el nombre del producto. </p>
 <p >Nombre del producto.</p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00012">12</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00023">23</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
@@ -295,15 +382,15 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Otorga un objeto "TipoProducto" que representa el tipo de producto <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto.">TipoProducto</a>. </p>
+<p>Otorga un objeto "TipoProducto" que representa el tipo de producto <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto. La única función de existencia de est...">TipoProducto</a>. </p>
 <p >Objeto del tipo "TipoProducto".</p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00042">42</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00053">53</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
@@ -322,15 +409,15 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Otorga una ubicación en la que se encuentra el producto. </p>
-<p >Ubicación del <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará.">Producto</a></p>
+<p >Ubicación del <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) represen...">Producto</a></p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00024">24</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00035">35</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
@@ -349,7 +436,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -357,12 +444,12 @@ Properties</h2></td></tr>
 <p>Otorga el valor monetario del producto. </p>
 <p >Valor del producto.</p>
 
-<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00030">30</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Producto_8cs_source.html#l00041">41</a> of file <a class="el" href="Producto_8cs_source.html">Producto.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/<a class="el" href="Producto_8cs_source.html">Producto.cs</a></li>
+<li>D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/Clases/<a class="el" href="Producto_8cs_source.html">Producto.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

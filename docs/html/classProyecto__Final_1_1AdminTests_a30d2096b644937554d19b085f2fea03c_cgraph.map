@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.AdminTests.InvitarEmpresaTest" name="Proyecto_Final.AdminTests.InvitarEmpresaTest">
+<area shape="rect" id="node1" title="Test para revisar si se genera correctamente un código de 10 letras." alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserAdmin.html#a368b406a34b2a11014e52c49599c57b8" title="Genera un token de invitacion para ser enviado y lo almacena para su verificacion." alt="" coords="240,5,421,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1IdGenerator.html#a55986a0a289859392a6ec41e192f3c1b" title="Genera un token." alt="" coords="469,5,653,47"/>
+</map>

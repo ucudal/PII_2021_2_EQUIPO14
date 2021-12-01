@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Equipo 14: Proyecto Final - ChatBot: D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/Rubro.cs Source File</title>
+<title>Equipo 14: Proyecto Final - ChatBot: D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/Clases/Rubro.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,28 +87,34 @@ $(document).ready(function(){initNavTree('Rubro_8cs_source.html',''); initResiza
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using</span> System;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using</span> System.Collections;</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceProyecto__Final.html">Proyecto_Final</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html">    9</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classProyecto__Final_1_1Rubro.html">Rubro</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">   15</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">Rubros</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html#aff4d60edb29c1c3ebfe80c887e5cc2b9">   20</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="classProyecto__Final_1_1Rubro.html#aff4d60edb29c1c3ebfe80c887e5cc2b9">Rubro</a>(<span class="keywordtype">string</span> rubro)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            this.<a class="code hl_property" href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">Rubros</a> = rubro;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
-<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html">Proyecto_Final.Rubro</a></div><div class="ttdoc">Esta clase representa el rubro de una empresa.</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00009">Rubro.cs:10</a></div></div>
-<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html_a529dacc84d20927134d7b762e8897c1d"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">Proyecto_Final.Rubro.Rubros</a></div><div class="ttdeci">string Rubros</div><div class="ttdoc">Retorna el nombre del rubro de una empresa.</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00015">Rubro.cs:15</a></div></div>
-<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html_aff4d60edb29c1c3ebfe80c887e5cc2b9"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html#aff4d60edb29c1c3ebfe80c887e5cc2b9">Proyecto_Final.Rubro.Rubro</a></div><div class="ttdeci">Rubro(string rubro)</div><div class="ttdoc">Inicializa la clase rubro.</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00020">Rubro.cs:20</a></div></div>
-<div class="ttc" id="anamespaceProyecto__Final_html"><div class="ttname"><a href="namespaceProyecto__Final.html">Proyecto_Final</a></div><div class="ttdef"><b>Definition:</b> <a href="Buscador_8cs_source.html#l00007">Buscador.cs:8</a></div></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using</span> System.Text.Json.Serialization;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceProyecto__Final.html">Proyecto_Final</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html">   11</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classProyecto__Final_1_1Rubro.html">Rubro</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">   17</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">Rubros</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        [JsonConstructor]</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html#a9ed090a1b44bba878b15c12f8582623a">   23</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="classProyecto__Final_1_1Rubro.html#a9ed090a1b44bba878b15c12f8582623a">Rubro</a>(){}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classProyecto__Final_1_1Rubro.html#aff4d60edb29c1c3ebfe80c887e5cc2b9">   29</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="classProyecto__Final_1_1Rubro.html#aff4d60edb29c1c3ebfe80c887e5cc2b9">Rubro</a>(<span class="keywordtype">string</span> rubro)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            this.<a class="code hl_property" href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">Rubros</a> = rubro;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html">Proyecto_Final.Rubro</a></div><div class="ttdoc">Esta clase representa el rubro de una empresa. La única función de existencia de esta clase es para d...</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00011">Rubro.cs:12</a></div></div>
+<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html_a529dacc84d20927134d7b762e8897c1d"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html#a529dacc84d20927134d7b762e8897c1d">Proyecto_Final.Rubro.Rubros</a></div><div class="ttdeci">string Rubros</div><div class="ttdoc">Retorna el nombre del rubro de una empresa.</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00017">Rubro.cs:17</a></div></div>
+<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html_a9ed090a1b44bba878b15c12f8582623a"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html#a9ed090a1b44bba878b15c12f8582623a">Proyecto_Final.Rubro.Rubro</a></div><div class="ttdeci">Rubro()</div><div class="ttdoc">Constructor vacio utilizado para la serializacion.</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00023">Rubro.cs:23</a></div></div>
+<div class="ttc" id="aclassProyecto__Final_1_1Rubro_html_aff4d60edb29c1c3ebfe80c887e5cc2b9"><div class="ttname"><a href="classProyecto__Final_1_1Rubro.html#aff4d60edb29c1c3ebfe80c887e5cc2b9">Proyecto_Final.Rubro.Rubro</a></div><div class="ttdeci">Rubro(string rubro)</div><div class="ttdoc">Inicializa la clase rubro.</div><div class="ttdef"><b>Definition:</b> <a href="Rubro_8cs_source.html#l00029">Rubro.cs:29</a></div></div>
+<div class="ttc" id="anamespaceProyecto__Final_html"><div class="ttname"><a href="namespaceProyecto__Final.html">Proyecto_Final</a></div><div class="ttdef"><b>Definition:</b> <a href="TelegramAdapter_8cs_source.html#l00004">TelegramAdapter.cs:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_f741251061e5c7c7ed48ab45c3348f11.html">Library</a></li><li class="navelem"><b>Rubro.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_f741251061e5c7c7ed48ab45c3348f11.html">Library</a></li><li class="navelem"><a class="el" href="dir_61b0c422e739ec1c579016dca26ec7f3.html">Clases</a></li><li class="navelem"><b>Rubro.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
   </ul>
 </div>

@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.UserAdmin.InvitarEmpresa" name="Proyecto_Final.UserAdmin.InvitarEmpresa">
+<area shape="rect" id="node1" title="Genera un token de invitacion para ser enviado y lo almacena para su verificacion." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1IdGenerator.html#a55986a0a289859392a6ec41e192f3c1b" title="Genera un token." alt="" coords="235,5,419,47"/>
+</map>

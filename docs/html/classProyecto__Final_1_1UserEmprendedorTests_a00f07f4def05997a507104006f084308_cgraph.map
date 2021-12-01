@@ -1,0 +1,9 @@
+<map id="Proyecto_Final.UserEmprendedorTests.VerOfertasUbicacionTest" name="Proyecto_Final.UserEmprendedorTests.VerOfertasUbicacionTest">
+<area shape="rect" id="node1" title="Test para revisar si la clase es capaz de buscar ofertas mediante la ubicacion de 2 objetos,..." alt="" coords="5,64,223,105"/>
+<area shape="rect" id="node2" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a445836871e817e09d0a941a489326d91" title=" " alt="" coords="282,5,481,47"/>
+<area shape="rect" id="node4" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a420f94704f37c1aeed52761f6a650f9f" title=" " alt="" coords="824,93,1021,135"/>
+<area shape="rect" id="node6" href="$classProyecto__Final_1_1UserEmprendedor.html#a9a77d8df6165ee77ae68dc7ff3ce39bd" title="En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a u..." alt="" coords="271,123,492,164"/>
+<area shape="rect" id="node3" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a4bad7ac87beda04ecaa73353f14badd7" title="Obtiene la distancia entre dos coordenadas." alt="" coords="540,5,776,47"/>
+<area shape="rect" id="node5" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a775052647014829c8b09dd91b0ff2762" title="Obtiene las coordenadas de una dirección." alt="" coords="1069,93,1304,135"/>
+<area shape="rect" id="node7" href="$classProyecto__Final_1_1Buscador.html#a2c74e8d41cf6f6307a4dcae5d247f79b" title="/// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren..." alt="" coords="572,123,744,164"/>
+</map>

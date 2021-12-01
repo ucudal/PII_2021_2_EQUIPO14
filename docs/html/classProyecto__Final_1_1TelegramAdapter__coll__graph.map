@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.TelegramAdapter" name="Proyecto_Final.TelegramAdapter">
+<area shape="rect" id="node1" title="Esta es la clase encargada procesar los mensajes. En este caso la plataforma es telegram,..." alt="" coords="5,219,216,384"/>
+<area shape="rect" id="node2" href="$interfaceProyecto__Final_1_1IMessage.html" title="La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza,..." alt="" coords="53,5,169,171"/>
+</map>

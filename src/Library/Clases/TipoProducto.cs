@@ -1,9 +1,11 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace Proyecto_Final
 {
     /// <summary>
     /// Esta clase representa una clasificación general de un producto.
+    /// La única función de existencia de esta clase es para discernir entre lo que es un Tipo de producto y lo que no es, por lo cual es una clase que cumple el SRP.
     /// </summary>
     public class TipoProducto
     {
@@ -12,6 +14,12 @@ namespace Proyecto_Final
         /// </summary>
         /// <value>Nombre del tipo de producto.</value>
         public string Nombre { get; set;}
+
+        /// <summary>
+        /// Constructor vacio utilizado para la serializacion.
+        /// </summary>
+        [JsonConstructor]
+        public TipoProducto() {}
 
         /// <summary>
         /// Inicializa la clase TipoProducto.

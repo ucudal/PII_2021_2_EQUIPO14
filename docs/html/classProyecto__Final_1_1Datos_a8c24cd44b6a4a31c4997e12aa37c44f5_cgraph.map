@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.Datos.LoadData" name="Proyecto_Final.Datos.LoadData">
+<area shape="rect" id="node1" title="Al inicializar el programa se obtienen todos los datos de la DB." alt="" coords="5,78,212,105"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1Datos.html#aa742d8a592c4fe99fc03929aa03131fe" title="Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Em..." alt="" coords="260,5,439,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1Datos.html#a4a9a373ee9141af45ef7ae13f9cd0a48" title="Carga los datos de los Emprendedores en base a un archivo &quot;.json&quot;." alt="" coords="260,71,439,112"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1Datos.html#a4ba66710d34c9ff639d6f75a2344a82a" title="Carga los datos de una empresa en base al archivo &quot;.json&quot;" alt="" coords="260,136,439,177"/>
+</map>

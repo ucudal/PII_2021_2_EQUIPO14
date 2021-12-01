@@ -1,21 +1,21 @@
 namespace Proyecto_Final
 {
     /// <summary>
-    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+    /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/hola".
     /// </summary>
     public class HelloHandler : BaseHandler
     {
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="HelloHandler"/>. Esta clase procesa el mensaje "hola".
+        /// Inicializa una nueva instancia de la clase <see cref="HelloHandler"/>. Esta clase procesa el mensaje "/hola".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public HelloHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"hola"};
+            this.Keywords = new string[] {"/hola"};
         }
 
         /// <summary>
-        /// Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+        /// Procesa el mensaje "/hola" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
