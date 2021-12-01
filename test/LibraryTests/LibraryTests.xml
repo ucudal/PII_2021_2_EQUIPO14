@@ -4,16 +4,6 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Proyecto_Final.AdminTests">
-            <summary>
-            Prueba de la clase <see cref="T:Proyecto_Final.UserAdmin"/>.
-            </summary>
-        </member>
-        <member name="M:Proyecto_Final.AdminTests.InvitarEmpresaTest">
-            <summary>
-            Test para revisar si se genera correctamente un código de 10 letras.
-            </summary>
-        </member>
         <member name="T:Proyecto_Final.DatosTests">
             <summary>
             Prueba de la clase <see cref="T:Proyecto_Final.Datos"/>.
@@ -49,14 +39,64 @@
             Test para ver si el método "GetUnidadMedida" retorna una unidad según el tipo de material que se coloca (tiene que ser un tipo de unidad ya registrado).
             </summary>
         </member>
-        <member name="T:Proyecto_Final.OfertaTest">
+        <member name="T:Proyecto_Final.IdGeneratorTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.IdGenerator"/>. En base a una generación correcta de los valores, esto implica que el método "generador" funciona correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.IdGeneratorTests.GenerateNumericIdTest">
+            <summary>
+            Test para ver si la ID generada entrega un valor numérico.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.IdGeneratorTests.GenerateTokenTest">
+            <summary>
+            Ver si genera correctamente un Token de 10 caracteres de largo.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.OfertaTests">
             <summary>
             Prueba de la clase <see cref="T:Proyecto_Final.Oferta"/>.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.OfertaTest.AgregarMsjClaveTest">
+        <member name="M:Proyecto_Final.OfertaTests.AgregarMsjClaveTest">
             <summary>
             Testea si el método agrega una palabra clave a la oferta.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.TempTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.Temp"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.TempTests.InvitarEmpresaTest">
+            <summary>
+            Test para revisar si se genera correctamente un código de 10 letras.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.UserAdminTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.UserAdmin"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserAdminTests.InvitarEmpresaTest">
+            <summary>
+            Test para revisar si se genera correctamente un código de 10 letras.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.UserCreatorTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.UserCreator"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserCreatorTests.CrearUserEmprendedorTest">
+            <summary>
+            Test para revisar si 
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserCreatorTests.CrearUserEmpresaTest">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:Proyecto_Final.UserEmprendedorTests">
@@ -116,12 +156,217 @@
         </member>
         <member name="T:Proyecto_Final.UserEmpresaTests">
             <summary>
-            Prueba de la clase <see cref="T:Proyecto_Final.UserAdmin"/>.
+            Prueba de la clase <see cref="T:Proyecto_Final.UserEmpresa"/>.
             </summary>
         </member>
-        <member name="M:Proyecto_Final.UserEmpresaTests.InvitarEmpresaTest">
+        <member name="M:Proyecto_Final.UserEmpresaTests.AgregarRubroTest">
             <summary>
-            Test para revisar si se genera correctamente un código de 10 letras.
+            Test para revisar si se agrega un rubro correctamente a los datos de la Empresa
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearEmpresaTest">
+            <summary>
+            Test para revisar si se agrega una empresa correctamente al usuarioEmpresa
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearMsjClaveTest">
+            <summary>
+            Test para revisar si la Empresa puede agregar correctamente una palabra clave.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearOfertaTest">
+            <summary>
+            Test para revisar si la Empresa puede crear correctamente un objeto de tipo "Oferta" en base al método que se quiere evaluar.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CrearProductoTest">
+            <summary>
+            Test para revisar si la Empresa puede agregar correctamente una palabra clave.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.ConcretarOfertaTest">
+            <summary>
+            Test para revisar si el método puede concretar ofertas correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.VerificarVentasTest">
+            <summary>
+            Test para revisar si el método puede concretar ofertas correctamente.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.UserEmpresaTests.CheckBuyersTest">
+            <summary>
+            Test para revisar si el método puede concretar ofertas correctamente.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.AddKeyWordHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.AddKeyWordHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.AddKeyWordHandlerTests.AddKeyWordHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.CommandsHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.CommandsHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.CommandsHandlerTests.CommandsHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.EndOfferHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.EndOfferHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.EndOfferHandlerTests.EndOfferHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.ExitHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.ExitHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ExitHandlerTests.ExitHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave. Para 
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.GoodbyeHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.GoodByeHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.GoodbyeHandlerTests.GoodbyeHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.HelloHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.HelloHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.HelloHandlerTests.HelloHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.InviteHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.InviteHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.InviteHandlerTests.InviteHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.MaterialsConsumedHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.MaterialsConsumedHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.MaterialsConsumedHandlerTests.MaterialsConsumedHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.PeriodOfTimeHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.PeriodOfTimeHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.PeriodOfTimeHandlerTests.PeriodOfTimeHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.PublishHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.PublishHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.PublishHandlerTests.PublishHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.RegisterHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.RegisterHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.RegisterHandlerTests.RegisterHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.SearchCategoryHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.SearchCategoryHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.SearchCategoryHandlerTests.SearchCategoryHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.SearchKeyWordsHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.SearchKeyWordsHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.SearchKeyWordsHandlerTests.SearchKeyWordsHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.SearchRecurrencyHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.RecurrenciaHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.SearchRecurrencyHandlerTests.SearchRecurrencyHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.SearchZoneHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.SearchZoneHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.SearchZoneHandlerTests.SearchZoneHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.ShowInterestInOfferHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.ShowInterestInOfferHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.ShowInterestInOfferHandlerTests.ShowInterestInOfferHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
+            </summary>
+        </member>
+        <member name="T:Proyecto_Final.StartHandlerTests">
+            <summary>
+            Prueba de la clase <see cref="T:Proyecto_Final.StartHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Proyecto_Final.StartHandlerTests.StartHandlerTest">
+            <summary>
+            Para saber si un handler es capaz de procesar el mensaje; podemos ver el método de IHandle <see cref="M:Proyecto_Final.IHandler.Handle(Proyecto_Final.IMessage,System.String@)"/>. Este nos indica que si un handler es capaz de procesar un mensaje nos retornará ese handler, en caso contrario retornará null. Siempre y cuando los handlers no retornen null al ejecutar el método "Handle", entonces podemos asegurar que el Handler es capaz de responder a su mensaje clave.
             </summary>
         </member>
     </members>

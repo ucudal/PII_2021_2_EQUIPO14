@@ -13,7 +13,7 @@ namespace Proyecto_Final
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/buscar_recurrencia".
     /// </summary>
-    public class RecurrenciaHandler : BaseHandler
+    public class SearchRecurrencyHandler : BaseHandler
     {
         private string[] allowedStatus;
         
@@ -24,10 +24,10 @@ namespace Proyecto_Final
         public string[] AllowedStatus { get; set;}
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="RecurrenciaHandler"/>. Esta clase procesa el mensaje "/buscar_recurrencia".
+        /// Inicializa una nueva instancia de la clase <see cref="SearchRecurrencyHandler"/>. Esta clase procesa el mensaje "/buscar_recurrencia".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public RecurrenciaHandler(BaseHandler next) : base(next)
+        public SearchRecurrencyHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"/buscar_recurrencia"};
             this.AllowedStatus = new string[] {"STATUS_RECURRENCIA_RESPONSE", 
@@ -47,59 +47,40 @@ namespace Proyecto_Final
             {
                 if(Singleton<Datos>.Instance.IsUserEmprendedor(message.UserId))
                 {
-                    if (check == "STATUS_IDLE")
+                   response = "¿Desea buscar las ofertas recurrentes? Y/N";
+                   Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RECURRENCIA_RESPONSE");
+                   return true;
+                }
+                else if(check == "STATUS_RECURRENCIA_RESPONSE")
+                {
+                    if(message.Text.ToUpper() == "Y")
                     {
-                    response = "¿Quieres buscar las ofertas recurrentes? Y/N";
-                    Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_RECURRENCIA_RESPONSE");
-                    return true;
-                    }
-                    else if(check == "STATUS_RECURRENCIA_RESPONSE")
-                    {
-                        if(message.Text.ToUpper() == "Y")
-                        {
-                            StringBuilder str = new StringBuilder();
-                            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
-                            {
-                                if(oferta.IsRecurrente)
-                                {
-                                    str.Append($"+ {oferta.Id}\n");
-                                }
-                            }
-                            response = "Listas de ofertas recurrentes:\n";
-                            response += str;
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                            return true;
-                        }
-                        else
-                        {
-                            response = "¿Queres buscar las ofertas puntuales? Y/N";
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUNTUAL_RESPONSE");
-                            return true;
-                        }
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerOfertasRecurrentes();
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
                     }
                     else if(check == "STATUS_PUNTUAL_RESPONSE")
                     {
-                        if(message.Text.ToUpper() == "Y")
-                        {
-                            StringBuilder str2 = new StringBuilder();
-                            foreach(Oferta oferta in Singleton<Datos>.Instance.ListaOfertas())
-                            {
-                                if(!oferta.IsRecurrente)
-                                {
-                                    str2.Append($"+ {oferta.Id}\n");
-                                }
-                            }
-                            response = "Listas de ofertas puntuales:\n";
-                            response += str2;
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                            return true;
-                        }
-                        else
-                        {
-                            response = "Busqueda cancelada";
-                            Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
-                            return true;
-                        }
+                        response = "Desea buscar las ofertas puntuales? Y/N";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_PUNTUAL_RESPONSE");
+                        return true;
+                    }
+                }
+                else if(check == "STATUS_PUNTUAL_RESPONSE")
+                {
+                    if(message.Text.ToUpper() == "Y")
+                    {
+                        UserEmprendedor user = (UserEmprendedor) Singleton<Datos>.Instance.GetUserById(message.UserId);
+                        response = user.VerOfertasPuntuales();
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
+                    }
+                    else
+                    {
+                        response = "Búsqueda cancelada.";
+                        Singleton<StatusManager>.Instance.AgregarEstadoUsuario(message.UserId, "STATUS_IDLE");
+                        return true;
                     }
                 }
                 else

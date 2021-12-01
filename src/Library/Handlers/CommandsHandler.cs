@@ -41,6 +41,7 @@ namespace Proyecto_Final
             };
             this.EmprendedorCommands = new Dictionary<string, string> () {
                  // Comandos Emprendedor.
+                {"/agregar_habilitacion","Para agregar una habilitacion en el caso de que sea necesaria para una oferta."},
                 {"/buscar_categoria", "Para buscar una oferta por su categoria."},
                 {"/buscar_palabra", "Para buscar una oferta por su palabra clave."},
                 {"/buscar_zona", "Para buscar una oferta por su zona."},
