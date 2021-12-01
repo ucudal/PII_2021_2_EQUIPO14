@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interfaceProyecto__Final_1_1IMessage.html" title="La función de esta clase es la de independizar la codificación del ChatBot de la API que se utiliza,..." alt="" coords="5,5,175,32"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1TelegramAdapter.html" title="Esta es la clase encargada procesar los mensajes. En este caso la plataforma es telegram,..." alt="" coords="223,5,433,32"/>
+</map>

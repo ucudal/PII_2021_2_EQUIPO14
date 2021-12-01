@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.PeriodOfTimeHandler.InternalHandle" name="Proyecto_Final.PeriodOfTimeHandler.InternalHandle">
+<area shape="rect" id="node1" title="Procesa el mensaje &quot;/ventas&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,39,196,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81" title="Determina si este &quot;handler&quot; puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..." alt="" coords="247,5,437,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmpresa.html#af9f8f39960793a55040047ba42e990b2" title="Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo,..." alt="" coords="244,71,440,112"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1Empresa.html#af7f16f0aeb5e9c3413f15b4923385565" title="Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo,..." alt="" coords="488,71,704,112"/>
+</map>

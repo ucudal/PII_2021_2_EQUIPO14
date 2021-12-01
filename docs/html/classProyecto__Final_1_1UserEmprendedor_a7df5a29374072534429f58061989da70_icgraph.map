@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.UserEmprendedor.VerificarConsumo" name="Proyecto_Final.UserEmprendedor.VerificarConsumo">
+<area shape="rect" id="node1" title="Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo,..." alt="" coords="271,71,492,112"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1MaterialsConsumedHandler.html#ad4cded96eff06ffbf55af46918f996ef" title="Procesa el mensaje &quot;/materiales_consumidos&quot; y retorna true; retorna false en caso contrario." alt="" coords="7,5,221,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmprendedorTests.html#a0c72be1f281f0f3100bb2252d72e1d64" title="Test para revisar si la clase es capaz de verificar el consumo de un Emprendedor correctamente...." alt="" coords="5,71,223,112"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1UserEmprendedorTests.html#a0770897e192892ccd3cd43f922e33c9e" title="Test para revisar si la clase es capaz de verificar el consumo de un Emprendedor correctamente." alt="" coords="5,136,223,177"/>
+</map>

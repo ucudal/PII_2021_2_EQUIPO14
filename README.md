@@ -37,7 +37,7 @@ Aquí veremos una explicación general e informal de las funciones del software 
 - [X] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.
 
 ## Diagrama de Clases
-![image](docs/uml.puml)
+![image](docs/uml.svg)
 
 ## Reflexion
 

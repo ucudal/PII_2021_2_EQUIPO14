@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['imprimirvendidos_0',['ImprimirVendidos',['../classProyecto__Final_1_1ConsoleInteraction.html#ad8aaaedf832ef6e17ceb29658d8a29a3',1,'Proyecto_Final.ConsoleInteraction.ImprimirVendidos()'],['../interfaceProyecto__Final_1_1IUserInterface.html#aa9dc39aee9c0b1348d39f58499ba9db8',1,'Proyecto_Final.IUserInterface.ImprimirVendidos()']]],
-  ['invitacion_1',['Invitacion',['../classProyecto__Final_1_1Invitacion.html#a6237d501335c481b4e931605e5273091',1,'Proyecto_Final::Invitacion']]],
-  ['invitarempresa_2',['InvitarEmpresa',['../classProyecto__Final_1_1UserAdmin.html#a7e5ec2f30b07a4364cc23252f52752eb',1,'Proyecto_Final::UserAdmin']]],
-  ['invitarempresatest_3',['InvitarEmpresaTest',['../classProyecto__Final_1_1AdminTests.html#a30d2096b644937554d19b085f2fea03c',1,'Proyecto_Final::AdminTests']]]
+  ['habilitaciones_0',['Habilitaciones',['../classProyecto__Final_1_1Habilitaciones.html#aecf885b519d2b6b266a8b672e2adc6b8',1,'Proyecto_Final.Habilitaciones.Habilitaciones()'],['../classProyecto__Final_1_1Habilitaciones.html#af0fbcebfc14823108bbb5def1cdc6135',1,'Proyecto_Final.Habilitaciones.Habilitaciones(string habilitacion)']]],
+  ['handle_1',['Handle',['../classProyecto__Final_1_1BaseHandler.html#a5cdd6eed94591f7bfedefc72abe48f5c',1,'Proyecto_Final.BaseHandler.Handle()'],['../interfaceProyecto__Final_1_1IHandler.html#a4c9ebb1a1584b40c124d459584fa60b6',1,'Proyecto_Final.IHandler.Handle()']]],
+  ['hellohandler_2',['HelloHandler',['../classProyecto__Final_1_1HelloHandler.html#ae2fa7896bf805d9b9be63cbc478738fb',1,'Proyecto_Final::HelloHandler']]]
 ];

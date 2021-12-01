@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.UserEmprendedor.VerOfertasUbicacion" name="Proyecto_Final.UserEmprendedor.VerOfertasUbicacion">
+<area shape="rect" id="node1" title="En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren a u..." alt="" coords="5,5,227,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1Buscador.html#a2c74e8d41cf6f6307a4dcae5d247f79b" title="/// En base a la ubicación del Emprendedor, retorna una lista con todas las ofertas que se encuentren..." alt="" coords="275,5,447,47"/>
+<area shape="rect" id="node3" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a420f94704f37c1aeed52761f6a650f9f" title=" " alt="" coords="495,5,692,47"/>
+<area shape="rect" id="node4" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a775052647014829c8b09dd91b0ff2762" title="Obtiene las coordenadas de una dirección." alt="" coords="740,5,975,47"/>
+</map>

@@ -89,72 +89,87 @@ $(document).ready(function(){initNavTree('classProyecto__Final_1_1Datos.html',''
 </div><!--header-->
 <div class="contents">
 
-<p>Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa.  
+<p>Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa. Se utilizan los patrones Expert y <a class="el" href="classProyecto__Final_1_1Singleton.html" title="Esta clase tiene como función funcionar como base para crear una sola instancia de clases almacenador...">Singleton</a>, ya que es necesario que exista una sola instancia de esta clase datos, lo cual implica que la manera de retornar las listas es en base a un método de instancia. Además, debido a que esta almacena las listas, es experta para modificar los datos existentes.  
  <a href="classProyecto__Final_1_1Datos.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for Proyecto_Final.Datos:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 -->
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos__coll__graph.svg" width="226" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a056fd3fc1b7c05f9f4bb0779966e8d48"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a056fd3fc1b7c05f9f4bb0779966e8d48">ListaOfertas</a> ()</td></tr>
-<tr class="memdesc:a056fd3fc1b7c05f9f4bb0779966e8d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista con todas las publicaciones realizadas.  <a href="classProyecto__Final_1_1Datos.html#a056fd3fc1b7c05f9f4bb0779966e8d48">More...</a><br /></td></tr>
-<tr class="separator:a056fd3fc1b7c05f9f4bb0779966e8d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe0be8a6a791e92f63b84cffb46eeeae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#afe0be8a6a791e92f63b84cffb46eeeae">AgregarOferta</a> (<a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> oferta)</td></tr>
-<tr class="memdesc:afe0be8a6a791e92f63b84cffb46eeeae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una oferta a la lista de publicaciones.  <a href="classProyecto__Final_1_1Datos.html#afe0be8a6a791e92f63b84cffb46eeeae">More...</a><br /></td></tr>
-<tr class="separator:afe0be8a6a791e92f63b84cffb46eeeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4794b8fa419688f11b2e15686ea02f50"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a4794b8fa419688f11b2e15686ea02f50">ListaUsuarioEmpresa</a> ()</td></tr>
-<tr class="memdesc:a4794b8fa419688f11b2e15686ea02f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa.">UserEmpresa</a> registrados en la aplicacion.  <a href="classProyecto__Final_1_1Datos.html#a4794b8fa419688f11b2e15686ea02f50">More...</a><br /></td></tr>
-<tr class="separator:a4794b8fa419688f11b2e15686ea02f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab86a5dc770e37487a5716899dc03cb92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#ab86a5dc770e37487a5716899dc03cb92">AgregarUsuarioEmpresa</a> (<a class="el" href="classProyecto__Final_1_1UserEmpresa.html">UserEmpresa</a> user)</td></tr>
-<tr class="memdesc:ab86a5dc770e37487a5716899dc03cb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa.">UserEmpresa</a> a la aplicacion.  <a href="classProyecto__Final_1_1Datos.html#ab86a5dc770e37487a5716899dc03cb92">More...</a><br /></td></tr>
-<tr class="separator:ab86a5dc770e37487a5716899dc03cb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc5e184197b12b68767f7cf63525bd8d"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#acc5e184197b12b68767f7cf63525bd8d">ListaUsuarioEmprendedor</a> ()</td></tr>
-<tr class="memdesc:acc5e184197b12b68767f7cf63525bd8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema.">UserEmprendedor</a> registrados.  <a href="classProyecto__Final_1_1Datos.html#acc5e184197b12b68767f7cf63525bd8d">More...</a><br /></td></tr>
-<tr class="separator:acc5e184197b12b68767f7cf63525bd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95957330a0f5a6827e974a073b71eddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a95957330a0f5a6827e974a073b71eddd">AgregarUsuarioEmprendedor</a> (<a class="el" href="classProyecto__Final_1_1UserEmprendedor.html">UserEmprendedor</a> user)</td></tr>
-<tr class="memdesc:a95957330a0f5a6827e974a073b71eddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema.">UserEmprendedor</a> a la aplicacion.  <a href="classProyecto__Final_1_1Datos.html#a95957330a0f5a6827e974a073b71eddd">More...</a><br /></td></tr>
-<tr class="separator:a95957330a0f5a6827e974a073b71eddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46773117b6d103f5b349cd9c255d1f14"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a46773117b6d103f5b349cd9c255d1f14">ListaEmpresa</a> ()</td></tr>
-<tr class="memdesc:a46773117b6d103f5b349cd9c255d1f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista con todas las <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a> registradas.  <a href="classProyecto__Final_1_1Datos.html#a46773117b6d103f5b349cd9c255d1f14">More...</a><br /></td></tr>
-<tr class="separator:a46773117b6d103f5b349cd9c255d1f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79d500d1baea9890b43ae66c053031e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a79d500d1baea9890b43ae66c053031e9">AgregarEmpresa</a> (<a class="el" href="classProyecto__Final_1_1Empresa.html">Empresa</a> user)</td></tr>
-<tr class="memdesc:a79d500d1baea9890b43ae66c053031e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una empresa a la aplicacion.  <a href="classProyecto__Final_1_1Datos.html#a79d500d1baea9890b43ae66c053031e9">More...</a><br /></td></tr>
-<tr class="separator:a79d500d1baea9890b43ae66c053031e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c24cd44b6a4a31c4997e12aa37c44f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a8c24cd44b6a4a31c4997e12aa37c44f5">LoadData</a> ()</td></tr>
+<tr class="memdesc:a8c24cd44b6a4a31c4997e12aa37c44f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Al inicializar el programa se obtienen todos los datos de la DB.  <a href="classProyecto__Final_1_1Datos.html#a8c24cd44b6a4a31c4997e12aa37c44f5">More...</a><br /></td></tr>
+<tr class="separator:a8c24cd44b6a4a31c4997e12aa37c44f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a529b32eab1e3cc1e3c7852687a61448b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a529b32eab1e3cc1e3c7852687a61448b">GetOfertaById</a> (string userId, string oferId)</td></tr>
+<tr class="memdesc:a529b32eab1e3cc1e3c7852687a61448b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca las ofertas por ID y retorna la oferta.  <a href="classProyecto__Final_1_1Datos.html#a529b32eab1e3cc1e3c7852687a61448b">More...</a><br /></td></tr>
+<tr class="separator:a529b32eab1e3cc1e3c7852687a61448b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e16fcd7feab40f425caa4508fe47ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interfaceProyecto__Final_1_1IUser.html">IUser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#ad1e16fcd7feab40f425caa4508fe47ee">GetUserById</a> (string id)</td></tr>
+<tr class="memdesc:ad1e16fcd7feab40f425caa4508fe47ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca entre los usuarios registrados por id y retorna el usuario.  <a href="classProyecto__Final_1_1Datos.html#ad1e16fcd7feab40f425caa4508fe47ee">More...</a><br /></td></tr>
+<tr class="separator:ad1e16fcd7feab40f425caa4508fe47ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e8c32b17c8818252e87fd5ebed845b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a30e8c32b17c8818252e87fd5ebed845b">GetUnidadMedida</a> (string tipoProducto)</td></tr>
+<tr class="memdesc:a30e8c32b17c8818252e87fd5ebed845b"><td class="mdescLeft">&#160;</td><td class="mdescRight">En base a un tipo de <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) represen...">Producto</a>, otorga la medida que utiliza  <a href="classProyecto__Final_1_1Datos.html#a30e8c32b17c8818252e87fd5ebed845b">More...</a><br /></td></tr>
+<tr class="separator:a30e8c32b17c8818252e87fd5ebed845b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540f21f7268b4182721522f13ef5913b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a540f21f7268b4182721522f13ef5913b">RegistrarUsuarioEmpresa</a> (<a class="el" href="classProyecto__Final_1_1UserEmpresa.html">UserEmpresa</a> user)</td></tr>
+<tr class="memdesc:a540f21f7268b4182721522f13ef5913b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un usuario <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a> a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.  <a href="classProyecto__Final_1_1Datos.html#a540f21f7268b4182721522f13ef5913b">More...</a><br /></td></tr>
+<tr class="separator:a540f21f7268b4182721522f13ef5913b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9680a9c3767c088138663614fa8a977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#ae9680a9c3767c088138663614fa8a977">RegistrarUsuarioEmprendedor</a> (<a class="el" href="classProyecto__Final_1_1UserEmprendedor.html">UserEmprendedor</a> user)</td></tr>
+<tr class="memdesc:ae9680a9c3767c088138663614fa8a977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un usuario <a class="el" href="classProyecto__Final_1_1Emprendedor.html" title="Esta clase representa los datos adicionales del emprendedor. Se utiliza el patrón Expert debido a que...">Emprendedor</a> a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados.  <a href="classProyecto__Final_1_1Datos.html#ae9680a9c3767c088138663614fa8a977">More...</a><br /></td></tr>
+<tr class="separator:ae9680a9c3767c088138663614fa8a977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f924986da27c825bb0491ee9559bd5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a3f924986da27c825bb0491ee9559bd5c">IsOfferValid</a> (string userId, string oferId)</td></tr>
+<tr class="memdesc:a3f924986da27c825bb0491ee9559bd5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si una oferta es valida (no tiene comprador y existe).  <a href="classProyecto__Final_1_1Datos.html#a3f924986da27c825bb0491ee9559bd5c">More...</a><br /></td></tr>
+<tr class="separator:a3f924986da27c825bb0491ee9559bd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac42cb9cdbafa7207944036f9d027cd9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#ac42cb9cdbafa7207944036f9d027cd9e">IsRegistered</a> (string id)</td></tr>
+<tr class="memdesc:ac42cb9cdbafa7207944036f9d027cd9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si la id ya esta registrada.  <a href="classProyecto__Final_1_1Datos.html#ac42cb9cdbafa7207944036f9d027cd9e">More...</a><br /></td></tr>
+<tr class="separator:ac42cb9cdbafa7207944036f9d027cd9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0152df5b650e269b10a6f06c41a0c5"><td class="memItemLeft" align="right" valign="top">string[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a8c0152df5b650e269b10a6f06c41a0c5">ListaAdmins</a> ()</td></tr>
+<tr class="memdesc:a8c0152df5b650e269b10a6f06c41a0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve una lista con los ids de admins validos.  <a href="classProyecto__Final_1_1Datos.html#a8c0152df5b650e269b10a6f06c41a0c5">More...</a><br /></td></tr>
+<tr class="separator:a8c0152df5b650e269b10a6f06c41a0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc8f5eab45abd224a7963add89e72c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a2cc8f5eab45abd224a7963add89e72c3">IsAdmin</a> (string token)</td></tr>
+<tr class="memdesc:a2cc8f5eab45abd224a7963add89e72c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si es un admin.  <a href="classProyecto__Final_1_1Datos.html#a2cc8f5eab45abd224a7963add89e72c3">More...</a><br /></td></tr>
+<tr class="separator:a2cc8f5eab45abd224a7963add89e72c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c403135bf82d1f988d7190b49787312"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a4c403135bf82d1f988d7190b49787312">IsUserEmprendedor</a> (string id)</td></tr>
+<tr class="memdesc:a4c403135bf82d1f988d7190b49787312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checkea en base a un ID si esta ID pertenece a un <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r...">UserEmprendedor</a>  <a href="classProyecto__Final_1_1Datos.html#a4c403135bf82d1f988d7190b49787312">More...</a><br /></td></tr>
+<tr class="separator:a4c403135bf82d1f988d7190b49787312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e376412a39b1faa78ddd5a954d3f06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a51e376412a39b1faa78ddd5a954d3f06">IsUserEmpresa</a> (string id)</td></tr>
+<tr class="memdesc:a51e376412a39b1faa78ddd5a954d3f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checkea en base a un ID si esta ID pertenece a un <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us...">UserEmpresa</a>  <a href="classProyecto__Final_1_1Datos.html#a51e376412a39b1faa78ddd5a954d3f06">More...</a><br /></td></tr>
+<tr class="separator:a51e376412a39b1faa78ddd5a954d3f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af87a40a8fd52a7f1b61515ab701e5169"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#af87a40a8fd52a7f1b61515ab701e5169">ListaTokens</a> ()</td></tr>
+<tr class="memdesc:af87a40a8fd52a7f1b61515ab701e5169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve la lista de tokens validos.  <a href="classProyecto__Final_1_1Datos.html#af87a40a8fd52a7f1b61515ab701e5169">More...</a><br /></td></tr>
+<tr class="separator:af87a40a8fd52a7f1b61515ab701e5169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1ea5bd9d7c5d2d9bdcc6957dc98097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aac1ea5bd9d7c5d2d9bdcc6957dc98097">AgregarToken</a> (string token)</td></tr>
+<tr class="memdesc:aac1ea5bd9d7c5d2d9bdcc6957dc98097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un token a la lista.  <a href="classProyecto__Final_1_1Datos.html#aac1ea5bd9d7c5d2d9bdcc6957dc98097">More...</a><br /></td></tr>
+<tr class="separator:aac1ea5bd9d7c5d2d9bdcc6957dc98097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d1c23292409ebc0d046bb743dd9cbec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a6d1c23292409ebc0d046bb743dd9cbec">EliminarToken</a> (string token)</td></tr>
+<tr class="memdesc:a6d1c23292409ebc0d046bb743dd9cbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un token de la lista.  <a href="classProyecto__Final_1_1Datos.html#a6d1c23292409ebc0d046bb743dd9cbec">More...</a><br /></td></tr>
+<tr class="separator:a6d1c23292409ebc0d046bb743dd9cbec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae86a6d331044afd32f08c8523447d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aaae86a6d331044afd32f08c8523447d4">IsTokenValid</a> (string token)</td></tr>
+<tr class="memdesc:aaae86a6d331044afd32f08c8523447d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si el token es valido.  <a href="classProyecto__Final_1_1Datos.html#aaae86a6d331044afd32f08c8523447d4">More...</a><br /></td></tr>
+<tr class="separator:aaae86a6d331044afd32f08c8523447d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18cad0d3447573e1fc7ff4a16cd6f353"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a18cad0d3447573e1fc7ff4a16cd6f353">ListaOfertas</a> ()</td></tr>
+<tr class="memdesc:a18cad0d3447573e1fc7ff4a16cd6f353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista con todas las publicaciones realizadas.  <a href="classProyecto__Final_1_1Datos.html#a18cad0d3447573e1fc7ff4a16cd6f353">More...</a><br /></td></tr>
+<tr class="separator:a18cad0d3447573e1fc7ff4a16cd6f353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9266cfd3975bdd6fa1ff33f4a0a18f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a9c9266cfd3975bdd6fa1ff33f4a0a18f">UpdateOfersData</a> ()</td></tr>
+<tr class="memdesc:a9c9266cfd3975bdd6fa1ff33f4a0a18f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la informacion de las publicaciones.  <a href="classProyecto__Final_1_1Datos.html#a9c9266cfd3975bdd6fa1ff33f4a0a18f">More...</a><br /></td></tr>
+<tr class="separator:a9c9266cfd3975bdd6fa1ff33f4a0a18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639b95fcea688109d063dcc936ba738e"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classProyecto__Final_1_1UserEmpresa.html">UserEmpresa</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a639b95fcea688109d063dcc936ba738e">ListaUsuarioEmpresa</a> ()</td></tr>
+<tr class="memdesc:a639b95fcea688109d063dcc936ba738e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us...">UserEmpresa</a> registrados en la aplicacion.  <a href="classProyecto__Final_1_1Datos.html#a639b95fcea688109d063dcc936ba738e">More...</a><br /></td></tr>
+<tr class="separator:a639b95fcea688109d063dcc936ba738e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4acafe531ff409ee1f31bb4c58c87c3b"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html">UserEmprendedor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a4acafe531ff409ee1f31bb4c58c87c3b">ListaUsuarioEmprendedor</a> ()</td></tr>
+<tr class="memdesc:a4acafe531ff409ee1f31bb4c58c87c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r...">UserEmprendedor</a> registrados.  <a href="classProyecto__Final_1_1Datos.html#a4acafe531ff409ee1f31bb4c58c87c3b">More...</a><br /></td></tr>
+<tr class="separator:a4acafe531ff409ee1f31bb4c58c87c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15062163dc0ed5c16b72c850806fd9b7"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a15062163dc0ed5c16b72c850806fd9b7">ListaHabilitaciones</a> ()</td></tr>
 <tr class="separator:a15062163dc0ed5c16b72c850806fd9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a153adb2bdd7c6ca263e2e0dde53c493d"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a153adb2bdd7c6ca263e2e0dde53c493d">ListaTipos</a> ()</td></tr>
-<tr class="memdesc:a153adb2bdd7c6ca263e2e0dde53c493d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto.">TipoProducto</a>.  <a href="classProyecto__Final_1_1Datos.html#a153adb2bdd7c6ca263e2e0dde53c493d">More...</a><br /></td></tr>
-<tr class="separator:a153adb2bdd7c6ca263e2e0dde53c493d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9fde82899231952098b3ee096092b37"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#af9fde82899231952098b3ee096092b37">ListaTipos</a> ()</td></tr>
+<tr class="memdesc:af9fde82899231952098b3ee096092b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto. La única función de existencia de est...">TipoProducto</a>.  <a href="classProyecto__Final_1_1Datos.html#af9fde82899231952098b3ee096092b37">More...</a><br /></td></tr>
+<tr class="separator:af9fde82899231952098b3ee096092b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa97873455986a9c0e4effbd9a4d912e7"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aa97873455986a9c0e4effbd9a4d912e7">ListaRubros</a> ()</td></tr>
 <tr class="separator:aa97873455986a9c0e4effbd9a4d912e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff76423eb14ea4ad65f258fd9bb30782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aff76423eb14ea4ad65f258fd9bb30782">AgregarHabilitacion</a> (<a class="el" href="classProyecto__Final_1_1Habilitaciones.html">Habilitaciones</a> habilitacion)</td></tr>
-<tr class="memdesc:aff76423eb14ea4ad65f258fd9bb30782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una habilitación a la lista de habilitaciones permitidas por el programa.  <a href="classProyecto__Final_1_1Datos.html#aff76423eb14ea4ad65f258fd9bb30782">More...</a><br /></td></tr>
-<tr class="separator:aff76423eb14ea4ad65f258fd9bb30782"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a435307823b4580dab9b0fb13560ac1df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a435307823b4580dab9b0fb13560ac1df">EliminarHabilitacion</a> (<a class="el" href="classProyecto__Final_1_1Habilitaciones.html">Habilitaciones</a> habilitacion)</td></tr>
-<tr class="memdesc:a435307823b4580dab9b0fb13560ac1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina una habilitación de la lista de habilitaciones permitidas por el programa.  <a href="classProyecto__Final_1_1Datos.html#a435307823b4580dab9b0fb13560ac1df">More...</a><br /></td></tr>
-<tr class="separator:a435307823b4580dab9b0fb13560ac1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac38cdc0bf1b33841325b61bd96ecbcd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#ac38cdc0bf1b33841325b61bd96ecbcd5">AgregarRubro</a> (<a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a> rubro)</td></tr>
-<tr class="memdesc:ac38cdc0bf1b33841325b61bd96ecbcd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un rubro a la lista de rubros permitidos por el programa.  <a href="classProyecto__Final_1_1Datos.html#ac38cdc0bf1b33841325b61bd96ecbcd5">More...</a><br /></td></tr>
-<tr class="separator:ac38cdc0bf1b33841325b61bd96ecbcd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7847667a90dfffd39baf158c4284c4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aa7847667a90dfffd39baf158c4284c4d">EliminarRubro</a> (<a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a> rubro)</td></tr>
-<tr class="memdesc:aa7847667a90dfffd39baf158c4284c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un rubro de la lista de rubros permitidos por el programa.  <a href="classProyecto__Final_1_1Datos.html#aa7847667a90dfffd39baf158c4284c4d">More...</a><br /></td></tr>
-<tr class="separator:aa7847667a90dfffd39baf158c4284c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a444d7030907e6e7b9fe7954e5a7ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a17a444d7030907e6e7b9fe7954e5a7ea">AgregarTipo</a> (<a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a> tipo)</td></tr>
-<tr class="memdesc:a17a444d7030907e6e7b9fe7954e5a7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa.  <a href="classProyecto__Final_1_1Datos.html#a17a444d7030907e6e7b9fe7954e5a7ea">More...</a><br /></td></tr>
-<tr class="separator:a17a444d7030907e6e7b9fe7954e5a7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87e1f3fc19dae49941615fbe71807962"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a87e1f3fc19dae49941615fbe71807962">EliminarTipo</a> (<a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a> tipo)</td></tr>
-<tr class="memdesc:a87e1f3fc19dae49941615fbe71807962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa.  <a href="classProyecto__Final_1_1Datos.html#a87e1f3fc19dae49941615fbe71807962">More...</a><br /></td></tr>
-<tr class="separator:a87e1f3fc19dae49941615fbe71807962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cfe0be6dd695aa7916f25f665e05e11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a0cfe0be6dd695aa7916f25f665e05e11">AgregarOfertas</a> (<a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> oferta)</td></tr>
-<tr class="memdesc:a0cfe0be6dd695aa7916f25f665e05e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una oferta de la lista de ofertas.  <a href="classProyecto__Final_1_1Datos.html#a0cfe0be6dd695aa7916f25f665e05e11">More...</a><br /></td></tr>
-<tr class="separator:a0cfe0be6dd695aa7916f25f665e05e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7879b572a6b0c58390e98ece8959002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#ab7879b572a6b0c58390e98ece8959002">EliminarOfertas</a> (<a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> oferta)</td></tr>
-<tr class="memdesc:ab7879b572a6b0c58390e98ece8959002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina una oferta de la lista de ofertas.  <a href="classProyecto__Final_1_1Datos.html#ab7879b572a6b0c58390e98ece8959002">More...</a><br /></td></tr>
-<tr class="separator:ab7879b572a6b0c58390e98ece8959002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f6a6549bbc3a26e24f4376a333058c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a1f6a6549bbc3a26e24f4376a333058c3">EliminarOfertas</a> (string id)</td></tr>
+<tr class="memdesc:a1f6a6549bbc3a26e24f4376a333058c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina una oferta de la lista de ofertas.  <a href="classProyecto__Final_1_1Datos.html#a1f6a6549bbc3a26e24f4376a333058c3">More...</a><br /></td></tr>
+<tr class="separator:a1f6a6549bbc3a26e24f4376a333058c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44b1d4b7aea890efa8b53ca3fa7d9761"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a44b1d4b7aea890efa8b53ca3fa7d9761">CheckHabilitaciones</a> (string habilitacion)</td></tr>
 <tr class="memdesc:a44b1d4b7aea890efa8b53ca3fa7d9761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Revisa si la habilitación que el usuario quiere asignarse existe dentro de las habilitaciones permitidas por el programa.  <a href="classProyecto__Final_1_1Datos.html#a44b1d4b7aea890efa8b53ca3fa7d9761">More...</a><br /></td></tr>
 <tr class="separator:a44b1d4b7aea890efa8b53ca3fa7d9761"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,233 +179,61 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84e339c8c6935c3eae564218baec74df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a84e339c8c6935c3eae564218baec74df">CheckRubros</a> (string rubro)</td></tr>
 <tr class="memdesc:a84e339c8c6935c3eae564218baec74df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Revisa si el rubro que el usuario quiere asignar a una empresa existe dentro de los rubros permitidos por el programa.  <a href="classProyecto__Final_1_1Datos.html#a84e339c8c6935c3eae564218baec74df">More...</a><br /></td></tr>
 <tr class="separator:a84e339c8c6935c3eae564218baec74df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0ac2ec641e0220ece58545c6c6bc97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a8a0ac2ec641e0220ece58545c6c6bc97">UpdateTokensData</a> ()</td></tr>
+<tr class="memdesc:a8a0ac2ec641e0220ece58545c6c6bc97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza los datos almacenados en la listaTokens  <a href="classProyecto__Final_1_1Datos.html#a8a0ac2ec641e0220ece58545c6c6bc97">More...</a><br /></td></tr>
+<tr class="separator:a8a0ac2ec641e0220ece58545c6c6bc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba66710d34c9ff639d6f75a2344a82a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a4ba66710d34c9ff639d6f75a2344a82a">LoadRegisteredEmpresas</a> ()</td></tr>
+<tr class="memdesc:a4ba66710d34c9ff639d6f75a2344a82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga los datos de una empresa en base al archivo ".json"  <a href="classProyecto__Final_1_1Datos.html#a4ba66710d34c9ff639d6f75a2344a82a">More...</a><br /></td></tr>
+<tr class="separator:a4ba66710d34c9ff639d6f75a2344a82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36bd6929f8b22d7ff510ea5698712e81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a36bd6929f8b22d7ff510ea5698712e81">UpdateEmpresasData</a> ()</td></tr>
+<tr class="memdesc:a36bd6929f8b22d7ff510ea5698712e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.  <a href="classProyecto__Final_1_1Datos.html#a36bd6929f8b22d7ff510ea5698712e81">More...</a><br /></td></tr>
+<tr class="separator:a36bd6929f8b22d7ff510ea5698712e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a9a373ee9141af45ef7ae13f9cd0a48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#a4a9a373ee9141af45ef7ae13f9cd0a48">LoadRegisteredEmprendedores</a> ()</td></tr>
+<tr class="memdesc:a4a9a373ee9141af45ef7ae13f9cd0a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga los datos de los Emprendedores en base a un archivo ".json".  <a href="classProyecto__Final_1_1Datos.html#a4a9a373ee9141af45ef7ae13f9cd0a48">More...</a><br /></td></tr>
+<tr class="separator:a4a9a373ee9141af45ef7ae13f9cd0a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a8cd50d9d37fbee9d05a36fac1d00a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aa4a8cd50d9d37fbee9d05a36fac1d00a">UpdateEmprendedoresData</a> ()</td></tr>
+<tr class="memdesc:aa4a8cd50d9d37fbee9d05a36fac1d00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista.  <a href="classProyecto__Final_1_1Datos.html#aa4a8cd50d9d37fbee9d05a36fac1d00a">More...</a><br /></td></tr>
+<tr class="separator:aa4a8cd50d9d37fbee9d05a36fac1d00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa742d8a592c4fe99fc03929aa03131fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Datos.html#aa742d8a592c4fe99fc03929aa03131fe">LoadPublications</a> ()</td></tr>
+<tr class="memdesc:aa742d8a592c4fe99fc03929aa03131fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>.  <a href="classProyecto__Final_1_1Datos.html#aa742d8a592c4fe99fc03929aa03131fe">More...</a><br /></td></tr>
+<tr class="separator:aa742d8a592c4fe99fc03929aa03131fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa. </p>
+<div class="textblock"><p >Esta clase tiene como función almacenar datos de distintas clases y revisar que los datos ingresados sean los permitidos por el programa. Se utilizan los patrones Expert y <a class="el" href="classProyecto__Final_1_1Singleton.html" title="Esta clase tiene como función funcionar como base para crear una sola instancia de clases almacenador...">Singleton</a>, ya que es necesario que exista una sola instancia de esta clase datos, lo cual implica que la manera de retornar las listas es en base a un método de instancia. Además, debido a que esta almacena las listas, es experta para modificar los datos existentes. </p>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00008">8</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00016">16</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a79d500d1baea9890b43ae66c053031e9" name="a79d500d1baea9890b43ae66c053031e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79d500d1baea9890b43ae66c053031e9">&#9670;&nbsp;</a></span>AgregarEmpresa()</h2>
+<a id="aac1ea5bd9d7c5d2d9bdcc6957dc98097" name="aac1ea5bd9d7c5d2d9bdcc6957dc98097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1ea5bd9d7c5d2d9bdcc6957dc98097">&#9670;&nbsp;</a></span>AgregarToken()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarEmpresa </td>
+          <td class="memname">void Proyecto_Final.Datos.AgregarToken </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Empresa.html">Empresa</a>&#160;</td>
-          <td class="paramname"><em>user</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Agrega una empresa a la aplicacion. </p>
+<p>Agrega un token a la lista. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">user</td><td></td></tr>
+    <tr><td class="paramname">token</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00086">86</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00254">254</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_aac1ea5bd9d7c5d2d9bdcc6957dc98097_cgraph.svg" width="447" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<a id="aff76423eb14ea4ad65f258fd9bb30782" name="aff76423eb14ea4ad65f258fd9bb30782"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff76423eb14ea4ad65f258fd9bb30782">&#9670;&nbsp;</a></span>AgregarHabilitacion()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarHabilitacion </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Habilitaciones.html">Habilitaciones</a>&#160;</td>
-          <td class="paramname"><em>habilitacion</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega una habilitación a la lista de habilitaciones permitidas por el programa. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">habilitacion</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00126">126</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="afe0be8a6a791e92f63b84cffb46eeeae" name="afe0be8a6a791e92f63b84cffb46eeeae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe0be8a6a791e92f63b84cffb46eeeae">&#9670;&nbsp;</a></span>AgregarOferta()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarOferta </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a>&#160;</td>
-          <td class="paramname"><em>oferta</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega una oferta a la lista de publicaciones. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">oferta</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00027">27</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="a0cfe0be6dd695aa7916f25f665e05e11" name="a0cfe0be6dd695aa7916f25f665e05e11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cfe0be6dd695aa7916f25f665e05e11">&#9670;&nbsp;</a></span>AgregarOfertas()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarOfertas </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a>&#160;</td>
-          <td class="paramname"><em>oferta</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega una oferta de la lista de ofertas. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">oferta</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00180">180</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="ac38cdc0bf1b33841325b61bd96ecbcd5" name="ac38cdc0bf1b33841325b61bd96ecbcd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac38cdc0bf1b33841325b61bd96ecbcd5">&#9670;&nbsp;</a></span>AgregarRubro()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarRubro </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a>&#160;</td>
-          <td class="paramname"><em>rubro</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega un rubro a la lista de rubros permitidos por el programa. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rubro</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00144">144</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="a17a444d7030907e6e7b9fe7954e5a7ea" name="a17a444d7030907e6e7b9fe7954e5a7ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17a444d7030907e6e7b9fe7954e5a7ea">&#9670;&nbsp;</a></span>AgregarTipo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarTipo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a>&#160;</td>
-          <td class="paramname"><em>tipo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega un tipo de producto a la lista de tipos de productos permitidos por el programa. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tipo</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00163">163</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="a95957330a0f5a6827e974a073b71eddd" name="a95957330a0f5a6827e974a073b71eddd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95957330a0f5a6827e974a073b71eddd">&#9670;&nbsp;</a></span>AgregarUsuarioEmprendedor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarUsuarioEmprendedor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1UserEmprendedor.html">UserEmprendedor</a>&#160;</td>
-          <td class="paramname"><em>user</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega un <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema.">UserEmprendedor</a> a la aplicacion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">user</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00066">66</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="ab86a5dc770e37487a5716899dc03cb92" name="ab86a5dc770e37487a5716899dc03cb92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab86a5dc770e37487a5716899dc03cb92">&#9670;&nbsp;</a></span>AgregarUsuarioEmpresa()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.AgregarUsuarioEmpresa </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1UserEmpresa.html">UserEmpresa</a>&#160;</td>
-          <td class="paramname"><em>user</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Agrega un <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa.">UserEmpresa</a> a la aplicacion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">user</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00046">46</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
@@ -419,7 +262,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code>Si la habilitación a agregar concuerda con las existentes en el programa,<code>false</code> en caso contrario.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00199">199</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00365">365</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
@@ -448,7 +291,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code>Si el rubro a agregar concuerda con los existentes en el programa,<code>false</code> en caso contrario.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00232">232</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00395">395</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
@@ -477,40 +320,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code>Si el tipo de producto a agregar concuerda con los existentes en el programa,<code>false</code> en caso contrario.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00216">216</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00379">379</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="a435307823b4580dab9b0fb13560ac1df" name="a435307823b4580dab9b0fb13560ac1df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a435307823b4580dab9b0fb13560ac1df">&#9670;&nbsp;</a></span>EliminarHabilitacion()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Proyecto_Final.Datos.EliminarHabilitacion </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Habilitaciones.html">Habilitaciones</a>&#160;</td>
-          <td class="paramname"><em>habilitacion</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Elimina una habilitación de la lista de habilitaciones permitidas por el programa. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">habilitacion</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00135">135</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
-
-</div>
-</div>
-<a id="ab7879b572a6b0c58390e98ece8959002" name="ab7879b572a6b0c58390e98ece8959002"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7879b572a6b0c58390e98ece8959002">&#9670;&nbsp;</a></span>EliminarOfertas()</h2>
+<a id="a1f6a6549bbc3a26e24f4376a333058c3" name="a1f6a6549bbc3a26e24f4376a333058c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f6a6549bbc3a26e24f4376a333058c3">&#9670;&nbsp;</a></span>EliminarOfertas()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,8 +333,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Proyecto_Final.Datos.EliminarOfertas </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a>&#160;</td>
-          <td class="paramname"><em>oferta</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -528,79 +343,352 @@ Public Member Functions</h2></td></tr>
 <p>Elimina una oferta de la lista de ofertas. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">oferta</td><td></td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00189">189</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00349">349</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="aa7847667a90dfffd39baf158c4284c4d" name="aa7847667a90dfffd39baf158c4284c4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7847667a90dfffd39baf158c4284c4d">&#9670;&nbsp;</a></span>EliminarRubro()</h2>
+<a id="a6d1c23292409ebc0d046bb743dd9cbec" name="a6d1c23292409ebc0d046bb743dd9cbec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d1c23292409ebc0d046bb743dd9cbec">&#9670;&nbsp;</a></span>EliminarToken()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Proyecto_Final.Datos.EliminarRubro </td>
+          <td class="memname">void Proyecto_Final.Datos.EliminarToken </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a>&#160;</td>
-          <td class="paramname"><em>rubro</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Elimina un rubro de la lista de rubros permitidos por el programa. </p>
+<p>Elimina un token de la lista. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rubro</td><td></td></tr>
+    <tr><td class="paramname">token</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00153">153</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00265">265</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a6d1c23292409ebc0d046bb743dd9cbec_cgraph.svg" width="450" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="a87e1f3fc19dae49941615fbe71807962" name="a87e1f3fc19dae49941615fbe71807962"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87e1f3fc19dae49941615fbe71807962">&#9670;&nbsp;</a></span>EliminarTipo()</h2>
+<a id="a529b32eab1e3cc1e3c7852687a61448b" name="a529b32eab1e3cc1e3c7852687a61448b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529b32eab1e3cc1e3c7852687a61448b">&#9670;&nbsp;</a></span>GetOfertaById()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Proyecto_Final.Datos.EliminarTipo </td>
+          <td class="memname"><a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> Proyecto_Final.Datos.GetOfertaById </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1TipoProducto.html">TipoProducto</a>&#160;</td>
-          <td class="paramname"><em>tipo</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>oferId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca las ofertas por ID y retorna la oferta. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td></td></tr>
+    <tr><td class="paramname">oferId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna una <a class="el" href="classProyecto__Final_1_1Oferta.html" title="Esta clase representa las ofertas creadas por un empresario. Esta clase tiene como función ser una re...">Oferta</a>.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00062">62</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a529b32eab1e3cc1e3c7852687a61448b_cgraph.svg" width="403" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a30e8c32b17c8818252e87fd5ebed845b" name="a30e8c32b17c8818252e87fd5ebed845b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e8c32b17c8818252e87fd5ebed845b">&#9670;&nbsp;</a></span>GetUnidadMedida()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Proyecto_Final.Datos.GetUnidadMedida </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tipoProducto</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Elimina un tipo de producto de la lista de tipos de productos permitidos por el programa. </p>
+<p>En base a un tipo de <a class="el" href="classProyecto__Final_1_1Producto.html" title="Esta clase representa al producto que se ofertará. Esta clase tiene como única funcion (SRP) represen...">Producto</a>, otorga la medida que utiliza </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tipo</td><td></td></tr>
+    <tr><td class="paramname">tipoProducto</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Un string que representa la unidad de medida de un producto.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00172">172</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00108">108</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="a46773117b6d103f5b349cd9c255d1f14" name="a46773117b6d103f5b349cd9c255d1f14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46773117b6d103f5b349cd9c255d1f14">&#9670;&nbsp;</a></span>ListaEmpresa()</h2>
+<a id="ad1e16fcd7feab40f425caa4508fe47ee" name="ad1e16fcd7feab40f425caa4508fe47ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e16fcd7feab40f425caa4508fe47ee">&#9670;&nbsp;</a></span>GetUserById()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList Proyecto_Final.Datos.ListaEmpresa </td>
+          <td class="memname"><a class="el" href="interfaceProyecto__Final_1_1IUser.html">IUser</a> Proyecto_Final.Datos.GetUserById </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca entre los usuarios registrados por id y retorna el usuario. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna un <a class="el" href="interfaceProyecto__Final_1_1IUser.html" title="Esta interfaz se utiliza para agrupar todas las clases usuario dentro de un solo tipo,...">IUser</a>.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00081">81</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_ad1e16fcd7feab40f425caa4508fe47ee_icgraph.svg" width="403" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a2cc8f5eab45abd224a7963add89e72c3" name="a2cc8f5eab45abd224a7963add89e72c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc8f5eab45abd224a7963add89e72c3">&#9670;&nbsp;</a></span>IsAdmin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Datos.IsAdmin </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica si es un admin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve true sie es un admin, false de lo contrario.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00202">202</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="a3f924986da27c825bb0491ee9559bd5c" name="a3f924986da27c825bb0491ee9559bd5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f924986da27c825bb0491ee9559bd5c">&#9670;&nbsp;</a></span>IsOfferValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Datos.IsOfferValid </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>oferId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica si una oferta es valida (no tiene comprador y existe). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td></td></tr>
+    <tr><td class="paramname">oferId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00146">146</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac42cb9cdbafa7207944036f9d027cd9e" name="ac42cb9cdbafa7207944036f9d027cd9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac42cb9cdbafa7207944036f9d027cd9e">&#9670;&nbsp;</a></span>IsRegistered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Datos.IsRegistered </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica si la id ya esta registrada. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve true si la id esta registrada, false de lo contrario</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00169">169</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="aaae86a6d331044afd32f08c8523447d4" name="aaae86a6d331044afd32f08c8523447d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae86a6d331044afd32f08c8523447d4">&#9670;&nbsp;</a></span>IsTokenValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Datos.IsTokenValid </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica si el token es valido. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve true si es valido, false de lo contrario.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00277">277</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4c403135bf82d1f988d7190b49787312" name="a4c403135bf82d1f988d7190b49787312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c403135bf82d1f988d7190b49787312">&#9670;&nbsp;</a></span>IsUserEmprendedor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Datos.IsUserEmprendedor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checkea en base a un ID si esta ID pertenece a un <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r...">UserEmprendedor</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si la ID es de un objeto de <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r...">UserEmprendedor</a>, false si no lo es.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00212">212</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="a51e376412a39b1faa78ddd5a954d3f06" name="a51e376412a39b1faa78ddd5a954d3f06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e376412a39b1faa78ddd5a954d3f06">&#9670;&nbsp;</a></span>IsUserEmpresa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Proyecto_Final.Datos.IsUserEmpresa </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checkea en base a un ID si esta ID pertenece a un <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us...">UserEmpresa</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si la ID es de un objeto de UserEmprensa, false si no lo es.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00229">229</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="a8c0152df5b650e269b10a6f06c41a0c5" name="a8c0152df5b650e269b10a6f06c41a0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c0152df5b650e269b10a6f06c41a0c5">&#9670;&nbsp;</a></span>ListaAdmins()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string[] Proyecto_Final.Datos.ListaAdmins </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -608,10 +696,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Lista con todas las <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a> registradas. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a></dd></dl>
+<p>Devuelve una lista con los ids de admins validos. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lista de ids de admins.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00077">77</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00192">192</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
@@ -630,18 +718,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00096">96</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00322">322</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="a056fd3fc1b7c05f9f4bb0779966e8d48" name="a056fd3fc1b7c05f9f4bb0779966e8d48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a056fd3fc1b7c05f9f4bb0779966e8d48">&#9670;&nbsp;</a></span>ListaOfertas()</h2>
+<a id="a18cad0d3447573e1fc7ff4a16cd6f353" name="a18cad0d3447573e1fc7ff4a16cd6f353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18cad0d3447573e1fc7ff4a16cd6f353">&#9670;&nbsp;</a></span>ListaOfertas()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList Proyecto_Final.Datos.ListaOfertas </td>
+          <td class="memname">List&lt; <a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> &gt; Proyecto_Final.Datos.ListaOfertas </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -650,9 +738,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Otorga una lista con todas las publicaciones realizadas. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1Oferta.html" title="Esta clase representa las ofertas creadas por un empresario.">Oferta</a>.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1Oferta.html" title="Esta clase representa las ofertas creadas por un empresario. Esta clase tiene como función ser una re...">Oferta</a>.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00017">17</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00286">286</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
@@ -671,18 +759,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00117">117</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00340">340</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="a153adb2bdd7c6ca263e2e0dde53c493d" name="a153adb2bdd7c6ca263e2e0dde53c493d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a153adb2bdd7c6ca263e2e0dde53c493d">&#9670;&nbsp;</a></span>ListaTipos()</h2>
+<a id="af9fde82899231952098b3ee096092b37" name="af9fde82899231952098b3ee096092b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9fde82899231952098b3ee096092b37">&#9670;&nbsp;</a></span>ListaTipos()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList Proyecto_Final.Datos.ListaTipos </td>
+          <td class="memname">Dictionary&lt; string, string &gt; Proyecto_Final.Datos.ListaTipos </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -690,21 +778,25 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto.">TipoProducto</a>. </p>
+<p>Otorga una lista de tipos de producto (plástico, tela, etc...) registradas por el programa <a class="el" href="classProyecto__Final_1_1TipoProducto.html" title="Esta clase representa una clasificación general de un producto. La única función de existencia de est...">TipoProducto</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Retorna la lista "listaTipos" de la clase "Datos".</dd></dl>
+<p>summary&gt; Otorga una lista de rubros disponibles para asignarle a una empresa <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa. La única función de existencia de esta clase es para d...">Rubro</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Retorna una lista "listaRubros" de la clase "Datos".</dd></dl>
+<p>// <br  />
+ </p>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00106">106</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00331">331</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="acc5e184197b12b68767f7cf63525bd8d" name="acc5e184197b12b68767f7cf63525bd8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5e184197b12b68767f7cf63525bd8d">&#9670;&nbsp;</a></span>ListaUsuarioEmprendedor()</h2>
+<a id="af87a40a8fd52a7f1b61515ab701e5169" name="af87a40a8fd52a7f1b61515ab701e5169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af87a40a8fd52a7f1b61515ab701e5169">&#9670;&nbsp;</a></span>ListaTokens()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList Proyecto_Final.Datos.ListaUsuarioEmprendedor </td>
+          <td class="memname">List&lt; string &gt; Proyecto_Final.Datos.ListaTokens </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -712,21 +804,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema.">UserEmprendedor</a> registrados. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema.">UserEmprendedor</a></dd></dl>
+<p>Devuelve la lista de tokens validos. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lista de tokens validos.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00057">57</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00245">245</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
 
 </div>
 </div>
-<a id="a4794b8fa419688f11b2e15686ea02f50" name="a4794b8fa419688f11b2e15686ea02f50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4794b8fa419688f11b2e15686ea02f50">&#9670;&nbsp;</a></span>ListaUsuarioEmpresa()</h2>
+<a id="a4acafe531ff409ee1f31bb4c58c87c3b" name="a4acafe531ff409ee1f31bb4c58c87c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4acafe531ff409ee1f31bb4c58c87c3b">&#9670;&nbsp;</a></span>ListaUsuarioEmprendedor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList Proyecto_Final.Datos.ListaUsuarioEmpresa </td>
+          <td class="memname">List&lt; <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html">UserEmprendedor</a> &gt; Proyecto_Final.Datos.ListaUsuarioEmprendedor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -734,15 +826,327 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa.">UserEmpresa</a> registrados en la aplicacion. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa.">UserEmpresa</a></dd></dl>
+<p>Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r...">UserEmprendedor</a> registrados. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r...">UserEmprendedor</a></dd></dl>
+<p>summary&gt; Otorga una lista de habilitaciones registradas por el programa <a class="el" href="classProyecto__Final_1_1Habilitaciones.html" title="Esta clase representa las habilitaciones necesarias para la tenencia de productos....">Habilitaciones</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Retorna la lista "listaHabilitaciones" de la clase "Datos".</dd></dl>
+<p><br  />
+ </p>
 
-<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00037">37</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00313">313</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="a639b95fcea688109d063dcc936ba738e" name="a639b95fcea688109d063dcc936ba738e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639b95fcea688109d063dcc936ba738e">&#9670;&nbsp;</a></span>ListaUsuarioEmpresa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="classProyecto__Final_1_1UserEmpresa.html">UserEmpresa</a> &gt; Proyecto_Final.Datos.ListaUsuarioEmpresa </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Otorga una lista con todos los <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us...">UserEmpresa</a> registrados en la aplicacion. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lista con <a class="el" href="classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us...">UserEmpresa</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00304">304</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+
+</div>
+</div>
+<a id="a8c24cd44b6a4a31c4997e12aa37c44f5" name="a8c24cd44b6a4a31c4997e12aa37c44f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c24cd44b6a4a31c4997e12aa37c44f5">&#9670;&nbsp;</a></span>LoadData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.LoadData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Al inicializar el programa se obtienen todos los datos de la DB. </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00048">48</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a8c24cd44b6a4a31c4997e12aa37c44f5_cgraph.svg" width="444" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa742d8a592c4fe99fc03929aa03131fe" name="aa742d8a592c4fe99fc03929aa03131fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa742d8a592c4fe99fc03929aa03131fe">&#9670;&nbsp;</a></span>LoadPublications()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.LoadPublications </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00490">490</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_aa742d8a592c4fe99fc03929aa03131fe_icgraph.svg" width="444" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4a9a373ee9141af45ef7ae13f9cd0a48" name="a4a9a373ee9141af45ef7ae13f9cd0a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a9a373ee9141af45ef7ae13f9cd0a48">&#9670;&nbsp;</a></span>LoadRegisteredEmprendedores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.LoadRegisteredEmprendedores </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carga los datos de los Emprendedores en base a un archivo ".json". </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00462">462</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a4a9a373ee9141af45ef7ae13f9cd0a48_icgraph.svg" width="444" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4ba66710d34c9ff639d6f75a2344a82a" name="a4ba66710d34c9ff639d6f75a2344a82a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba66710d34c9ff639d6f75a2344a82a">&#9670;&nbsp;</a></span>LoadRegisteredEmpresas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.LoadRegisteredEmpresas </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carga los datos de una empresa en base al archivo ".json" </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00434">434</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a4ba66710d34c9ff639d6f75a2344a82a_icgraph.svg" width="444" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ae9680a9c3767c088138663614fa8a977" name="ae9680a9c3767c088138663614fa8a977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9680a9c3767c088138663614fa8a977">&#9670;&nbsp;</a></span>RegistrarUsuarioEmprendedor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.RegistrarUsuarioEmprendedor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1UserEmprendedor.html">UserEmprendedor</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Agrega un usuario <a class="el" href="classProyecto__Final_1_1Emprendedor.html" title="Esta clase representa los datos adicionales del emprendedor. Se utiliza el patrón Expert debido a que...">Emprendedor</a> a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00134">134</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_ae9680a9c3767c088138663614fa8a977_cgraph.svg" width="454" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a540f21f7268b4182721522f13ef5913b" name="a540f21f7268b4182721522f13ef5913b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540f21f7268b4182721522f13ef5913b">&#9670;&nbsp;</a></span>RegistrarUsuarioEmpresa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.RegistrarUsuarioEmpresa </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classProyecto__Final_1_1UserEmpresa.html">UserEmpresa</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Agrega un usuario <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a> a la lista de usuarios y actualiza la lista para que al momento de guardar el archivo .json, se actualizen los datos modificados. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00124">124</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a540f21f7268b4182721522f13ef5913b_cgraph.svg" width="454" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa4a8cd50d9d37fbee9d05a36fac1d00a" name="aa4a8cd50d9d37fbee9d05a36fac1d00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a8cd50d9d37fbee9d05a36fac1d00a">&#9670;&nbsp;</a></span>UpdateEmprendedoresData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.UpdateEmprendedoresData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista. </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00480">480</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_aa4a8cd50d9d37fbee9d05a36fac1d00a_icgraph.svg" width="454" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a36bd6929f8b22d7ff510ea5698712e81" name="a36bd6929f8b22d7ff510ea5698712e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36bd6929f8b22d7ff510ea5698712e81">&#9670;&nbsp;</a></span>UpdateEmpresasData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.UpdateEmpresasData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualiza los datos que se encuentran almacenados en el ".json", para que sean iguales a los datos almacenados en la lista. </p>
+<p ><br  />
+ </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00452">452</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a36bd6929f8b22d7ff510ea5698712e81_icgraph.svg" width="454" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a9c9266cfd3975bdd6fa1ff33f4a0a18f" name="a9c9266cfd3975bdd6fa1ff33f4a0a18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9266cfd3975bdd6fa1ff33f4a0a18f">&#9670;&nbsp;</a></span>UpdateOfersData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.UpdateOfersData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualiza la informacion de las publicaciones. </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00294">294</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a9c9266cfd3975bdd6fa1ff33f4a0a18f_cgraph.svg" width="443" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a8a0ac2ec641e0220ece58545c6c6bc97" name="a8a0ac2ec641e0220ece58545c6c6bc97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0ac2ec641e0220ece58545c6c6bc97">&#9670;&nbsp;</a></span>UpdateTokensData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Proyecto_Final.Datos.UpdateTokensData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualiza los datos almacenados en la listaTokens </p>
+
+<p class="definition">Definition at line <a class="el" href="Datos_8cs_source.html#l00425">425</a> of file <a class="el" href="Datos_8cs_source.html">Datos.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Datos_a8a0ac2ec641e0220ece58545c6c6bc97_icgraph.svg" width="450" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/<a class="el" href="Datos_8cs_source.html">Datos.cs</a></li>
+<li>D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/Clases/<a class="el" href="Datos_8cs_source.html">Datos.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.BaseHandler.InternalCancel" name="Proyecto_Final.BaseHandler.InternalCancel">
+<area shape="rect" id="node1" title="Este método puede ser sobreescrito en las clases sucesores que procesan varios mensajes cambiando de ..." alt="" coords="244,5,435,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#a60e6277c6d1dd83c135e0e6f2b2976fe" title="Retorna este &quot;handler&quot; al estado inicial. En los &quot;handler&quot; sin estado no hace nada...." alt="" coords="5,5,196,47"/>
+</map>

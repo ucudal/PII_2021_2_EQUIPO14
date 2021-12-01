@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.Datos.UpdateOfersData" name="Proyecto_Final.Datos.UpdateOfersData">
+<area shape="rect" id="node1" title="Actualiza la informacion de las publicaciones." alt="" coords="5,39,197,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1Datos.html#aa742d8a592c4fe99fc03929aa03131fe" title="Carga las publicaciones en base a los datos de las publicaciones almacenadas en todos los Usuarios Em..." alt="" coords="252,5,431,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1Datos.html#a36bd6929f8b22d7ff510ea5698712e81" title="Actualiza los datos que se encuentran almacenados en el &quot;.json&quot;, para que sean iguales a los datos al..." alt="" coords="245,71,437,112"/>
+</map>

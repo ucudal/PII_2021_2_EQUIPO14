@@ -1,4 +1,20 @@
 var searchData=
 [
-  ['nombre_0',['Nombre',['../classProyecto__Final_1_1Empresa.html#ad355c44d4231bc988d789f192b337261',1,'Proyecto_Final.Empresa.Nombre()'],['../classProyecto__Final_1_1Oferta.html#ac69ad19ae3469faeaf2391ba80f3d570',1,'Proyecto_Final.Oferta.Nombre()'],['../classProyecto__Final_1_1Producto.html#a3d7212ec124863ed165aeb07e116a340',1,'Proyecto_Final.Producto.Nombre()'],['../classProyecto__Final_1_1TipoProducto.html#ab4c09334ba1e66798c6869845581202a',1,'Proyecto_Final.TipoProducto.Nombre()'],['../classProyecto__Final_1_1UserAdmin.html#a93089a5a7863001eb94bc59d6a2931a4',1,'Proyecto_Final.UserAdmin.Nombre()'],['../classProyecto__Final_1_1UserEmprendedor.html#aaedc150c9ffde6c5532d5eb76123f60a',1,'Proyecto_Final.UserEmprendedor.Nombre()'],['../classProyecto__Final_1_1UserEmpresa.html#a63e563e5e673e34046f0d02ea7b19812',1,'Proyecto_Final.UserEmpresa.Nombre()']]]
+  ['lastname_0',['LastName',['../classProyecto__Final_1_1TelegramAdapter.html#a1f1f5bbeecd38ceb878482d00aa4fca3',1,'Proyecto_Final.TelegramAdapter.LastName()'],['../interfaceProyecto__Final_1_1IMessage.html#a560efd0fdf1c7ebdc90c94423498f1ca',1,'Proyecto_Final.IMessage.LastName()']]],
+  ['latitude_1',['Latitude',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1Location.html#aacc3554f0fce040f82bddc256558c9b0',1,'Ucu::Poo::Locations::Client::Location']]],
+  ['listaadmins_2',['ListaAdmins',['../classProyecto__Final_1_1Datos.html#a8c0152df5b650e269b10a6f06c41a0c5',1,'Proyecto_Final::Datos']]],
+  ['listaestadousuario_3',['ListaEstadoUsuario',['../classProyecto__Final_1_1StatusManager.html#abfcd5a9a3f538ddb0f7f7f818c06ff59',1,'Proyecto_Final::StatusManager']]],
+  ['listaofertas_4',['ListaOfertas',['../classProyecto__Final_1_1Datos.html#a18cad0d3447573e1fc7ff4a16cd6f353',1,'Proyecto_Final::Datos']]],
+  ['listatipos_5',['ListaTipos',['../classProyecto__Final_1_1Datos.html#af9fde82899231952098b3ee096092b37',1,'Proyecto_Final::Datos']]],
+  ['listatokens_6',['ListaTokens',['../classProyecto__Final_1_1Datos.html#af87a40a8fd52a7f1b61515ab701e5169',1,'Proyecto_Final::Datos']]],
+  ['listausuarioemprendedor_7',['ListaUsuarioEmprendedor',['../classProyecto__Final_1_1Datos.html#a4acafe531ff409ee1f31bb4c58c87c3b',1,'Proyecto_Final::Datos']]],
+  ['listausuarioempresa_8',['ListaUsuarioEmpresa',['../classProyecto__Final_1_1Datos.html#a639b95fcea688109d063dcc936ba738e',1,'Proyecto_Final::Datos']]],
+  ['loaddata_9',['LoadData',['../classProyecto__Final_1_1Datos.html#a8c24cd44b6a4a31c4997e12aa37c44f5',1,'Proyecto_Final::Datos']]],
+  ['loadpublications_10',['LoadPublications',['../classProyecto__Final_1_1Datos.html#aa742d8a592c4fe99fc03929aa03131fe',1,'Proyecto_Final::Datos']]],
+  ['loadregisteredemprendedores_11',['LoadRegisteredEmprendedores',['../classProyecto__Final_1_1Datos.html#a4a9a373ee9141af45ef7ae13f9cd0a48',1,'Proyecto_Final::Datos']]],
+  ['loadregisteredempresas_12',['LoadRegisteredEmpresas',['../classProyecto__Final_1_1Datos.html#a4ba66710d34c9ff639d6f75a2344a82a',1,'Proyecto_Final::Datos']]],
+  ['locality_13',['Locality',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1Location.html#a08e6b4140650fccca9b29954829268ff',1,'Ucu::Poo::Locations::Client::Location']]],
+  ['location_14',['Location',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1Location.html',1,'Ucu::Poo::Locations::Client']]],
+  ['locationapiclient_15',['LocationApiClient',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html',1,'Ucu::Poo::Locations::Client']]],
+  ['longitude_16',['Longitude',['../classUcu_1_1Poo_1_1Locations_1_1Client_1_1Location.html#aca89d30ba4288562bb841c7e4da45663',1,'Ucu::Poo::Locations::Client::Location']]]
 ];

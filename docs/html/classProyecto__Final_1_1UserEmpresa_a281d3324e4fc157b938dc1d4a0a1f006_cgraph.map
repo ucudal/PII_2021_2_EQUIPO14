@@ -1,0 +1,7 @@
+<map id="Proyecto_Final.UserEmpresa.CrearOferta" name="Proyecto_Final.UserEmpresa.CrearOferta">
+<area shape="rect" id="node1" title="Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma ..." alt="" coords="5,39,201,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserEmpresa.html#a39d58c8a2fbc7b08395014dbebb891e6" title="Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materia..." alt="" coords="249,5,445,47"/>
+<area shape="rect" id="node5" href="$classProyecto__Final_1_1UserEmpresa.html#ab2f62906e4c081e1618bceaf5b8e97e7" title="Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad,..." alt="" coords="249,71,445,112"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1Empresa.html#aa68dbd17274482d7958f0897c9887b5b" title="Agrega una palabra clave a una publicacion determinada." alt="" coords="493,5,708,47"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1Oferta.html#a21dcf683780c6862d89e5f3485d58d6f" title="Agrega una palabra clave a la listas de palabras clave de la oferta." alt="" coords="756,5,953,47"/>
+</map>

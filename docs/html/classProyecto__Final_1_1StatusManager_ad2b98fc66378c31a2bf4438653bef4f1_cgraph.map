@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.StatusManager.CheckStatus" name="Proyecto_Final.StatusManager.CheckStatus">
+<area shape="rect" id="node1" title="Verifica el status actual de un usuario y lo devuelve. Si no tiene estado devuelve el status por defe..." alt="" coords="5,5,211,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1StatusManager.html#abfcd5a9a3f538ddb0f7f7f818c06ff59" title="Otorga un diccionario con los id de usuario como key y su estado como value." alt="" coords="259,5,464,47"/>
+</map>

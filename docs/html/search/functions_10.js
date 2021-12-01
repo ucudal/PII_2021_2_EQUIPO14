@@ -1,0 +1,15 @@
+var searchData=
+[
+  ['verificarconsumo_0',['VerificarConsumo',['../classProyecto__Final_1_1Emprendedor.html#a1af2bebf0929cca05ae28ea88b8e7e3c',1,'Proyecto_Final.Emprendedor.VerificarConsumo()'],['../classProyecto__Final_1_1UserEmprendedor.html#a7df5a29374072534429f58061989da70',1,'Proyecto_Final.UserEmprendedor.VerificarConsumo()']]],
+  ['verificarconsumofailtest_1',['VerificarConsumoFailTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#a0c72be1f281f0f3100bb2252d72e1d64',1,'Proyecto_Final::UserEmprendedorTests']]],
+  ['verificarconsumotest_2',['VerificarConsumoTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#a0770897e192892ccd3cd43f922e33c9e',1,'Proyecto_Final::UserEmprendedorTests']]],
+  ['verificarventas_3',['VerificarVentas',['../classProyecto__Final_1_1Empresa.html#af7f16f0aeb5e9c3413f15b4923385565',1,'Proyecto_Final.Empresa.VerificarVentas()'],['../classProyecto__Final_1_1UserEmpresa.html#af9f8f39960793a55040047ba42e990b2',1,'Proyecto_Final.UserEmpresa.VerificarVentas()']]],
+  ['verofertaspalabraclave_4',['VerOfertasPalabraClave',['../classProyecto__Final_1_1Buscador.html#a006a52250da1997f883b1d649ccaa5f0',1,'Proyecto_Final.Buscador.VerOfertasPalabraClave()'],['../classProyecto__Final_1_1UserEmprendedor.html#abc662bcf45f5bb4c5235c421620b97ba',1,'Proyecto_Final.UserEmprendedor.VerOfertasPalabraClave()'],['../classProyecto__Final_1_1UserEmprendedorTests.html#ae7d773bae1185f8c4703cb58edd4b5b2',1,'Proyecto_Final.UserEmprendedorTests.VerOfertasPalabraClave()']]],
+  ['verofertaspalabraclavefailtest_5',['VerOfertasPalabraClaveFailTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#a38bad9121e8fa373a73fbaec830878fd',1,'Proyecto_Final::UserEmprendedorTests']]],
+  ['verofertastipo_6',['VerOfertasTipo',['../classProyecto__Final_1_1Buscador.html#a36d77cdb0cb8dd6d78238f48fff0e316',1,'Proyecto_Final.Buscador.VerOfertasTipo()'],['../classProyecto__Final_1_1UserEmprendedor.html#a39280f4417c1a567dd77bcb73d738e69',1,'Proyecto_Final.UserEmprendedor.VerOfertasTipo()']]],
+  ['verofertastipofailtest_7',['VerOfertasTipoFailTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#a185cbf0f5f41f93292da31d576a6af43',1,'Proyecto_Final::UserEmprendedorTests']]],
+  ['verofertastipotest_8',['VerOfertasTipoTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#af1faa9a1c18606dfee1e1ecb2841fafc',1,'Proyecto_Final::UserEmprendedorTests']]],
+  ['verofertasubicacion_9',['VerOfertasUbicacion',['../classProyecto__Final_1_1Buscador.html#a2c74e8d41cf6f6307a4dcae5d247f79b',1,'Proyecto_Final.Buscador.VerOfertasUbicacion()'],['../classProyecto__Final_1_1UserEmprendedor.html#a9a77d8df6165ee77ae68dc7ff3ce39bd',1,'Proyecto_Final.UserEmprendedor.VerOfertasUbicacion()']]],
+  ['verofertasubicacionfailtest_10',['VerOfertasUbicacionFailTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#aacbda5e4eaab3f2dd780bcf555d57b7b',1,'Proyecto_Final::UserEmprendedorTests']]],
+  ['verofertasubicaciontest_11',['VerOfertasUbicacionTest',['../classProyecto__Final_1_1UserEmprendedorTests.html#a00f07f4def05997a507104006f084308',1,'Proyecto_Final::UserEmprendedorTests']]]
+];

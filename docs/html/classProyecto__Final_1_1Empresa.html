@@ -90,55 +90,85 @@ $(document).ready(function(){initNavTree('classProyecto__Final_1_1Empresa.html',
 </div><!--header-->
 <div class="contents">
 
-<p>Esta clase representa a la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>.  
+<p>Esta clase representa a la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>. Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>, y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>, ya que las ofertas personales se contienen en esta clase. También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, que es la clase "Oferta".  
  <a href="classProyecto__Final_1_1Empresa.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for Proyecto_Final.Empresa:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 -->
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Empresa__coll__graph.svg" width="190" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ac7ca5289ad112d52bf0b9a161a43191f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#ac7ca5289ad112d52bf0b9a161a43191f">Empresa</a> ()</td></tr>
+<tr class="memdesc:ac7ca5289ad112d52bf0b9a161a43191f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor vacio utilizado para la serializacion.  <a href="classProyecto__Final_1_1Empresa.html#ac7ca5289ad112d52bf0b9a161a43191f">More...</a><br /></td></tr>
+<tr class="separator:ac7ca5289ad112d52bf0b9a161a43191f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5374fc4622d22f0d26ef5dc3ac62b36f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a5374fc4622d22f0d26ef5dc3ac62b36f">Empresa</a> (string nombre, string ubicacion, <a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a> rubro)</td></tr>
-<tr class="memdesc:a5374fc4622d22f0d26ef5dc3ac62b36f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa la clase <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>.  <a href="classProyecto__Final_1_1Empresa.html#a5374fc4622d22f0d26ef5dc3ac62b36f">More...</a><br /></td></tr>
+<tr class="memdesc:a5374fc4622d22f0d26ef5dc3ac62b36f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa la clase <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>.  <a href="classProyecto__Final_1_1Empresa.html#a5374fc4622d22f0d26ef5dc3ac62b36f">More...</a><br /></td></tr>
 <tr class="separator:a5374fc4622d22f0d26ef5dc3ac62b36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a26903d4018f57cec379e6c324e157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#aa0a26903d4018f57cec379e6c324e157">AgregarMsjClave</a> ((string, string) datosMensaje)</td></tr>
-<tr class="memdesc:aa0a26903d4018f57cec379e6c324e157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una palabra clave a una publicacion determinada.  <a href="classProyecto__Final_1_1Empresa.html#aa0a26903d4018f57cec379e6c324e157">More...</a><br /></td></tr>
-<tr class="separator:aa0a26903d4018f57cec379e6c324e157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16119de03fb0b18b5f56c8351cfbde91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a16119de03fb0b18b5f56c8351cfbde91">AgregarRubro</a> (string rubro)</td></tr>
+<tr class="memdesc:a16119de03fb0b18b5f56c8351cfbde91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un rubro.  <a href="classProyecto__Final_1_1Empresa.html#a16119de03fb0b18b5f56c8351cfbde91">More...</a><br /></td></tr>
+<tr class="separator:a16119de03fb0b18b5f56c8351cfbde91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa68dbd17274482d7958f0897c9887b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#aa68dbd17274482d7958f0897c9887b5b">AgregarMsjClave</a> (string oferId, string palabra)</td></tr>
+<tr class="memdesc:aa68dbd17274482d7958f0897c9887b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una palabra clave a una publicacion determinada.  <a href="classProyecto__Final_1_1Empresa.html#aa68dbd17274482d7958f0897c9887b5b">More...</a><br /></td></tr>
+<tr class="separator:aa68dbd17274482d7958f0897c9887b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17889afda0059683374a057f9f10f255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a17889afda0059683374a057f9f10f255">AgregarEspecializacion</a> (string especializacion)</td></tr>
 <tr class="memdesc:a17889afda0059683374a057f9f10f255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una especializacion a la empresa y la guarda en un array.  <a href="classProyecto__Final_1_1Empresa.html#a17889afda0059683374a057f9f10f255">More...</a><br /></td></tr>
 <tr class="separator:a17889afda0059683374a057f9f10f255"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a335942e931c582d0df7ebd572c548ec7"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a335942e931c582d0df7ebd572c548ec7">VerificarVentas</a> ()</td></tr>
-<tr class="memdesc:a335942e931c582d0df7ebd572c548ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.  <a href="classProyecto__Final_1_1Empresa.html#a335942e931c582d0df7ebd572c548ec7">More...</a><br /></td></tr>
-<tr class="separator:a335942e931c582d0df7ebd572c548ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f16f0aeb5e9c3413f15b4923385565"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#af7f16f0aeb5e9c3413f15b4923385565">VerificarVentas</a> (string date)</td></tr>
+<tr class="memdesc:af7f16f0aeb5e9c3413f15b4923385565"><td class="mdescLeft">&#160;</td><td class="mdescRight">Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.  <a href="classProyecto__Final_1_1Empresa.html#af7f16f0aeb5e9c3413f15b4923385565">More...</a><br /></td></tr>
+<tr class="separator:af7f16f0aeb5e9c3413f15b4923385565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad178e20495c250fc862641516535ab9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#aad178e20495c250fc862641516535ab9">CheckBuyers</a> ()</td></tr>
+<tr class="memdesc:aad178e20495c250fc862641516535ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve un string con la lista de ofertas con compradores.  <a href="classProyecto__Final_1_1Empresa.html#aad178e20495c250fc862641516535ab9">More...</a><br /></td></tr>
+<tr class="separator:aad178e20495c250fc862641516535ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:ad355c44d4231bc988d789f192b337261"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#ad355c44d4231bc988d789f192b337261">Nombre</a><code> [get]</code></td></tr>
-<tr class="memdesc:ad355c44d4231bc988d789f192b337261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor del nombre de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>.  <a href="classProyecto__Final_1_1Empresa.html#ad355c44d4231bc988d789f192b337261">More...</a><br /></td></tr>
+<tr class="memitem:ad355c44d4231bc988d789f192b337261"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#ad355c44d4231bc988d789f192b337261">Nombre</a><code> [getset]</code></td></tr>
+<tr class="memdesc:ad355c44d4231bc988d789f192b337261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor del nombre de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>.  <a href="classProyecto__Final_1_1Empresa.html#ad355c44d4231bc988d789f192b337261">More...</a><br /></td></tr>
 <tr class="separator:ad355c44d4231bc988d789f192b337261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e9b9e3e8783a38afffab24cb08d12f5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a8e9b9e3e8783a38afffab24cb08d12f5">Ubicacion</a><code> [get]</code></td></tr>
-<tr class="memdesc:a8e9b9e3e8783a38afffab24cb08d12f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor de la ubocacion de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>.  <a href="classProyecto__Final_1_1Empresa.html#a8e9b9e3e8783a38afffab24cb08d12f5">More...</a><br /></td></tr>
+<tr class="memitem:a8e9b9e3e8783a38afffab24cb08d12f5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a8e9b9e3e8783a38afffab24cb08d12f5">Ubicacion</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a8e9b9e3e8783a38afffab24cb08d12f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor de la ubocacion de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>.  <a href="classProyecto__Final_1_1Empresa.html#a8e9b9e3e8783a38afffab24cb08d12f5">More...</a><br /></td></tr>
 <tr class="separator:a8e9b9e3e8783a38afffab24cb08d12f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bb45910b6e0989476dd69555f334cfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a9bb45910b6e0989476dd69555f334cfa">Rubro</a><code> [get]</code></td></tr>
-<tr class="memdesc:a9bb45910b6e0989476dd69555f334cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor del <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa.">Rubro</a> de la empresa.  <a href="classProyecto__Final_1_1Empresa.html#a9bb45910b6e0989476dd69555f334cfa">More...</a><br /></td></tr>
+<tr class="memitem:a9bb45910b6e0989476dd69555f334cfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProyecto__Final_1_1Rubro.html">Rubro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a9bb45910b6e0989476dd69555f334cfa">Rubro</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a9bb45910b6e0989476dd69555f334cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor del <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa. La única función de existencia de esta clase es para d...">Rubro</a> de la empresa.  <a href="classProyecto__Final_1_1Empresa.html#a9bb45910b6e0989476dd69555f334cfa">More...</a><br /></td></tr>
 <tr class="separator:a9bb45910b6e0989476dd69555f334cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26b7365370627a8ac8e642a5fc4e9e00"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a26b7365370627a8ac8e642a5fc4e9e00">Especializaciones</a><code> [get]</code></td></tr>
+<tr class="memitem:a26b7365370627a8ac8e642a5fc4e9e00"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a26b7365370627a8ac8e642a5fc4e9e00">Especializaciones</a><code> [getset]</code></td></tr>
 <tr class="memdesc:a26b7365370627a8ac8e642a5fc4e9e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor de las especializaciones de la empresa.  <a href="classProyecto__Final_1_1Empresa.html#a26b7365370627a8ac8e642a5fc4e9e00">More...</a><br /></td></tr>
 <tr class="separator:a26b7365370627a8ac8e642a5fc4e9e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeda495e532e43ce971713664b6d76847"><td class="memItemLeft" align="right" valign="top">ArrayList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#aeda495e532e43ce971713664b6d76847">Ofertas</a><code> [get]</code></td></tr>
-<tr class="memdesc:aeda495e532e43ce971713664b6d76847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor de las ofertaas publicadas de la empresa.  <a href="classProyecto__Final_1_1Empresa.html#aeda495e532e43ce971713664b6d76847">More...</a><br /></td></tr>
-<tr class="separator:aeda495e532e43ce971713664b6d76847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff2bac280b4fd489c7982466cae4e0a"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProyecto__Final_1_1Empresa.html#a8ff2bac280b4fd489c7982466cae4e0a">Ofertas</a><code> [getset]</code></td></tr>
+<tr class="memdesc:a8ff2bac280b4fd489c7982466cae4e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene un valor de las ofertaas publicadas de la empresa.  <a href="classProyecto__Final_1_1Empresa.html#a8ff2bac280b4fd489c7982466cae4e0a">More...</a><br /></td></tr>
+<tr class="separator:a8ff2bac280b4fd489c7982466cae4e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Esta clase representa a la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>. </p>
+<div class="textblock"><p >Esta clase representa a la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>. Se utiliza el patrón Expert debido a que la clase contiene los datos personales del usuario <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>, y por ende es experta en la modificación de estos datos; además de ser experta en evaluar las ventas del usuario <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>, ya que las ofertas personales se contienen en esta clase. También se utiliza el patrón de Delegación para delegar la modificación de los atributos de una oferta a la clase que almacena esos atributos, que es la clase "Oferta". </p>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00011">11</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00018">18</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac7ca5289ad112d52bf0b9a161a43191f" name="ac7ca5289ad112d52bf0b9a161a43191f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ca5289ad112d52bf0b9a161a43191f">&#9670;&nbsp;</a></span>Empresa() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Proyecto_Final.Empresa.Empresa </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor vacio utilizado para la serializacion. </p>
+
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00059">59</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+
+</div>
+</div>
 <a id="a5374fc4622d22f0d26ef5dc3ac62b36f" name="a5374fc4622d22f0d26ef5dc3ac62b36f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5374fc4622d22f0d26ef5dc3ac62b36f">&#9670;&nbsp;</a></span>Empresa()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5374fc4622d22f0d26ef5dc3ac62b36f">&#9670;&nbsp;</a></span>Empresa() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +199,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializa la clase <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>. </p>
+<p>Inicializa la clase <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombre</td><td></td></tr>
@@ -179,7 +209,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00052">52</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00067">67</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
@@ -208,12 +238,12 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00078">78</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00104">104</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
-<a id="aa0a26903d4018f57cec379e6c324e157" name="aa0a26903d4018f57cec379e6c324e157"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0a26903d4018f57cec379e6c324e157">&#9670;&nbsp;</a></span>AgregarMsjClave()</h2>
+<a id="aa68dbd17274482d7958f0897c9887b5b" name="aa68dbd17274482d7958f0897c9887b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa68dbd17274482d7958f0897c9887b5b">&#9670;&nbsp;</a></span>AgregarMsjClave()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,9 +251,19 @@ Properties</h2></td></tr>
         <tr>
           <td class="memname">void Proyecto_Final.Empresa.AgregarMsjClave </td>
           <td>(</td>
-          <td class="paramtype">(string, string)&#160;</td>
-          <td class="paramname"><em>datosMensaje</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>oferId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>palabra</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -231,37 +271,101 @@ Properties</h2></td></tr>
 <p>Agrega una palabra clave a una publicacion determinada. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">datosMensaje</td><td></td></tr>
+    <tr><td class="paramname">palabra</td><td></td></tr>
+    <tr><td class="paramname">oferId</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00063">63</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00089">89</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 1 -->
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Empresa_aa68dbd17274482d7958f0897c9887b5b_cgraph.svg" width="471" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 2 -->
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Empresa_aa68dbd17274482d7958f0897c9887b5b_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a335942e931c582d0df7ebd572c548ec7" name="a335942e931c582d0df7ebd572c548ec7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a335942e931c582d0df7ebd572c548ec7">&#9670;&nbsp;</a></span>VerificarVentas()</h2>
+<a id="a16119de03fb0b18b5f56c8351cfbde91" name="a16119de03fb0b18b5f56c8351cfbde91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16119de03fb0b18b5f56c8351cfbde91">&#9670;&nbsp;</a></span>AgregarRubro()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt; string, int &gt; Proyecto_Final.Empresa.VerificarVentas </td>
+          <td class="memname">void Proyecto_Final.Empresa.AgregarRubro </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>rubro</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Agrega un rubro. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rubro</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00078">78</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Empresa_a16119de03fb0b18b5f56c8351cfbde91_icgraph.svg" width="470" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aad178e20495c250fc862641516535ab9" name="aad178e20495c250fc862641516535ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad178e20495c250fc862641516535ab9">&#9670;&nbsp;</a></span>CheckBuyers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Proyecto_Final.Empresa.CheckBuyers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve un string con la lista de ofertas con compradores. </p>
+<dl class="section return"><dt>Returns</dt><dd>string</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00145">145</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Empresa_aad178e20495c250fc862641516535ab9_icgraph.svg" width="462" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="af7f16f0aeb5e9c3413f15b4923385565" name="af7f16f0aeb5e9c3413f15b4923385565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7f16f0aeb5e9c3413f15b4923385565">&#9670;&nbsp;</a></span>VerificarVentas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Proyecto_Final.Empresa.VerificarVentas </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -270,11 +374,11 @@ Here is the caller graph for this function:</div>
 <p>Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización. </p>
 <dl class="section return"><dt>Returns</dt><dd>Retorna un diccionario con los datos de las ventas</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00088">88</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00114">114</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 3 -->
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classProyecto__Final_1_1Empresa_af7f16f0aeb5e9c3413f15b4923385565_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -296,7 +400,7 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -304,7 +408,7 @@ Here is the caller graph for this function:</div>
 <p>Obtiene un valor de las especializaciones de la empresa. </p>
 <p >Lista de especializaciones.</p>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00038">38</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00046">46</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
@@ -323,20 +427,20 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Obtiene un valor del nombre de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>. </p>
+<p>Obtiene un valor del nombre de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>. </p>
 <p >Nombre de la empresa.</p>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00020">20</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00027">27</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
-<a id="aeda495e532e43ce971713664b6d76847" name="aeda495e532e43ce971713664b6d76847"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeda495e532e43ce971713664b6d76847">&#9670;&nbsp;</a></span>Ofertas</h2>
+<a id="a8ff2bac280b4fd489c7982466cae4e0a" name="a8ff2bac280b4fd489c7982466cae4e0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ff2bac280b4fd489c7982466cae4e0a">&#9670;&nbsp;</a></span>Ofertas</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,12 +449,12 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList Proyecto_Final.Empresa.Ofertas</td>
+          <td class="memname">List&lt;<a class="el" href="classProyecto__Final_1_1Oferta.html">Oferta</a>&gt; Proyecto_Final.Empresa.Ofertas</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -358,7 +462,7 @@ Here is the caller graph for this function:</div>
 <p>Obtiene un valor de las ofertaas publicadas de la empresa. </p>
 <p >Lista con ofertas publicadas por la empresa.</p>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00044">44</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00053">53</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
@@ -377,15 +481,15 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Obtiene un valor del <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa.">Rubro</a> de la empresa. </p>
-<p >Objeto del tipo <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa.">Rubro</a>.</p>
+<p>Obtiene un valor del <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa. La única función de existencia de esta clase es para d...">Rubro</a> de la empresa. </p>
+<p >Objeto del tipo <a class="el" href="classProyecto__Final_1_1Rubro.html" title="Esta clase representa el rubro de una empresa. La única función de existencia de esta clase es para d...">Rubro</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00032">32</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00039">39</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
@@ -404,20 +508,20 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Obtiene un valor de la ubocacion de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa.">Empresa</a>. </p>
+<p>Obtiene un valor de la ubocacion de la <a class="el" href="classProyecto__Final_1_1Empresa.html" title="Esta clase representa a la Empresa. Se utiliza el patrón Expert debido a que la clase contiene los da...">Empresa</a>. </p>
 <p >Ubicacion de la empresa.</p>
 
-<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00026">26</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Empresa_8cs_source.html#l00033">33</a> of file <a class="el" href="Empresa_8cs_source.html">Empresa.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/<a class="el" href="Empresa_8cs_source.html">Empresa.cs</a></li>
+<li>D:/GitHub/Equipo14_PII_Proyecto_Final/src/Library/Clases/<a class="el" href="Empresa_8cs_source.html">Empresa.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

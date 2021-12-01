@@ -1,0 +1,11 @@
+<map id="Proyecto_Final.PublishHandler.InternalHandle" name="Proyecto_Final.PublishHandler.InternalHandle">
+<area shape="rect" id="node1" title="Procesa el mensaje &quot;/publicar&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,71,209,112"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81" title="Determina si este &quot;handler&quot; puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..." alt="" coords="261,5,451,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmpresa.html#a281d3324e4fc157b938dc1d4a0a1f006" title="Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma ..." alt="" coords="258,71,454,112"/>
+<area shape="rect" id="node8" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a420f94704f37c1aeed52761f6a650f9f" title=" " alt="" coords="257,136,455,177"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1UserEmpresa.html#a39d58c8a2fbc7b08395014dbebb891e6" title="Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materia..." alt="" coords="522,5,718,47"/>
+<area shape="rect" id="node7" href="$classProyecto__Final_1_1UserEmpresa.html#ab2f62906e4c081e1618bceaf5b8e97e7" title="Como empresa, quiero clasificar los materiales o residuos, indicar su cantidad y unidad,..." alt="" coords="522,71,718,112"/>
+<area shape="rect" id="node5" href="$classProyecto__Final_1_1Empresa.html#aa68dbd17274482d7958f0897c9887b5b" title="Agrega una palabra clave a una publicacion determinada." alt="" coords="785,5,1000,47"/>
+<area shape="rect" id="node6" href="$classProyecto__Final_1_1Oferta.html#a21dcf683780c6862d89e5f3485d58d6f" title="Agrega una palabra clave a la listas de palabras clave de la oferta." alt="" coords="1048,5,1245,47"/>
+<area shape="rect" id="node9" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a775052647014829c8b09dd91b0ff2762" title="Obtiene las coordenadas de una dirección." alt="" coords="503,136,737,177"/>
+</map>

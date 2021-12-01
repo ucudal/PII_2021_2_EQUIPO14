@@ -346,15 +346,7 @@ class PhotoHandler{
     - SendProfileImage(message: IMessage): async Task
 }
 
-
-
-
-
-
-
-
 class AddAuthorizationHandler {
-
     __<<Properties>>__
     + AllowedStatus: string[]
     __<<Constructor>>__
@@ -497,11 +489,11 @@ class SearchKeyWordsHandler{
 }
 
 
-class SearchRecurrenciaHandler{
+class SearchRecurrencyHandler{
     __<<Properties>>__
     + AllowedStatus: string[]
     __<<Constructor>>__
-    + RecurrenciaHandler(next: BaseHandler) : base(next)
+    + SearchRecurrencyHandler(next: BaseHandler) : base(next)
     __<<Methods>>__
     # InternalHandle(message: IMessage, response: out string): override bool
 }
@@ -525,11 +517,6 @@ class ShowInterestInOfferHandler{
     __<<Methods>>__
     # InternalHandle(message: IMessage, response: out string): override bool
 }
-
-
-
-
-
 
 Datos "1" o-- "1" UserEmpresa : UserEmpresa
 Datos "1" o-- "1" Rubro : listaRubro
@@ -569,7 +556,7 @@ Producto o-- TipoProducto
 UserEmpresa ..> UserCreator
 UserEmprendedor ..> UserCreator
 
-
+skinparam groupInjeritance 4
 ShowInterestInOfferHandler ..> StatusManager
 AddAuthorizationHandler ..> StatusManager
 AddKeyWordHandler ..> StatusManager
@@ -586,7 +573,7 @@ PublishHandler ..> StatusManager
 RegisterHandler ..> StatusManager
 SearchCategoryHandler ..> StatusManager
 SearchKeyWordsHandler ..> StatusManager
-RecurrenciaHandler ..> StatusManager
+SearchRecurrencyHandler ..> StatusManager
 SearchZoneHandler ..> StatusManager
 ShowInterestInOfferHandler ..> StatusManager
 StartHandler ..> StatusManager
@@ -608,12 +595,12 @@ PublishHandler ..> IMessage
 RegisterHandler ..> IMessage
 SearchCategoryHandler ..> IMessage
 SearchKeyWordsHandler ..> IMessage
-RecurrenciaHandler ..> IMessage
+SearchRecurrencyHandler ..> IMessage
 SearchZoneHandler ..> IMessage
 ShowInterestInOfferHandler ..> IMessage
 StartHandler ..> IMessage
 
-ShowInterestInOfferHandler <|-- BaseHandler
+ShowInterestInOfferHandler <|-- BaseHandler 
 AddAuthorizationHandler <|-- BaseHandler
 AddKeyWordHandler <|-- BaseHandler
 CommandsHandler <|-- BaseHandler
@@ -629,7 +616,7 @@ PublishHandler <|-- BaseHandler
 RegisterHandler <|-- BaseHandler
 SearchCategoryHandler <|-- BaseHandler
 SearchKeyWordsHandler <|-- BaseHandler
-RecurrenciaHandler <|-- BaseHandler
+SearchRecurrencyHandler <|-- BaseHandler
 SearchZoneHandler <|-- BaseHandler
 ShowInterestInOfferHandler <|-- BaseHandler
 StartHandler <|-- BaseHandler
@@ -647,7 +634,7 @@ PublishHandler --> Datos
 RegisterHandler --> Datos
 SearchCategoryHandler --> Datos
 SearchKeyWordsHandler --> Datos
-RecurrenciaHandler --> Datos
+SearchRecurrencyHandler --> Datos
 SearchZoneHandler --> Datos
 ShowInterestInOfferHandler --> Datos
 
@@ -690,45 +677,19 @@ SearchZoneHandler --> UserEmprendedor
 
 ShowInterestInOfferHandler --> UserEmprendedor
 
-
-AddAuthorizationHandler <|-- BaseHandler
-ExitHandler <|-- BaseHandler
-GoodByeHandler <|-- BaseHandler
-HelloHandler <|-- BaseHandler
-InviteHandler <|-- BaseHandler
-MaterialsConsumedHandler <|-- BaseHandler
-PeriodOfTimeHandler <|-- BaseHandler
-PhotoHandler <|-- BaseHandler
-PublishHandler <|-- BaseHandler
-RegisterHandler <|-- BaseHandler
-SearchCategoryHandler <|-- BaseHandler
-SearchKeyWordsHandler <|-- BaseHandler
-RecurrenciaHandler <|-- BaseHandler
-SearchZoneHandler <|-- BaseHandler
-ShowInterestInOfferHandler <|-- BaseHandler
-StartHandler <|-- BaseHandler
-
 IMessage <|-- TelegramAdapter
 
 IHandler <|-- BaseHandler
 
 IUser ..> Datos: GetUserById()
 
-
-
-
-
-
-
-
-
-
-
-
-
 UserEmpresa "1" o-- "1" Empresa : Empresa
 
+Buscador --|> UserEmprendedor
 
-
+Singleton --|> Temp
+Singleton --|> Datos
+Singleton --|> StatusManager
+Singleton --|> UserCreator
 
 @enduml

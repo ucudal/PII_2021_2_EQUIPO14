@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.IHandler.Handle" name="Proyecto_Final.IHandler.Handle">
+<area shape="rect" id="node1" title="Procesa el mensaje o la pasa al siguiente &quot;handler&quot; si existe." alt="" coords="244,5,408,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#a5cdd6eed94591f7bfedefc72abe48f5c" title="Procesa el mensaje o la pasa al siguiente &quot;handler&quot; si existe." alt="" coords="5,5,196,47"/>
+</map>

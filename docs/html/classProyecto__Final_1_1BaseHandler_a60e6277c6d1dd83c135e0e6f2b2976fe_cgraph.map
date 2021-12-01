@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.BaseHandler.Cancel" name="Proyecto_Final.BaseHandler.Cancel">
+<area shape="rect" id="node1" title="Retorna este &quot;handler&quot; al estado inicial. En los &quot;handler&quot; sin estado no hace nada...." alt="" coords="5,39,196,80"/>
+<area shape="rect" id="node2" href="$interfaceProyecto__Final_1_1IHandler.html#a8a0b8f3049153294caef7d925f6f89d5" title="Retorna este &quot;handler&quot; al estado inicial y cancela el próximo &quot;handler&quot; si existe...." alt="" coords="257,5,421,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1BaseHandler.html#a257a1c6345d6e056b0d8d097ccaec03e" title="Este método puede ser sobreescrito en las clases sucesores que procesan varios mensajes cambiando de ..." alt="" coords="244,71,435,112"/>
+</map>

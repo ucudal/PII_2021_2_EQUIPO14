@@ -85,19 +85,21 @@ $(document).ready(function(){initNavTree('md_D__GitHub_Equipo14_PII_Proyecto_Fin
   <div class="headertitle"><div class="title">Equipo14 - Programacion II - Proyecto Final </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >Chatbot que permitirá conectar organizaciones o empresas con emprendedores</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Documentacion</h1>
-<p >Puede acceder a la documentacion aqui.</p>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
+Problema/Consigna al que se le da solucion</h1>
+<p >¿Cómo podemos nosotros, estudiantes de Programación II de la Universidad Católica del Uruguay, ayudar a poner en contacto a las empresas que generan residuos y materiales reciclables, con emprendedores que puedan utilizar esos residuos o materiales en sus propios productos, y de esa forma reducir los desechos que se generan y disminuir el impacto en el ambiente?.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
+Solucion</h1>
+<p >Realzar un Chatbot que permitirá conectar organizaciones o empresas con emprendedores.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Historias de Usuario</h1>
 <p >Aquí veremos una explicación general e informal de las funciones del software (nuestro programa), escrita desde la perspectiva del usuario final. Su propósito es articular cómo el software proporcionará una función de valor al cliente.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Administrador</h2>
 <ul>
 <li>[X] Como administrador, quiero poder invitar empresas a la plataforma, para que de esa forma puedan realizar ofertas de materiales reciclables o residuos.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Empresa</h2>
 <ul>
 <li>[X] Como empresa, quiero aceptar una invitación a unirme en la plataforma y registrar mi nombre, ubicación y rubro, para que de esa forma pueda comenzar a publicar ofertas.</li>
@@ -107,7 +109,7 @@ Empresa</h2>
 <li>[X] Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materiales, para que de esa forma sea más fácil de encontrarlos en las búsquedas que hacen los emprendedores.</li>
 <li>[X] Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo, para de esa forma tener un seguimiento de su reutilización.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Emprendedor</h2>
 <ul>
 <li>[X] Como emprendedor, quiero registrarme en la platarforma indicando nombre, ubicación, rubro, habilitaciones y especializaciones, para que de esa forma pueda ver las ofertas de materiales o residuos.</li>
@@ -116,13 +118,25 @@ Emprendedor</h2>
 <li>[X] Como emprendedor, quiero saber cuándo un material o residuo se genera puntualmente, para de esa forma determinar oportunidades de desarrollar nuevos productos.</li>
 <li>[X] Como emprendedor, quiero saber cuántos materiales o residuos consumí en un período de tiempo, para de esa forma tener un control de mis insumos.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Diagrama de Clases</h1>
+<p ><img src="docs/uml.svg" alt="image" style="pointer-events: none;" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Tarjetas CRC</h1>
+<p >Para ver las tarjetas CRC presione [aqui]().</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Reflexion</h1>
+<p >Primer entrega:</p>
 <p >Nos parecio dificil en un principio el como organizar de forma correcta las clases, es decir, que clases nececitabamos para que, y que responsabilidades debia tener cada una. A su vez nos costo bastante imaginarnos todo el programa de principio a fin, ya que si bien las pautas eran claras, plasmar las mismas en el codigo de principio a fin se veia un poco borroso.</p>
 <p >Por otra parte, compartiendo ideas tanto entre nosotros, con algunos integrantes de otros equipos y con los profesores, pudimos ir armando de a poco la idea general y la estructura del programa. Aprendimos a utilizar Doxygen y a formular documentacion utilizando comentarios XML, lo cual para nosotros era completamente nuevo.</p>
+<p >Segunda entrega:</p>
 <p >Tuvimos muchos contratiempos, especialmente para construir la base de la aplicacion dado que no lograbamos entender la consigna en su totalidad. Por esto tuvimos que reescribir varias veces las clases que habiamos creado o modificar las ya existentes. A su vez, a medida que la aplicacion se iba haciendo mas y mas grandes, nos dimos cuenta que nos faltaban mas funcionalidades, por lo cual tuvimos que implementarlas.</p>
 <p >Como ya mencionamos antes, debido a la falta de tiempo, algunas funcionalidades quedaron pendientes las cuales posiblemente sean implementada en la entrega final del proyecto.</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<p >Tercera entrega:</p>
+<p >Para la entrega final ya nos sentiamos un poco mas comodos con el codigo. Nos llevo tiempo pero formamos una buena estructura para el programa de modo que pudieramos reutilizar y agilizar el trabajo. Esto nos dio tiempo para pulir algunas otras cosas y pensar algunas otras con un poco mas de libertad.</p>
+<p >El desafío central era lograr la manera de realizar una lógica funcional que pudiera replicar lo que realizábamos en base a métodos en el Program. Claramente, al aprender del patrón Chain of Responsibility una gran parte de ese problema se solucionó, pero hacer que el bot pueda mantener una conversación, adaptarnos a las herramientas que provee una API de mensajería y utilizarlas a nuestro favor, como mantener a los usuarios fuera de métodos en los que no deberían de entrar ahora que no usamos métodos de clase para interactuar entre las clases son desafíos que con el tiempo logramos solventar y llegamos a un punto en el que estamos satisfechos.</p>
+<p >A diferencia de las instancias anteriores, para esta ultima ya teniamos una estructura, lo que mas nos dificulto fue la implementacion de los handlers y pensar como guardar los datos de forma temporal.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Recursos</h1>
 <p ><a href="https://refactoring.guru/design-patterns">refactoring.guru/design-patterns</a> </p>
 </div></div><!-- contents -->
