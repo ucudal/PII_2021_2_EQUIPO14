@@ -1,8 +1,0 @@
-digraph "Proyecto_Final.Oferta"
-{
- // INTERACTIVE_SVG=YES
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{Proyecto_Final.Oferta\n|+ Nombre\l+ Product\l+ PalabrasClave\l+ HabilitacionesOferta\l+ IsVendido\l+ Comprador\l|+ Oferta()\l+ AgregarMsjClave()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Esta clase representa las ofertas creadas por un empresario."];
-}

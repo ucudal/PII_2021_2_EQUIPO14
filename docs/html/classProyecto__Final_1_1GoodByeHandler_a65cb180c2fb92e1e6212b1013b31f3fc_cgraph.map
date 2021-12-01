@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.GoodByeHandler.InternalHandle" name="Proyecto_Final.GoodByeHandler.InternalHandle">
+<area shape="rect" id="node1" title="Procesa los mensajes &quot;/chau&quot; y &quot;/adiós&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81" title="Determina si este &quot;handler&quot; puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..." alt="" coords="268,5,459,47"/>
+</map>

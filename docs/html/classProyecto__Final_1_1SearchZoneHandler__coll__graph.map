@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.SearchZoneHandler" name="Proyecto_Final.SearchZoneHandler">
+<area shape="rect" id="node1" title="Un &quot;handler&quot; del patrón Chain of Responsibility que implementa el comando &quot;/buscar_zona&quot;." alt="" coords="5,373,188,480"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html" title="Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a tra..." alt="" coords="35,145,158,325"/>
+<area shape="rect" id="node3" href="$interfaceProyecto__Final_1_1IHandler.html" title="Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a travé..." alt="" coords="55,5,138,97"/>
+</map>

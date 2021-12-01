@@ -1,0 +1,7 @@
+<map id="Proyecto_Final.Empresa.AgregarMsjClave" name="Proyecto_Final.Empresa.AgregarMsjClave">
+<area shape="rect" id="node1" title="Agrega una palabra clave a una publicacion determinada." alt="" coords="745,39,960,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserEmpresa.html#a39d58c8a2fbc7b08395014dbebb891e6" title="Como empresa, quiero indicar un conjunto de palabras claves asociadas a la publicación de los materia..." alt="" coords="501,39,697,80"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmpresa.html#a281d3324e4fc157b938dc1d4a0a1f006" title="Como empresa, quiero publicar una oferta de materiales reciclables o residuos, para que de esa forma ..." alt="" coords="257,5,453,47"/>
+<area shape="rect" id="node5" href="$classProyecto__Final_1_1AddKeyWordHandler.html#acb30378c0a9a39b0fd0b4d5dfc9886dc" title="Procesa el mensaje &quot;/agregar_palabra&quot; y retorna true; retorna false en caso contrario." alt="" coords="260,71,451,112"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1PublishHandler.html#aac8659f3d62aae4384be55fe0897f309" title="Procesa el mensaje &quot;/publicar&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,5,209,47"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.SearchKeyWordsHandler" name="Proyecto_Final.SearchKeyWordsHandler">
+<area shape="rect" id="node1" title="Un &quot;handler&quot; del patrón Chain of Responsibility que implementa el comando &quot;/buscar_palabra&quot;." alt="" coords="5,373,193,480"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html" title="Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a tra..." alt="" coords="38,145,161,325"/>
+<area shape="rect" id="node3" href="$interfaceProyecto__Final_1_1IHandler.html" title="Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a travé..." alt="" coords="58,5,141,97"/>
+</map>

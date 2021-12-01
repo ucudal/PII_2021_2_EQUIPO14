@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interfaceProyecto__Final_1_1IUser.html" title="Esta interfaz se utiliza para agrupar todas las clases usuario dentro de un solo tipo,..." alt="" coords="5,56,148,83"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserAdmin.html" title="Esta clase representa a los administradores del programa. La única función de esta clase es proveer a..." alt="" coords="216,5,393,32"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmprendedor.html" title="Esta clase representa a los usuarios emprendedores en el sistema. La función de esta clase es la de r..." alt="" coords="196,56,413,83"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1UserEmpresa.html" title="Esta clase representa al usuario de la Empresa. La función de esta clase es la de representar a un us..." alt="" coords="209,107,401,133"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.UserEmprendedor.AgregarHabilitacion" name="Proyecto_Final.UserEmprendedor.AgregarHabilitacion">
+<area shape="rect" id="node1" title="Agrega una habilitacion." alt="" coords="271,39,492,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserEmprendedorTests.html#a0293ee3bd6ea8625f5393f4db6d73fdb" title="Test para revisar si se agrega una habilitacion correctamente a los datos del emprendedor." alt="" coords="5,5,223,47"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1AddAuthorizationHandler.html#a0d72b7f3b0547c266fef8a59cff1f965" title="Procesa el mensaje &quot;authorization&quot; y retorna true; retorna false en caso contrario." alt="" coords="8,71,220,112"/>
+</map>

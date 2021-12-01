@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.Buscador.VerOfertasPalabraClave" name="Proyecto_Final.Buscador.VerOfertasPalabraClave">
+<area shape="rect" id="node1" title="En base a una palabra clave recibida, otorga todas las ofertas que tengan la misma palabra clave" alt="" coords="564,39,736,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1UserEmprendedor.html#abc662bcf45f5bb4c5235c421620b97ba" title="En base a una palabra clave, busca todas las ofertas que la contengan." alt="" coords="295,39,516,80"/>
+<area shape="rect" id="node3" href="$classProyecto__Final_1_1UserEmprendedorTests.html#ae7d773bae1185f8c4703cb58edd4b5b2" title="Test para revisar si la clase es capaz de buscar ofertas mediante una palabra clave ingresada que exi..." alt="" coords="17,5,235,47"/>
+<area shape="rect" id="node4" href="$classProyecto__Final_1_1UserEmprendedorTests.html#a38bad9121e8fa373a73fbaec830878fd" title="Test para revisar si la clase es capaz de buscar ofertas mediante una palabra clave ingresada que no ..." alt="" coords="5,71,247,112"/>
+</map>

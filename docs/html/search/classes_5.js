@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['habilitaciones_0',['Habilitaciones',['../classProyecto__Final_1_1Habilitaciones.html',1,'Proyecto_Final']]]
+  ['goodbyehandler_0',['GoodByeHandler',['../classProyecto__Final_1_1GoodByeHandler.html',1,'Proyecto_Final']]]
 ];

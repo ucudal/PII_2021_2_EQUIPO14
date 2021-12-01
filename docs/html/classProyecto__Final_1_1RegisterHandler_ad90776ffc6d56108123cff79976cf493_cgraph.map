@@ -1,0 +1,6 @@
+<map id="Proyecto_Final.RegisterHandler.InternalHandle" name="Proyecto_Final.RegisterHandler.InternalHandle">
+<area shape="rect" id="node1" title="Procesa el mensaje &quot;/registro&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,39,215,80"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81" title="Determina si este &quot;handler&quot; puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..." alt="" coords="266,5,457,47"/>
+<area shape="rect" id="node3" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a420f94704f37c1aeed52761f6a650f9f" title=" " alt="" coords="263,71,460,112"/>
+<area shape="rect" id="node4" href="$classUcu_1_1Poo_1_1Locations_1_1Client_1_1LocationApiClient.html#a775052647014829c8b09dd91b0ff2762" title="Obtiene las coordenadas de una dirección." alt="" coords="508,71,743,112"/>
+</map>

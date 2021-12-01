@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.BaseHandler.InternalHandle" name="Proyecto_Final.BaseHandler.InternalHandle">
+<area shape="rect" id="node1" title="Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y re..." alt="" coords="244,5,435,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#a5cdd6eed94591f7bfedefc72abe48f5c" title="Procesa el mensaje o la pasa al siguiente &quot;handler&quot; si existe." alt="" coords="5,5,196,47"/>
+</map>

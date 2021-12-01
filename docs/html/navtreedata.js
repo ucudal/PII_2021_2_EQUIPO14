@@ -26,21 +26,24 @@ var NAVTREE =
 [
   [ "Equipo 14: Proyecto Final - ChatBot", "index.html", [
     [ "Equipo14 - Programacion II - Proyecto Final", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html", [
-      [ "Documentacion", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md1", null ],
-      [ "Historias de Usuario", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md2", [
-        [ "Administrador", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md3", null ],
-        [ "Empresa", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md4", null ],
-        [ "Emprendedor", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md5", null ]
+      [ "Problema/Consigna al que se le da solucion", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md1", null ],
+      [ "Solucion", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md2", null ],
+      [ "Historias de Usuario", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md3", [
+        [ "Administrador", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md4", null ],
+        [ "Empresa", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md5", null ],
+        [ "Emprendedor", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md6", null ]
       ] ],
-      [ "Reflexion", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md6", null ],
-      [ "Recursos", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md7", null ]
+      [ "Diagrama de Clases", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md7", null ],
+      [ "Tarjetas CRC", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md8", null ],
+      [ "Reflexion", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md9", null ],
+      [ "Recursos", "md_D__GitHub_Equipo14_PII_Proyecto_Final_README.html#autotoc_md10", null ]
     ] ],
     [ "Qué hay configurado en esta plantilla", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html", [
-      [ "Convenciones", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md9", null ],
-      [ "Dónde encontrar información sobre los errores/avisos al compilar", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md10", null ],
-      [ "Cómo deshabilitar temporalmente los avisos al compilar", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md11", [
-        [ "Roslyn Analyzer", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md12", null ],
-        [ "StyleCop Analyzer", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md13", null ]
+      [ "Convenciones", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md12", null ],
+      [ "Dónde encontrar información sobre los errores/avisos al compilar", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md13", null ],
+      [ "Cómo deshabilitar temporalmente los avisos al compilar", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md14", [
+        [ "Roslyn Analyzer", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md15", null ],
+        [ "StyleCop Analyzer", "md_D__GitHub_Equipo14_PII_Proyecto_Final_Template.html#autotoc_md16", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [
@@ -51,9 +54,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
         [ "Properties", "functions_prop.html", null ]
       ] ]
     ] ],
@@ -65,8 +67,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"AdminTests_8cs_source.html",
-"classProyecto__Final_1_1UserEmprendedor.html#a39280f4417c1a567dd77bcb73d738e69"
+"AddAuthorizationHandler_8cs_source.html",
+"classProyecto__Final_1_1EndOfferHandler.html#ae3063d8e3d45e67be91d57beaa51d671",
+"classProyecto__Final_1_1UserEmprendedor.html#a43790293994a5931556d7d3aa4c349b3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.RecurrenciaHandler.InternalHandle" name="Proyecto_Final.RecurrenciaHandler.InternalHandle">
+<area shape="rect" id="node1" title="Procesa el mensaje &quot;/buscar_recurrencia&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html#ad1e4feff8eb3219fdd3f19c8e76c4e81" title="Determina si este &quot;handler&quot; puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..." alt="" coords="236,5,427,47"/>
+</map>

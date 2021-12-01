@@ -1,0 +1,4 @@
+<map id="Proyecto_Final.UserEmpresa.VerificarVentas" name="Proyecto_Final.UserEmpresa.VerificarVentas">
+<area shape="rect" id="node1" title="Como empresa, quiero saber todos los materiales o residuos entregados en un período de tiempo,..." alt="" coords="244,5,440,47"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1PeriodOfTimeHandler.html#af680876ca9540867afdc31fcf18ba7c6" title="Procesa el mensaje &quot;/ventas&quot; y retorna true; retorna false en caso contrario." alt="" coords="5,5,196,47"/>
+</map>

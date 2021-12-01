@@ -1,0 +1,5 @@
+<map id="Proyecto_Final.PublishHandler" name="Proyecto_Final.PublishHandler">
+<area shape="rect" id="node1" title="Un &quot;handler&quot; del patrón Chain of Responsibility que implementa el comando &quot;/publicar&quot;." alt="" coords="5,373,205,465"/>
+<area shape="rect" id="node2" href="$classProyecto__Final_1_1BaseHandler.html" title="Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a tra..." alt="" coords="44,145,167,325"/>
+<area shape="rect" id="node3" href="$interfaceProyecto__Final_1_1IHandler.html" title="Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a travé..." alt="" coords="64,5,147,97"/>
+</map>
